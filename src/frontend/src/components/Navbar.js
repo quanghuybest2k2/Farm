@@ -31,6 +31,11 @@ function Navbar() {
                 About us
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/environments">
+                Environments
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
