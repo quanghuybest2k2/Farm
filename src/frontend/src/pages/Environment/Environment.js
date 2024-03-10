@@ -5,8 +5,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../components/Loading";
-import config from "../config";
+import Loading from "../../components/Loading";
+import config from "../../config";
+import swal from "sweetalert";
 
 const Environment = () => {
   const [environments, setEnvironments] = useState([]);
@@ -23,6 +24,33 @@ const Environment = () => {
       setIsVisibleLoading(false);
     });
   }, []);
+
+  const deleteEnvironment = (e, id) => {
+    e.preventDefault();
+    const thisClicked = e.currentTarget;
+    thisClicked.innerText = "Deleting...";
+    axios
+      .delete(`${config.API_URL}/environments/${id}/delete`)
+      .then((res) => {
+        if (res.data) {
+          //   alert(res.data.message);
+          swal("Success", res.data.message, "success");
+          thisClicked.closest("tr").remove();
+        }
+      })
+      .catch(function (error) {
+        if (error.response) {
+          if (error.response.status === 404) {
+            swal("Oops!", error.response.data.message, "error");
+            thisClicked.innerText = "Delete";
+          }
+          if (error.response.status === 500) {
+            // alert(error.response.data);
+            swal("Oops!", error.response.data, "error");
+          }
+        }
+      });
+  };
 
   var environmentDetail = "";
 
@@ -41,7 +69,13 @@ const Environment = () => {
           </Link>
         </td>
         <td>
-          <button className="btn btn-danger">Delete</button>
+          <button
+            type="button"
+            onClick={(e) => deleteEnvironment(e, item.province_id)}
+            className="btn btn-danger"
+          >
+            Delete
+          </button>
         </td>
       </tr>
     ));
