@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Environment from "../pages/Environment";
 import EnvironmentCreate from "../pages/EnvironmentCreate";
+import EnvironmentEdit from "../pages/EnvironmentEdit";
 
 const MyRouter = () => {
   return (
@@ -12,6 +13,7 @@ const MyRouter = () => {
       <Route path="/about" element={<About />} />
       <Route path="/environments" element={<Environment />} />
       <Route path="/environments/create" element={<EnvironmentCreate />} />
+      <Route path="/environments/:id/edit" element={<EnvironmentEdit />} />
     </Routes>
   );
 };
