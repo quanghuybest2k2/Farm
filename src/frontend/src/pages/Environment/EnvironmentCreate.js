@@ -1,52 +1,29 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import config from "../config";
-import Loading from "../components/Loading";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import config from "../../config";
+import Loading from "../../components/Loading";
 import swal from "sweetalert";
 
-const EnvironmentEdit = () => {
-  let { id } = useParams();
-
+const EnvironmentCreate = () => {
+  const navigate = useNavigate();
   const [inputErrorList, setInputErrorList] = useState({});
-  //   const [isVisibleLoading, setIsVisibleLoading] = useState(true);
+  const [isVisibleLoading, setIsVisibleLoading] = useState(true);
 
-  const [environment, setEnvironment] = useState({});
+  const [environment, setEnvironment] = useState({
+    name: "",
+    type: "",
+  });
 
-  useEffect(() => {
-    axios
-      .get(`${config.API_URL}/environments/${id}/edit`)
-      .then((res) => {
-        //   console.log(res.data.results);
-        if (res.data) {
-          setEnvironment(res.data.results);
-        } else {
-          setEnvironment([]);
-        }
-        // setIsVisibleLoading(false);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          if (error.response.status === 404) {
-            swal("Oops!", error.response.data.message, "error");
-          }
-          if (error.response.status === 500) {
-            // alert(error.response.data);
-            swal("Oops!", error.response.data, "error");
-          }
-          //   setIsVisibleLoading(false);
-        }
-      });
-  }, [id]);
   const handleInput = (e) => {
     e.persist();
     setEnvironment({ ...environment, [e.target.name]: e.target.value });
   };
 
-  const updateEnvironment = (e) => {
+  const saveEnvironment = (e) => {
     e.preventDefault();
 
-    // setIsVisibleLoading(true);
+    setIsVisibleLoading(true);
 
     const data = {
       name: environment.name,
@@ -54,12 +31,13 @@ const EnvironmentEdit = () => {
     };
 
     axios
-      .put(`${config.API_URL}/environments/${id}/edit`, data)
+      .post(`${config.API_URL}/environments`, data)
       .then((res) => {
         if (res.data) {
           //   alert(res.data.message);
           swal("Success", res.data.message, "success");
-          //   setIsVisibleLoading(false);
+          navigate("/environments");
+          setIsVisibleLoading(false);
         }
       })
       .catch(function (error) {
@@ -67,39 +45,27 @@ const EnvironmentEdit = () => {
           if (error.response.status === 422) {
             setInputErrorList(error.response.data.errors);
           }
-          if (error.response.status === 404) {
-            swal("Oops!", error.response.data.message, "error");
-          }
           if (error.response.status === 500) {
             // alert(error.response.data);
             swal("Oops!", error.response.data, "error");
           }
-          //   setIsVisibleLoading(false);
+          setIsVisibleLoading(false);
         }
       });
   };
 
-  if (Object.keys(environment).length === 0) {
-    return (
-      <div className="container">
-        <h4>Not found!</h4>
-      </div>
-    );
-  }
-
   return (
     <>
-      {
-        //   isVisibleLoading ? (
-        //     <Loading />
-        //   ) : (
+      {isVisibleLoading ? (
+        <Loading />
+      ) : (
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header">
                   <h4>
-                    Edit Environment
+                    Add Environment
                     <Link
                       to="/environments"
                       className="btn btn-danger float-end"
@@ -109,7 +75,7 @@ const EnvironmentEdit = () => {
                   </h4>
                 </div>
                 <div className="card-body">
-                  <form onSubmit={updateEnvironment}>
+                  <form onSubmit={saveEnvironment}>
                     <div className="mb-3">
                       <label>Name</label>
                       <input
@@ -134,7 +100,7 @@ const EnvironmentEdit = () => {
                     </div>
                     <div className="mb-3">
                       <button type="submit" className="btn btn-primary">
-                        Update Environment
+                        Save Environment
                       </button>
                     </div>
                   </form>
@@ -143,10 +109,9 @@ const EnvironmentEdit = () => {
             </div>
           </div>
         </div>
-        //   )
-      }
+      )}
     </>
   );
 };
 
-export default EnvironmentEdit;
+export default EnvironmentCreate;

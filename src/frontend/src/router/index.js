@@ -2,9 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
-import Environment from "../pages/Environment";
-import EnvironmentCreate from "../pages/EnvironmentCreate";
-import EnvironmentEdit from "../pages/EnvironmentEdit";
+import Environment from "../pages/Environment/Environment";
+import EnvironmentCreate from "../pages/Environment/EnvironmentCreate";
+import EnvironmentEdit from "../pages/Environment/EnvironmentEdit";
 
 const MyRouter = () => {
   return (
