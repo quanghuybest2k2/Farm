@@ -1,6 +1,6 @@
 const config = {
-  BASE_URL: "https://vapi.vnappmob.com",
-  API_URL: "https://vapi.vnappmob.com/api",
+  BASE_URL: process.env.REACT_APP_BASE_URL,
+  API_URL: process.env.REACT_APP_API_URL,
 };
 
 export default config;
