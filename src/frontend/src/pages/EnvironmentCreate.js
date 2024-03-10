@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import config from "../config";
 import Loading from "../components/Loading";
 import swal from "sweetalert";
 
 const EnvironmentCreate = () => {
+  const navigate = useNavigate();
   const [inputErrorList, setInputErrorList] = useState({});
   const [isVisibleLoading, setIsVisibleLoading] = useState(true);
 
@@ -35,6 +36,7 @@ const EnvironmentCreate = () => {
         if (res.data) {
           //   alert(res.data.message);
           swal("Success", res.data.message, "success");
+          navigate("/environments");
           setIsVisibleLoading(false);
         }
       })
