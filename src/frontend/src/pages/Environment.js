@@ -33,7 +33,10 @@ const Environment = () => {
         <td>{item.province_name}</td>
         <td>{item.province_type}</td>
         <td>
-          <Link to="/" className="btn btn-success">
+          <Link
+            to={`/environments/${item.province_id}/edit`}
+            className="btn btn-success"
+          >
             Edit
           </Link>
         </td>
