@@ -6,13 +6,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+import config from "../config";
 
 const Environment = () => {
   const [environments, setEnvironments] = useState([]);
   const [isVisibleLoading, setIsVisibleLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`https://vapi.vnappmob.com/api/province`).then((res) => {
+    axios.get(`${config.API_URL}/province`).then((res) => {
       //   console.log(res.data.results);
       if (res.data) {
         setEnvironments(res.data.results);
@@ -65,7 +66,10 @@ const Environment = () => {
                 <div className="card-header">
                   <h4>
                     Environments List
-                    <Link to="/" className="btn btn-primary float-end">
+                    <Link
+                      to="/environments/create"
+                      className="btn btn-primary float-end"
+                    >
                       Add Environment
                     </Link>
                   </h4>
