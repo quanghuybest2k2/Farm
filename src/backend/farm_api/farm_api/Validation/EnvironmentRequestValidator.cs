@@ -1,9 +1,10 @@
 ﻿using farm_api.Models;
+using farm_api.Models.Request;
 using FluentValidation;
 
 namespace farm_api.Validation
 {
-    public class EnvironmentRequestValidator:AbstractValidator<EnvironmentDTO>
+    public class EnvironmentRequestValidator:AbstractValidator<EnvirontmentRequest>
     {
         public EnvironmentRequestValidator() 
         {

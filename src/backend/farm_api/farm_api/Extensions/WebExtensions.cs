@@ -10,17 +10,20 @@ using DAL.Repositories.Implementation;
 using System.Data;
 using DAL.Seeder;
 using FluentValidation.AspNetCore;
+using farm_api.Validation;
 
 namespace farm_api.Extensions
 {
     public static class WebExtensions
     {
         private const string Cors = "Allow*";
+
+        
         public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder)
         {
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddSwaggerGen();
             builder.Services
                 .AddDbContext<FarmContext>(options =>
@@ -31,13 +34,10 @@ namespace farm_api.Extensions
                                                 policies.AllowAnyOrigin()
                                                 .AllowAnyHeader()
                                                 .AllowAnyMethod()));
-            builder.Services.AddFluentValidation(
-                config=>config.RegisterValidatorsFromAssemblyContaining<Program>()
-                );
+            builder.Services.AddValidatorsFromAssemblyContaining<EnvironmentRequestValidator>();
 
 
-            AssemblyScanner.FindValidatorsInAssemblyContaining<Program>()
-                           .ForEach(result => builder.Services.AddTransient(result.InterfaceType, result.ValidatorType));
+           
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,11 @@ namespace DAL.Seeder
     public class Seeder : ISeeder
     {
         private readonly FarmContext _context;
-        public Seeder(FarmContext context)
+        private readonly IUnitOfWork _unitOfWork;
+        public Seeder(FarmContext context,IUnitOfWork unitOfWork )
         {
             _context = context;
+            _unitOfWork = unitOfWork;
         }
         public async void InitData()
         {
@@ -36,7 +39,7 @@ namespace DAL.Seeder
 
             };
             _context.AddRange(env);
-            _context.SaveChanges();
+            _unitOfWork.Save();
             return env;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using farm_api.Models;
+using farm_api.Models.Request;
 using Environment = Core.Entities.Environment;
 
 namespace farm_api.Mappers
@@ -8,7 +9,9 @@ namespace farm_api.Mappers
     {
         public ConfigMapper() 
         {
-            CreateMap<EnvironmentDTO, Environment>();
+            CreateMap<EnvironmentDTO, Environment>().ReverseMap();
+            CreateMap<EnvirontmentRequest, Environment>().ReverseMap();
+
         }
     }
 }

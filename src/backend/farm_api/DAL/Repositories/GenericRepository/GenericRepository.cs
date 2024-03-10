@@ -17,7 +17,7 @@ namespace DAL.Repositories.GenericRepository
         {
             _context = context;
         }
-        public async Task Delete(Guid Id, T environment)
+        public async Task Delete(Guid Id)
         {
             _context.Remove(await GetByIdAsync(Id));
         }
