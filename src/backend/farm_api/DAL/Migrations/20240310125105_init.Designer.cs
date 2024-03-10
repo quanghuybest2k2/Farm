@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(FarmContext))]
-    [Migration("20240309073924_init")]
+    [Migration("20240310125105_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -87,6 +87,9 @@ namespace DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("AirQuality")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Brightness")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateAt")

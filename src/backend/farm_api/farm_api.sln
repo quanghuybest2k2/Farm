@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "farm_api", "farm_api\farm_api.csproj", "{885F51D1-45BE-4106-B1F9-FD53256C0815}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "farm_api", "farm_api\farm_api.csproj", "{885F51D1-45BE-4106-B1F9-FD53256C0815}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8AC73084-079B-4820-BEBC-5176602AFAE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{8AC73084-079B-4820-BEBC-5176602AFAE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9C473F53-E32E-4D78-9FCA-0BCA5C30E2FB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{0674EB85-1DE0-4C3D-BA30-1D65E38C876A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{9C473F53-E32E-4D78-9FCA-0BCA5C30E2FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{9C473F53-E32E-4D78-9FCA-0BCA5C30E2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C473F53-E32E-4D78-9FCA-0BCA5C30E2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C473F53-E32E-4D78-9FCA-0BCA5C30E2FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0674EB85-1DE0-4C3D-BA30-1D65E38C876A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0674EB85-1DE0-4C3D-BA30-1D65E38C876A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0674EB85-1DE0-4C3D-BA30-1D65E38C876A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0674EB85-1DE0-4C3D-BA30-1D65E38C876A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

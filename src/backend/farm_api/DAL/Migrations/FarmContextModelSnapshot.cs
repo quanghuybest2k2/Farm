@@ -86,6 +86,9 @@ namespace DAL.Migrations
                     b.Property<int>("AirQuality")
                         .HasColumnType("int");
 
+                    b.Property<int>("Brightness")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 

@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 namespace Core.Entities
 {
     public class Camera : BaseEntity,IModifier
-
     {
+        public Camera() 
+        {
+            Id = Guid.NewGuid();
+        }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string IPAddress { get; set; }
