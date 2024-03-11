@@ -2,6 +2,7 @@
 using farm_api.Filter.Environment;
 using farm_api.Models;
 using farm_api.Models.Request;
+using farm_api.Responses;
 
 namespace farm_api.Services.Interface
 {
@@ -12,6 +13,7 @@ namespace farm_api.Services.Interface
         Task DeleteEnvironmentAsync(Guid id);
         Task UpdateEnvironmentAsync(Guid Id,EnvirontmentRequest environment,CancellationToken cancellationToken=default);
 
+        Task<PagedFarmResponse<EnvironmentDTO>> GetAllAsync(EnvironmentQuery environmentQuery,IPagingParams pagingParams, CancellationToken cancellationToken = default);
 
 
     }

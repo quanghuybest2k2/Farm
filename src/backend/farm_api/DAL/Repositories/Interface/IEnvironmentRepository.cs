@@ -1,4 +1,5 @@
-﻿using DAL.Repositories.GenericRepository;
+﻿using Core.Queries;
+using DAL.Repositories.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace DAL.Repositories.Interface
 {
     public interface IEnvironmentRepository:IGenericRepository<Environment>
     { 
-      
+      Task<IEnumerable<Environment>> GetAllAsync(EnvironmentQueryDTO environmentQueryDTO,CancellationToken cancellationToken=default);
 
     }
 }

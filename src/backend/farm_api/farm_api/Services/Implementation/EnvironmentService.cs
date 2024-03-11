@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
+using Core.Constract;
+using Core.Queries;
 using DAL.Repositories.Interface;
+using farm_api.Filter.Environment;
 using farm_api.Models;
 using farm_api.Models.Request;
+using farm_api.Responses;
 using farm_api.Services.Interface;
 using farm_api.Validation;
 using FluentValidation;
@@ -36,11 +40,22 @@ namespace farm_api.Services.Implementation
             _unitOfWork.Save();
         }
 
-        public  async Task DeleteEnvironmentAsync(Guid id)
+        public async Task DeleteEnvironmentAsync(Guid id)
         {
             await _environmentRepository.Delete(id);
 
             _unitOfWork.Save();
+        }
+
+        public async Task<PagedFarmResponse<EnvironmentDTO>> GetAllAsync(EnvironmentQuery environmentQuery, IPagingParams pagingParams, CancellationToken cancellationToken = default)
+        {
+            var mapper = _mapper.Map<EnvironmentQueryDTO>(environmentQuery);
+            var result = await _environmentRepository.GetAllAsync(mapper, cancellationToken);
+            var totalItems = result.Count();
+            var itemPage = result.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
+                                .Take(pagingParams.PageSize)
+                                .ToList();
+            return new PagedFarmResponse<EnvironmentDTO>(itemPage.Select(x => _mapper.Map<EnvironmentDTO>(x)),pagingParams.PageNumber,pagingParams.PageSize,totalItems);
         }
 
         public async Task<EnvironmentDTO> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
@@ -49,16 +64,16 @@ namespace farm_api.Services.Implementation
             return _mapper.Map<EnvironmentDTO>(result);
         }
 
-        public async Task UpdateEnvironmentAsync(Guid id,EnvirontmentRequest environment, CancellationToken cancellationToken = default)
+        public async Task UpdateEnvironmentAsync(Guid id, EnvirontmentRequest environment, CancellationToken cancellationToken = default)
         {
             await _validator.ValidateAndThrowAsync(environment);
-            var entityUpdate= await _environmentRepository.GetByIdAsync(id);
+            var entityUpdate = await _environmentRepository.GetByIdAsync(id);
             if (entityUpdate == null)
             {
                 throw new KeyNotFoundException($"not found item with id {id} to update, please  check again ");
 
             }
-            _mapper.Map(environment,entityUpdate);
+            _mapper.Map(environment, entityUpdate);
 
             _environmentRepository.Update(entityUpdate);
             _unitOfWork.Save();

@@ -30,12 +30,12 @@ namespace farm_api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [ProducesResponseType(typeof(EnvironmentDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PagedFarmResponse<EnvironmentDTO>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll([FromQuery]EnvironmentQuery environmentQuery,[FromQuery] PagingModel pagingModel)
         {
-            
+            var result= await _environmentService.GetAllAsync(environmentQuery, pagingModel);
 
-            return Ok();
+            return Ok(result);
         }
         [HttpPost]
         public async Task<IActionResult> Add(EnvirontmentRequest environtmentRequest)

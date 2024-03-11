@@ -12,7 +12,7 @@ namespace DAL.Repositories.GenericRepository
 {
     public abstract class GenericRepository<T>: IGenericRepository<T> where T : class ,BaseEntity
     {
-        private readonly FarmContext _context;
+        protected readonly FarmContext _context;
         protected GenericRepository(FarmContext context)
         {
             _context = context;
