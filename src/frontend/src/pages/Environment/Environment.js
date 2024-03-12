@@ -1,7 +1,3 @@
-/* test api
- * https://vapi-vnappmob.readthedocs.io/en/latest/province.html#quick-reference
- */
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,8 +10,9 @@ const Environment = () => {
   const [isVisibleLoading, setIsVisibleLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${config.API_URL}/province`).then((res) => {
-      //   console.log(res.data.results);
+    axios.get(`${config.API_URL}/environments`).then((res) => {
+      // pagination trong res.data
+      console.log(res.data);
       if (res.data) {
         setEnvironments(res.data.results);
       } else {
@@ -32,11 +29,9 @@ const Environment = () => {
     axios
       .delete(`${config.API_URL}/environments/${id}/delete`)
       .then((res) => {
-        if (res.data) {
-          //   alert(res.data.message);
-          swal("Success", res.data.message, "success");
-          thisClicked.closest("tr").remove();
-        }
+        //   alert(res.data.message);
+        swal("Success", "Delete successfully", "success");
+        thisClicked.closest("tr").remove();
       })
       .catch(function (error) {
         if (error.response) {
@@ -57,12 +52,13 @@ const Environment = () => {
   if (environments && environments.length > 0) {
     environmentDetail = environments.map((item, index) => (
       <tr key={index}>
-        <td>{item.province_id}</td>
-        <td>{item.province_name}</td>
-        <td>{item.province_type}</td>
+        <td>{item.temperature}</td>
+        <td>{item.airQuality}</td>
+        <td>{item.sensorLocation}</td>
+        <td>{item.brightness}</td>
         <td>
           <Link
-            to={`/environments/${item.province_id}/edit`}
+            to={`/environments/${item.id}/edit`}
             className="btn btn-success"
           >
             Edit
@@ -71,7 +67,7 @@ const Environment = () => {
         <td>
           <button
             type="button"
-            onClick={(e) => deleteEnvironment(e, item.province_id)}
+            onClick={(e) => deleteEnvironment(e, item.id)}
             className="btn btn-danger"
           >
             Delete
@@ -115,9 +111,10 @@ const Environment = () => {
                   <table className="table table-striped">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Province Name</th>
-                        <th>Province Type</th>
+                        <th>Temperature</th>
+                        <th>Air Quality</th>
+                        <th>Sensor Location</th>
+                        <th>Brightness</th>
                         <th>Edit</th>
                         <th>Delete</th>
                       </tr>
