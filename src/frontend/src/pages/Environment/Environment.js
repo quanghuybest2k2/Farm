@@ -48,10 +48,12 @@ const Environment = () => {
   };
 
   var environmentDetail = "";
+  let stt = 1;
 
   if (environments && environments.length > 0) {
     environmentDetail = environments.map((item, index) => (
       <tr key={index}>
+        <td>{stt++}</td>
         <td>{item.temperature}</td>
         <td>{item.airQuality}</td>
         <td>{item.sensorLocation}</td>
@@ -111,6 +113,7 @@ const Environment = () => {
                   <table className="table table-striped">
                     <thead>
                       <tr>
+                        <th>#</th>
                         <th>Temperature</th>
                         <th>Air Quality</th>
                         <th>Sensor Location</th>
