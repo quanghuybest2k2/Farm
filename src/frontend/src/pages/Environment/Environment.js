@@ -27,10 +27,10 @@ const Environment = () => {
     const thisClicked = e.currentTarget;
     thisClicked.innerText = "Deleting...";
     axios
-      .delete(`${config.API_URL}/environments/${id}/delete`)
+      .delete(`${config.API_URL}/environments/${id}`)
       .then((res) => {
         //   alert(res.data.message);
-        swal("Success", "Delete successfully", "success");
+        swal("Success", "Deleted successfully", "success");
         thisClicked.closest("tr").remove();
       })
       .catch(function (error) {
@@ -82,7 +82,7 @@ const Environment = () => {
       <tr>
         <td colSpan={5}>
           <h4 className="text-danger text-center">
-            Không tìm thấy thông tin môi trường!
+            No environmental information found!
           </h4>
         </td>
       </tr>
