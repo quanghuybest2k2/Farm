@@ -10,7 +10,7 @@ using System;
 namespace farm_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("environments")]
     public class EnvironmentController : ControllerBase
     {
         private readonly IEnvironmentService _environmentService;
@@ -20,6 +20,7 @@ namespace farm_api.Controllers
         }
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(typeof(EnvironmentDTO),StatusCodes.Status200OK)]
+        [ProducesResponseType( StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(Guid id)
         {
             if (id==Guid.Empty)
@@ -38,6 +39,8 @@ namespace farm_api.Controllers
             return Ok(result);
         }
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Add(EnvirontmentRequest environtmentRequest)
         {
             if (environtmentRequest == null) {
@@ -55,6 +58,8 @@ namespace farm_api.Controllers
             return Ok();
         }
         [HttpPut("{id:Guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(Guid id,[FromBody] EnvirontmentRequest environtmentRequest)
         {
             try
@@ -68,6 +73,8 @@ namespace farm_api.Controllers
             return NoContent();
         }
         [HttpDelete("{id:Guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(Guid id)
         {
             try
