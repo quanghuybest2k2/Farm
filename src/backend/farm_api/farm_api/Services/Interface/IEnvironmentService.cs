@@ -12,9 +12,6 @@ namespace farm_api.Services.Interface
         Task AddEnvironmentAsync(EnvirontmentRequest environment, CancellationToken cancellationToken = default);
         Task DeleteEnvironmentAsync(Guid id);
         Task UpdateEnvironmentAsync(Guid Id,EnvirontmentRequest environment,CancellationToken cancellationToken=default);
-
         Task<PagedFarmResponse<EnvironmentDTO>> GetAllAsync(EnvironmentQuery environmentQuery,IPagingParams pagingParams, CancellationToken cancellationToken = default);
-
-
     }
 }

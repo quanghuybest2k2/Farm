@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories.GenericRepository
 {
-    public abstract class GenericRepository<T>: IGenericRepository<T> where T : class ,BaseEntity
+    public abstract class GenericRepository<T>: IGenericRepository<T> where T : BaseEntity
     {
         protected readonly FarmContext _context;
         protected GenericRepository(FarmContext context)

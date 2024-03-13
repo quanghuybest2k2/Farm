@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Camera : BaseEntity,IModifier
+    public class Camera : BaseEntity, IModifier
     {
-        public Camera() 
-        {
-            Id = Guid.NewGuid();
-        }
-        public Guid Id { get; set; }
+        public Camera() : base() { }
         public string Name { get; set; }
         public string IPAddress { get; set; }
         public int Port { get; set; }

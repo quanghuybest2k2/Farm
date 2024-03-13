@@ -9,7 +9,7 @@ namespace Core.Entities
 {
     public class Statistics : BaseEntity,IModifier
     {
-        public Guid Id { get; set; }
+        public Statistics() : base() { }
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
     }

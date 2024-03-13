@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories.GenericRepository
 {
-    public interface IGenericRepository<T> where T : class,BaseEntity
+    public interface IGenericRepository<T> where T : BaseEntity
     {
         Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);

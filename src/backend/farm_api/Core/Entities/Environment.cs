@@ -9,11 +9,7 @@ namespace Core.Entities
 {
     public class Environment : BaseEntity,IModifier
     {
-        public Environment() 
-        {
-            Id = Guid.NewGuid();
-        }
-        public Guid Id { get; set; }
+        public Environment() :base() { }    
         public  int Temperature { get; set; }
         public int AirQuality { get; set; }
         public string SensorLocation { get; set; }

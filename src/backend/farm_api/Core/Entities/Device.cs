@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Device : BaseEntity,IModifier
+    public class Device : BaseEntity, IModifier
     {
-        public Device()
-        {
-            Id = Guid.NewGuid();
-        }
-        public Guid Id { get; set; }
+        public Device() : base() { }
         public string Name { get; set; }
         public string Type { get; set; }
         public bool Status { get; set; }
