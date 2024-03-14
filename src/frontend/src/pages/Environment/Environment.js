@@ -4,23 +4,41 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import config from "../../config";
 import swal from "sweetalert";
+import Pagination from "../../components/Pagination";
 
 const Environment = () => {
   const [environments, setEnvironments] = useState([]);
   const [isVisibleLoading, setIsVisibleLoading] = useState(true);
+  // pagination
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [totalPage, setTotalPage] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    axios.get(`${config.API_URL}/environments`).then((res) => {
-      // pagination trong res.data
-      console.log(res.data);
-      if (res.data) {
-        setEnvironments(res.data.results);
-      } else {
-        setEnvironments([]);
-      }
-      setIsVisibleLoading(false);
-    });
-  }, []);
+    axios
+      .get(
+        `${config.API_URL}/environments?PageSize=${pageSize}&PageNumber=${pageNumber}`
+      )
+      .then((res) => {
+        // pagination trong res.data
+        console.log(res.data);
+        if (res.data) {
+          setPageNumber(res.data.pageNumber);
+          setPageSize(res.data.pageSize);
+          setTotalPage(res.data.totalPage);
+          setTotalItems(res.data.totalItems);
+          setEnvironments(res.data.results);
+        } else {
+          setEnvironments([]);
+        }
+        setIsVisibleLoading(false);
+      });
+  }, [pageSize, pageNumber]);
+
+  const handlePageChange = (data) => {
+    setPageNumber(data.selected + 1);
+  };
 
   const deleteEnvironment = (e, id) => {
     e.preventDefault();
@@ -126,6 +144,17 @@ const Environment = () => {
                   </table>
                 </div>
               </div>
+            </div>
+            <div className="mt-4 d-flex justify-content-between align-items-center">
+              <span>
+                Showing {pageSize} of {totalItems} items
+              </span>
+              {totalPage > 1 && (
+                <Pagination
+                  pageCount={totalPage}
+                  onPageChange={handlePageChange}
+                />
+              )}
             </div>
           </div>
         </div>
