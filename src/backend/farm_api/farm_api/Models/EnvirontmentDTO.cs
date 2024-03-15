@@ -1,8 +1,9 @@
-﻿namespace farm_api.Models
+﻿using farm_api.Models.Common;
+
+namespace farm_api.Models
 {
-    public class EnvironmentDTO
+    public class EnvironmentDTO:BaseDTO
     {
-        public Guid Id { get; set; }
         public int Temperature { get; set; }
         public int AirQuality { get; set; }
         public string SensorLocation { get; set; }

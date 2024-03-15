@@ -2,6 +2,7 @@
 using Core.Constract;
 using Core.Queries;
 using DAL.Repositories.Interface;
+using DAL.Repositories.UnitOfWork;
 using farm_api.Filter.Environment;
 using farm_api.Models;
 using farm_api.Models.Request;

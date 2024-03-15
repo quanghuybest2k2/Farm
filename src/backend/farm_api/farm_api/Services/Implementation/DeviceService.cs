@@ -10,6 +10,7 @@ using farm_api.Services.Interface;
 using FluentValidation;
 using Core.Entities;
 using farm_api.Filter.Device;
+using DAL.Repositories.UnitOfWork;
 
 namespace farm_api.Services.Implementation
 {
@@ -31,11 +32,11 @@ namespace farm_api.Services.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public async Task AddDeviceAsync(DeviceRequest environment, CancellationToken cancellationToken = default)
+        public async Task AddDeviceAsync(DeviceRequest deviceRequest, CancellationToken cancellationToken = default)
         {
-            await _validator.ValidateAndThrowAsync(environment);
-            var env = _mapper.Map<Device>(environment);
-            _deviceRepository.Insert(env);
+            await _validator.ValidateAndThrowAsync(deviceRequest);
+            var device= _mapper.Map<Device>(deviceRequest);
+            _deviceRepository.Insert(device);
             _unitOfWork.Save();
         }
 

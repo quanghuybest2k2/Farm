@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Entities;
 using Core.Queries;
+using farm_api.Filter.Camera;
 using farm_api.Filter.Device;
 using farm_api.Filter.Environment;
 using farm_api.Models;
@@ -19,6 +20,9 @@ namespace farm_api.Mappers
             CreateMap<DeviceDTO, Device>().ReverseMap();
             CreateMap<DeviceQueryDTO, DeviceQuery>().ReverseMap();
             CreateMap<DeviceRequest, Device>().ReverseMap();
+            CreateMap<CameraDTO, Camera>().ReverseMap();
+            CreateMap<CameraQueryDTO, CameraQuery>().ReverseMap();
+            CreateMap<CameraRequest, Camera>().ReverseMap();
         }
     }
 }

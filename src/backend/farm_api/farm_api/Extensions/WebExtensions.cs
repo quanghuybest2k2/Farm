@@ -35,17 +35,16 @@ namespace farm_api.Extensions
                                                 .AllowAnyHeader()
                                                 .AllowAnyMethod()));
             builder.Services.AddValidatorsFromAssemblyContaining<EnvironmentRequestValidator>();
-
-
-           
-
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IEnvironmentRepository, EnvironmentRepository>();
             builder.Services.AddScoped<IEnvironmentService, EnvironmentService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
-
-
+            builder.Services.AddScoped<ICameraRepository, CameraRepository>();
+            builder.Services.AddScoped<ICameraService, CameraService>();
+            builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
+            builder.Services.AddScoped<IDeviceService, DeviceService>();
+            builder.Services.AddScoped<ISeeder, Seeder>();
             return builder;
         }
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app)
