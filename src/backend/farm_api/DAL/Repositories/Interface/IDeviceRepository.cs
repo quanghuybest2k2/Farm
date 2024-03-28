@@ -12,5 +12,6 @@ namespace DAL.Repositories.Interface
     public interface IDeviceRepository:IGenericRepository<Device>
     {
         Task<IEnumerable<Device>> GetAllAsync(DeviceQueryDTO deviceQueryDTO, CancellationToken cancellationToken = default);
+        Task<Device> GetByIdAsync(string id,CancellationToken cancellationToken=default);
     }
 }

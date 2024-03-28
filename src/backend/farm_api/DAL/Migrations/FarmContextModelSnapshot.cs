@@ -53,9 +53,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Core.Entities.Device", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("ConnectionStatus")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");

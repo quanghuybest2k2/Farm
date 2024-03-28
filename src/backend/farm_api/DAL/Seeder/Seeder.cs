@@ -17548,11 +17548,7 @@ namespace DAL.Seeder
         {
             #region data devices
             IList<Device> devices = new List<Device>() {
-            new(){ Name="Bơm nước",Type="Máy bơm",Status=true},
-            new(){ Name="Cảm biến nhiệt độ",Type="Cảm biến",Status=true},
-            new(){ Name="Đèn LED",Type="Đèn chiếu sáng",Status=false},
-            new(){ Name="Cảm biến độ ẩm",Type="Cảm biến",Status=true},
-            new(){ Name="Bơm phun thuốc",Type="Máy bơm",Status=true},
+            new(){ Id="sensor-0",Name="Cảm Biến Nông Trai 1",Type="sensor",Status=true,ConnectionStatus=false},
             };
             #endregion
             _context.AddRange(devices);

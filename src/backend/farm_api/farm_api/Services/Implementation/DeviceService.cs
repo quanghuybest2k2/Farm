@@ -64,6 +64,12 @@ namespace farm_api.Services.Implementation
             return _mapper.Map<DeviceDTO>(result);
         }
 
+        public async Task<DeviceDTO> GetByIdAsync(string id, CancellationToken cancellationToken = default)
+        {
+            var result = await _deviceRepository.GetByIdAsync(id, cancellationToken);
+            return _mapper.Map<DeviceDTO>(result);
+        }
+
         public async Task UpdateDeviceAsync(Guid id, DeviceRequest deviceRequest, CancellationToken cancellationToken = default)
         {
             await _validator.ValidateAndThrowAsync(deviceRequest);

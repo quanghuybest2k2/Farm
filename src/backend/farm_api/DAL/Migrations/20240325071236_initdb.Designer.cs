@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(FarmContext))]
-    [Migration("20240310125105_init")]
-    partial class init
+    [Migration("20240325071236_initdb")]
+    partial class initdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,9 +56,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Core.Entities.Device", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("ConnectionStatus")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");

@@ -20,6 +20,12 @@ namespace DAL.Repositories.Implementation
         {
             return await Filter(deviceQueryDTO).ToListAsync(cancellationToken);
         }
+
+        public async Task<Device> GetByIdAsync(string id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Device>().FindAsync(id);
+        }
+
         private IQueryable<Device> Filter(DeviceQueryDTO deviceQueryDTO)
         {
             IQueryable<Device> query = _context.Set<Device>();

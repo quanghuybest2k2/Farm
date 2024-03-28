@@ -6,6 +6,7 @@ using farm_api.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using farm_api.Filter.Camera;
 using FluentValidation;
+using farm_api.Services.Implementation;
 
 namespace farm_api.Controllers
 {
@@ -14,7 +15,8 @@ namespace farm_api.Controllers
     public class CameraController : ControllerBase
     {
         private readonly ICameraService _cameraService;
-        public CameraController(ICameraService cameraService)
+        
+        public CameraController(ICameraService cameraService, SocketMangement socketMangement)
         {
             _cameraService = cameraService;
         }
@@ -87,6 +89,6 @@ namespace farm_api.Controllers
                 return BadRequest(new FarmErrrorResponse(ex.GetType().Name, null));
             }
             return NoContent();
-        }
+        }     
     }
 }
