@@ -17,7 +17,7 @@ namespace DAL.Repositories.GenericRepository
         {
             _context = context;
         }
-        public async Task Delete(Guid Id)
+        public async Task Delete(object Id)
         {
             _context.Remove(await GetByIdAsync(Id));
         }
@@ -27,7 +27,7 @@ namespace DAL.Repositories.GenericRepository
             return await _context.Set<T>().ToListAsync();  
         }
 
-        public async Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<T> GetByIdAsync(object id, CancellationToken cancellationToken = default)
         {
             return await _context.Set<T>().FindAsync(id);
         }

@@ -40,7 +40,7 @@ namespace farm_api.Services.Implementation
             _unitOfWork.Save();
         }
 
-        public async Task DeleteDeviceAsync(Guid id)
+        public async Task DeleteDeviceAsync(string id)
         {
             await _deviceRepository.Delete(id);
 
@@ -70,7 +70,7 @@ namespace farm_api.Services.Implementation
             return _mapper.Map<DeviceDTO>(result);
         }
 
-        public async Task UpdateDeviceAsync(Guid id, DeviceRequest deviceRequest, CancellationToken cancellationToken = default)
+        public async Task UpdateDeviceAsync(string id, DeviceRequest deviceRequest, CancellationToken cancellationToken = default)
         {
             await _validator.ValidateAndThrowAsync(deviceRequest);
             var entityUpdate = await _deviceRepository.GetByIdAsync(id);

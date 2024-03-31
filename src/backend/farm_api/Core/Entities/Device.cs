@@ -10,7 +10,10 @@ namespace Core.Entities
 {
     public class Device : IModifier
     {
-        public Device() { }
+        public Device()
+        {
+            Id=Guid.NewGuid().ToString();
+        }
         [Key]
         public string Id {  get; set; }
         public string Name { get; set; }

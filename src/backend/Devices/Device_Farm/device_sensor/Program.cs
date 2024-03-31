@@ -72,7 +72,7 @@ public static class Sending
 {
     private readonly static string ApiKey = "7e714d1037ae4cf7a20124546242303";
     private readonly static string Location = "11.955258, 108.448173";
-    private readonly static string DefaultLanguage = "en";
+    private readonly static string DefaultLanguage = "vi";
     private readonly static string ApiUrl = $"https://api.weatherapi.com/v1/current.json?q={Location}&lang={DefaultLanguage}&key={ApiKey}";
     public async static Task<WeatherData> GetWeatherInfo()
     {
@@ -134,6 +134,7 @@ public class Program
     }
     public static async Task Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         const string deviceId = "sensor-0";
         using (ClientWebSocket client = new ClientWebSocket())
         {
@@ -177,13 +178,12 @@ public class Program
                         {
                             case "get":
                                 var weatherInfo = WebSocketMessage<WeatherData>.SocketRequest(await Sending.GetWeatherInfo(), deviceId, MessageType.WeatherData); ;
-
                                 var weatherBuffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(weatherInfo)));
-
                                 await client.SendAsync(weatherBuffer, WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
-                                Console.WriteLine("da gui");
+                                Console.WriteLine("Đã gửi");
                                 break;
                             default:
+                                await Console.Out.WriteLineAsync("Invalid message");
                                 break;
                         }
                     }

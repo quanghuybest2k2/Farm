@@ -10,9 +10,9 @@ namespace DAL.Repositories.GenericRepository
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<T> GetByIdAsync(object id, CancellationToken cancellationToken = default);
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task Delete(Guid Id);
+        Task Delete(object Id);
         void Update(T environment);
         void Insert(T environment);
     }

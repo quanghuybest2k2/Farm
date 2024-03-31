@@ -18,12 +18,12 @@ namespace farm_api.Controllers
         {
             _deviceService = deviceService;
         }
-        [HttpGet("{id:Guid}")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(DeviceDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(string id)
         {
-            if (id == Guid.Empty)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
@@ -61,7 +61,7 @@ namespace farm_api.Controllers
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid id, [FromBody] DeviceRequest deviceRequest)
+        public async Task<IActionResult> Update(string id, [FromBody] DeviceRequest deviceRequest)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace farm_api.Controllers
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(string id)
         {
             try
             {
