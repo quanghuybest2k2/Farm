@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
-import "./sb-admin-2.css";
 import config from "../config";
 import axios from "axios";
 
@@ -120,6 +119,7 @@ const Dashboard = () => {
                     <i className="fas fa-thermometer-half mr-2" />
                     Nhiệt độ: {controlDevice.current.temp_c ?? 0}°C
                   </p>
+                  <h2 className="h3 mb-3 text-gray-900">7 ngày tới</h2>
                   <div className="card shadow">
                     <div className="card-body p-4">
                       <div
@@ -135,84 +135,26 @@ const Dashboard = () => {
                                 <p className="small">
                                   <strong>21°C</strong>
                                 </p>
-                                <i
-                                  className="fas fa-sun fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
+                                <img
+                                  style={{ width: "50px", height: "50px" }}
+                                  src="https://cdn.weatherapi.com/weather/64x64/night/176.png"
+                                  alt="Mưa rào"
                                 />
                                 <p className="mb-0">
-                                  <strong>T2</strong>
+                                  <strong>Ngày 1</strong>
                                 </p>
                               </div>
                               <div className="flex-column">
                                 <p className="small">
                                   <strong>20°C</strong>
                                 </p>
-                                <i
-                                  className="fas fa-sun fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
+                                <img
+                                  style={{ width: "50px", height: "50px" }}
+                                  src="https://cdn.weatherapi.com/weather/64x64/night/176.png"
+                                  alt="Mưa rào"
                                 />
                                 <p className="mb-0">
-                                  <strong>T3</strong>
-                                </p>
-                              </div>
-                              <div className="flex-column">
-                                <p className="small">
-                                  <strong>16°C</strong>
-                                </p>
-                                <i
-                                  className="fas fa-cloud fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
-                                />
-                                <p className="mb-0">
-                                  <strong>T4</strong>
-                                </p>
-                              </div>
-                              <div className="flex-column">
-                                <p className="small">
-                                  <strong>17°C</strong>
-                                </p>
-                                <i
-                                  className="fas fa-cloud fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
-                                />
-                                <p className="mb-0">
-                                  <strong>T5</strong>
-                                </p>
-                              </div>
-                              <div className="flex-column">
-                                <p className="small">
-                                  <strong>18°C</strong>
-                                </p>
-                                <i
-                                  className="fas fa-cloud-showers-heavy fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
-                                />
-                                <p className="mb-0">
-                                  <strong>T6</strong>
-                                </p>
-                              </div>
-                              <div className="flex-column">
-                                <p className="small">
-                                  <strong>18°C</strong>
-                                </p>
-                                <i
-                                  className="fas fa-cloud-showers-heavy fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
-                                />
-                                <p className="mb-0">
-                                  <strong>T7</strong>
-                                </p>
-                              </div>
-                              <div className="flex-column">
-                                <p className="small">
-                                  <strong>20°C</strong>
-                                </p>
-                                <i
-                                  className="fas fa-cloud-showers-heavy fa-2x mb-3"
-                                  style={{ color: "#ddd" }}
-                                />
-                                <p className="mb-0">
-                                  <strong>CN</strong>
+                                  <strong>Ngày 2</strong>
                                 </p>
                               </div>
                             </div>
