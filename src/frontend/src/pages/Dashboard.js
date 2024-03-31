@@ -7,20 +7,13 @@ import axios from "axios";
 const Dashboard = () => {
   const [controlDevice, setControlDevice] = useState([]);
   const [devices, setDevices] = useState([]);
-  const [filteredLights, setFilteredLights] = useState([]);
-  const [filteredFans, setFilteredFans] = useState([]);
 
   const deviceId = "sensor-0";
   const action = "get";
 
-  const type = {
-    light: "light",
-    fan: "fan",
-  };
-
-  const fetchData = () => {
+  const fetchData = async () => {
     // socket
-    axios
+    await axios
       .get(
         `${config.API_URL}/socketmangement?deviceId=${deviceId}&action=${action}`
       )
@@ -33,26 +26,12 @@ const Dashboard = () => {
       });
 
     // device
-    axios.get(`${config.API_URL}/devices`).then((res) => {
+    await axios.get(`${config.API_URL}/devices`).then((res) => {
       // console.log(res.data.results);
       if (res.data) {
         setDevices(res.data.results);
-
-        // Filter lights
-        const lights = res.data.results.filter(
-          (device) => device.type === type.light
-        );
-        setFilteredLights(lights);
-
-        // Filter fans
-        const fans = res.data.results.filter(
-          (device) => device.type === type.fan
-        );
-        setFilteredFans(fans);
       } else {
         setDevices([]);
-        setFilteredLights([]);
-        setFilteredFans([]);
       }
     });
     console.log("APIs called");
@@ -71,23 +50,62 @@ const Dashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // filter
+  const renderDeviceList = (deviceType) => {
+    const filteredDevices = devices.filter(
+      (device) => device.type === deviceType
+    );
+    return (
+      <div>
+        <h3 className="h5 my-3 text-gray-900">
+          <i
+            className={
+              deviceType === "light" ? "fas fa-lightbulb" : "fas fa-fan"
+            }
+          />
+          <text className="ms-2">{deviceType}</text>
+        </h3>
+        <div className="flex-wrap" role="group">
+          {filteredDevices.map((device, index) => (
+            <button
+              key={index}
+              className={`fixed-size-button m-1 rounded btn ${
+                device.status ? "btn-success" : "btn-danger"
+              }`}
+              onClick={() => updateDeviceStatus(device.id, !device.status)}
+            >
+              <div>{device.name}</div>
+              <div>{device.status ? "Bật" : "Tắt"}</div>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  // update status
+  const updateDeviceStatus = async (deviceId, newStatus) => {
+    try {
+      const device = devices.find((device) => device.id === deviceId);
+      const response = await axios.put(
+        `${config.API_URL}/devices/${deviceId}`,
+        {
+          ...device,
+          status: newStatus,
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error updating device status:", error);
+    }
+  };
+
+  // camera info
   const [farmStatus, setFarmStatus] = useState({
     cameraInfo: Array.from({ length: 3 }, () => ({
       info: "No unusual activity detected",
     })),
   });
-
-  const updateDeviceStatus = (deviceId, newStatus) => {
-    axios
-      .put(`${config.API_URL}/devices/${deviceId}`, { status: newStatus })
-      .then((res) => {
-        console.log("Update successfully!");
-        fetchData();
-      })
-      .catch((error) => {
-        console.error("Error", error);
-      });
-  };
 
   return (
     <div id="content-wrapper" className="d-flex flex-column">
@@ -258,48 +276,8 @@ const Dashboard = () => {
                     </div>
 
                     <div className="card-body">
-                      {/* Fans */}
-                      <h3 className="h5 my-3 text-gray-900">
-                        <i className="fas fa-fan mr-2" />
-                        fan
-                      </h3>
-                      <div className="flex-wrap" role="group">
-                        {filteredFans.map((device, index) => (
-                          <button
-                            key={index}
-                            className={`fixed-size-button m-1 rounded btn ${
-                              device.status ? "btn-success" : "btn-danger"
-                            }`}
-                            onClick={() =>
-                              updateDeviceStatus(device.id, !device.status)
-                            }
-                          >
-                            <div>{device.name}</div>
-                            <div>{device.status ? "Bật" : "Tắt"}</div>
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* Lights */}
-                      <h3 className="h5 my-3 text-gray-900">
-                        <i className="fas fa-lightbulb mr-2" /> light
-                      </h3>
-                      <div className="flex-wrap" role="group">
-                        {filteredLights.map((device, index) => (
-                          <button
-                            key={index}
-                            className={`btn fixed-size-button m-1 rounded ${
-                              device.status ? "btn-success" : "btn-danger"
-                            }`}
-                            onClick={() =>
-                              updateDeviceStatus(device.id, !device.status)
-                            }
-                          >
-                            <div>{device.name}</div>
-                            <div>{device.status ? "Bật" : "Tắt"}</div>
-                          </button>
-                        ))}
-                      </div>
+                      {renderDeviceList("fan")}
+                      {renderDeviceList("light")}
                     </div>
                   </div>
                 </div>
