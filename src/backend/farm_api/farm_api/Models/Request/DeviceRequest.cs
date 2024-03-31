@@ -7,6 +7,7 @@ namespace farm_api.Models.Request
         public string Name { get; set; }
         public string Type { get; set; }
         public bool Status { get; set; }
+        public Guid FarmId { get; set; }
         public override string ToString()
         {
             return $"/n{Name} {Type} {Status}";

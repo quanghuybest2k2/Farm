@@ -29,23 +29,6 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Devices",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    ConnectionStatus = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Devices", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Environments",
                 columns: table => new
                 {
@@ -63,6 +46,20 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Farms",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Farms", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Statistics",
                 columns: table => new
                 {
@@ -74,6 +71,35 @@ namespace DAL.Migrations
                 {
                     table.PrimaryKey("PK_Statistics", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Devices",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    ConnectionStatus = table.Column<bool>(type: "bit", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    FarmId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Devices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Devices_Farms_FarmId",
+                        column: x => x.FarmId,
+                        principalTable: "Farms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Devices_FarmId",
+                table: "Devices",
+                column: "FarmId");
         }
 
         /// <inheritdoc />
@@ -90,6 +116,9 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Statistics");
+
+            migrationBuilder.DropTable(
+                name: "Farms");
         }
     }
 }

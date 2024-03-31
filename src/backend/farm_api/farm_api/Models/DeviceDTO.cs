@@ -11,5 +11,6 @@ namespace farm_api.Models
         public bool ConnectionStatus { get; set; }
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
+        public Guid FarmId { get; set; }
     }
 }

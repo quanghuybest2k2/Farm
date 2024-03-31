@@ -27,7 +27,7 @@ namespace DAL.Seeder
             {
                 return;
             }
-            AddDevices();
+            AddDevices(AddFarm());
             AddEnvironments();
             AddCameras();
         }
@@ -17544,25 +17544,32 @@ namespace DAL.Seeder
             _unitOfWork.Save();
             return env;
         }
-        private IList<Device> AddDevices()
+        private Farm AddFarm()
+        {
+            Farm farm = new Farm() { Name = "farm-1" };
+            _context.Add(farm);
+            _unitOfWork.Save();
+            return farm;
+        }
+        private IList<Device> AddDevices(Farm farm)
         {
             #region data devices
             IList<Device> devices = new List<Device>() {
-            new(){ Id="sensor-0",Name="S1",Type="sensor",Status=true,ConnectionStatus=false},
-            new(){ Id="L1",Name="L1",Type="light",Status=true,ConnectionStatus=false},
-            new(){ Id="L2",Name="L2",Type="light",Status=true,ConnectionStatus=false},
-            new(){ Id="L3",Name="L3",Type="light",Status=false,ConnectionStatus=false},
-            new(){ Id="L4",Name="L4",Type="light",Status=true,ConnectionStatus=false},
-            new(){ Id="L5",Name="L5",Type="light",Status=false,ConnectionStatus=false},
-            new(){ Id="L6",Name="L6",Type="light",Status=true,ConnectionStatus=false},
-            new(){ Id="L7",Name="L7",Type="light",Status=true,ConnectionStatus=false},
-             new(){ Id="F1",Name="F1",Type="fan",Status=true,ConnectionStatus=false},
-            new(){ Id="F2",Name="F2",Type="fan",Status=true,ConnectionStatus=false},
-            new(){ Id="F3",Name="F3",Type="fan",Status=false,ConnectionStatus=false},
-            new(){ Id="F4",Name="F4",Type="fan",Status=true,ConnectionStatus=false},
-            new(){ Id="F5",Name="F5",Type="fan",Status=false,ConnectionStatus=false},
-            new(){ Id="F6",Name="F6",Type="fan",Status=true,ConnectionStatus=false},
-            new(){ Id="F7",Name="F7",Type="fan",Status=true,ConnectionStatus=false},
+            new(){ Id="sensor-0",Name="S1",Type="sensor",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L1",Name="L1",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L2",Name="L2",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L3",Name="L3",Type="light",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L4",Name="L4",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L5",Name="L5",Type="light",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L6",Name="L6",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="L7",Name="L7",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+             new(){ Id="F1",Name="F1",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="F2",Name="F2",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="F3",Name="F3",Type="fan",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="F4",Name="F4",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="F5",Name="F5",Type="fan",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="F6",Name="F6",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="F7",Name="F7",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
 
             };
             #endregion

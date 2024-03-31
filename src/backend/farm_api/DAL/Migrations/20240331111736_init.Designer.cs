@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(FarmContext))]
-    [Migration("20240330040646_init")]
+    [Migration("20240331111736_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -65,6 +65,9 @@ namespace DAL.Migrations
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("FarmId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -78,6 +81,8 @@ namespace DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FarmId");
 
                     b.ToTable("Devices");
                 });
@@ -111,6 +116,26 @@ namespace DAL.Migrations
                     b.ToTable("Environments");
                 });
 
+            modelBuilder.Entity("Core.Entities.Farm", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Farms");
+                });
+
             modelBuilder.Entity("Core.Entities.Statistics", b =>
                 {
                     b.Property<Guid>("Id")
@@ -126,6 +151,22 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Statistics");
+                });
+
+            modelBuilder.Entity("Core.Entities.Device", b =>
+                {
+                    b.HasOne("Core.Entities.Farm", "Farm")
+                        .WithMany("Devices")
+                        .HasForeignKey("FarmId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Farm");
+                });
+
+            modelBuilder.Entity("Core.Entities.Farm", b =>
+                {
+                    b.Navigation("Devices");
                 });
 #pragma warning restore 612, 618
         }

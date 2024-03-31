@@ -22,5 +22,7 @@ namespace Core.Entities
         public bool ConnectionStatus { get; set; }
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
+        public Farm Farm { get; set; }
+        public Guid FarmId { get; set; }    
     }
 }
