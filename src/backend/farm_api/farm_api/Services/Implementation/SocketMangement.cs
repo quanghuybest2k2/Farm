@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core.Common;
+using Core.Entities;
 using DAL.Repositories.UnitOfWork;
 using farm_api.Models;
 using farm_api.Models.Request;
@@ -50,6 +51,21 @@ namespace farm_api.Services.Implementation
                 throw new InvalidOperationException("WebSocket is not connected");
 
             var buffer = Encoding.UTF8.GetBytes(message);
+            var segment = new ArraySegment<byte>(buffer);
+            await socket.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
+        }
+        public async Task SendMessageAsync(string connectionId, WebSocketMessage<DeviceDTO> deviceRequest)
+        {
+            if (!_sockets.TryGetValue(connectionId, out WebSocket socket))
+                throw new KeyNotFoundException("Connection ID not found");
+
+            if (socket.State != WebSocketState.Open)
+                throw new InvalidOperationException("WebSocket is not connected");
+
+            // Chuyển đối tượng deviceRequest thành chuỗi JSON
+            string json = JsonConvert.SerializeObject(deviceRequest);
+
+            var buffer = Encoding.UTF8.GetBytes(json);
             var segment = new ArraySegment<byte>(buffer);
             await socket.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
         }

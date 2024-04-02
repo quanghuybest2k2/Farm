@@ -9,6 +9,12 @@ using System.Text.Json.Nodes;
 using device_sensor.Constant;
 using System.Security.Cryptography.X509Certificates;
 using device_sensor.Model.Request;
+using device_sensor.Devices;
+using System;
+using device_sensor.Model;
+using device_sensor.Model.Response;
+using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 #region Class Info
 
@@ -65,6 +71,7 @@ public class WeatherData
     public Location Location { get; set; }
     public Current Current { get; set; }
 }
+
 #endregion
 
 #region getWeatherInfo
@@ -73,7 +80,8 @@ public static class Sending
     private readonly static string ApiKey = "7e714d1037ae4cf7a20124546242303";
     private readonly static string Location = "11.955258, 108.448173";
     private readonly static string DefaultLanguage = "vi";
-    private readonly static string ApiUrl = $"https://api.weatherapi.com/v1/current.json?q={Location}&lang={DefaultLanguage}&key={ApiKey}";
+    private readonly static int Days = 7;
+    private readonly static string ApiUrl = $"https://api.weatherapi.com/v1/forecast.json?q={Location}&days={Days}&lang={DefaultLanguage}&key={ApiKey}&alerts=yes&aqi=yes";
     public async static Task<WeatherData> GetWeatherInfo()
     {
         using (HttpClient client = new HttpClient())
@@ -132,10 +140,18 @@ public class Program
         DeviceInfo = 1,
         WeatherData = 2
     }
+    private static Func<bool, string> Convert = e => e ? "bật" : "tắt";
+   
+    private static string Print(device_sensor.Model.Device device)
+    {
+
+        return $"Device {device.Id} {device.Type} {device.Name} {Convert(device.Status)} ";
+    }
+
     public static async Task Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        const string deviceId = "sensor-0";
+        const string deviceId = "2ae5e786-48ec-4f13-b842-af68c8b148b9";
         using (ClientWebSocket client = new ClientWebSocket())
         {
             try
@@ -170,19 +186,28 @@ public class Program
                     // Handle incoming messages
                     if (result.MessageType == WebSocketMessageType.Text)
                     {
-                        var message = Encoding.UTF8.GetString(receiveBuffer, 0, result.Count);
-                        Console.WriteLine("Message received from server: " + message);
+                        string jsonString = Encoding.UTF8.GetString(receiveBuffer, 0, result.Count);
+                        var message = JsonConvert.DeserializeObject<WebSocketMessage<DeviceDTO>>(jsonString);
+                        var messageType = message.MessageType;
+                        var data=message.Data;
+                        var Device = message.Data;
+                        Console.WriteLine("Message received from server: " + message.MessageType);
+
                         // Implement message handling logic
                         // ...
-                        switch (message.Trim())
+                        switch (messageType)
                         {
-                            case "get":
+                            case MessageType.WeatherData:
                                 var weatherInfo = WebSocketMessage<WeatherData>.SocketRequest(await Sending.GetWeatherInfo(), deviceId, MessageType.WeatherData); ;
                                 var weatherBuffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(weatherInfo)));
                                 await client.SendAsync(weatherBuffer, WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
                                 Console.WriteLine("Đã gửi");
                                 break;
-                            default:
+                            case MessageType.DeviceInfo:
+                                Data.keyValuePairs[data.Id].Status = data.Status;
+                                Console.WriteLine(Print(Data.keyValuePairs[data.Id]));
+                                break;
+                            default:                            
                                 await Console.Out.WriteLineAsync("Invalid message");
                                 break;
                         }
@@ -199,6 +224,7 @@ public class Program
             {
                 Console.WriteLine("Exception encountered: " + ex.Message);
             }
+            
         }
     }
 }

@@ -12,7 +12,7 @@ namespace device_sensor.Model.Request
         public string DeviceId {  get; set; }
         public MessageType MessageType { get; set; }
         public T Data { get; set; }
-        private WebSocketMessage(T data,string deviceId, MessageType type)
+        public WebSocketMessage(T data,string deviceId, MessageType type)
         {
             Data = data;
             DeviceId = deviceId;

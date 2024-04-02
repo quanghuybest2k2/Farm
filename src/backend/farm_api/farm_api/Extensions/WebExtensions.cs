@@ -49,6 +49,8 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<ICameraService, CameraService>();
             builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
             builder.Services.AddScoped<IDeviceService, DeviceService>();
+            builder.Services.AddScoped<IFarmRepositorty, FarmRepositorty>();
+            builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
             builder.Services.AddSingleton<SocketMangement>();
             builder.Services.AddSingleton<SocketResultManagement>();
