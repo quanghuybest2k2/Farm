@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 import config from "../config";
 import axios from "axios";
+import PieChart from "../components/PieChart";
 
 const Dashboard = () => {
   const [controlDevice, setControlDevice] = useState([]);
   const [devices, setDevices] = useState([]);
 
-  const deviceId = "sensor-0";
-  const action = "get";
+  const farmId = "a023eaaa-6b6e-4169-88cf-95ef2dd8978a";
 
   const fetchData = async () => {
-    // socket
+    // socket weather
     await axios
       .get(
-        `${config.API_URL}/socketmangement?deviceId=${deviceId}&action=${action}`
+        `${config.API_URL}/socketmanagement/messageToSocketSpecified?farmId=${farmId}`
       )
       .then((res) => {
         if (res.data) {
@@ -25,7 +25,7 @@ const Dashboard = () => {
       });
 
     // device
-    await axios.get(`${config.API_URL}/devices`).then((res) => {
+    await axios.get(`${config.API_URL}/farms`).then((res) => {
       // console.log(res.data.results);
       if (res.data) {
         setDevices(res.data.results);
@@ -49,36 +49,102 @@ const Dashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // filter
-  const renderDeviceList = (deviceType) => {
-    const filteredDevices = devices.filter(
-      (device) => device.type === deviceType
-    );
+  const renderArea = () => {
     return (
-      <div>
-        <h3 className="h5 my-3 text-gray-900">
-          <i
-            className={
-              deviceType === "light" ? "fas fa-lightbulb" : "fas fa-fan"
-            }
-          />
-          <text className="ms-2">{deviceType}</text>
-        </h3>
-        <div className="flex-wrap" role="group">
-          {filteredDevices.map((device, index) => (
-            <button
-              key={index}
-              className={`fixed-size-button m-1 rounded btn ${
-                device.status ? "btn-success" : "btn-danger"
-              }`}
-              onClick={() => updateDeviceStatus(device.id, !device.status)}
-            >
-              <div>{device.name}</div>
-              <div>{device.status ? "Bật" : "Tắt"}</div>
-            </button>
-          ))}
-        </div>
-      </div>
+      <>
+        {devices.map((area, index) => (
+          <div className="col-xl-4 col-md-6 mb-4" key={index}>
+            <div className="card border-left-info shadow h-100 py-2">
+              <div className="card-body">
+                <div className="row no-gutters align-items-center">
+                  <div className="col mr-2">
+                    <div className="fs-6 text-center text-xs font-weight-bold text-info text-uppercase mb-2">
+                      {area.name}
+                    </div>
+                    <h4 className="small font-weight-bold">
+                      <text className="me-2">Tổng số thiết bị:</text>
+                      <span className="float-right">
+                        {area.active + area.off}
+                      </span>
+                    </h4>
+                    <h4 className="small font-weight-bold">
+                      <text className="me-2"> Đang hoạt động:</text>
+                      <span className="float-right">{area.active}</span>
+                    </h4>
+                    <h4 className="small font-weight-bold">
+                      <text className="me-2"> Đang tắt:</text>
+                      <span className="float-right">{area.off}</span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </>
+    );
+  };
+
+  const deviceTypes = [
+    { name: "fan", iconClass: "fas fa-fan" },
+    { name: "light", iconClass: "fas fa-lightbulb" },
+    { name: "sensor", iconClass: "fa-solid fa-microchip" },
+  ];
+
+  const renderDevices = () => {
+    return (
+      <>
+        {devices.map((area, index) => (
+          <div key={index}>
+            <div className="card shadow mb-4 mr-4 ">
+              <div className="card-header py-3">
+                <h6 className="h5 m-0 font-weight-bold text-primary">
+                  Trạng thái thiết bị khu {area.name}
+                </h6>
+              </div>
+              <div className="card-body">
+                {/* devices */}
+                <div>
+                  {deviceTypes.map((type, index) => (
+                    <div key={index}>
+                      <h3 className="h5 my-3 text-gray-900">
+                        <i
+                          className={
+                            type.iconClass
+                              ? type.iconClass
+                              : "fa-solid fa-microchip"
+                          }
+                        />
+                        <text className="ms-2">{type.name}</text>
+                      </h3>
+                      <div className="flex-wrap" role="group">
+                        {area.devices
+                          .filter((device) => device.type === type.name)
+                          .map((device, index) => (
+                            <button
+                              key={index}
+                              className={`m-1 fixed-size-button rounded btn ${
+                                device.status ? "btn-success" : "btn-danger"
+                              }`}
+                              onClick={() =>
+                                updateDeviceStatus(device.id, !device.status)
+                              }
+                            >
+                              <div>{device.name}</div>
+                              <div>{device.status ? "Bật" : "Tắt"}</div>
+                            </button>
+                          ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* end devices */}
+              </div>
+            </div>
+          </div>
+        ))}
+      </>
     );
   };
 
@@ -98,13 +164,6 @@ const Dashboard = () => {
       console.error("Error updating device status:", error);
     }
   };
-
-  // camera info
-  const [farmStatus, setFarmStatus] = useState({
-    cameraInfo: Array.from({ length: 3 }, () => ({
-      info: "No unusual activity detected",
-    })),
-  });
 
   return (
     <div id="content-wrapper" className="d-flex flex-column">
@@ -178,7 +237,7 @@ const Dashboard = () => {
                   </p>
                   <p className="text-gray-900">
                     <i class="fa-solid fa-circle-half-stroke me-2" />
-                    Hiện tại là:{" "}
+                    <text className="me-2">Hiện tại là:</text>
                     {controlDevice.current.is_day === 0
                       ? "Ban đêm"
                       : "Ban ngày"}
@@ -187,7 +246,7 @@ const Dashboard = () => {
                     <div className="card-body">
                       {/* card */}
                       <h4 className="small font-weight-bold">
-                        Độ ẩm
+                        <text className="me-2">Độ ẩm</text>
                         <span className="float-right">
                           {controlDevice.current.humidity}%
                         </span>
@@ -209,36 +268,45 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                <div className="col-lg-8">
-                  <div className="card shadow mb-4 mr-4">
+                {/* trang thai thiet bi */}
+                <div className=" col-lg-8">
+                  {/* khu thiết bị */}
+                  <div className="card shadow mb-4 mr-4 ">
                     <div className="card-header py-3">
                       <h6 className="h5 m-0 font-weight-bold text-primary">
-                        Trạng thái thiết bị
+                        Khu thiết bị
                       </h6>
                     </div>
 
                     <div className="card-body">
-                      {renderDeviceList("fan")}
-                      {renderDeviceList("light")}
+                      <div className="row">
+                        {/* khu x */}
+                        {renderArea()}
+                        {/* end khu x */}
+                      </div>
                     </div>
+                  </div>
+                  {/* end khu thiet bi */}
+
+                  {/* devices */}
+                  {renderDevices()}
+                  {/* end devices */}
+                </div>
+                {/* end trang thai thiet bi */}
+              </div>
+              {/* pie */}
+              <div className="row">
+                <div className="col-lg-6">
+                  <h2 className="h3 mb-3 text-gray-800">Biểu đồ tròn</h2>
+                  <div
+                    className="row"
+                    style={{ width: "300px", height: "200px" }}
+                  >
+                    <PieChart />
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <h2 className="h3 mb-3 text-gray-800">
-                    Thông tin từ camera giám sát
-                  </h2>
-                  {farmStatus.cameraInfo.map((camera, index) => (
-                    <p key={index}>
-                      Camera {index + 1}: {camera.info}
-                    </p>
-                  ))}
-                </div>
-              </div>
             </div>
-
-            <div className="row">{/* Content Column */}</div>
           </div>
         </div>
       )}
