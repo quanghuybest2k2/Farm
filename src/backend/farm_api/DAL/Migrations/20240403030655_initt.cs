@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initt : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,6 +36,7 @@ namespace DAL.Migrations
                     Temperature = table.Column<int>(type: "int", nullable: false),
                     AirQuality = table.Column<int>(type: "int", nullable: false),
                     SensorLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Humidity = table.Column<int>(type: "int", nullable: false),
                     Brightness = table.Column<int>(type: "int", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)

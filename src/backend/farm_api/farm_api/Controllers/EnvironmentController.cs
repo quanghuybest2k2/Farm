@@ -87,5 +87,34 @@ namespace farm_api.Controllers
             }
             return NoContent();
         }
+        [HttpGet("daily-statistics")]
+        public async Task<IActionResult> GetDailyStatistics([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var statistics = await _environmentService.GetDailyStatisticsAsync(startDate, endDate, cancellationToken);
+                return Ok(statistics);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet("average-temperature-humidity")]
+        public async Task<IActionResult> GetAverageTemperatureAndHumidity(CancellationToken cancellationToken)
+        {
+            try
+            {
+                var stats = await _environmentService.GetAverageTemperatureAndHumidityByLocationAsync(cancellationToken);
+                return Ok(stats);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
     }
 }

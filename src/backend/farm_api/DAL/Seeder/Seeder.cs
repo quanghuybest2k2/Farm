@@ -35,17506 +35,7007 @@ namespace DAL.Seeder
         {
 
             #region data environment
-            IList<Environment> env = new List<Environment>() {
-                new()
-                {
-                    Temperature = 11,
-                    AirQuality = 4,
-                    SensorLocation = "Company",
-                    Brightness = 1451
-                },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1563
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 15,
-        SensorLocation = "WareHouse",
-        Brightness = 861
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 0,
-        SensorLocation = "WareHouse",
-        Brightness = 1356
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 34,
-        SensorLocation = "WareHouse",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 312
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 662
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 556
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 235
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 743
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1150
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 611
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 0,
-        SensorLocation = "Company",
-        Brightness = 409
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 515
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1112
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 862
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 1075
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 84,
-        SensorLocation = "WareHouse",
-        Brightness = 1572
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 296
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 1088
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 14,
-        SensorLocation = "Company",
-        Brightness = 1013
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 19,
-        SensorLocation = "Company",
-        Brightness = 483
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 538
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 4,
-        SensorLocation = "Company",
-        Brightness = 713
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 299
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1411
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 52,
-        SensorLocation = "Company",
-        Brightness = 1243
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1372
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1400
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 994
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1115
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 816
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 448
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 616
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1025
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 62,
-        SensorLocation = "WareHouse",
-        Brightness = 1238
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1154
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 708
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 230
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 441
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 548
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1097
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 358
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1292
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1552
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1089
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1567
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 94,
-        SensorLocation = "Company",
-        Brightness = 391
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 288
-    },
-    new()
-    {
-        Temperature = 31,
+            IList<Environment> env = new List<Environment>()  {
+    new() {
+        Temperature = 74,
         AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 779
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 1079
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1316
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1127
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 325
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 1530
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 1585
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 64,
-        SensorLocation = "WareHouse",
-        Brightness = 362
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 852
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 1207
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 636
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 78,
-        SensorLocation = "Company",
-        Brightness = 776
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1311
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1235
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 429
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1041
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Office",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 916
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 99,
-        SensorLocation = "Company",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 1227
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1195
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 786
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 83,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 52,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 811
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 45,
-        SensorLocation = "Company",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 948
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 889
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 1345
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1449
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1365
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 29,
-        SensorLocation = "WareHouse",
-        Brightness = 1595
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 1277
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 761
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 573
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1456
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 46,
-        SensorLocation = "Company",
-        Brightness = 516
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 489
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 1435
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 647
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 1404
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 1073
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 945
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 55,
-        SensorLocation = "Company",
-        Brightness = 419
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1141
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 100,
-        SensorLocation = "Company",
-        Brightness = 1049
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1050
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 245
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 20,
-        SensorLocation = "Company",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1083
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 23,
-        SensorLocation = "WareHouse",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1018
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 1177
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 766
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 845
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 373
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 976
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1171
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 939
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 1162
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 978
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 353
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 597
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 656
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 657
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 26,
-        SensorLocation = "Company",
-        Brightness = 1337
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 88,
-        SensorLocation = "Office",
-        Brightness = 1347
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 855
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 68,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 254
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 629
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 821
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1574
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 77,
-        SensorLocation = "Office",
-        Brightness = 1553
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 1114
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 1335
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 691
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 645
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 20,
-        SensorLocation = "Office",
-        Brightness = 678
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1448
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 5,
-        SensorLocation = "Company",
-        Brightness = 270
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 323
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 1370
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 842
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 476
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1212
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 882
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1140
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 23,
-        SensorLocation = "Office",
-        Brightness = 252
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 231
-    },
-    new()
-    {
-        Temperature = 19,
+        SensorLocation = "WareHourse",
+        Brightness = 1117,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 77,
         AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 523
+        SensorLocation = "WareHourse",
+        Brightness = 422,
+        Humidity = 34
     },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 278
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 585
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 1331
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 615
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1281
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 775
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 946
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 936
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 52,
-        SensorLocation = "Office",
-        Brightness = 1148
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 619
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 237
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 562
-    },
-    new()
-    {
-        Temperature = 11,
+    new() {
+        Temperature = 37,
         AirQuality = 38,
         SensorLocation = "Office",
-        Brightness = 1531
+        Brightness = 1116,
+        Humidity = 97
     },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 18,
+    new() {
+        Temperature = 22,
+        AirQuality = 41,
         SensorLocation = "Company",
-        Brightness = 330
+        Brightness = 1328,
+        Humidity = 85
     },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 472
+    new() {
+        Temperature = 15,
+        AirQuality = 43,
+        SensorLocation = "Company",
+        Brightness = 584,
+        Humidity = 47
     },
-    new()
-    {
+    new() {
+        Temperature = 28,
+        AirQuality = 86,
+        SensorLocation = "WareHourse",
+        Brightness = 701,
+        Humidity = 88
+    },
+    new() {
         Temperature = 14,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 508
+        AirQuality = 11,
+        SensorLocation = "Company",
+        Brightness = 629,
+        Humidity = 90
     },
-    new()
-    {
-        Temperature = 50,
+    new() {
+        Temperature = 26,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 606,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 50,
+        SensorLocation = "Company",
+        Brightness = 1447,
+        Humidity = 99
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 79,
+        SensorLocation = "Company",
+        Brightness = 1105,
+        Humidity = 85
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 74,
+        SensorLocation = "Company",
+        Brightness = 619,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 52,
+        SensorLocation = "Office",
+        Brightness = 508,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 43,
+        SensorLocation = "WareHourse",
+        Brightness = 230,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 84,
+        SensorLocation = "Office",
+        Brightness = 1103,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 20,
+        AirQuality = 66,
+        SensorLocation = "WareHourse",
+        Brightness = 1397,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 37,
+        AirQuality = 52,
+        SensorLocation = "Office",
+        Brightness = 1212,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 25,
+        SensorLocation = "Company",
+        Brightness = 853,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 3,
+        SensorLocation = "WareHourse",
+        Brightness = 1060,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 64,
+        AirQuality = 19,
+        SensorLocation = "Company",
+        Brightness = 325,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 71,
+        SensorLocation = "Office",
+        Brightness = 1489,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 41,
+        SensorLocation = "Office",
+        Brightness = 695,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 24,
+        AirQuality = 86,
+        SensorLocation = "Company",
+        Brightness = 1321,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 5,
+        AirQuality = 86,
+        SensorLocation = "Company",
+        Brightness = 656,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 80,
+        SensorLocation = "Company",
+        Brightness = 1456,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 82,
+        SensorLocation = "Office",
+        Brightness = 342,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 64,
+        AirQuality = 88,
+        SensorLocation = "Company",
+        Brightness = 1381,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 94,
+        SensorLocation = "WareHourse",
+        Brightness = 1134,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 1,
+        AirQuality = 58,
+        SensorLocation = "WareHourse",
+        Brightness = 218,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 92,
+        AirQuality = 18,
+        SensorLocation = "WareHourse",
+        Brightness = 1346,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 22,
+        SensorLocation = "Office",
+        Brightness = 1409,
+        Humidity = 64
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 63,
+        SensorLocation = "Office",
+        Brightness = 222,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 28,
+        SensorLocation = "WareHourse",
+        Brightness = 358,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 84,
+        SensorLocation = "Company",
+        Brightness = 454,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 39,
+        AirQuality = 63,
+        SensorLocation = "Company",
+        Brightness = 790,
+        Humidity = 59
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 37,
+        SensorLocation = "WareHourse",
+        Brightness = 1065,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 59,
+        SensorLocation = "WareHourse",
+        Brightness = 606,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 57,
+        SensorLocation = "Company",
+        Brightness = 1156,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 21,
+        SensorLocation = "Office",
+        Brightness = 1366,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 17,
+        SensorLocation = "Office",
+        Brightness = 379,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 46,
+        SensorLocation = "Company",
+        Brightness = 972,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 88,
+        SensorLocation = "Company",
+        Brightness = 1235,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 579,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 31,
+        SensorLocation = "Company",
+        Brightness = 1187,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 26,
+        SensorLocation = "Office",
+        Brightness = 616,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 44,
         AirQuality = 82,
         SensorLocation = "Company",
-        Brightness = 1474
+        Brightness = 1438,
+        Humidity = 87
     },
-    new()
-    {
+    new() {
+        Temperature = 90,
+        AirQuality = 73,
+        SensorLocation = "Office",
+        Brightness = 1461,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 24,
+        AirQuality = 53,
+        SensorLocation = "Company",
+        Brightness = 865,
+        Humidity = 64
+    },
+    new() {
+        Temperature = 72,
+        AirQuality = 73,
+        SensorLocation = "Office",
+        Brightness = 251,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 1,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 1297,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 48,
+        SensorLocation = "WareHourse",
+        Brightness = 226,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 30,
+        SensorLocation = "WareHourse",
+        Brightness = 1263,
+        Humidity = 59
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 1238,
+        Humidity = 79
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 56,
+        SensorLocation = "Office",
+        Brightness = 1436,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 96,
+        SensorLocation = "Company",
+        Brightness = 947,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 47,
+        AirQuality = 37,
+        SensorLocation = "Office",
+        Brightness = 1347,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 34,
+        AirQuality = 64,
+        SensorLocation = "Company",
+        Brightness = 522,
+        Humidity = 99
+    },
+    new() {
         Temperature = 46,
+        AirQuality = 65,
+        SensorLocation = "WareHourse",
+        Brightness = 972,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 73,
+        SensorLocation = "WareHourse",
+        Brightness = 1063,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 43,
+        SensorLocation = "Office",
+        Brightness = 793,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 33,
+        SensorLocation = "Office",
+        Brightness = 1420,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 48,
+        SensorLocation = "Office",
+        Brightness = 628,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 12,
+        SensorLocation = "Company",
+        Brightness = 1471,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 19,
+        SensorLocation = "Office",
+        Brightness = 752,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 56,
+        AirQuality = 3,
+        SensorLocation = "Company",
+        Brightness = 950,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 79,
+        SensorLocation = "Office",
+        Brightness = 150,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 89,
+        AirQuality = 3,
+        SensorLocation = "Company",
+        Brightness = 1142,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 9,
+        SensorLocation = "WareHourse",
+        Brightness = 526,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 78,
+        SensorLocation = "WareHourse",
+        Brightness = 925,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 34,
+        SensorLocation = "WareHourse",
+        Brightness = 539,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 6,
         AirQuality = 27,
         SensorLocation = "Office",
-        Brightness = 1263
+        Brightness = 805,
+        Humidity = 34
     },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1545
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 1108
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 63,
-        SensorLocation = "Office",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 436
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1055
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 539
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1566
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 398
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 982
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 98,
-        SensorLocation = "Office",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 677
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 1224
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 32,
-        SensorLocation = "Company",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 9,
-        SensorLocation = "WareHouse",
-        Brightness = 904
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1004
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "Company",
-        Brightness = 810
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 77,
-        SensorLocation = "WareHouse",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 375
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 969
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 53,
-        SensorLocation = "WareHouse",
-        Brightness = 1489
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1159
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 582
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 64,
-        SensorLocation = "Office",
-        Brightness = 491
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "Company",
-        Brightness = 878
-    },
-    new()
-    {
-        Temperature = 27,
+    new() {
+        Temperature = 87,
         AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 204
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 903
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1362
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 336
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 646
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1028
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1447
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1182
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 474
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 519
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 1406
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 733
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1261
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 872
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1314
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 501
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 22,
-        SensorLocation = "Company",
-        Brightness = 1340
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 1274
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1000
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 985
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1584
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1091
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 1102
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 509
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 835
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 81,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 1582
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 25,
-        SensorLocation = "Office",
-        Brightness = 1247
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 937
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 466
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 301
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 69,
-        SensorLocation = "Company",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 641
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 1309
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1348
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 847
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 666
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 654
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 319
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 530
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 1137
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 250
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1178
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 82,
-        SensorLocation = "WareHouse",
-        Brightness = 1549
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 1486
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 264
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 210
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 1368
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1446
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 484
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1579
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 460
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1009
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 58,
-        SensorLocation = "Office",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 688
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 1463
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 980
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 220
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 80,
-        SensorLocation = "Company",
-        Brightness = 1252
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1285
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 1576
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1031
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 58,
-        SensorLocation = "WareHouse",
-        Brightness = 1211
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 33,
-        SensorLocation = "Office",
-        Brightness = 1393
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 1418
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 846
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1057
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 17,
-        SensorLocation = "Office",
-        Brightness = 439
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 40,
-        SensorLocation = "Office",
-        Brightness = 1488
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 655
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 473
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 422
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 17,
-        SensorLocation = "Company",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 486
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1421
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 992
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 588
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 244
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1021
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1219
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1029
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 41,
-        SensorLocation = "Office",
-        Brightness = 609
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 1119
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1472
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 56,
-        SensorLocation = "Company",
-        Brightness = 426
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 1257
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 42,
-        SensorLocation = "Company",
-        Brightness = 951
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 48,
-        SensorLocation = "WareHouse",
-        Brightness = 1228
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 740
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 680
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 621
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 89,
-        SensorLocation = "Company",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 58,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 55,
-        SensorLocation = "Office",
-        Brightness = 1120
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 240
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 87,
-        SensorLocation = "Office",
-        Brightness = 817
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 69,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 1409
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 895
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1034
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1546
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 432
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1451
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 495
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 1038
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 1260
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 98,
-        SensorLocation = "Company",
-        Brightness = 1264
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 218
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 389
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 67,
-        SensorLocation = "Office",
-        Brightness = 347
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 964
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 674
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 233
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 31,
-        SensorLocation = "Company",
-        Brightness = 1037
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 542
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 10,
-        SensorLocation = "Office",
-        Brightness = 1166
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "WareHouse",
-        Brightness = 1072
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 505
-    },
-    new()
-    {
-        Temperature = 38,
+        SensorLocation = "WareHourse",
+        Brightness = 412,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 72,
         AirQuality = 68,
         SensorLocation = "Office",
-        Brightness = 1519
+        Brightness = 784,
+        Humidity = 48
     },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 771
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 39,
-        SensorLocation = "WareHouse",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 1459
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1001
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 5,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 11,
-        SensorLocation = "Office",
-        Brightness = 1379
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 700
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 605
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 69,
-        SensorLocation = "WareHouse",
-        Brightness = 1300
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 1,
-        SensorLocation = "Company",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 983
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1128
-    },
-    new()
-    {
-        Temperature = 36,
+    new() {
+        Temperature = 25,
         AirQuality = 48,
         SensorLocation = "Office",
-        Brightness = 1130
+        Brightness = 124,
+        Humidity = 33
     },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 90,
-        SensorLocation = "Office",
-        Brightness = 603
+    new() {
+        Temperature = 66,
+        AirQuality = 25,
+        SensorLocation = "WareHourse",
+        Brightness = 539,
+        Humidity = 30
     },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1173
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 1071
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 2,
-        SensorLocation = "WareHouse",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 342
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1110
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 442
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 644
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1464
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 1438
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1143
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1528
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 807
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 625
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 702
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1121
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 315
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1033
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1122
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 893
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1505
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1480
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 1321
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 694
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 1380
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1068
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1100
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 437
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 535
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1258
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 1213
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 1169
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 1003
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "WareHouse",
-        Brightness = 915
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 1506
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 241
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 1481
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1129
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 682
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 85,
-        SensorLocation = "Office",
-        Brightness = 632
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 267
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1408
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 773
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 499
-    },
-    new()
-    {
-        Temperature = 30,
+    new() {
+        Temperature = 93,
         AirQuality = 6,
-        SensorLocation = "Office",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 67,
         SensorLocation = "Company",
-        Brightness = 1294
+        Brightness = 867,
+        Humidity = 78
     },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 16,
-        SensorLocation = "Company",
-        Brightness = 795
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 94,
-        SensorLocation = "Office",
-        Brightness = 1556
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 769
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 38,
-        SensorLocation = "Company",
-        Brightness = 1293
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 848
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1232
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 1429
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 1371
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 29,
-        SensorLocation = "Office",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 989
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 269
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 25,
-        SensorLocation = "WareHouse",
-        Brightness = 1466
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 658
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 24,
-        SensorLocation = "Office",
-        Brightness = 1136
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 578
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 332
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1190
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 444
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1338
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 922
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 260
-    },
-    new()
-    {
-        Temperature = 42,
+    new() {
+        Temperature = 6,
         AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 880
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1502
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1098
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1142
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1518
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 60,
-        SensorLocation = "WareHouse",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 430
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 61,
-        SensorLocation = "Company",
-        Brightness = 888
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1509
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 457
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 723
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1061
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 1550
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 963
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 470
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 386
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 64,
-        SensorLocation = "Company",
-        Brightness = 1515
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 41,
-        SensorLocation = "WareHouse",
-        Brightness = 1007
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1185
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 24,
-        SensorLocation = "WareHouse",
-        Brightness = 446
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 305
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 981
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 369
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 78,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 89,
-        SensorLocation = "Office",
-        Brightness = 716
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1220
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1521
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 488
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 844
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1465
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 529
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 729
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 468
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 1328
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 67,
-        SensorLocation = "WareHouse",
-        Brightness = 1436
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 782
-    },
-     new()
-                {
-                    Temperature = 11,
-                    AirQuality = 4,
-                    SensorLocation = "Company",
-                    Brightness = 1451
-                },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1563
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 15,
-        SensorLocation = "WareHouse",
-        Brightness = 861
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 0,
-        SensorLocation = "WareHouse",
-        Brightness = 1356
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 34,
-        SensorLocation = "WareHouse",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 312
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 662
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 556
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 235
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 743
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1150
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 611
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 0,
-        SensorLocation = "Company",
-        Brightness = 409
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 515
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1112
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 862
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 1075
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 84,
-        SensorLocation = "WareHouse",
-        Brightness = 1572
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 296
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 1088
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 14,
-        SensorLocation = "Company",
-        Brightness = 1013
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 19,
-        SensorLocation = "Company",
-        Brightness = 483
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 538
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 4,
-        SensorLocation = "Company",
-        Brightness = 713
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 299
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1411
-    },
-    new()
-    {
-        Temperature = 51,
+        SensorLocation = "WareHourse",
+        Brightness = 1131,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 70,
         AirQuality = 52,
+        SensorLocation = "Office",
+        Brightness = 501,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 67,
         SensorLocation = "Company",
-        Brightness = 1243
+        Brightness = 554,
+        Humidity = 49
     },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1372
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 37,
+    new() {
+        Temperature = 76,
+        AirQuality = 47,
         SensorLocation = "Company",
-        Brightness = 1400
+        Brightness = 1067,
+        Humidity = 44
     },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 994
+    new() {
+        Temperature = 65,
+        AirQuality = 32,
+        SensorLocation = "Office",
+        Brightness = 828,
+        Humidity = 32
     },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1115
+    new() {
+        Temperature = 81,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 739,
+        Humidity = 96
     },
-    new()
-    {
+    new() {
+        Temperature = 89,
+        AirQuality = 25,
+        SensorLocation = "WareHourse",
+        Brightness = 1272,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 99,
+        SensorLocation = "WareHourse",
+        Brightness = 1167,
+        Humidity = 74
+    },
+    new() {
         Temperature = 44,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 816
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 448
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 616
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1025
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 62,
-        SensorLocation = "WareHouse",
-        Brightness = 1238
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1154
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 708
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 230
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 441
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 548
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1097
-    },
-    new()
-    {
-        Temperature = 14,
         AirQuality = 56,
         SensorLocation = "Office",
-        Brightness = 358
+        Brightness = 859,
+        Humidity = 74
     },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1292
+    new() {
+        Temperature = 23,
+        AirQuality = 52,
+        SensorLocation = "WareHourse",
+        Brightness = 1061,
+        Humidity = 57
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1552
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1089
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1567
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 94,
-        SensorLocation = "Company",
-        Brightness = 391
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 288
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 779
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 1079
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1316
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1127
-    },
-    new()
-    {
+    new() {
         Temperature = 13,
-        AirQuality = 18,
+        AirQuality = 86,
         SensorLocation = "Office",
-        Brightness = 1306
+        Brightness = 157,
+        Humidity = 58
     },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 325
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 1530
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 1585
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 64,
-        SensorLocation = "WareHouse",
-        Brightness = 362
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 852
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 1207
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 636
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 78,
-        SensorLocation = "Company",
-        Brightness = 776
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1311
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1235
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 429
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1041
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Office",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 916
-    },
-    new()
-    {
-        Temperature = 38,
+    new() {
+        Temperature = 57,
         AirQuality = 99,
         SensorLocation = "Company",
-        Brightness = 604
+        Brightness = 1141,
+        Humidity = 59
     },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 1227
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1195
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 786
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 83,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 52,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 811
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 45,
-        SensorLocation = "Company",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 948
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 889
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 1345
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1449
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1365
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 29,
-        SensorLocation = "WareHouse",
-        Brightness = 1595
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 1277
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 761
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 573
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1456
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 46,
-        SensorLocation = "Company",
-        Brightness = 516
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 489
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 1435
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 647
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 1404
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 1073
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 945
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 55,
-        SensorLocation = "Company",
-        Brightness = 419
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1141
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 100,
-        SensorLocation = "Company",
-        Brightness = 1049
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1050
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 245
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 20,
-        SensorLocation = "Company",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1083
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 23,
-        SensorLocation = "WareHouse",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1018
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 1177
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 766
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 845
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 373
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 976
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1171
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 939
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 1162
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 978
-    },
-    new()
-    {
+    new() {
         Temperature = 38,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 353
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 597
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 656
-    },
-    new()
-    {
-        Temperature = 35,
         AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 1271
+        SensorLocation = "WareHourse",
+        Brightness = 632,
+        Humidity = 96
     },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 657
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 26,
-        SensorLocation = "Company",
-        Brightness = 1337
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 88,
-        SensorLocation = "Office",
-        Brightness = 1347
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 855
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 68,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 254
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 629
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 821
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1574
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 77,
-        SensorLocation = "Office",
-        Brightness = 1553
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 1114
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 1335
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 691
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 645
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 20,
-        SensorLocation = "Office",
-        Brightness = 678
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1448
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 5,
-        SensorLocation = "Company",
-        Brightness = 270
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 323
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 1370
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 842
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 476
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1212
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 882
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1140
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 23,
-        SensorLocation = "Office",
-        Brightness = 252
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 231
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 523
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 278
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 585
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 1331
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 615
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1281
-    },
-    new()
-    {
-        Temperature = 42,
+    new() {
+        Temperature = 80,
         AirQuality = 13,
         SensorLocation = "Office",
-        Brightness = 775
+        Brightness = 676,
+        Humidity = 55
     },
-    new()
-    {
-        Temperature = 42,
+    new() {
+        Temperature = 65,
         AirQuality = 43,
         SensorLocation = "Company",
-        Brightness = 1106
+        Brightness = 961,
+        Humidity = 88
     },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 946
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 936
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 52,
+    new() {
+        Temperature = 17,
+        AirQuality = 2,
         SensorLocation = "Office",
-        Brightness = 1148
+        Brightness = 953,
+        Humidity = 50
     },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 619
+    new() {
+        Temperature = 17,
+        AirQuality = 49,
+        SensorLocation = "WareHourse",
+        Brightness = 1322,
+        Humidity = 46
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 34,
+    new() {
+        Temperature = 39,
+        AirQuality = 42,
         SensorLocation = "Office",
-        Brightness = 237
+        Brightness = 1235,
+        Humidity = 63
     },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 62,
+    new() {
+        Temperature = 58,
+        AirQuality = 41,
+        SensorLocation = "WareHourse",
+        Brightness = 733,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 92,
+        AirQuality = 56,
         SensorLocation = "Office",
-        Brightness = 562
+        Brightness = 127,
+        Humidity = 67
     },
-    new()
-    {
-        Temperature = 11,
+    new() {
+        Temperature = 32,
+        AirQuality = 99,
+        SensorLocation = "Office",
+        Brightness = 830,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 15,
+        SensorLocation = "WareHourse",
+        Brightness = 538,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 8,
+        AirQuality = 79,
+        SensorLocation = "Office",
+        Brightness = 1101,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 60,
         AirQuality = 38,
         SensorLocation = "Office",
-        Brightness = 1531
+        Brightness = 723,
+        Humidity = 60
     },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 4,
+    new() {
+        Temperature = 60,
+        AirQuality = 88,
         SensorLocation = "Office",
-        Brightness = 472
+        Brightness = 199,
+        Humidity = 80
     },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 508
+    new() {
+        Temperature = 26,
+        AirQuality = 33,
+        SensorLocation = "WareHourse",
+        Brightness = 1200,
+        Humidity = 53
     },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 82,
+    new() {
+        Temperature = 72,
+        AirQuality = 76,
         SensorLocation = "Company",
-        Brightness = 1474
+        Brightness = 184,
+        Humidity = 40
     },
-    new()
-    {
-        Temperature = 46,
+    new() {
+        Temperature = 83,
+        AirQuality = 51,
+        SensorLocation = "Office",
+        Brightness = 1213,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 21,
         AirQuality = 27,
         SensorLocation = "Office",
-        Brightness = 1263
+        Brightness = 931,
+        Humidity = 90
     },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1545
+    new() {
+        Temperature = 8,
+        AirQuality = 85,
+        SensorLocation = "WareHourse",
+        Brightness = 1160,
+        Humidity = 84
     },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 1108
+    new() {
+        Temperature = 96,
+        AirQuality = 64,
+        SensorLocation = "WareHourse",
+        Brightness = 235,
+        Humidity = 35
     },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 63,
-        SensorLocation = "Office",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 436
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1055
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 539
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1566
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 398
-    },
-    new()
-    {
+    new() {
         Temperature = 16,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 982
-    },
-    new()
-    {
-        Temperature = 33,
         AirQuality = 98,
-        SensorLocation = "Office",
-        Brightness = 790
+        SensorLocation = "WareHourse",
+        Brightness = 778,
+        Humidity = 95
     },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 677
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 1224
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 32,
+    new() {
+        Temperature = 81,
+        AirQuality = 24,
         SensorLocation = "Company",
-        Brightness = 876
+        Brightness = 1212,
+        Humidity = 75
     },
-    new()
-    {
+    new() {
+        Temperature = 70,
+        AirQuality = 85,
+        SensorLocation = "Office",
+        Brightness = 1014,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 80,
+        SensorLocation = "Office",
+        Brightness = 1288,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 22,
+        AirQuality = 44,
+        SensorLocation = "WareHourse",
+        Brightness = 1055,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 79,
+        AirQuality = 92,
+        SensorLocation = "WareHourse",
+        Brightness = 1085,
+        Humidity = 73
+    },
+    new() {
         Temperature = 46,
         AirQuality = 9,
-        SensorLocation = "WareHouse",
-        Brightness = 904
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1004
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 75,
         SensorLocation = "Office",
-        Brightness = 492
+        Brightness = 1257,
+        Humidity = 47
     },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "Company",
-        Brightness = 810
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 77,
-        SensorLocation = "WareHouse",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 375
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 969
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 53,
-        SensorLocation = "WareHouse",
-        Brightness = 1489
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1159
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 582
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 64,
-        SensorLocation = "Office",
-        Brightness = 491
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "Company",
-        Brightness = 878
-    },
-    new()
-    {
-        Temperature = 27,
+    new() {
+        Temperature = 59,
         AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 204
+        SensorLocation = "WareHourse",
+        Brightness = 1209,
+        Humidity = 93
     },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 74,
+    new() {
+        Temperature = 84,
+        AirQuality = 39,
         SensorLocation = "Company",
-        Brightness = 903
+        Brightness = 508,
+        Humidity = 89
     },
-    new()
-    {
-        Temperature = 55,
+    new() {
+        Temperature = 31,
+        AirQuality = 41,
+        SensorLocation = "Company",
+        Brightness = 158,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 58,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 1155,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 17,
+        SensorLocation = "WareHourse",
+        Brightness = 1352,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 76,
+        SensorLocation = "Company",
+        Brightness = 1376,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 18,
+        SensorLocation = "Company",
+        Brightness = 1229,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 69,
+        SensorLocation = "WareHourse",
+        Brightness = 971,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 93,
+        SensorLocation = "Company",
+        Brightness = 697,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 54,
+        SensorLocation = "WareHourse",
+        Brightness = 920,
+        Humidity = 85
+    },
+    new() {
+        Temperature = 83,
         AirQuality = 18,
         SensorLocation = "Office",
-        Brightness = 1362
+        Brightness = 777,
+        Humidity = 65
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 336
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 646
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 19,
+    new() {
+        Temperature = 78,
+        AirQuality = 60,
         SensorLocation = "Office",
-        Brightness = 1028
+        Brightness = 1222,
+        Humidity = 39
     },
-    new()
-    {
+    new() {
+        Temperature = 70,
+        AirQuality = 34,
+        SensorLocation = "Office",
+        Brightness = 689,
+        Humidity = 99
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 94,
+        SensorLocation = "Company",
+        Brightness = 308,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 9,
+        SensorLocation = "WareHourse",
+        Brightness = 755,
+        Humidity = 91
+    },
+    new() {
         Temperature = 32,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1447
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1182
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 474
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 519
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 1406
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 733
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1261
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 872
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1314
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 501
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 22,
-        SensorLocation = "Company",
-        Brightness = 1340
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 1274
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1000
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 985
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1584
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1091
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 1102
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 509
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 835
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 18,
         AirQuality = 81,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
+        SensorLocation = "WareHourse",
+        Brightness = 1014,
+        Humidity = 30
     },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 1582
-    },
-    new()
-    {
+    new() {
         Temperature = 43,
-        AirQuality = 25,
-        SensorLocation = "Office",
-        Brightness = 1247
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 937
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 466
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 301
-    },
-    new()
-    {
-        Temperature = 30,
         AirQuality = 69,
-        SensorLocation = "Company",
-        Brightness = 307
+        SensorLocation = "WareHourse",
+        Brightness = 227,
+        Humidity = 98
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 23,
+    new() {
+        Temperature = 6,
+        AirQuality = 61,
         SensorLocation = "Company",
-        Brightness = 641
+        Brightness = 665,
+        Humidity = 95
     },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 557
+    new() {
+        Temperature = 43,
+        AirQuality = 100,
+        SensorLocation = "Office",
+        Brightness = 168,
+        Humidity = 42
     },
-    new()
-    {
-        Temperature = 55,
+    new() {
+        Temperature = 12,
+        AirQuality = 49,
+        SensorLocation = "WareHourse",
+        Brightness = 747,
+        Humidity = 40
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 99,
+        SensorLocation = "WareHourse",
+        Brightness = 288,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 73,
         AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 1309
+        SensorLocation = "Company",
+        Brightness = 1262,
+        Humidity = 66
     },
-    new()
-    {
+    new() {
+        Temperature = 88,
+        AirQuality = 90,
+        SensorLocation = "Company",
+        Brightness = 1130,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 22,
+        AirQuality = 72,
+        SensorLocation = "WareHourse",
+        Brightness = 448,
+        Humidity = 52
+    },
+    new() {
         Temperature = 7,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1348
+        AirQuality = 79,
+        SensorLocation = "Office",
+        Brightness = 241,
+        Humidity = 85
     },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 847
+    new() {
+        Temperature = 78,
+        AirQuality = 100,
+        SensorLocation = "Office",
+        Brightness = 501,
+        Humidity = 61
     },
-    new()
-    {
+    new() {
+        Temperature = 12,
+        AirQuality = 88,
+        SensorLocation = "Office",
+        Brightness = 360,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 57,
+        AirQuality = 88,
+        SensorLocation = "WareHourse",
+        Brightness = 1138,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 28,
+        SensorLocation = "Company",
+        Brightness = 673,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 34,
+        SensorLocation = "Office",
+        Brightness = 1314,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 45,
+        SensorLocation = "WareHourse",
+        Brightness = 821,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 72,
+        AirQuality = 99,
+        SensorLocation = "Company",
+        Brightness = 1043,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 89,
+        SensorLocation = "Office",
+        Brightness = 1131,
+        Humidity = 64
+    },
+    new() {
         Temperature = 29,
+        AirQuality = 17,
+        SensorLocation = "WareHourse",
+        Brightness = 823,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 11,
+        SensorLocation = "Company",
+        Brightness = 360,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 75,
+        SensorLocation = "Company",
+        Brightness = 370,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 57,
+        SensorLocation = "Company",
+        Brightness = 930,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 193,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 46,
+        SensorLocation = "WareHourse",
+        Brightness = 628,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 96,
+        SensorLocation = "WareHourse",
+        Brightness = 1265,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 35,
+        SensorLocation = "WareHourse",
+        Brightness = 784,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 841,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 41,
+        AirQuality = 41,
+        SensorLocation = "Company",
+        Brightness = 367,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 20,
+        AirQuality = 30,
+        SensorLocation = "WareHourse",
+        Brightness = 1016,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 29,
+        SensorLocation = "Company",
+        Brightness = 334,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 72,
+        SensorLocation = "Company",
+        Brightness = 747,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 22,
+        AirQuality = 94,
+        SensorLocation = "Office",
+        Brightness = 1385,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 83,
         AirQuality = 50,
         SensorLocation = "Office",
-        Brightness = 666
+        Brightness = 1500,
+        Humidity = 59
     },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 654
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 319
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 530
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 1137
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 250
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1178
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 82,
-        SensorLocation = "WareHouse",
-        Brightness = 1549
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 1486
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 264
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 48,
+    new() {
+        Temperature = 45,
         AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 210
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 1368
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1446
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 484
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 86,
         SensorLocation = "Company",
-        Brightness = 1579
+        Brightness = 1465,
+        Humidity = 78
     },
-    new()
-    {
+    new() {
+        Temperature = 13,
+        AirQuality = 92,
+        SensorLocation = "WareHourse",
+        Brightness = 1406,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 45,
+        SensorLocation = "Office",
+        Brightness = 239,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 8,
+        SensorLocation = "Company",
+        Brightness = 391,
+        Humidity = 99
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 22,
+        SensorLocation = "WareHourse",
+        Brightness = 1475,
+        Humidity = 83
+    },
+    new() {
         Temperature = 33,
-        AirQuality = 49,
+        AirQuality = 66,
         SensorLocation = "Office",
-        Brightness = 460
+        Brightness = 1288,
+        Humidity = 44
     },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1009
+    new() {
+        Temperature = 44,
+        AirQuality = 26,
+        SensorLocation = "Company",
+        Brightness = 877,
+        Humidity = 99
     },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 58,
-        SensorLocation = "Office",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 688
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 1463
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 980
-    },
-    new()
-    {
-        Temperature = 54,
+    new() {
+        Temperature = 18,
         AirQuality = 87,
         SensorLocation = "Company",
-        Brightness = 220
+        Brightness = 333,
+        Humidity = 95
     },
-    new()
-    {
-        Temperature = 43,
+    new() {
+        Temperature = 61,
+        AirQuality = 16,
+        SensorLocation = "WareHourse",
+        Brightness = 752,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 24,
+        SensorLocation = "Office",
+        Brightness = 384,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 24,
+        SensorLocation = "WareHourse",
+        Brightness = 858,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 34,
+        AirQuality = 89,
+        SensorLocation = "Company",
+        Brightness = 838,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 7,
+        SensorLocation = "Office",
+        Brightness = 937,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 19,
+        SensorLocation = "Office",
+        Brightness = 1069,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 76,
         AirQuality = 80,
         SensorLocation = "Company",
-        Brightness = 1252
+        Brightness = 1248,
+        Humidity = 81
     },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1285
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 1576
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1031
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 58,
-        SensorLocation = "WareHouse",
-        Brightness = 1211
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 33,
+    new() {
+        Temperature = 49,
+        AirQuality = 30,
         SensorLocation = "Office",
-        Brightness = 1393
+        Brightness = 278,
+        Humidity = 46
     },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 73,
+    new() {
+        Temperature = 40,
+        AirQuality = 4,
         SensorLocation = "Office",
-        Brightness = 1418
+        Brightness = 1494,
+        Humidity = 67
     },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 846
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1057
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 17,
-        SensorLocation = "Office",
-        Brightness = 439
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 40,
-        SensorLocation = "Office",
-        Brightness = 1488
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 655
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 473
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 422
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 17,
-        SensorLocation = "Company",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 486
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1421
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 992
-    },
-    new()
-    {
-        Temperature = 52,
+    new() {
+        Temperature = 23,
         AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 588
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 79,
         SensorLocation = "Company",
-        Brightness = 244
+        Brightness = 794,
+        Humidity = 63
     },
-    new()
-    {
+    new() {
+        Temperature = 95,
+        AirQuality = 51,
+        SensorLocation = "Company",
+        Brightness = 663,
+        Humidity = 43
+    },
+    new() {
         Temperature = 52,
-        AirQuality = 96,
+        AirQuality = 97,
         SensorLocation = "Company",
-        Brightness = 1021
+        Brightness = 1030,
+        Humidity = 31
     },
-    new()
-    {
-        Temperature = 17,
+    new() {
+        Temperature = 54,
         AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1219
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 54,
         SensorLocation = "Company",
-        Brightness = 1029
+        Brightness = 1365,
+        Humidity = 69
     },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 485
+    new() {
+        Temperature = 84,
+        AirQuality = 38,
+        SensorLocation = "WareHourse",
+        Brightness = 248,
+        Humidity = 80
     },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 41,
+    new() {
+        Temperature = 67,
+        AirQuality = 8,
         SensorLocation = "Office",
-        Brightness = 609
+        Brightness = 960,
+        Humidity = 51
     },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 87,
+    new() {
+        Temperature = 75,
+        AirQuality = 58,
         SensorLocation = "Company",
-        Brightness = 320
+        Brightness = 417,
+        Humidity = 32
     },
-    new()
-    {
+    new() {
+        Temperature = 30,
+        AirQuality = 50,
+        SensorLocation = "Company",
+        Brightness = 891,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 94,
+        SensorLocation = "WareHourse",
+        Brightness = 1382,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 15,
+        SensorLocation = "WareHourse",
+        Brightness = 988,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 16,
+        SensorLocation = "Company",
+        Brightness = 628,
+        Humidity = 49
+    },
+    new() {
         Temperature = 29,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 1119
+        AirQuality = 63,
+        SensorLocation = "WareHourse",
+        Brightness = 672,
+        Humidity = 73
     },
-    new()
-    {
-        Temperature = 36,
+    new() {
+        Temperature = 8,
+        AirQuality = 47,
+        SensorLocation = "Office",
+        Brightness = 518,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 53,
+        SensorLocation = "WareHourse",
+        Brightness = 883,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 28,
+        SensorLocation = "WareHourse",
+        Brightness = 120,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 27,
+        SensorLocation = "WareHourse",
+        Brightness = 606,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 18,
+        SensorLocation = "Office",
+        Brightness = 582,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 87,
         AirQuality = 63,
         SensorLocation = "Company",
-        Brightness = 1472
+        Brightness = 595,
+        Humidity = 57
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 56,
-        SensorLocation = "Company",
-        Brightness = 426
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 1257
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 42,
-        SensorLocation = "Company",
-        Brightness = 951
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 48,
-        SensorLocation = "WareHouse",
-        Brightness = 1228
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 740
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 680
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 621
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 89,
-        SensorLocation = "Company",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 58,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 55,
-        SensorLocation = "Office",
-        Brightness = 1120
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 240
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 87,
-        SensorLocation = "Office",
-        Brightness = 817
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 69,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 1409
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 895
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1034
-    },
-    new()
-    {
-        Temperature = 35,
+    new() {
+        Temperature = 57,
         AirQuality = 9,
         SensorLocation = "Office",
-        Brightness = 1546
+        Brightness = 179,
+        Humidity = 100
     },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 432
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1451
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 495
-    },
-    new()
-    {
+    new() {
         Temperature = 27,
-        AirQuality = 22,
+        AirQuality = 11,
         SensorLocation = "Office",
-        Brightness = 1038
+        Brightness = 1296,
+        Humidity = 98
     },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 1260
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 98,
-        SensorLocation = "Company",
-        Brightness = 1264
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 218
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 389
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 67,
-        SensorLocation = "Office",
-        Brightness = 347
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
+    new() {
         Temperature = 11,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 964
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 86,
+        AirQuality = 73,
         SensorLocation = "Company",
-        Brightness = 674
+        Brightness = 563,
+        Humidity = 65
     },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 233
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 31,
-        SensorLocation = "Company",
-        Brightness = 1037
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 542
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 10,
+    new() {
+        Temperature = 35,
+        AirQuality = 88,
         SensorLocation = "Office",
-        Brightness = 1166
+        Brightness = 765,
+        Humidity = 31
     },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "WareHouse",
-        Brightness = 1072
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 57,
+    new() {
+        Temperature = 46,
+        AirQuality = 38,
         SensorLocation = "Company",
-        Brightness = 505
+        Brightness = 873,
+        Humidity = 46
     },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
+    new() {
+        Temperature = 55,
+        AirQuality = 99,
         SensorLocation = "Office",
-        Brightness = 1519
+        Brightness = 297,
+        Humidity = 47
     },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 44,
+    new() {
+        Temperature = 65,
+        AirQuality = 62,
         SensorLocation = "Office",
-        Brightness = 771
+        Brightness = 832,
+        Humidity = 57
     },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 39,
-        SensorLocation = "WareHouse",
-        Brightness = 1132
+    new() {
+        Temperature = 66,
+        AirQuality = 80,
+        SensorLocation = "WareHourse",
+        Brightness = 238,
+        Humidity = 36
     },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 1459
+    new() {
+        Temperature = 55,
+        AirQuality = 58,
+        SensorLocation = "WareHourse",
+        Brightness = 822,
+        Humidity = 41
     },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1001
+    new() {
+        Temperature = 20,
+        AirQuality = 50,
+        SensorLocation = "WareHourse",
+        Brightness = 1100,
+        Humidity = 53
     },
-    new()
-    {
+    new() {
         Temperature = 11,
         AirQuality = 5,
-        SensorLocation = "WareHouse",
-        Brightness = 568
+        SensorLocation = "Company",
+        Brightness = 1038,
+        Humidity = 86
     },
-    new()
-    {
+    new() {
+        Temperature = 44,
+        AirQuality = 38,
+        SensorLocation = "WareHourse",
+        Brightness = 623,
+        Humidity = 95
+    },
+    new() {
         Temperature = 11,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 11,
-        SensorLocation = "Office",
-        Brightness = 1379
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 700
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 605
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 69,
-        SensorLocation = "WareHouse",
-        Brightness = 1300
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 1,
-        SensorLocation = "Company",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 983
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1128
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 48,
-        SensorLocation = "Office",
-        Brightness = 1130
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 90,
-        SensorLocation = "Office",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1173
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 1071
-    },
-    new()
-    {
-        Temperature = 45,
         AirQuality = 2,
-        SensorLocation = "WareHouse",
-        Brightness = 1157
+        SensorLocation = "WareHourse",
+        Brightness = 512,
+        Humidity = 94
     },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 342
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1110
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 442
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 644
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1464
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 1438
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1143
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1528
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 807
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 625
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 702
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1121
-    },
-    new()
-    {
-        Temperature = 36,
+    new() {
+        Temperature = 5,
         AirQuality = 57,
         SensorLocation = "Office",
-        Brightness = 315
+        Brightness = 511,
+        Humidity = 93
     },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1033
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1122
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 893
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1505
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1480
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 1321
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 694
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 1380
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1068
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1100
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 437
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 535
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1258
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 1213
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 1169
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 1003
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "WareHouse",
-        Brightness = 915
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 1506
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 241
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 1481
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1129
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 682
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 85,
-        SensorLocation = "Office",
-        Brightness = 632
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 267
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1408
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 773
-    },
-    new()
-    {
+    new() {
         Temperature = 6,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 499
+        AirQuality = 24,
+        SensorLocation = "WareHourse",
+        Brightness = 1467,
+        Humidity = 73
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 6,
+    new() {
+        Temperature = 79,
+        AirQuality = 58,
         SensorLocation = "Office",
-        Brightness = 557
+        Brightness = 552,
+        Humidity = 96
     },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 1294
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 16,
-        SensorLocation = "Company",
-        Brightness = 795
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 94,
+    new() {
+        Temperature = 6,
+        AirQuality = 5,
         SensorLocation = "Office",
-        Brightness = 1556
+        Brightness = 543,
+        Humidity = 99
     },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 59,
+    new() {
+        Temperature = 67,
+        AirQuality = 84,
         SensorLocation = "Company",
-        Brightness = 769
+        Brightness = 1067,
+        Humidity = 68
     },
-    new()
-    {
-        Temperature = 47,
+    new() {
+        Temperature = 5,
+        AirQuality = 96,
+        SensorLocation = "WareHourse",
+        Brightness = 902,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 49,
         AirQuality = 38,
         SensorLocation = "Company",
-        Brightness = 1293
+        Brightness = 290,
+        Humidity = 32
     },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 848
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1232
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 1429
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 1371
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 29,
-        SensorLocation = "Office",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 989
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 269
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 25,
-        SensorLocation = "WareHouse",
-        Brightness = 1466
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 658
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 24,
-        SensorLocation = "Office",
-        Brightness = 1136
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 578
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 332
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1190
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 444
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1338
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 922
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 260
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 880
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1502
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1098
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1142
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1518
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 60,
-        SensorLocation = "WareHouse",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 95,
+    new() {
+        Temperature = 66,
+        AirQuality = 27,
         SensorLocation = "Company",
-        Brightness = 430
+        Brightness = 614,
+        Humidity = 88
     },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 61,
-        SensorLocation = "Company",
-        Brightness = 888
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1509
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 457
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 723
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1061
-    },
-    new()
-    {
-        Temperature = 18,
+    new() {
+        Temperature = 88,
         AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 1550
+        SensorLocation = "Company",
+        Brightness = 659,
+        Humidity = 74
     },
-    new()
-    {
-        Temperature = 10,
+    new() {
+        Temperature = 96,
+        AirQuality = 71,
+        SensorLocation = "Company",
+        Brightness = 707,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 10,
+        SensorLocation = "Office",
+        Brightness = 1219,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 79,
         AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 963
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 470
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 386
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 64,
-        SensorLocation = "Company",
-        Brightness = 1515
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 41,
-        SensorLocation = "WareHouse",
-        Brightness = 1007
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1185
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 24,
-        SensorLocation = "WareHouse",
-        Brightness = 446
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 66,
         SensorLocation = "Office",
-        Brightness = 876
+        Brightness = 225,
+        Humidity = 39
     },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 305
+    new() {
+        Temperature = 43,
+        AirQuality = 4,
+        SensorLocation = "WareHourse",
+        Brightness = 788,
+        Humidity = 41
     },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 981
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 369
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 78,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 89,
-        SensorLocation = "Office",
-        Brightness = 716
-    },
-    new()
-    {
-        Temperature = 25,
+    new() {
+        Temperature = 59,
         AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1220
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1521
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 34,
         SensorLocation = "Office",
-        Brightness = 488
+        Brightness = 377,
+        Humidity = 67
     },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 844
+    new() {
+        Temperature = 64,
+        AirQuality = 52,
+        SensorLocation = "WareHourse",
+        Brightness = 1500,
+        Humidity = 37
     },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1465
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 529
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 34,
+    new() {
+        Temperature = 6,
+        AirQuality = 64,
         SensorLocation = "Office",
-        Brightness = 1064
+        Brightness = 361,
+        Humidity = 39
     },
-    new()
-    {
-        Temperature = 21,
+    new() {
+        Temperature = 87,
+        AirQuality = 90,
+        SensorLocation = "Office",
+        Brightness = 1383,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 63,
+        SensorLocation = "WareHourse",
+        Brightness = 846,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 47,
+        AirQuality = 18,
+        SensorLocation = "WareHourse",
+        Brightness = 1484,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 79,
+        SensorLocation = "WareHourse",
+        Brightness = 1285,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 40,
         AirQuality = 74,
         SensorLocation = "Company",
-        Brightness = 729
+        Brightness = 726,
+        Humidity = 50
     },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 468
+    new() {
+        Temperature = 77,
+        AirQuality = 40,
+        SensorLocation = "WareHourse",
+        Brightness = 1116,
+        Humidity = 84
     },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 90,
+    new() {
+        Temperature = 72,
+        AirQuality = 18,
+        SensorLocation = "WareHourse",
+        Brightness = 1122,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 34,
+        SensorLocation = "Office",
+        Brightness = 1443,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 96,
+        AirQuality = 21,
         SensorLocation = "Company",
-        Brightness = 1328
+        Brightness = 1137,
+        Humidity = 97
     },
-    new()
-    {
-        Temperature = 46,
+    new() {
+        Temperature = 35,
+        AirQuality = 49,
+        SensorLocation = "Office",
+        Brightness = 483,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 31,
+        SensorLocation = "WareHourse",
+        Brightness = 582,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 65,
+        SensorLocation = "Company",
+        Brightness = 832,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 49,
+        SensorLocation = "WareHourse",
+        Brightness = 351,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 44,
+        SensorLocation = "Company",
+        Brightness = 1316,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 55,
+        SensorLocation = "WareHourse",
+        Brightness = 663,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 64,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 680,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 43,
+        SensorLocation = "Office",
+        Brightness = 840,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 98,
+        AirQuality = 7,
+        SensorLocation = "Company",
+        Brightness = 500,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 3,
+        SensorLocation = "Office",
+        Brightness = 442,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 100,
+        AirQuality = 28,
+        SensorLocation = "WareHourse",
+        Brightness = 549,
+        Humidity = 40
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 1303,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 18,
+        SensorLocation = "Company",
+        Brightness = 904,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 14,
+        SensorLocation = "Company",
+        Brightness = 715,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 24,
+        AirQuality = 11,
+        SensorLocation = "WareHourse",
+        Brightness = 1115,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 93,
+        AirQuality = 91,
+        SensorLocation = "WareHourse",
+        Brightness = 809,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 849,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 44,
+        SensorLocation = "Company",
+        Brightness = 664,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 57,
+        AirQuality = 72,
+        SensorLocation = "WareHourse",
+        Brightness = 1125,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 13,
+        SensorLocation = "Office",
+        Brightness = 1122,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 93,
+        SensorLocation = "Office",
+        Brightness = 639,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 28,
+        SensorLocation = "Office",
+        Brightness = 831,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 14,
+        SensorLocation = "Company",
+        Brightness = 432,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 89,
+        AirQuality = 85,
+        SensorLocation = "Office",
+        Brightness = 632,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 55,
+        SensorLocation = "Company",
+        Brightness = 1193,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 96,
+        SensorLocation = "Company",
+        Brightness = 387,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 18,
+        SensorLocation = "Office",
+        Brightness = 1440,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 44,
+        SensorLocation = "WareHourse",
+        Brightness = 106,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 37,
+        AirQuality = 10,
+        SensorLocation = "WareHourse",
+        Brightness = 1072,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 9,
+        SensorLocation = "WareHourse",
+        Brightness = 724,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 13,
+        AirQuality = 39,
+        SensorLocation = "Company",
+        Brightness = 622,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 79,
+        SensorLocation = "WareHourse",
+        Brightness = 163,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 65,
+        SensorLocation = "Company",
+        Brightness = 164,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 76,
+        AirQuality = 1,
+        SensorLocation = "WareHourse",
+        Brightness = 1434,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 39,
+        AirQuality = 23,
+        SensorLocation = "Office",
+        Brightness = 251,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 50,
+        SensorLocation = "WareHourse",
+        Brightness = 1200,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 86,
+        SensorLocation = "Office",
+        Brightness = 193,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 98,
+        SensorLocation = "Company",
+        Brightness = 582,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 31,
         AirQuality = 67,
-        SensorLocation = "WareHouse",
-        Brightness = 1436
+        SensorLocation = "WareHourse",
+        Brightness = 644,
+        Humidity = 82
     },
-    new()
-    {
+    new() {
+        Temperature = 49,
+        AirQuality = 42,
+        SensorLocation = "Office",
+        Brightness = 751,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 84,
+        SensorLocation = "Office",
+        Brightness = 1493,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 40,
+        SensorLocation = "Company",
+        Brightness = 1382,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 21,
+        SensorLocation = "Company",
+        Brightness = 170,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 21,
+        SensorLocation = "Office",
+        Brightness = 986,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 41,
+        AirQuality = 60,
+        SensorLocation = "WareHourse",
+        Brightness = 147,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 1381,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 82,
+        SensorLocation = "WareHourse",
+        Brightness = 325,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 17,
+        SensorLocation = "WareHourse",
+        Brightness = 639,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 22,
+        SensorLocation = "Office",
+        Brightness = 1277,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 85,
+        SensorLocation = "Company",
+        Brightness = 1087,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 58,
+        AirQuality = 45,
+        SensorLocation = "Office",
+        Brightness = 1378,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 22,
+        SensorLocation = "Company",
+        Brightness = 738,
+        Humidity = 43
+    },
+    new() {
         Temperature = 21,
+        AirQuality = 31,
+        SensorLocation = "Company",
+        Brightness = 864,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 4,
+        SensorLocation = "Office",
+        Brightness = 1301,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 67,
+        SensorLocation = "Office",
+        Brightness = 448,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 77,
+        SensorLocation = "Office",
+        Brightness = 1202,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 58,
+        AirQuality = 44,
+        SensorLocation = "WareHourse",
+        Brightness = 1412,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 85,
+        SensorLocation = "Office",
+        Brightness = 177,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 59,
+        SensorLocation = "Company",
+        Brightness = 266,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 74,
+        SensorLocation = "WareHourse",
+        Brightness = 228,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 98,
+        SensorLocation = "Office",
+        Brightness = 731,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 62,
+        SensorLocation = "Company",
+        Brightness = 1335,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 38,
+        SensorLocation = "Company",
+        Brightness = 136,
+        Humidity = 30
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 86,
+        SensorLocation = "Office",
+        Brightness = 1438,
+        Humidity = 71
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 44,
+        SensorLocation = "Company",
+        Brightness = 355,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 77,
+        SensorLocation = "Company",
+        Brightness = 1190,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 89,
+        AirQuality = 89,
+        SensorLocation = "Office",
+        Brightness = 438,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 82,
+        SensorLocation = "Office",
+        Brightness = 931,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 129,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 67,
+        SensorLocation = "Company",
+        Brightness = 344,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 5,
+        SensorLocation = "Company",
+        Brightness = 437,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 65,
+        SensorLocation = "Office",
+        Brightness = 847,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 15,
+        SensorLocation = "Office",
+        Brightness = 971,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 28,
+        SensorLocation = "WareHourse",
+        Brightness = 206,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 76,
+        SensorLocation = "WareHourse",
+        Brightness = 1140,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 46,
+        AirQuality = 80,
+        SensorLocation = "Company",
+        Brightness = 526,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 73,
+        AirQuality = 93,
+        SensorLocation = "WareHourse",
+        Brightness = 686,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 37,
+        AirQuality = 41,
+        SensorLocation = "Company",
+        Brightness = 932,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 97,
+        AirQuality = 69,
+        SensorLocation = "WareHourse",
+        Brightness = 494,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 9,
+        SensorLocation = "WareHourse",
+        Brightness = 1398,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 81,
+        AirQuality = 72,
+        SensorLocation = "Company",
+        Brightness = 460,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 40,
+        SensorLocation = "Office",
+        Brightness = 568,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 27,
+        SensorLocation = "Office",
+        Brightness = 454,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 98,
+        SensorLocation = "WareHourse",
+        Brightness = 293,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 80,
+        SensorLocation = "WareHourse",
+        Brightness = 627,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 50,
+        AirQuality = 99,
+        SensorLocation = "Office",
+        Brightness = 493,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 5,
+        SensorLocation = "Company",
+        Brightness = 1132,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 13,
+        SensorLocation = "Office",
+        Brightness = 1201,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 2,
+        SensorLocation = "Office",
+        Brightness = 410,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 34,
+        SensorLocation = "Company",
+        Brightness = 312,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 71,
+        SensorLocation = "Office",
+        Brightness = 321,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 28,
+        SensorLocation = "WareHourse",
+        Brightness = 679,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 64,
+        SensorLocation = "Company",
+        Brightness = 1492,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 46,
+        SensorLocation = "WareHourse",
+        Brightness = 1069,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 61,
+        SensorLocation = "Company",
+        Brightness = 1058,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 34,
+        AirQuality = 98,
+        SensorLocation = "WareHourse",
+        Brightness = 1260,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 4,
+        SensorLocation = "WareHourse",
+        Brightness = 694,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 17,
+        SensorLocation = "WareHourse",
+        Brightness = 248,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 29,
+        AirQuality = 99,
+        SensorLocation = "Office",
+        Brightness = 767,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 6,
+        SensorLocation = "Office",
+        Brightness = 403,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 78,
+        SensorLocation = "WareHourse",
+        Brightness = 856,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 15,
+        SensorLocation = "Office",
+        Brightness = 423,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 29,
+        SensorLocation = "Company",
+        Brightness = 478,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 80,
+        SensorLocation = "Company",
+        Brightness = 851,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 1176,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 76,
+        AirQuality = 64,
+        SensorLocation = "Company",
+        Brightness = 803,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 100,
+        SensorLocation = "Company",
+        Brightness = 235,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 9,
+        AirQuality = 89,
+        SensorLocation = "Company",
+        Brightness = 806,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 54,
+        SensorLocation = "Company",
+        Brightness = 318,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 42,
+        SensorLocation = "WareHourse",
+        Brightness = 583,
+        Humidity = 99
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 23,
+        SensorLocation = "WareHourse",
+        Brightness = 114,
+        Humidity = 48
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 34,
+        SensorLocation = "Company",
+        Brightness = 1217,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 10,
+        SensorLocation = "Company",
+        Brightness = 1226,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 94,
+        SensorLocation = "Company",
+        Brightness = 1098,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 69,
+        SensorLocation = "Company",
+        Brightness = 1222,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 7,
+        SensorLocation = "Office",
+        Brightness = 390,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 1414,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 1,
+        SensorLocation = "WareHourse",
+        Brightness = 235,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 446,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 100,
+        SensorLocation = "Office",
+        Brightness = 742,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 74,
+        SensorLocation = "Office",
+        Brightness = 1184,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 25,
+        SensorLocation = "Office",
+        Brightness = 1306,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 72,
+        SensorLocation = "Company",
+        Brightness = 877,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 10,
+        SensorLocation = "Office",
+        Brightness = 125,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 89,
+        AirQuality = 71,
+        SensorLocation = "WareHourse",
+        Brightness = 525,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 95,
+        SensorLocation = "Company",
+        Brightness = 733,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 49,
+        AirQuality = 39,
+        SensorLocation = "Office",
+        Brightness = 1391,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 67,
+        SensorLocation = "WareHourse",
+        Brightness = 892,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 921,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 64,
+        SensorLocation = "Office",
+        Brightness = 281,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 73,
+        AirQuality = 74,
+        SensorLocation = "WareHourse",
+        Brightness = 415,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 77,
+        SensorLocation = "WareHourse",
+        Brightness = 1311,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 44,
+        SensorLocation = "Company",
+        Brightness = 933,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 86,
+        SensorLocation = "WareHourse",
+        Brightness = 1273,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 68,
+        SensorLocation = "Office",
+        Brightness = 993,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 2,
+        SensorLocation = "Office",
+        Brightness = 1469,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 76,
+        SensorLocation = "Company",
+        Brightness = 1363,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 83,
+        SensorLocation = "Office",
+        Brightness = 736,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 31,
+        SensorLocation = "Office",
+        Brightness = 282,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 52,
+        SensorLocation = "Office",
+        Brightness = 1196,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 98,
+        AirQuality = 8,
+        SensorLocation = "WareHourse",
+        Brightness = 1140,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 35,
+        SensorLocation = "Company",
+        Brightness = 1388,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 22,
+        SensorLocation = "Company",
+        Brightness = 262,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 25,
+        SensorLocation = "Company",
+        Brightness = 303,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 77,
+        SensorLocation = "WareHourse",
+        Brightness = 1251,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 178,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 7,
+        SensorLocation = "Company",
+        Brightness = 493,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 568,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 10,
+        SensorLocation = "Company",
+        Brightness = 290,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 6,
+        SensorLocation = "Company",
+        Brightness = 680,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 60,
+        SensorLocation = "Company",
+        Brightness = 937,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 84,
+        SensorLocation = "Company",
+        Brightness = 1410,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 33,
+        SensorLocation = "Company",
+        Brightness = 1072,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 27,
+        SensorLocation = "WareHourse",
+        Brightness = 552,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 358,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 11,
+        SensorLocation = "WareHourse",
+        Brightness = 428,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 82,
+        SensorLocation = "Company",
+        Brightness = 322,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 29,
+        AirQuality = 98,
+        SensorLocation = "WareHourse",
+        Brightness = 422,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 81,
+        SensorLocation = "Office",
+        Brightness = 308,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 22,
+        SensorLocation = "WareHourse",
+        Brightness = 1177,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 50,
+        AirQuality = 43,
+        SensorLocation = "Office",
+        Brightness = 797,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 7,
+        SensorLocation = "Company",
+        Brightness = 648,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 26,
+        SensorLocation = "Company",
+        Brightness = 949,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 35,
+        AirQuality = 15,
+        SensorLocation = "Office",
+        Brightness = 818,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 14,
+        SensorLocation = "WareHourse",
+        Brightness = 948,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 12,
+        SensorLocation = "WareHourse",
+        Brightness = 176,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 70,
+        SensorLocation = "Company",
+        Brightness = 934,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 47,
+        SensorLocation = "Office",
+        Brightness = 379,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 85,
+        SensorLocation = "Company",
+        Brightness = 895,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 87,
+        SensorLocation = "Office",
+        Brightness = 941,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 93,
+        SensorLocation = "WareHourse",
+        Brightness = 1119,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 20,
+        AirQuality = 42,
+        SensorLocation = "Office",
+        Brightness = 1487,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 44,
+        SensorLocation = "WareHourse",
+        Brightness = 1355,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 5,
+        AirQuality = 75,
+        SensorLocation = "Company",
+        Brightness = 483,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 5,
+        AirQuality = 63,
+        SensorLocation = "Company",
+        Brightness = 1165,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 5,
+        SensorLocation = "Company",
+        Brightness = 380,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 47,
+        AirQuality = 47,
+        SensorLocation = "Company",
+        Brightness = 999,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 11,
+        SensorLocation = "Company",
+        Brightness = 561,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 50,
+        AirQuality = 86,
+        SensorLocation = "Company",
+        Brightness = 1248,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 31,
+        SensorLocation = "Company",
+        Brightness = 981,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 42,
+        AirQuality = 17,
+        SensorLocation = "Office",
+        Brightness = 417,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 82,
+        SensorLocation = "Company",
+        Brightness = 1412,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 52,
+        SensorLocation = "Company",
+        Brightness = 333,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 69,
+        SensorLocation = "WareHourse",
+        Brightness = 788,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 8,
+        SensorLocation = "WareHourse",
+        Brightness = 910,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 93,
+        SensorLocation = "Company",
+        Brightness = 1340,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 78,
+        SensorLocation = "Company",
+        Brightness = 1095,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 54,
+        SensorLocation = "Office",
+        Brightness = 495,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 6,
+        SensorLocation = "Company",
+        Brightness = 242,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 99,
+        SensorLocation = "Company",
+        Brightness = 1261,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 61,
+        SensorLocation = "WareHourse",
+        Brightness = 483,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 60,
+        SensorLocation = "Office",
+        Brightness = 737,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 79,
+        AirQuality = 23,
+        SensorLocation = "WareHourse",
+        Brightness = 1193,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 78,
+        SensorLocation = "WareHourse",
+        Brightness = 994,
+        Humidity = 64
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 95,
+        SensorLocation = "Company",
+        Brightness = 1459,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 92,
+        SensorLocation = "Office",
+        Brightness = 570,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 99,
+        SensorLocation = "WareHourse",
+        Brightness = 1292,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 56,
+        AirQuality = 22,
+        SensorLocation = "Office",
+        Brightness = 1420,
+        Humidity = 79
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 404,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 91,
+        SensorLocation = "Company",
+        Brightness = 796,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 4,
+        SensorLocation = "Company",
+        Brightness = 625,
+        Humidity = 59
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 78,
+        SensorLocation = "WareHourse",
+        Brightness = 205,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 25,
+        SensorLocation = "WareHourse",
+        Brightness = 393,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 26,
+        SensorLocation = "Company",
+        Brightness = 941,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 22,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 1055,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 64,
+        SensorLocation = "Company",
+        Brightness = 305,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 72,
+        SensorLocation = "WareHourse",
+        Brightness = 741,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 3,
+        SensorLocation = "Company",
+        Brightness = 966,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 78,
+        SensorLocation = "Company",
+        Brightness = 1128,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 4,
+        SensorLocation = "WareHourse",
+        Brightness = 856,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 41,
+        SensorLocation = "Company",
+        Brightness = 1108,
+        Humidity = 59
+    },
+    new() {
+        Temperature = 82,
+        AirQuality = 73,
+        SensorLocation = "Company",
+        Brightness = 352,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 21,
+        SensorLocation = "Office",
+        Brightness = 775,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 93,
+        AirQuality = 65,
+        SensorLocation = "Company",
+        Brightness = 846,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 25,
+        SensorLocation = "Office",
+        Brightness = 1021,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 29,
+        AirQuality = 3,
+        SensorLocation = "Office",
+        Brightness = 624,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 90,
+        SensorLocation = "Office",
+        Brightness = 254,
+        Humidity = 48
+    },
+    new() {
+        Temperature = 35,
+        AirQuality = 48,
+        SensorLocation = "Company",
+        Brightness = 1100,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 78,
+        SensorLocation = "Office",
+        Brightness = 866,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 72,
+        SensorLocation = "Company",
+        Brightness = 689,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 54,
+        SensorLocation = "Office",
+        Brightness = 144,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 34,
+        SensorLocation = "Office",
+        Brightness = 1020,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 56,
+        AirQuality = 32,
+        SensorLocation = "Office",
+        Brightness = 644,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 36,
+        SensorLocation = "WareHourse",
+        Brightness = 194,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 34,
+        AirQuality = 95,
+        SensorLocation = "Company",
+        Brightness = 1490,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 5,
         AirQuality = 59,
         SensorLocation = "Office",
-        Brightness = 782
+        Brightness = 1037,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 59,
+        SensorLocation = "WareHourse",
+        Brightness = 1231,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 25,
+        SensorLocation = "Office",
+        Brightness = 992,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 82,
+        AirQuality = 95,
+        SensorLocation = "WareHourse",
+        Brightness = 188,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 567,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 46,
+        AirQuality = 82,
+        SensorLocation = "Company",
+        Brightness = 1131,
+        Humidity = 59
+    },
+    new() {
+        Temperature = 20,
+        AirQuality = 3,
+        SensorLocation = "WareHourse",
+        Brightness = 1220,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 1215,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 79,
+        SensorLocation = "Office",
+        Brightness = 640,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 8,
+        SensorLocation = "Company",
+        Brightness = 672,
+        Humidity = 40
+    },
+    new() {
+        Temperature = 20,
+        AirQuality = 66,
+        SensorLocation = "Office",
+        Brightness = 621,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 91,
+        SensorLocation = "Company",
+        Brightness = 164,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 41,
+        SensorLocation = "WareHourse",
+        Brightness = 764,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 81,
+        SensorLocation = "WareHourse",
+        Brightness = 336,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 299,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 60,
+        SensorLocation = "Company",
+        Brightness = 380,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 46,
+        SensorLocation = "Company",
+        Brightness = 1289,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 39,
+        SensorLocation = "Company",
+        Brightness = 375,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 80,
+        SensorLocation = "Company",
+        Brightness = 345,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 95,
+        SensorLocation = "Company",
+        Brightness = 958,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 35,
+        AirQuality = 61,
+        SensorLocation = "Company",
+        Brightness = 861,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 98,
+        AirQuality = 38,
+        SensorLocation = "WareHourse",
+        Brightness = 1492,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 52,
+        SensorLocation = "Office",
+        Brightness = 1192,
+        Humidity = 99
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 54,
+        SensorLocation = "WareHourse",
+        Brightness = 241,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 94,
+        SensorLocation = "Office",
+        Brightness = 1399,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 97,
+        AirQuality = 22,
+        SensorLocation = "WareHourse",
+        Brightness = 1433,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 62,
+        SensorLocation = "Office",
+        Brightness = 496,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 6,
+        SensorLocation = "WareHourse",
+        Brightness = 643,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 35,
+        SensorLocation = "Office",
+        Brightness = 690,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 50,
+        AirQuality = 67,
+        SensorLocation = "Office",
+        Brightness = 636,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 92,
+        SensorLocation = "WareHourse",
+        Brightness = 646,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 47,
+        AirQuality = 97,
+        SensorLocation = "Company",
+        Brightness = 917,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 87,
+        SensorLocation = "Office",
+        Brightness = 554,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 42,
+        AirQuality = 54,
+        SensorLocation = "Company",
+        Brightness = 1354,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 87,
+        SensorLocation = "WareHourse",
+        Brightness = 302,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 22,
+        AirQuality = 10,
+        SensorLocation = "WareHourse",
+        Brightness = 983,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 89,
+        SensorLocation = "Office",
+        Brightness = 1217,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 87,
+        SensorLocation = "Office",
+        Brightness = 1054,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 82,
+        AirQuality = 18,
+        SensorLocation = "WareHourse",
+        Brightness = 1495,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 4,
+        SensorLocation = "WareHourse",
+        Brightness = 129,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 22,
+        AirQuality = 94,
+        SensorLocation = "Office",
+        Brightness = 1304,
+        Humidity = 50
     }
-    , new()
-                {
-                    Temperature = 11,
-                    AirQuality = 4,
-                    SensorLocation = "Company",
-                    Brightness = 1451
-                },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 30,
+    ,
+    new() {
+        Temperature = 7,
+        AirQuality = 88,
         SensorLocation = "Office",
-        Brightness = 1563
+        Brightness = 1413,
+        Humidity = 54
     },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 15,
-        SensorLocation = "WareHouse",
-        Brightness = 861
+    new() {
+        Temperature = 92,
+        AirQuality = 47,
+        SensorLocation = "WareHourse",
+        Brightness = 1480,
+        Humidity = 65
     },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 0,
-        SensorLocation = "WareHouse",
-        Brightness = 1356
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 34,
-        SensorLocation = "WareHouse",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 312
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 662
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 556
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 235
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 743
-    },
-    new()
-    {
-        Temperature = 46,
+    new() {
+        Temperature = 81,
         AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1150
+        SensorLocation = "WareHourse",
+        Brightness = 114,
+        Humidity = 79
     },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 611
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 0,
-        SensorLocation = "Company",
-        Brightness = 409
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 515
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1112
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 862
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 1075
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 84,
-        SensorLocation = "WareHouse",
-        Brightness = 1572
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 296
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 1088
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 14,
-        SensorLocation = "Company",
-        Brightness = 1013
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 19,
-        SensorLocation = "Company",
-        Brightness = 483
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 538
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 4,
-        SensorLocation = "Company",
-        Brightness = 713
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 299
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1411
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 52,
-        SensorLocation = "Company",
-        Brightness = 1243
-    },
-    new()
-    {
+    new() {
         Temperature = 9,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1372
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1400
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 994
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1115
-    },
-    new()
-    {
-        Temperature = 44,
         AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 816
+        SensorLocation = "Office",
+        Brightness = 683,
+        Humidity = 63
     },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 448
+    new() {
+        Temperature = 88,
+        AirQuality = 78,
+        SensorLocation = "WareHourse",
+        Brightness = 1026,
+        Humidity = 38
     },
-    new()
-    {
-        Temperature = 48,
+    new() {
+        Temperature = 9,
+        AirQuality = 15,
+        SensorLocation = "Office",
+        Brightness = 1118,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 97,
+        SensorLocation = "Office",
+        Brightness = 418,
+        Humidity = 99
+    },
+    new() {
+        Temperature = 32,
+        AirQuality = 84,
+        SensorLocation = "WareHourse",
+        Brightness = 443,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 50,
+        AirQuality = 88,
+        SensorLocation = "Office",
+        Brightness = 1116,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 1,
+        SensorLocation = "Office",
+        Brightness = 360,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 46,
+        AirQuality = 77,
+        SensorLocation = "WareHourse",
+        Brightness = 161,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 54,
+        SensorLocation = "Office",
+        Brightness = 1081,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 47,
+        SensorLocation = "Company",
+        Brightness = 122,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 29,
+        SensorLocation = "Office",
+        Brightness = 1295,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 57,
+        AirQuality = 92,
+        SensorLocation = "Office",
+        Brightness = 756,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 74,
+        SensorLocation = "Company",
+        Brightness = 1294,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 71,
+        SensorLocation = "Company",
+        Brightness = 1071,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 23,
+        SensorLocation = "Office",
+        Brightness = 1447,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 54,
+        SensorLocation = "WareHourse",
+        Brightness = 488,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 39,
+        SensorLocation = "Company",
+        Brightness = 944,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 94,
+        SensorLocation = "Company",
+        Brightness = 712,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 86,
+        SensorLocation = "WareHourse",
+        Brightness = 1112,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 39,
+        AirQuality = 63,
+        SensorLocation = "WareHourse",
+        Brightness = 1009,
+        Humidity = 64
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 16,
+        SensorLocation = "Company",
+        Brightness = 1224,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 649,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 41,
+        AirQuality = 5,
+        SensorLocation = "WareHourse",
+        Brightness = 117,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 18,
+        SensorLocation = "Office",
+        Brightness = 668,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 53,
+        SensorLocation = "WareHourse",
+        Brightness = 573,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 85,
+        SensorLocation = "WareHourse",
+        Brightness = 487,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 37,
+        AirQuality = 59,
+        SensorLocation = "Office",
+        Brightness = 140,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 540,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 8,
+        SensorLocation = "WareHourse",
+        Brightness = 454,
+        Humidity = 48
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 75,
+        SensorLocation = "Office",
+        Brightness = 1352,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 37,
+        AirQuality = 58,
+        SensorLocation = "Company",
+        Brightness = 1034,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 71,
+        SensorLocation = "Office",
+        Brightness = 453,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 67,
+        SensorLocation = "WareHourse",
+        Brightness = 640,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 85,
+        SensorLocation = "Company",
+        Brightness = 594,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 6,
+        SensorLocation = "Office",
+        Brightness = 942,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 24,
+        SensorLocation = "Company",
+        Brightness = 647,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 23,
+        SensorLocation = "Office",
+        Brightness = 1122,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 95,
+        SensorLocation = "Office",
+        Brightness = 1280,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 78,
         AirQuality = 7,
         SensorLocation = "Company",
-        Brightness = 616
+        Brightness = 1228,
+        Humidity = 57
     },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1025
+    new() {
+        Temperature = 34,
+        AirQuality = 57,
+        SensorLocation = "Office",
+        Brightness = 1190,
+        Humidity = 65
     },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 62,
-        SensorLocation = "WareHouse",
-        Brightness = 1238
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 77,
+    new() {
+        Temperature = 99,
+        AirQuality = 14,
         SensorLocation = "Company",
-        Brightness = 1154
+        Brightness = 983,
+        Humidity = 68
     },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 19,
+    new() {
+        Temperature = 75,
+        AirQuality = 76,
         SensorLocation = "Office",
-        Brightness = 708
+        Brightness = 724,
+        Humidity = 85
     },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 230
+    new() {
+        Temperature = 34,
+        AirQuality = 25,
+        SensorLocation = "WareHourse",
+        Brightness = 572,
+        Humidity = 88
     },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 441
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 548
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1097
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 358
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1292
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1552
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1089
-    },
-    new()
-    {
+    new() {
         Temperature = 43,
-        AirQuality = 65,
+        AirQuality = 11,
+        SensorLocation = "Office",
+        Brightness = 1268,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 41,
+        AirQuality = 48,
         SensorLocation = "Company",
-        Brightness = 1567
+        Brightness = 538,
+        Humidity = 60
     },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 94,
+    new() {
+        Temperature = 15,
+        AirQuality = 17,
+        SensorLocation = "Office",
+        Brightness = 781,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 61,
+        SensorLocation = "Office",
+        Brightness = 522,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 32,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 788,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 73,
+        SensorLocation = "WareHourse",
+        Brightness = 194,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 13,
+        AirQuality = 7,
+        SensorLocation = "WareHourse",
+        Brightness = 1356,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 95,
         SensorLocation = "Company",
-        Brightness = 391
+        Brightness = 751,
+        Humidity = 94
     },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 288
+    new() {
+        Temperature = 62,
+        AirQuality = 97,
+        SensorLocation = "WareHourse",
+        Brightness = 698,
+        Humidity = 70
     },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 779
+    new() {
+        Temperature = 33,
+        AirQuality = 66,
+        SensorLocation = "Office",
+        Brightness = 1085,
+        Humidity = 77
     },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
+    new() {
+        Temperature = 73,
+        AirQuality = 80,
+        SensorLocation = "Company",
+        Brightness = 344,
+        Humidity = 47
     },
-    new()
-    {
-        Temperature = 16,
+    new() {
+        Temperature = 38,
+        AirQuality = 45,
+        SensorLocation = "WareHourse",
+        Brightness = 1100,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 57,
+        SensorLocation = "WareHourse",
+        Brightness = 1210,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 10,
+        SensorLocation = "Company",
+        Brightness = 931,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 97,
+        AirQuality = 17,
+        SensorLocation = "Office",
+        Brightness = 631,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 34,
         AirQuality = 53,
         SensorLocation = "Company",
-        Brightness = 1106
+        Brightness = 795,
+        Humidity = 50
     },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 1079
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
+    new() {
+        Temperature = 2,
+        AirQuality = 52,
         SensorLocation = "Company",
-        Brightness = 1316
+        Brightness = 727,
+        Humidity = 76
     },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1127
+    new() {
+        Temperature = 25,
+        AirQuality = 38,
+        SensorLocation = "Company",
+        Brightness = 605,
+        Humidity = 46
     },
-    new()
-    {
+    new() {
+        Temperature = 80,
+        AirQuality = 74,
+        SensorLocation = "WareHourse",
+        Brightness = 602,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 77,
+        SensorLocation = "WareHourse",
+        Brightness = 670,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 69,
+        SensorLocation = "WareHourse",
+        Brightness = 623,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 39,
+        AirQuality = 2,
+        SensorLocation = "Office",
+        Brightness = 369,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 56,
+        AirQuality = 41,
+        SensorLocation = "WareHourse",
+        Brightness = 1476,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 22,
+        SensorLocation = "WareHourse",
+        Brightness = 250,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 87,
+        SensorLocation = "Office",
+        Brightness = 885,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 15,
+        SensorLocation = "Company",
+        Brightness = 893,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 98,
+        SensorLocation = "Company",
+        Brightness = 130,
+        Humidity = 59
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 100,
+        SensorLocation = "Office",
+        Brightness = 353,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 1,
+        AirQuality = 94,
+        SensorLocation = "Office",
+        Brightness = 1387,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 87,
+        SensorLocation = "WareHourse",
+        Brightness = 1001,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 32,
+        SensorLocation = "WareHourse",
+        Brightness = 1177,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 476,
+        Humidity = 52
+    },
+    new() {
         Temperature = 13,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 79,
+        AirQuality = 45,
         SensorLocation = "Company",
-        Brightness = 325
+        Brightness = 455,
+        Humidity = 78
     },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 595
+    new() {
+        Temperature = 84,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 920,
+        Humidity = 50
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 1530
+    new() {
+        Temperature = 61,
+        AirQuality = 74,
+        SensorLocation = "WareHourse",
+        Brightness = 1098,
+        Humidity = 37
     },
-    new()
-    {
-        Temperature = 54,
+    new() {
+        Temperature = 92,
+        AirQuality = 5,
+        SensorLocation = "Company",
+        Brightness = 149,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 98,
+        AirQuality = 95,
+        SensorLocation = "Company",
+        Brightness = 1268,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 5,
+        SensorLocation = "Office",
+        Brightness = 1007,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 652,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 58,
+        SensorLocation = "Office",
+        Brightness = 1405,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 89,
+        SensorLocation = "WareHourse",
+        Brightness = 608,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 31,
+        SensorLocation = "Office",
+        Brightness = 282,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 37,
+        AirQuality = 35,
+        SensorLocation = "Company",
+        Brightness = 715,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 34,
+        SensorLocation = "Company",
+        Brightness = 1434,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 46,
         AirQuality = 12,
         SensorLocation = "Office",
-        Brightness = 1585
+        Brightness = 443,
+        Humidity = 77
     },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 64,
-        SensorLocation = "WareHouse",
-        Brightness = 362
+    new() {
+        Temperature = 52,
+        AirQuality = 84,
+        SensorLocation = "Office",
+        Brightness = 442,
+        Humidity = 99
     },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 852
+    new() {
+        Temperature = 10,
+        AirQuality = 91,
+        SensorLocation = "Company",
+        Brightness = 460,
+        Humidity = 61
     },
-    new()
-    {
-        Temperature = 18,
+    new() {
+        Temperature = 20,
+        AirQuality = 47,
+        SensorLocation = "WareHourse",
+        Brightness = 511,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 37,
+        SensorLocation = "Company",
+        Brightness = 1122,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 31,
+        SensorLocation = "Office",
+        Brightness = 1185,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 94,
+        SensorLocation = "WareHourse",
+        Brightness = 397,
+        Humidity = 48
+    },
+    new() {
+        Temperature = 97,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 150,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 64,
+        AirQuality = 59,
+        SensorLocation = "Company",
+        Brightness = 632,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 20,
+        SensorLocation = "Company",
+        Brightness = 227,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 81,
+        SensorLocation = "Company",
+        Brightness = 412,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 77,
+        SensorLocation = "WareHourse",
+        Brightness = 1397,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 42,
+        AirQuality = 36,
+        SensorLocation = "WareHourse",
+        Brightness = 1292,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 81,
+        AirQuality = 20,
+        SensorLocation = "WareHourse",
+        Brightness = 1303,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 29,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 902,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 34,
+        SensorLocation = "WareHourse",
+        Brightness = 1417,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 21,
+        SensorLocation = "Company",
+        Brightness = 107,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 31,
         AirQuality = 88,
         SensorLocation = "Company",
-        Brightness = 1207
+        Brightness = 228,
+        Humidity = 65
     },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 19,
+    new() {
+        Temperature = 2,
+        AirQuality = 29,
+        SensorLocation = "WareHourse",
+        Brightness = 1232,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 87,
+        SensorLocation = "WareHourse",
+        Brightness = 111,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 98,
+        SensorLocation = "WareHourse",
+        Brightness = 1444,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 39,
+        SensorLocation = "Company",
+        Brightness = 1047,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 31,
+        SensorLocation = "Company",
+        Brightness = 1347,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 8,
+        AirQuality = 12,
+        SensorLocation = "WareHourse",
+        Brightness = 1025,
+        Humidity = 85
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 42,
         SensorLocation = "Office",
-        Brightness = 636
+        Brightness = 526,
+        Humidity = 79
     },
-    new()
-    {
+    new() {
+        Temperature = 62,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 373,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 42,
+        AirQuality = 33,
+        SensorLocation = "WareHourse",
+        Brightness = 1369,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 94,
+        SensorLocation = "Company",
+        Brightness = 1048,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 20,
+        SensorLocation = "Company",
+        Brightness = 1122,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 41,
+        AirQuality = 32,
+        SensorLocation = "Office",
+        Brightness = 1201,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 87,
+        SensorLocation = "Office",
+        Brightness = 1112,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 76,
+        SensorLocation = "Office",
+        Brightness = 1318,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 93,
+        SensorLocation = "WareHourse",
+        Brightness = 576,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 64,
+        SensorLocation = "Office",
+        Brightness = 598,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 30,
+        SensorLocation = "Office",
+        Brightness = 369,
+        Humidity = 71
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 62,
+        SensorLocation = "Office",
+        Brightness = 185,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 9,
+        AirQuality = 32,
+        SensorLocation = "WareHourse",
+        Brightness = 1082,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 47,
+        SensorLocation = "Office",
+        Brightness = 871,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 82,
+        AirQuality = 77,
+        SensorLocation = "Office",
+        Brightness = 449,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 221,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 41,
+        AirQuality = 15,
+        SensorLocation = "Company",
+        Brightness = 1411,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 62,
+        SensorLocation = "WareHourse",
+        Brightness = 274,
+        Humidity = 100
+    },
+    new() {
         Temperature = 26,
         AirQuality = 78,
         SensorLocation = "Company",
-        Brightness = 776
+        Brightness = 839,
+        Humidity = 73
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 81,
+    new() {
+        Temperature = 37,
+        AirQuality = 95,
+        SensorLocation = "WareHourse",
+        Brightness = 451,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 48,
         SensorLocation = "Company",
-        Brightness = 1311
+        Brightness = 1424,
+        Humidity = 67
     },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1235
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 429
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 51,
+    new() {
+        Temperature = 83,
         AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1041
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
         SensorLocation = "Office",
-        Brightness = 876
+        Brightness = 282,
+        Humidity = 49
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 916
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 99,
-        SensorLocation = "Company",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 1227
-    },
-    new()
-    {
-        Temperature = 52,
+    new() {
+        Temperature = 80,
         AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1195
+        SensorLocation = "WareHourse",
+        Brightness = 890,
+        Humidity = 80
     },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 786
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 83,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 52,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 811
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 45,
-        SensorLocation = "Company",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 948
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 889
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 1345
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1449
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1365
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 29,
-        SensorLocation = "WareHouse",
-        Brightness = 1595
-    },
-    new()
-    {
-        Temperature = 33,
+    new() {
+        Temperature = 58,
         AirQuality = 92,
         SensorLocation = "Company",
-        Brightness = 1277
+        Brightness = 1291,
+        Humidity = 45
     },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 761
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 3,
+    new() {
+        Temperature = 75,
+        AirQuality = 37,
         SensorLocation = "Company",
-        Brightness = 573
+        Brightness = 276,
+        Humidity = 81
     },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 320
+    new() {
+        Temperature = 93,
+        AirQuality = 57,
+        SensorLocation = "Office",
+        Brightness = 381,
+        Humidity = 89
     },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1456
-    },
-    new()
-    {
+    new() {
         Temperature = 40,
-        AirQuality = 46,
+        AirQuality = 5,
         SensorLocation = "Company",
-        Brightness = 516
+        Brightness = 1214,
+        Humidity = 55
     },
-    new()
-    {
-        Temperature = 46,
+    new() {
+        Temperature = 53,
+        AirQuality = 27,
+        SensorLocation = "Company",
+        Brightness = 383,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 13,
+        AirQuality = 7,
+        SensorLocation = "WareHourse",
+        Brightness = 858,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 29,
+        SensorLocation = "WareHourse",
+        Brightness = 1498,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 32,
+        AirQuality = 6,
+        SensorLocation = "Company",
+        Brightness = 791,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 306,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 49,
+        AirQuality = 80,
+        SensorLocation = "Office",
+        Brightness = 401,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 50,
+        AirQuality = 4,
+        SensorLocation = "Company",
+        Brightness = 674,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 73,
+        SensorLocation = "WareHourse",
+        Brightness = 1152,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 81,
+        AirQuality = 89,
+        SensorLocation = "WareHourse",
+        Brightness = 162,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 4,
+        SensorLocation = "Company",
+        Brightness = 607,
+        Humidity = 81
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 12,
+        SensorLocation = "Office",
+        Brightness = 1482,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 11,
+        SensorLocation = "Office",
+        Brightness = 414,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 72,
+        SensorLocation = "Company",
+        Brightness = 1102,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 24,
+        AirQuality = 65,
+        SensorLocation = "Company",
+        Brightness = 1089,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 62,
+        AirQuality = 84,
+        SensorLocation = "WareHourse",
+        Brightness = 440,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 91,
+        SensorLocation = "Company",
+        Brightness = 805,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 72,
+        AirQuality = 40,
+        SensorLocation = "Company",
+        Brightness = 348,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 65,
+        SensorLocation = "Company",
+        Brightness = 959,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 80,
+        SensorLocation = "Office",
+        Brightness = 460,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 76,
+        AirQuality = 66,
+        SensorLocation = "Company",
+        Brightness = 677,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 82,
+        SensorLocation = "WareHourse",
+        Brightness = 747,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 425,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 22,
+        SensorLocation = "WareHourse",
+        Brightness = 998,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 47,
+        SensorLocation = "Company",
+        Brightness = 1499,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 58,
+        SensorLocation = "Office",
+        Brightness = 648,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 69,
+        AirQuality = 88,
+        SensorLocation = "Office",
+        Brightness = 506,
+        Humidity = 73
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 33,
+        SensorLocation = "Company",
+        Brightness = 279,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 70,
+        SensorLocation = "Company",
+        Brightness = 1322,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 67,
+        AirQuality = 21,
+        SensorLocation = "WareHourse",
+        Brightness = 942,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 93,
+        SensorLocation = "Company",
+        Brightness = 779,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 79,
+        SensorLocation = "WareHourse",
+        Brightness = 144,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 59,
+        SensorLocation = "Office",
+        Brightness = 1140,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 14,
+        SensorLocation = "Office",
+        Brightness = 1031,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 31,
+        SensorLocation = "WareHourse",
+        Brightness = 1385,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 10,
+        SensorLocation = "Company",
+        Brightness = 729,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 49,
+        AirQuality = 66,
+        SensorLocation = "Company",
+        Brightness = 216,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 52,
+        SensorLocation = "Company",
+        Brightness = 1497,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 57,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 1100,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 22,
+        SensorLocation = "Company",
+        Brightness = 409,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 93,
+        AirQuality = 52,
+        SensorLocation = "WareHourse",
+        Brightness = 1467,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 92,
+        SensorLocation = "Company",
+        Brightness = 690,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 73,
         AirQuality = 18,
         SensorLocation = "Company",
-        Brightness = 489
+        Brightness = 808,
+        Humidity = 50
     },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 1435
+    new() {
+        Temperature = 24,
+        AirQuality = 99,
+        SensorLocation = "Office",
+        Brightness = 656,
+        Humidity = 75
     },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 647
-    },
-    new()
-    {
-        Temperature = 14,
+    new() {
+        Temperature = 22,
         AirQuality = 53,
         SensorLocation = "Office",
-        Brightness = 1404
+        Brightness = 759,
+        Humidity = 36
     },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 1073
-    },
-    new()
-    {
-        Temperature = 17,
+    new() {
+        Temperature = 64,
         AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 945
+        SensorLocation = "Office",
+        Brightness = 681,
+        Humidity = 57
     },
-    new()
-    {
-        Temperature = 22,
+    new() {
+        Temperature = 54,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 464,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 64,
+        AirQuality = 17,
+        SensorLocation = "WareHourse",
+        Brightness = 327,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 46,
+        AirQuality = 22,
+        SensorLocation = "Office",
+        Brightness = 391,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 89,
+        AirQuality = 49,
+        SensorLocation = "WareHourse",
+        Brightness = 190,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 74,
+        SensorLocation = "Office",
+        Brightness = 1377,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 22,
+        SensorLocation = "Company",
+        Brightness = 1225,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 86,
         AirQuality = 55,
         SensorLocation = "Company",
-        Brightness = 419
+        Brightness = 495,
+        Humidity = 83
     },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 77,
+    new() {
+        Temperature = 40,
+        AirQuality = 14,
         SensorLocation = "Company",
-        Brightness = 1141
+        Brightness = 1214,
+        Humidity = 72
     },
-    new()
-    {
+    new() {
+        Temperature = 88,
+        AirQuality = 90,
+        SensorLocation = "Office",
+        Brightness = 1424,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 98,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 838,
+        Humidity = 40
+    },
+    new() {
         Temperature = 53,
+        AirQuality = 28,
+        SensorLocation = "Office",
+        Brightness = 448,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 80,
+        SensorLocation = "WareHourse",
+        Brightness = 637,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 80,
+        SensorLocation = "Company",
+        Brightness = 132,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 27,
+        SensorLocation = "Company",
+        Brightness = 1149,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 97,
+        SensorLocation = "Company",
+        Brightness = 1068,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 35,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 1293,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 88,
+        SensorLocation = "Office",
+        Brightness = 1349,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 86,
+        SensorLocation = "WareHourse",
+        Brightness = 713,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 47,
+        SensorLocation = "Office",
+        Brightness = 870,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 86,
+        SensorLocation = "WareHourse",
+        Brightness = 1240,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 20,
+        SensorLocation = "WareHourse",
+        Brightness = 1185,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 9,
+        SensorLocation = "WareHourse",
+        Brightness = 1020,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 95,
+        SensorLocation = "WareHourse",
+        Brightness = 1123,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 18,
+        SensorLocation = "Office",
+        Brightness = 521,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 39,
+        SensorLocation = "Company",
+        Brightness = 1282,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 42,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 801,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 6,
+        SensorLocation = "WareHourse",
+        Brightness = 562,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 17,
+        SensorLocation = "Office",
+        Brightness = 563,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 63,
+        SensorLocation = "Office",
+        Brightness = 1209,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 97,
+        SensorLocation = "Company",
+        Brightness = 519,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 26,
+        SensorLocation = "WareHourse",
+        Brightness = 1378,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 62,
+        AirQuality = 67,
+        SensorLocation = "Office",
+        Brightness = 794,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 43,
+        SensorLocation = "Company",
+        Brightness = 1244,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 62,
+        SensorLocation = "Company",
+        Brightness = 925,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 11,
+        SensorLocation = "WareHourse",
+        Brightness = 1281,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 8,
+        SensorLocation = "Office",
+        Brightness = 700,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 71,
+        SensorLocation = "Company",
+        Brightness = 450,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 3,
+        AirQuality = 34,
+        SensorLocation = "Company",
+        Brightness = 728,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 737,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 76,
+        AirQuality = 84,
+        SensorLocation = "WareHourse",
+        Brightness = 868,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 42,
+        AirQuality = 91,
+        SensorLocation = "Office",
+        Brightness = 1031,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 84,
+        AirQuality = 80,
+        SensorLocation = "Office",
+        Brightness = 1250,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 41,
+        SensorLocation = "Office",
+        Brightness = 1199,
+        Humidity = 30
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 4,
+        SensorLocation = "Office",
+        Brightness = 1375,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 1114,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 5,
+        SensorLocation = "Company",
+        Brightness = 132,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 79,
+        SensorLocation = "WareHourse",
+        Brightness = 867,
+        Humidity = 100
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 61,
+        SensorLocation = "WareHourse",
+        Brightness = 713,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 71,
+        SensorLocation = "Office",
+        Brightness = 1208,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 53,
+        SensorLocation = "Company",
+        Brightness = 969,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 93,
+        SensorLocation = "Office",
+        Brightness = 469,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 99,
+        AirQuality = 43,
+        SensorLocation = "Office",
+        Brightness = 302,
+        Humidity = 45
+    },
+    new() {
+        Temperature = 83,
+        AirQuality = 77,
+        SensorLocation = "WareHourse",
+        Brightness = 1194,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 99,
+        SensorLocation = "WareHourse",
+        Brightness = 794,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 35,
+        AirQuality = 53,
+        SensorLocation = "Company",
+        Brightness = 1412,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 83,
+        SensorLocation = "WareHourse",
+        Brightness = 1194,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 82,
+        AirQuality = 14,
+        SensorLocation = "Company",
+        Brightness = 940,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 26,
+        SensorLocation = "WareHourse",
+        Brightness = 1408,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 87,
+        SensorLocation = "WareHourse",
+        Brightness = 1148,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 99,
+        SensorLocation = "WareHourse",
+        Brightness = 608,
+        Humidity = 94
+    },
+    new() {
+        Temperature = 35,
+        AirQuality = 47,
+        SensorLocation = "Company",
+        Brightness = 662,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 92,
+        SensorLocation = "Company",
+        Brightness = 1181,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 9,
+        AirQuality = 14,
+        SensorLocation = "Company",
+        Brightness = 1055,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 1011,
+        Humidity = 79
+    },
+    new() {
+        Temperature = 57,
+        AirQuality = 58,
+        SensorLocation = "WareHourse",
+        Brightness = 314,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 76,
+        AirQuality = 27,
+        SensorLocation = "WareHourse",
+        Brightness = 1398,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 7,
+        SensorLocation = "WareHourse",
+        Brightness = 1305,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 80,
+        SensorLocation = "WareHourse",
+        Brightness = 1347,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 9,
+        SensorLocation = "Office",
+        Brightness = 192,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 68,
+        AirQuality = 87,
+        SensorLocation = "Office",
+        Brightness = 120,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 96,
+        AirQuality = 6,
+        SensorLocation = "Company",
+        Brightness = 1371,
+        Humidity = 72
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 185,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 64,
+        SensorLocation = "Company",
+        Brightness = 110,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 45,
+        SensorLocation = "Company",
+        Brightness = 300,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 82,
+        SensorLocation = "Office",
+        Brightness = 227,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 11,
+        SensorLocation = "Company",
+        Brightness = 544,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 39,
+        AirQuality = 82,
+        SensorLocation = "Office",
+        Brightness = 271,
+        Humidity = 64
+    },
+    new() {
+        Temperature = 30,
+        AirQuality = 82,
+        SensorLocation = "Company",
+        Brightness = 291,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 7,
+        SensorLocation = "Office",
+        Brightness = 281,
+        Humidity = 44
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 80,
+        SensorLocation = "WareHourse",
+        Brightness = 966,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 45,
+        SensorLocation = "Office",
+        Brightness = 870,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 38,
+        SensorLocation = "Company",
+        Brightness = 1313,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 66,
+        SensorLocation = "Company",
+        Brightness = 1093,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 4,
+        SensorLocation = "Company",
+        Brightness = 419,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 30,
+        SensorLocation = "Office",
+        Brightness = 269,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 72,
+        AirQuality = 64,
+        SensorLocation = "WareHourse",
+        Brightness = 1382,
+        Humidity = 75
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 27,
+        SensorLocation = "Company",
+        Brightness = 150,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 45,
+        SensorLocation = "WareHourse",
+        Brightness = 461,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 18,
+        AirQuality = 71,
+        SensorLocation = "Office",
+        Brightness = 941,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 46,
+        SensorLocation = "Office",
+        Brightness = 860,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 58,
+        SensorLocation = "WareHourse",
+        Brightness = 362,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 50,
+        SensorLocation = "WareHourse",
+        Brightness = 407,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 48,
+        AirQuality = 48,
+        SensorLocation = "WareHourse",
+        Brightness = 1380,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 96,
+        AirQuality = 21,
+        SensorLocation = "Office",
+        Brightness = 956,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 9,
+        SensorLocation = "Office",
+        Brightness = 668,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 29,
+        AirQuality = 73,
+        SensorLocation = "WareHourse",
+        Brightness = 596,
+        Humidity = 85
+    },
+    new() {
+        Temperature = 33,
+        AirQuality = 46,
+        SensorLocation = "Company",
+        Brightness = 1314,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 55,
+        AirQuality = 74,
+        SensorLocation = "Company",
+        Brightness = 901,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 17,
+        SensorLocation = "Office",
+        Brightness = 102,
+        Humidity = 33
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 25,
+        SensorLocation = "Company",
+        Brightness = 261,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 59,
+        AirQuality = 23,
+        SensorLocation = "WareHourse",
+        Brightness = 513,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 49,
+        AirQuality = 33,
+        SensorLocation = "Office",
+        Brightness = 703,
+        Humidity = 63
+    },
+    new() {
+        Temperature = 21,
         AirQuality = 100,
         SensorLocation = "Company",
-        Brightness = 1049
+        Brightness = 253,
+        Humidity = 57
     },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1050
+    new() {
+        Temperature = 53,
+        AirQuality = 49,
+        SensorLocation = "WareHourse",
+        Brightness = 505,
+        Humidity = 31
     },
-    new()
-    {
-        Temperature = 34,
+    new() {
+        Temperature = 31,
+        AirQuality = 85,
+        SensorLocation = "WareHourse",
+        Brightness = 1087,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 40,
+        SensorLocation = "WareHourse",
+        Brightness = 1465,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 17,
         AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 617
+        SensorLocation = "WareHourse",
+        Brightness = 983,
+        Humidity = 34
     },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 245
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 20,
-        SensorLocation = "Company",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1083
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 23,
-        SensorLocation = "WareHouse",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1018
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 1177
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 766
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 845
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 373
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 976
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1171
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 939
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 1162
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 978
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 353
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 597
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 656
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 657
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 26,
-        SensorLocation = "Company",
-        Brightness = 1337
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 88,
-        SensorLocation = "Office",
-        Brightness = 1347
-    },
-    new()
-    {
+    new() {
         Temperature = 37,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 855
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 68,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 254
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 629
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 821
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1574
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 77,
-        SensorLocation = "Office",
-        Brightness = 1553
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 1114
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 1335
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 691
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 645
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 20,
-        SensorLocation = "Office",
-        Brightness = 678
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1448
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 5,
-        SensorLocation = "Company",
-        Brightness = 270
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 323
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 1370
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 842
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 476
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1212
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 882
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1140
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 23,
-        SensorLocation = "Office",
-        Brightness = 252
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 231
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 523
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 278
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 585
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 1331
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 615
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1281
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 775
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 946
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 936
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 52,
-        SensorLocation = "Office",
-        Brightness = 1148
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 619
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 237
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 562
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1531
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 472
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 508
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1474
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 27,
-        SensorLocation = "Office",
-        Brightness = 1263
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1545
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 1108
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 63,
-        SensorLocation = "Office",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 436
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1055
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 539
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1566
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 398
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 982
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 98,
-        SensorLocation = "Office",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 677
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 1224
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 32,
-        SensorLocation = "Company",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 9,
-        SensorLocation = "WareHouse",
-        Brightness = 904
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1004
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "Company",
-        Brightness = 810
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 77,
-        SensorLocation = "WareHouse",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 375
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 969
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 53,
-        SensorLocation = "WareHouse",
-        Brightness = 1489
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1159
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 582
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 64,
-        SensorLocation = "Office",
-        Brightness = 491
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "Company",
-        Brightness = 878
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 204
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 903
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1362
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 336
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 646
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1028
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1447
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1182
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 474
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 519
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 1406
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 733
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1261
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 872
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1314
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 501
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 22,
-        SensorLocation = "Company",
-        Brightness = 1340
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 1274
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1000
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 985
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1584
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1091
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 1102
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 509
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 835
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 81,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 1582
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 25,
-        SensorLocation = "Office",
-        Brightness = 1247
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 937
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 466
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 301
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 69,
-        SensorLocation = "Company",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 641
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 1309
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1348
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 847
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 666
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 654
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 319
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 530
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 1137
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 250
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1178
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 82,
-        SensorLocation = "WareHouse",
-        Brightness = 1549
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 1486
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 264
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 210
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 1368
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1446
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 484
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1579
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 460
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1009
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 58,
-        SensorLocation = "Office",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 688
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 1463
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 980
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 220
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 80,
-        SensorLocation = "Company",
-        Brightness = 1252
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1285
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 1576
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1031
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 58,
-        SensorLocation = "WareHouse",
-        Brightness = 1211
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 33,
-        SensorLocation = "Office",
-        Brightness = 1393
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 1418
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 846
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1057
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 17,
-        SensorLocation = "Office",
-        Brightness = 439
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 40,
-        SensorLocation = "Office",
-        Brightness = 1488
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 655
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 473
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 422
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 17,
-        SensorLocation = "Company",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 486
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1421
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 992
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 588
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 244
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1021
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1219
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1029
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 41,
-        SensorLocation = "Office",
-        Brightness = 609
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 1119
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1472
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 56,
-        SensorLocation = "Company",
-        Brightness = 426
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 1257
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 42,
-        SensorLocation = "Company",
-        Brightness = 951
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 48,
-        SensorLocation = "WareHouse",
-        Brightness = 1228
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 740
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 680
-    },
-    new()
-    {
-        Temperature = 31,
         AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 621
+        SensorLocation = "Office",
+        Brightness = 1004,
+        Humidity = 64
     },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 89,
-        SensorLocation = "Company",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 5,
+    new() {
+        Temperature = 71,
         AirQuality = 58,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 55,
         SensorLocation = "Office",
-        Brightness = 1120
+        Brightness = 1147,
+        Humidity = 68
     },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 240
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 87,
-        SensorLocation = "Office",
-        Brightness = 817
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 69,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 1409
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 895
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1034
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1546
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 432
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1451
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
+    new() {
         Temperature = 49,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 495
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 1038
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 1260
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 98,
-        SensorLocation = "Company",
-        Brightness = 1264
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 218
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 389
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 67,
-        SensorLocation = "Office",
-        Brightness = 347
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 964
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 674
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 233
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 31,
-        SensorLocation = "Company",
-        Brightness = 1037
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 542
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 10,
-        SensorLocation = "Office",
-        Brightness = 1166
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "WareHouse",
-        Brightness = 1072
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 505
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1519
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 771
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 39,
-        SensorLocation = "WareHouse",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 1459
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1001
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 5,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 11,
-        SensorLocation = "Office",
-        Brightness = 1379
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 700
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 605
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 69,
-        SensorLocation = "WareHouse",
-        Brightness = 1300
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 1,
-        SensorLocation = "Company",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 983
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1128
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 48,
-        SensorLocation = "Office",
-        Brightness = 1130
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 90,
-        SensorLocation = "Office",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1173
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 1071
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 2,
-        SensorLocation = "WareHouse",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 342
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1110
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 442
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 644
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1464
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 1438
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1143
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1528
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 807
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 625
-    },
-    new()
-    {
-        Temperature = 51,
         AirQuality = 53,
         SensorLocation = "Office",
-        Brightness = 702
+        Brightness = 955,
+        Humidity = 42
     },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1121
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 315
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1033
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1122
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 893
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1505
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1480
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 1321
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 694
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 1380
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1068
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1100
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 437
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 535
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1258
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 1213
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 1169
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 1003
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "WareHouse",
-        Brightness = 915
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 1506
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 241
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 1481
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1129
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 682
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 85,
-        SensorLocation = "Office",
-        Brightness = 632
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 267
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1408
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 773
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 499
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 6,
-        SensorLocation = "Office",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 1294
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 16,
-        SensorLocation = "Company",
-        Brightness = 795
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 94,
-        SensorLocation = "Office",
-        Brightness = 1556
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 769
-    },
-    new()
-    {
-        Temperature = 47,
+    new() {
+        Temperature = 96,
         AirQuality = 38,
         SensorLocation = "Company",
-        Brightness = 1293
+        Brightness = 1053,
+        Humidity = 72
     },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 848
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1232
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 1429
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 1371
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 29,
+    new() {
+        Temperature = 92,
         AirQuality = 29,
         SensorLocation = "Office",
-        Brightness = 1132
+        Brightness = 1240,
+        Humidity = 80
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 42,
+    new() {
+        Temperature = 83,
+        AirQuality = 88,
         SensorLocation = "Office",
-        Brightness = 989
+        Brightness = 878,
+        Humidity = 84
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 47,
+    new() {
+        Temperature = 70,
+        AirQuality = 71,
         SensorLocation = "Office",
-        Brightness = 269
+        Brightness = 1187,
+        Humidity = 90
     },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 863
+    new() {
+        Temperature = 92,
+        AirQuality = 84,
+        SensorLocation = "Company",
+        Brightness = 472,
+        Humidity = 94
     },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 25,
-        SensorLocation = "WareHouse",
-        Brightness = 1466
+    new() {
+        Temperature = 72,
+        AirQuality = 82,
+        SensorLocation = "Office",
+        Brightness = 821,
+        Humidity = 79
     },
-    new()
-    {
+    new() {
+        Temperature = 81,
+        AirQuality = 30,
+        SensorLocation = "WareHourse",
+        Brightness = 798,
+        Humidity = 36
+    },
+    new() {
         Temperature = 27,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 658
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
+        AirQuality = 45,
         SensorLocation = "Office",
-        Brightness = 1559
+        Brightness = 933,
+        Humidity = 53
     },
-    new()
-    {
-        Temperature = 39,
+    new() {
+        Temperature = 27,
+        AirQuality = 29,
+        SensorLocation = "Company",
+        Brightness = 795,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 14,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 431,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 12,
+        SensorLocation = "Office",
+        Brightness = 206,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 76,
         AirQuality = 24,
         SensorLocation = "Office",
-        Brightness = 1136
+        Brightness = 184,
+        Humidity = 87
     },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 578
+    new() {
+        Temperature = 3,
+        AirQuality = 15,
+        SensorLocation = "Company",
+        Brightness = 492,
+        Humidity = 69
     },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 332
+    new() {
+        Temperature = 100,
+        AirQuality = 85,
+        SensorLocation = "WareHourse",
+        Brightness = 1101,
+        Humidity = 65
     },
-    new()
-    {
+    new() {
         Temperature = 18,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1190
+        AirQuality = 36,
+        SensorLocation = "Company",
+        Brightness = 700,
+        Humidity = 48
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 13,
+    new() {
+        Temperature = 92,
+        AirQuality = 10,
         SensorLocation = "Office",
-        Brightness = 444
+        Brightness = 590,
+        Humidity = 49
     },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1338
+    new() {
+        Temperature = 20,
+        AirQuality = 41,
+        SensorLocation = "Company",
+        Brightness = 1314,
+        Humidity = 78
     },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 922
+    new() {
+        Temperature = 60,
+        AirQuality = 84,
+        SensorLocation = "WareHourse",
+        Brightness = 208,
+        Humidity = 69
     },
-    new()
-    {
-        Temperature = 46,
+    new() {
+        Temperature = 23,
+        AirQuality = 28,
+        SensorLocation = "WareHourse",
+        Brightness = 1334,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 93,
         AirQuality = 59,
         SensorLocation = "Office",
-        Brightness = 507
+        Brightness = 988,
+        Humidity = 56
     },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 260
+    new() {
+        Temperature = 8,
+        AirQuality = 79,
+        SensorLocation = "WareHourse",
+        Brightness = 1077,
+        Humidity = 78
     },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 880
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1502
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1098
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1142
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1518
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 60,
-        SensorLocation = "WareHouse",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 95,
+    new() {
+        Temperature = 90,
+        AirQuality = 25,
         SensorLocation = "Company",
-        Brightness = 430
+        Brightness = 647,
+        Humidity = 36
     },
-    new()
-    {
-        Temperature = 49,
+    new() {
+        Temperature = 62,
+        AirQuality = 23,
+        SensorLocation = "WareHourse",
+        Brightness = 741,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 3,
         AirQuality = 61,
-        SensorLocation = "Company",
-        Brightness = 888
+        SensorLocation = "WareHourse",
+        Brightness = 1098,
+        Humidity = 32
     },
-    new()
-    {
-        Temperature = 47,
+    new() {
+        Temperature = 57,
+        AirQuality = 33,
+        SensorLocation = "Company",
+        Brightness = 687,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 46,
+        AirQuality = 84,
+        SensorLocation = "WareHourse",
+        Brightness = 1013,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 75,
+        SensorLocation = "Office",
+        Brightness = 1200,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 49,
+        SensorLocation = "Office",
+        Brightness = 1437,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 91,
+        SensorLocation = "Company",
+        Brightness = 745,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 81,
+        AirQuality = 60,
+        SensorLocation = "Company",
+        Brightness = 846,
+        Humidity = 40
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 70,
+        SensorLocation = "WareHourse",
+        Brightness = 1160,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 8,
+        AirQuality = 1,
+        SensorLocation = "Office",
+        Brightness = 380,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 8,
+        AirQuality = 97,
+        SensorLocation = "Office",
+        Brightness = 462,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 36,
+        SensorLocation = "Company",
+        Brightness = 817,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 39,
+        AirQuality = 13,
+        SensorLocation = "WareHourse",
+        Brightness = 591,
+        Humidity = 84
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 14,
+        SensorLocation = "Office",
+        Brightness = 686,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 6,
+        SensorLocation = "Office",
+        Brightness = 701,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 47,
+        SensorLocation = "Company",
+        Brightness = 963,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 32,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 583,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 67,
         AirQuality = 83,
         SensorLocation = "Office",
-        Brightness = 1509
+        Brightness = 1055,
+        Humidity = 54
     },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 457
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 723
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1061
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 1550
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 963
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 470
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 386
-    },
-    new()
-    {
+    new() {
         Temperature = 7,
-        AirQuality = 64,
-        SensorLocation = "Company",
-        Brightness = 1515
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 41,
-        SensorLocation = "WareHouse",
-        Brightness = 1007
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1185
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 24,
-        SensorLocation = "WareHouse",
-        Brightness = 446
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 305
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 981
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 369
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 78,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 89,
-        SensorLocation = "Office",
-        Brightness = 716
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1220
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1521
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 488
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 844
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1465
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 529
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 21,
         AirQuality = 74,
         SensorLocation = "Company",
-        Brightness = 729
+        Brightness = 1417,
+        Humidity = 41
     },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 468
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 1328
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 67,
-        SensorLocation = "WareHouse",
-        Brightness = 1436
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 782
-    }
-    , new()
-                {
-                    Temperature = 11,
-                    AirQuality = 4,
-                    SensorLocation = "Company",
-                    Brightness = 1451
-                },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1563
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 15,
-        SensorLocation = "WareHouse",
-        Brightness = 861
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 0,
-        SensorLocation = "WareHouse",
-        Brightness = 1356
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 34,
-        SensorLocation = "WareHouse",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 312
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 662
-    },
-    new()
-    {
-        Temperature = 43,
+    new() {
+        Temperature = 5,
         AirQuality = 63,
         SensorLocation = "Company",
-        Brightness = 556
+        Brightness = 1251,
+        Humidity = 82
     },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 235
+    new() {
+        Temperature = 50,
+        AirQuality = 5,
+        SensorLocation = "WareHourse",
+        Brightness = 1166,
+        Humidity = 43
     },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 743
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 50,
+    new() {
+        Temperature = 56,
+        AirQuality = 89,
         SensorLocation = "Office",
-        Brightness = 1150
+        Brightness = 941,
+        Humidity = 48
     },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 611
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 0,
-        SensorLocation = "Company",
-        Brightness = 409
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 515
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1112
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 862
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 1075
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 84,
-        SensorLocation = "WareHouse",
-        Brightness = 1572
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 296
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 1088
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 14,
-        SensorLocation = "Company",
-        Brightness = 1013
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 19,
-        SensorLocation = "Company",
-        Brightness = 483
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 538
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 4,
-        SensorLocation = "Company",
-        Brightness = 713
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 299
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1411
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 52,
-        SensorLocation = "Company",
-        Brightness = 1243
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1372
-    },
-    new()
-    {
+    new() {
         Temperature = 11,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1135
+        AirQuality = 83,
+        SensorLocation = "Office",
+        Brightness = 1388,
+        Humidity = 30
     },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1400
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 994
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1115
-    },
-    new()
-    {
+    new() {
         Temperature = 44,
-        AirQuality = 33,
+        AirQuality = 85,
+        SensorLocation = "WareHourse",
+        Brightness = 164,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 22,
         SensorLocation = "Company",
-        Brightness = 816
+        Brightness = 1046,
+        Humidity = 40
     },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 448
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 616
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1025
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 62,
-        SensorLocation = "WareHouse",
-        Brightness = 1238
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1154
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 708
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 230
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 441
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 548
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1097
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 358
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1292
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1552
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1089
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1567
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 94,
-        SensorLocation = "Company",
-        Brightness = 391
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 288
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 779
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 1079
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1316
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1127
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 325
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 1530
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 1585
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 64,
-        SensorLocation = "WareHouse",
-        Brightness = 362
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 852
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 1207
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 636
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 78,
-        SensorLocation = "Company",
-        Brightness = 776
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1311
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1235
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 429
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1041
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Office",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 916
-    },
-    new()
-    {
-        Temperature = 38,
+    new() {
+        Temperature = 11,
         AirQuality = 99,
-        SensorLocation = "Company",
-        Brightness = 604
+        SensorLocation = "WareHourse",
+        Brightness = 668,
+        Humidity = 38
     },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 1227
+    new() {
+        Temperature = 89,
+        AirQuality = 64,
+        SensorLocation = "WareHourse",
+        Brightness = 726,
+        Humidity = 73
     },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1195
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 786
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 83,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 52,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 811
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 45,
-        SensorLocation = "Company",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 948
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 889
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 1345
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1449
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1365
-    },
-    new()
-    {
-        Temperature = 21,
+    new() {
+        Temperature = 30,
         AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 29,
-        SensorLocation = "WareHouse",
-        Brightness = 1595
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 1277
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 761
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 573
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1456
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 46,
-        SensorLocation = "Company",
-        Brightness = 516
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 489
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 1435
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 647
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 53,
         SensorLocation = "Office",
-        Brightness = 1404
+        Brightness = 349,
+        Humidity = 42
     },
-    new()
-    {
-        Temperature = 33,
+    new() {
+        Temperature = 59,
         AirQuality = 7,
         SensorLocation = "Office",
-        Brightness = 863
+        Brightness = 461,
+        Humidity = 87
     },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 1073
+    new() {
+        Temperature = 59,
+        AirQuality = 54,
+        SensorLocation = "WareHourse",
+        Brightness = 770,
+        Humidity = 70
     },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 945
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 55,
-        SensorLocation = "Company",
-        Brightness = 419
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1141
-    },
-    new()
-    {
-        Temperature = 53,
+    new() {
+        Temperature = 67,
         AirQuality = 100,
-        SensorLocation = "Company",
-        Brightness = 1049
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1050
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 245
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 20,
-        SensorLocation = "Company",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 34,
         SensorLocation = "Office",
-        Brightness = 1083
+        Brightness = 642,
+        Humidity = 58
     },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 23,
-        SensorLocation = "WareHouse",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1018
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 1177
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 766
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 845
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 373
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 976
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1171
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 939
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 1162
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 978
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 353
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 597
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 656
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 657
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 26,
-        SensorLocation = "Company",
-        Brightness = 1337
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 88,
-        SensorLocation = "Office",
-        Brightness = 1347
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 855
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 68,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 254
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 629
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 821
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1574
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 77,
-        SensorLocation = "Office",
-        Brightness = 1553
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 1114
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 1335
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 691
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 645
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 20,
-        SensorLocation = "Office",
-        Brightness = 678
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1448
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 5,
-        SensorLocation = "Company",
-        Brightness = 270
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 323
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 1370
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 842
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 476
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1212
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 882
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1140
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 23,
-        SensorLocation = "Office",
-        Brightness = 252
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 231
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 523
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 278
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 585
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 1331
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 615
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1281
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 775
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 946
-    },
-    new()
-    {
-        Temperature = 45,
+    new() {
+        Temperature = 92,
         AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 873
+        SensorLocation = "WareHourse",
+        Brightness = 736,
+        Humidity = 67
     },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
+    new() {
         Temperature = 19,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 936
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 52,
-        SensorLocation = "Office",
-        Brightness = 1148
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 619
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 237
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 562
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1531
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 472
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 508
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1474
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 27,
-        SensorLocation = "Office",
-        Brightness = 1263
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1545
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 1108
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 63,
-        SensorLocation = "Office",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 436
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1055
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 539
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1566
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 398
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 982
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 98,
-        SensorLocation = "Office",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 677
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 1224
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 32,
-        SensorLocation = "Company",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 9,
-        SensorLocation = "WareHouse",
-        Brightness = 904
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1004
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "Company",
-        Brightness = 810
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 77,
-        SensorLocation = "WareHouse",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 375
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 969
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 53,
-        SensorLocation = "WareHouse",
-        Brightness = 1489
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1159
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 582
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 64,
-        SensorLocation = "Office",
-        Brightness = 491
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "Company",
-        Brightness = 878
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 204
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 903
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1362
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 336
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 646
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1028
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1447
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1182
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 474
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 519
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 1406
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 733
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1261
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 872
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1314
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 501
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 22,
-        SensorLocation = "Company",
-        Brightness = 1340
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 1274
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1000
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 985
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1584
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1091
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 1102
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 509
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 835
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 81,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 1582
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 25,
-        SensorLocation = "Office",
-        Brightness = 1247
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 937
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 466
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 301
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 69,
-        SensorLocation = "Company",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 641
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 1309
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1348
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 847
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 666
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 654
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 319
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 530
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 1137
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 250
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1178
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 82,
-        SensorLocation = "WareHouse",
-        Brightness = 1549
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 1486
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 264
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 210
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 1368
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1446
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 484
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1579
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 460
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1009
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 58,
-        SensorLocation = "Office",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 688
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 1463
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 980
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 220
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 80,
-        SensorLocation = "Company",
-        Brightness = 1252
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1285
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 1576
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1031
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 58,
-        SensorLocation = "WareHouse",
-        Brightness = 1211
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 33,
-        SensorLocation = "Office",
-        Brightness = 1393
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 1418
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 846
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1057
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 17,
-        SensorLocation = "Office",
-        Brightness = 439
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 40,
-        SensorLocation = "Office",
-        Brightness = 1488
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 655
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 473
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 422
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 17,
-        SensorLocation = "Company",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 486
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1421
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 992
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 588
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 244
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1021
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1219
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1029
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 41,
-        SensorLocation = "Office",
-        Brightness = 609
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 1119
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1472
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 56,
-        SensorLocation = "Company",
-        Brightness = 426
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 1257
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 42,
-        SensorLocation = "Company",
-        Brightness = 951
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 48,
-        SensorLocation = "WareHouse",
-        Brightness = 1228
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 740
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 680
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 621
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 89,
-        SensorLocation = "Company",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 58,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 55,
-        SensorLocation = "Office",
-        Brightness = 1120
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 240
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 87,
-        SensorLocation = "Office",
-        Brightness = 817
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 69,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 1409
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 895
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1034
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1546
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 432
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1451
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 495
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 1038
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 1260
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 98,
-        SensorLocation = "Company",
-        Brightness = 1264
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 218
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 389
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 67,
-        SensorLocation = "Office",
-        Brightness = 347
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 964
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 674
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 233
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 31,
-        SensorLocation = "Company",
-        Brightness = 1037
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 542
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 10,
-        SensorLocation = "Office",
-        Brightness = 1166
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "WareHouse",
-        Brightness = 1072
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 505
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1519
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 771
-    },
-    new()
-    {
-        Temperature = 7,
         AirQuality = 39,
-        SensorLocation = "WareHouse",
-        Brightness = 1132
+        SensorLocation = "WareHourse",
+        Brightness = 819,
+        Humidity = 53
     },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 1459
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1001
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 5,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 11,
-        SensorLocation = "Office",
-        Brightness = 1379
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 700
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 605
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 69,
-        SensorLocation = "WareHouse",
-        Brightness = 1300
-    },
-    new()
-    {
-        Temperature = 29,
+    new() {
+        Temperature = 34,
         AirQuality = 82,
         SensorLocation = "Office",
-        Brightness = 467
+        Brightness = 126,
+        Humidity = 83
     },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 1,
-        SensorLocation = "Company",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 983
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1128
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 48,
-        SensorLocation = "Office",
-        Brightness = 1130
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 90,
-        SensorLocation = "Office",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1173
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 1071
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 2,
-        SensorLocation = "WareHouse",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 342
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1110
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 442
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 644
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1464
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 1438
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1143
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1528
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 807
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 625
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 702
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1121
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 315
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1033
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1122
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 893
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1505
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1480
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 1321
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 694
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 1380
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1068
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1100
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 437
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 535
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1258
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 1213
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 1169
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 1003
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "WareHouse",
-        Brightness = 915
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 1506
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 241
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 1481
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1129
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 682
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 85,
-        SensorLocation = "Office",
-        Brightness = 632
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 267
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1408
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 773
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 499
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 6,
-        SensorLocation = "Office",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 1294
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 16,
-        SensorLocation = "Company",
-        Brightness = 795
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 94,
-        SensorLocation = "Office",
-        Brightness = 1556
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 769
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 38,
-        SensorLocation = "Company",
-        Brightness = 1293
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 848
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1232
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 1429
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 1371
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 29,
-        SensorLocation = "Office",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 989
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 269
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 25,
-        SensorLocation = "WareHouse",
-        Brightness = 1466
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 658
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 24,
-        SensorLocation = "Office",
-        Brightness = 1136
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 578
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 332
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1190
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 444
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1338
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 922
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 260
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 880
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1502
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1098
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1142
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1518
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 60,
-        SensorLocation = "WareHouse",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 430
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 61,
-        SensorLocation = "Company",
-        Brightness = 888
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1509
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 457
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 723
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1061
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 1550
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 963
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 470
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 386
-    },
-    new()
-    {
+    new() {
         Temperature = 7,
-        AirQuality = 64,
-        SensorLocation = "Company",
-        Brightness = 1515
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 41,
-        SensorLocation = "WareHouse",
-        Brightness = 1007
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1185
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 24,
-        SensorLocation = "WareHouse",
-        Brightness = 446
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 66,
+        AirQuality = 93,
         SensorLocation = "Office",
-        Brightness = 876
+        Brightness = 873,
+        Humidity = 52
     },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 305
-    },
-    new()
-    {
-        Temperature = 13,
+    new() {
+        Temperature = 45,
         AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 1478
+        SensorLocation = "WareHourse",
+        Brightness = 773,
+        Humidity = 95
     },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 981
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 369
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 78,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 35,
+    new() {
+        Temperature = 31,
         AirQuality = 89,
         SensorLocation = "Office",
-        Brightness = 716
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1220
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1521
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 488
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 844
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1465
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 529
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 729
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 468
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 1328
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 67,
-        SensorLocation = "WareHouse",
-        Brightness = 1436
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 782
-    }
-    , new()
-                {
-                    Temperature = 11,
-                    AirQuality = 4,
-                    SensorLocation = "Company",
-                    Brightness = 1451
-                },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1563
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 15,
-        SensorLocation = "WareHouse",
-        Brightness = 861
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 0,
-        SensorLocation = "WareHouse",
-        Brightness = 1356
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 34,
-        SensorLocation = "WareHouse",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 71,
-        SensorLocation = "Company",
-        Brightness = 312
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 662
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 556
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 235
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 743
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 1150
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 611
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 0,
-        SensorLocation = "Company",
-        Brightness = 409
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 515
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1112
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 862
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 1075
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 84,
-        SensorLocation = "WareHouse",
-        Brightness = 1572
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 296
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 1088
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 14,
-        SensorLocation = "Company",
-        Brightness = 1013
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 19,
-        SensorLocation = "Company",
-        Brightness = 483
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 538
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1484
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 4,
-        SensorLocation = "Company",
-        Brightness = 713
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 299
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1411
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 52,
-        SensorLocation = "Company",
-        Brightness = 1243
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1372
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 71,
-        SensorLocation = "WareHouse",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1400
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 994
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1115
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 816
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 448
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 616
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1025
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 62,
-        SensorLocation = "WareHouse",
-        Brightness = 1238
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1154
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 708
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 230
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 441
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 548
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1097
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 358
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1292
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1552
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1089
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1567
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 94,
-        SensorLocation = "Company",
-        Brightness = 391
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 288
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 779
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 1079
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 1316
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1127
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 325
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 1530
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 1585
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 64,
-        SensorLocation = "WareHouse",
-        Brightness = 362
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 852
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 1207
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 636
-    },
-    new()
-    {
-        Temperature = 26,
+        Brightness = 532,
+        Humidity = 30
+    },
+    new() {
+        Temperature = 92,
         AirQuality = 78,
         SensorLocation = "Company",
-        Brightness = 776
+        Brightness = 312,
+        Humidity = 64
     },
-    new()
-    {
-        Temperature = 22,
+    new() {
+        Temperature = 95,
+        AirQuality = 78,
+        SensorLocation = "Office",
+        Brightness = 381,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 17,
+        AirQuality = 64,
+        SensorLocation = "Office",
+        Brightness = 699,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 79,
+        SensorLocation = "WareHourse",
+        Brightness = 826,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 72,
+        AirQuality = 78,
+        SensorLocation = "WareHourse",
+        Brightness = 755,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 62,
+        AirQuality = 31,
+        SensorLocation = "WareHourse",
+        Brightness = 687,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 13,
+        AirQuality = 14,
+        SensorLocation = "Company",
+        Brightness = 278,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 97,
+        SensorLocation = "Company",
+        Brightness = 1420,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 61,
+        SensorLocation = "Office",
+        Brightness = 997,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 19,
+        SensorLocation = "Company",
+        Brightness = 1457,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 93,
+        SensorLocation = "WareHourse",
+        Brightness = 354,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 100,
+        AirQuality = 6,
+        SensorLocation = "Office",
+        Brightness = 1166,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 43,
+        SensorLocation = "WareHourse",
+        Brightness = 1167,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 5,
+        SensorLocation = "Office",
+        Brightness = 696,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 72,
+        SensorLocation = "WareHourse",
+        Brightness = 1392,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 58,
+        AirQuality = 27,
+        SensorLocation = "WareHourse",
+        Brightness = 647,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 96,
+        SensorLocation = "Company",
+        Brightness = 1379,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 36,
+        SensorLocation = "Office",
+        Brightness = 248,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 63,
+        SensorLocation = "Company",
+        Brightness = 418,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 64,
+        SensorLocation = "Company",
+        Brightness = 302,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 97,
+        SensorLocation = "Company",
+        Brightness = 716,
+        Humidity = 40
+    },
+    new() {
+        Temperature = 75,
+        AirQuality = 89,
+        SensorLocation = "Company",
+        Brightness = 512,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 36,
+        SensorLocation = "Office",
+        Brightness = 1355,
+        Humidity = 79
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 86,
+        SensorLocation = "Office",
+        Brightness = 325,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 49,
+        AirQuality = 16,
+        SensorLocation = "Office",
+        Brightness = 1354,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 66,
+        SensorLocation = "WareHourse",
+        Brightness = 751,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 62,
+        SensorLocation = "Office",
+        Brightness = 380,
+        Humidity = 53
+    },
+    new() {
+        Temperature = 32,
+        AirQuality = 62,
+        SensorLocation = "Company",
+        Brightness = 128,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 7,
+        SensorLocation = "Office",
+        Brightness = 203,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 16,
+        SensorLocation = "WareHourse",
+        Brightness = 846,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 4,
+        AirQuality = 53,
+        SensorLocation = "Company",
+        Brightness = 776,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 95,
+        SensorLocation = "WareHourse",
+        Brightness = 464,
+        Humidity = 48
+    },
+    new() {
+        Temperature = 43,
+        AirQuality = 90,
+        SensorLocation = "WareHourse",
+        Brightness = 788,
+        Humidity = 34
+    },
+    new() {
+        Temperature = 15,
+        AirQuality = 90,
+        SensorLocation = "WareHourse",
+        Brightness = 865,
+        Humidity = 36
+    },
+    new() {
+        Temperature = 8,
+        AirQuality = 89,
+        SensorLocation = "Office",
+        Brightness = 1355,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 63,
+        AirQuality = 68,
+        SensorLocation = "Office",
+        Brightness = 100,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 10,
+        AirQuality = 50,
+        SensorLocation = "Office",
+        Brightness = 1293,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 96,
+        SensorLocation = "WareHourse",
+        Brightness = 796,
+        Humidity = 54
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 65,
+        SensorLocation = "WareHourse",
+        Brightness = 650,
+        Humidity = 97
+    },
+    new() {
+        Temperature = 74,
+        AirQuality = 43,
+        SensorLocation = "Office",
+        Brightness = 1179,
+        Humidity = 60
+    },
+    new() {
+        Temperature = 20,
+        AirQuality = 82,
+        SensorLocation = "Company",
+        Brightness = 785,
+        Humidity = 58
+    },
+    new() {
+        Temperature = 9,
+        AirQuality = 66,
+        SensorLocation = "Company",
+        Brightness = 396,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 90,
+        AirQuality = 19,
+        SensorLocation = "WareHourse",
+        Brightness = 1054,
+        Humidity = 71
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 47,
+        SensorLocation = "Company",
+        Brightness = 594,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 79,
+        SensorLocation = "Office",
+        Brightness = 333,
+        Humidity = 77
+    },
+    new() {
+        Temperature = 96,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 445,
+        Humidity = 70
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 4,
+        SensorLocation = "WareHourse",
+        Brightness = 1257,
+        Humidity = 55
+    },
+    new() {
+        Temperature = 7,
+        AirQuality = 22,
+        SensorLocation = "Company",
+        Brightness = 517,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 8,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 210,
+        Humidity = 85
+    },
+    new() {
+        Temperature = 44,
+        AirQuality = 51,
+        SensorLocation = "Office",
+        Brightness = 1061,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 61,
+        SensorLocation = "Company",
+        Brightness = 358,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 78,
+        AirQuality = 70,
+        SensorLocation = "Office",
+        Brightness = 737,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 20,
+        SensorLocation = "WareHourse",
+        Brightness = 1266,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 38,
+        AirQuality = 24,
+        SensorLocation = "Office",
+        Brightness = 958,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 23,
+        AirQuality = 9,
+        SensorLocation = "Company",
+        Brightness = 778,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 90,
+        SensorLocation = "Office",
+        Brightness = 166,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 9,
+        AirQuality = 7,
+        SensorLocation = "Company",
+        Brightness = 1058,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 1,
+        AirQuality = 2,
+        SensorLocation = "Company",
+        Brightness = 1381,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 34,
+        SensorLocation = "Company",
+        Brightness = 1157,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 79,
+        AirQuality = 36,
+        SensorLocation = "WareHourse",
+        Brightness = 1240,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 97,
+        AirQuality = 69,
+        SensorLocation = "Company",
+        Brightness = 610,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 86,
+        AirQuality = 31,
+        SensorLocation = "WareHourse",
+        Brightness = 493,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 87,
+        SensorLocation = "Company",
+        Brightness = 906,
+        Humidity = 95
+    },
+    new() {
+        Temperature = 52,
+        AirQuality = 65,
+        SensorLocation = "Company",
+        Brightness = 690,
+        Humidity = 89
+    },
+    new() {
+        Temperature = 66,
+        AirQuality = 51,
+        SensorLocation = "Company",
+        Brightness = 1279,
+        Humidity = 62
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 61,
+        SensorLocation = "WareHourse",
+        Brightness = 793,
+        Humidity = 66
+    },
+    new() {
+        Temperature = 81,
+        AirQuality = 68,
+        SensorLocation = "Company",
+        Brightness = 970,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 94,
+        SensorLocation = "Company",
+        Brightness = 513,
+        Humidity = 48
+    },
+    new() {
+        Temperature = 91,
+        AirQuality = 97,
+        SensorLocation = "Office",
+        Brightness = 380,
+        Humidity = 79
+    },
+    new() {
+        Temperature = 94,
+        AirQuality = 21,
+        SensorLocation = "Office",
+        Brightness = 1335,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 44,
+        SensorLocation = "Office",
+        Brightness = 1254,
+        Humidity = 39
+    },
+    new() {
+        Temperature = 36,
+        AirQuality = 11,
+        SensorLocation = "Office",
+        Brightness = 120,
+        Humidity = 98
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 97,
+        SensorLocation = "Company",
+        Brightness = 1165,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 73,
         AirQuality = 81,
         SensorLocation = "Company",
-        Brightness = 1311
+        Brightness = 1017,
+        Humidity = 84
     },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1235
+    new() {
+        Temperature = 10,
+        AirQuality = 68,
+        SensorLocation = "WareHourse",
+        Brightness = 415,
+        Humidity = 30
     },
-    new()
-    {
+    new() {
+        Temperature = 84,
+        AirQuality = 100,
+        SensorLocation = "Office",
+        Brightness = 1217,
+        Humidity = 80
+    },
+    new() {
         Temperature = 26,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 429
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 71,
+        AirQuality = 82,
         SensorLocation = "Company",
-        Brightness = 1484
+        Brightness = 1230,
+        Humidity = 35
     },
-    new()
-    {
+    new() {
+        Temperature = 65,
+        AirQuality = 48,
+        SensorLocation = "Office",
+        Brightness = 273,
+        Humidity = 79
+    },
+    new() {
+        Temperature = 64,
+        AirQuality = 60,
+        SensorLocation = "Office",
+        Brightness = 1350,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 31,
+        AirQuality = 63,
+        SensorLocation = "Company",
+        Brightness = 282,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 87,
+        AirQuality = 62,
+        SensorLocation = "Office",
+        Brightness = 490,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 54,
+        AirQuality = 82,
+        SensorLocation = "WareHourse",
+        Brightness = 822,
+        Humidity = 91
+    },
+    new() {
+        Temperature = 65,
+        AirQuality = 60,
+        SensorLocation = "Company",
+        Brightness = 1352,
+        Humidity = 57
+    },
+    new() {
+        Temperature = 49,
+        AirQuality = 46,
+        SensorLocation = "WareHourse",
+        Brightness = 770,
+        Humidity = 69
+    },
+    new() {
+        Temperature = 89,
+        AirQuality = 3,
+        SensorLocation = "Office",
+        Brightness = 1314,
+        Humidity = 92
+    },
+    new() {
+        Temperature = 85,
+        AirQuality = 41,
+        SensorLocation = "Office",
+        Brightness = 225,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 61,
+        AirQuality = 38,
+        SensorLocation = "Company",
+        Brightness = 1288,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 80,
+        AirQuality = 92,
+        SensorLocation = "WareHourse",
+        Brightness = 679,
+        Humidity = 52
+    },
+    new() {
+        Temperature = 12,
+        AirQuality = 30,
+        SensorLocation = "Office",
+        Brightness = 471,
+        Humidity = 68
+    },
+    new() {
+        Temperature = 1,
+        AirQuality = 83,
+        SensorLocation = "Company",
+        Brightness = 994,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 96,
+        AirQuality = 49,
+        SensorLocation = "Company",
+        Brightness = 691,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 93,
+        AirQuality = 90,
+        SensorLocation = "Office",
+        Brightness = 190,
+        Humidity = 82
+    },
+    new() {
+        Temperature = 45,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 322,
+        Humidity = 38
+    },
+    new() {
+        Temperature = 2,
+        AirQuality = 66,
+        SensorLocation = "Company",
+        Brightness = 1085,
+        Humidity = 76
+    },
+    new() {
+        Temperature = 95,
+        AirQuality = 23,
+        SensorLocation = "Company",
+        Brightness = 511,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 76,
+        AirQuality = 19,
+        SensorLocation = "Company",
+        Brightness = 922,
+        Humidity = 88
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 90,
+        SensorLocation = "Company",
+        Brightness = 280,
+        Humidity = 31
+    },
+    new() {
+        Temperature = 13,
+        AirQuality = 75,
+        SensorLocation = "WareHourse",
+        Brightness = 472,
+        Humidity = 65
+    },
+    new() {
+        Temperature = 88,
+        AirQuality = 18,
+        SensorLocation = "Office",
+        Brightness = 1268,
+        Humidity = 65
+    },
+    new() {
         Temperature = 51,
-        AirQuality = 43,
+        AirQuality = 60,
+        SensorLocation = "WareHourse",
+        Brightness = 661,
+        Humidity = 90
+    },
+    new() {
+        Temperature = 21,
+        AirQuality = 8,
         SensorLocation = "Company",
-        Brightness = 1041
+        Brightness = 1108,
+        Humidity = 46
     },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
+    new() {
+        Temperature = 27,
+        AirQuality = 4,
+        SensorLocation = "WareHourse",
+        Brightness = 1389,
+        Humidity = 93
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 28,
         SensorLocation = "Office",
-        Brightness = 876
+        Brightness = 525,
+        Humidity = 92
     },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 26,
+    new() {
+        Temperature = 10,
+        AirQuality = 65,
+        SensorLocation = "WareHourse",
+        Brightness = 729,
+        Humidity = 35
+    },
+    new() {
+        Temperature = 51,
+        AirQuality = 36,
+        SensorLocation = "WareHourse",
+        Brightness = 1256,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 73,
+        AirQuality = 28,
         SensorLocation = "Office",
-        Brightness = 916
+        Brightness = 918,
+        Humidity = 55
     },
-    new()
-    {
-        Temperature = 38,
+    new() {
+        Temperature = 61,
+        AirQuality = 69,
+        SensorLocation = "Office",
+        Brightness = 1181,
+        Humidity = 96
+    },
+    new() {
+        Temperature = 11,
+        AirQuality = 27,
+        SensorLocation = "WareHourse",
+        Brightness = 612,
+        Humidity = 56
+    },
+    new() {
+        Temperature = 71,
+        AirQuality = 78,
+        SensorLocation = "Company",
+        Brightness = 868,
+        Humidity = 78
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 23,
+        SensorLocation = "WareHourse",
+        Brightness = 1233,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 56,
+        AirQuality = 33,
+        SensorLocation = "Office",
+        Brightness = 538,
+        Humidity = 43
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 34,
+        SensorLocation = "WareHourse",
+        Brightness = 1009,
+        Humidity = 67
+    },
+    new() {
+        Temperature = 25,
+        AirQuality = 37,
+        SensorLocation = "Office",
+        Brightness = 1036,
+        Humidity = 41
+    },
+    new() {
+        Temperature = 40,
+        AirQuality = 48,
+        SensorLocation = "Office",
+        Brightness = 835,
+        Humidity = 51
+    },
+    new() {
+        Temperature = 19,
+        AirQuality = 88,
+        SensorLocation = "WareHourse",
+        Brightness = 443,
+        Humidity = 80
+    },
+    new() {
+        Temperature = 53,
+        AirQuality = 7,
+        SensorLocation = "Office",
+        Brightness = 694,
+        Humidity = 42
+    },
+    new() {
+        Temperature = 16,
+        AirQuality = 13,
+        SensorLocation = "Company",
+        Brightness = 612,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 27,
+        AirQuality = 39,
+        SensorLocation = "Company",
+        Brightness = 202,
+        Humidity = 49
+    },
+    new() {
+        Temperature = 77,
+        AirQuality = 59,
+        SensorLocation = "Company",
+        Brightness = 1328,
+        Humidity = 32
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 10,
+        SensorLocation = "WareHourse",
+        Brightness = 1257,
+        Humidity = 46
+    },
+    new() {
+        Temperature = 28,
+        AirQuality = 78,
+        SensorLocation = "Office",
+        Brightness = 718,
+        Humidity = 86
+    },
+    new() {
+        Temperature = 79,
+        AirQuality = 33,
+        SensorLocation = "Office",
+        Brightness = 402,
+        Humidity = 61
+    },
+    new() {
+        Temperature = 26,
+        AirQuality = 12,
+        SensorLocation = "WareHourse",
+        Brightness = 450,
+        Humidity = 37
+    },
+    new() {
+        Temperature = 5,
+        AirQuality = 49,
+        SensorLocation = "Office",
+        Brightness = 150,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 15,
         AirQuality = 99,
-        SensorLocation = "Company",
-        Brightness = 604
+        SensorLocation = "WareHourse",
+        Brightness = 1010,
+        Humidity = 92
     },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 1227
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1195
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 786
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 83,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 52,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 811
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 45,
-        SensorLocation = "Company",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 948
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 889
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 1345
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1449
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1365
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 29,
-        SensorLocation = "WareHouse",
-        Brightness = 1595
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 1277
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 761
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 573
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1456
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 46,
-        SensorLocation = "Company",
-        Brightness = 516
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 489
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 3,
-        SensorLocation = "WareHouse",
-        Brightness = 1435
-    },
-    new()
-    {
-        Temperature = 25,
+    new() {
+        Temperature = 10,
         AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 83,
         SensorLocation = "Company",
-        Brightness = 647
+        Brightness = 1400,
+        Humidity = 69
     },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 1404
+    new() {
+        Temperature = 72,
+        AirQuality = 48,
+        SensorLocation = "WareHourse",
+        Brightness = 1293,
+        Humidity = 44
     },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 7,
-        SensorLocation = "Office",
-        Brightness = 863
+    new() {
+        Temperature = 66,
+        AirQuality = 86,
+        SensorLocation = "WareHourse",
+        Brightness = 499,
+        Humidity = 99
     },
-    new()
-    {
+    new() {
+        Temperature = 43,
+        AirQuality = 38,
+        SensorLocation = "Company",
+        Brightness = 1123,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 58,
+        AirQuality = 47,
+        SensorLocation = "WareHourse",
+        Brightness = 667,
+        Humidity = 47
+    },
+    new() {
+        Temperature = 60,
+        AirQuality = 73,
+        SensorLocation = "WareHourse",
+        Brightness = 531,
+        Humidity = 89
+    },
+    new() {
         Temperature = 44,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 1073
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 945
-    },
-    new()
-    {
-        Temperature = 22,
         AirQuality = 55,
+        SensorLocation = "WareHourse",
+        Brightness = 878,
+        Humidity = 87
+    },
+    new() {
+        Temperature = 70,
+        AirQuality = 51,
         SensorLocation = "Company",
-        Brightness = 419
+        Brightness = 699,
+        Humidity = 38
     },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1141
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 100,
-        SensorLocation = "Company",
-        Brightness = 1049
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1050
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 245
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 20,
-        SensorLocation = "Company",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 1083
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 23,
-        SensorLocation = "WareHouse",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "Company",
-        Brightness = 1018
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 1177
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 766
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 845
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 373
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 976
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1171
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 939
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 1162
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 978
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 353
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 597
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 63,
-        SensorLocation = "WareHouse",
-        Brightness = 656
-    },
-    new()
-    {
+    new() {
         Temperature = 35,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 1271
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 657
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 26,
-        SensorLocation = "Company",
-        Brightness = 1337
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 88,
-        SensorLocation = "Office",
-        Brightness = 1347
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 33,
-        SensorLocation = "Company",
-        Brightness = 855
-    },
-    new()
-    {
-        Temperature = 34,
         AirQuality = 68,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 254
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 93,
-        SensorLocation = "WareHouse",
-        Brightness = 629
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 821
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 617
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 50,
         SensorLocation = "Office",
-        Brightness = 1574
+        Brightness = 374,
+        Humidity = 72
     },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 77,
+    new() {
+        Temperature = 57,
+        AirQuality = 99,
         SensorLocation = "Office",
-        Brightness = 1553
+        Brightness = 113,
+        Humidity = 44
     },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 660
+    new() {
+        Temperature = 36,
+        AirQuality = 97,
+        SensorLocation = "WareHourse",
+        Brightness = 289,
+        Humidity = 47
     },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 1114
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 11,
-        SensorLocation = "Company",
-        Brightness = 1335
-    },
-    new()
-    {
-        Temperature = 48,
+    new() {
+        Temperature = 85,
         AirQuality = 46,
-        SensorLocation = "WareHouse",
-        Brightness = 691
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 3,
-        SensorLocation = "Company",
-        Brightness = 1135
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 44,
         SensorLocation = "Office",
-        Brightness = 645
+        Brightness = 1484,
+        Humidity = 98
     },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 20,
-        SensorLocation = "Office",
-        Brightness = 678
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 30,
-        SensorLocation = "Office",
-        Brightness = 1448
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 5,
-        SensorLocation = "Company",
-        Brightness = 270
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 323
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 1370
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 842
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 476
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1212
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 882
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1140
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 23,
-        SensorLocation = "Office",
-        Brightness = 252
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 604
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 231
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 523
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 278
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 585
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 1331
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 615
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1281
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 775
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 43,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 946
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 936
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 17,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 52,
-        SensorLocation = "Office",
-        Brightness = 1148
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 619
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 873
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 237
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 562
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1531
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 18,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 4,
-        SensorLocation = "Office",
-        Brightness = 472
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 508
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1474
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 27,
-        SensorLocation = "Office",
-        Brightness = 1263
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1545
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 1108
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 960
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 63,
-        SensorLocation = "Office",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 436
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1055
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 28,
-        SensorLocation = "WareHouse",
-        Brightness = 539
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 77,
-        SensorLocation = "Company",
-        Brightness = 1566
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 398
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1064
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 982
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 98,
-        SensorLocation = "Office",
-        Brightness = 790
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 26,
-        SensorLocation = "Office",
-        Brightness = 677
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 1224
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 32,
-        SensorLocation = "Company",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 9,
-        SensorLocation = "WareHouse",
-        Brightness = 904
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1004
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 75,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
+    new() {
         Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "Company",
-        Brightness = 810
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 77,
-        SensorLocation = "WareHouse",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 375
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 969
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 53,
-        SensorLocation = "WareHouse",
-        Brightness = 1489
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 1159
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 582
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 64,
-        SensorLocation = "Office",
-        Brightness = 491
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "Company",
-        Brightness = 878
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 204
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 74,
-        SensorLocation = "Company",
-        Brightness = 903
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 18,
-        SensorLocation = "Office",
-        Brightness = 1362
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 336
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 371
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 646
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1028
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 30,
-        SensorLocation = "WareHouse",
-        Brightness = 1447
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 19,
-        SensorLocation = "Office",
-        Brightness = 1182
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 474
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 1063
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 519
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 1406
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 733
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 30,
-        SensorLocation = "Company",
-        Brightness = 1261
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 872
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 37,
-        SensorLocation = "Company",
-        Brightness = 901
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1314
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 501
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 22,
-        SensorLocation = "Company",
-        Brightness = 1340
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 1274
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1000
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 985
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 1584
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1598
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 38,
-        SensorLocation = "Office",
-        Brightness = 1091
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 1102
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 509
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 835
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 1397
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 81,
-        SensorLocation = "WareHouse",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 1582
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 25,
-        SensorLocation = "Office",
-        Brightness = 1247
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1437
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 937
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 32,
-        SensorLocation = "WareHouse",
-        Brightness = 466
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 7,
-        SensorLocation = "WareHouse",
-        Brightness = 301
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 69,
-        SensorLocation = "Company",
-        Brightness = 307
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 641
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 62,
-        SensorLocation = "Company",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 55,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 1309
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1348
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 6,
-        SensorLocation = "Company",
-        Brightness = 847
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 50,
-        SensorLocation = "Office",
-        Brightness = 666
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 65,
-        SensorLocation = "Office",
-        Brightness = 654
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 8,
-        SensorLocation = "Office",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 319
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 530
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 45,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 62,
-        SensorLocation = "Office",
-        Brightness = 1137
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 75,
-        SensorLocation = "WareHouse",
-        Brightness = 250
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 70,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1178
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 82,
-        SensorLocation = "WareHouse",
-        Brightness = 1549
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 1486
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 264
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 210
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 1008
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 6,
-        SensorLocation = "WareHouse",
-        Brightness = 1368
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1446
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 484
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 1579
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 460
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1009
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 58,
-        SensorLocation = "Office",
-        Brightness = 1558
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 49,
-        SensorLocation = "Office",
-        Brightness = 688
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 1463
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 980
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 220
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 80,
-        SensorLocation = "Company",
-        Brightness = 1252
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1285
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 1576
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1031
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 58,
-        SensorLocation = "WareHouse",
-        Brightness = 1211
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 33,
-        SensorLocation = "Office",
-        Brightness = 1393
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 1418
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 93,
-        SensorLocation = "Office",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 846
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 1057
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 17,
-        SensorLocation = "Office",
-        Brightness = 439
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 40,
-        SensorLocation = "Office",
-        Brightness = 1488
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 655
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 12,
-        SensorLocation = "Office",
-        Brightness = 473
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 422
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 17,
-        SensorLocation = "Company",
-        Brightness = 724
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 486
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 1421
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 91,
-        SensorLocation = "Company",
-        Brightness = 992
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 588
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 79,
-        SensorLocation = "Company",
-        Brightness = 244
-    },
-    new()
-    {
-        Temperature = 52,
-        AirQuality = 96,
-        SensorLocation = "Company",
-        Brightness = 1021
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 1219
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 54,
-        SensorLocation = "Company",
-        Brightness = 1029
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 57,
-        SensorLocation = "WareHouse",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 41,
-        SensorLocation = "Office",
-        Brightness = 609
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 87,
-        SensorLocation = "Company",
-        Brightness = 320
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 76,
-        SensorLocation = "WareHouse",
-        Brightness = 1119
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 63,
-        SensorLocation = "Company",
-        Brightness = 1472
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 56,
-        SensorLocation = "Company",
-        Brightness = 426
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 1257
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 42,
-        SensorLocation = "Company",
-        Brightness = 951
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 48,
-        SensorLocation = "WareHouse",
-        Brightness = 1228
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 8,
-        SensorLocation = "Company",
-        Brightness = 740
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 53,
-        SensorLocation = "Company",
-        Brightness = 680
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 89,
-        SensorLocation = "WareHouse",
-        Brightness = 621
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 80,
-        SensorLocation = "WareHouse",
-        Brightness = 1392
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 89,
-        SensorLocation = "Company",
-        Brightness = 1376
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 58,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 55,
-        SensorLocation = "Office",
-        Brightness = 1120
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 90,
-        SensorLocation = "WareHouse",
-        Brightness = 240
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 87,
-        SensorLocation = "Office",
-        Brightness = 817
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 69,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 83,
-        SensorLocation = "Company",
-        Brightness = 1409
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 88,
-        SensorLocation = "Company",
-        Brightness = 895
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1034
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1546
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 41,
-        SensorLocation = "Company",
-        Brightness = 432
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1451
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 26,
-        SensorLocation = "WareHouse",
-        Brightness = 595
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 495
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 1038
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 1260
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 31,
-        SensorLocation = "Office",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 98,
-        SensorLocation = "Company",
-        Brightness = 1264
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 218
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 389
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 67,
-        SensorLocation = "Office",
-        Brightness = 347
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 95,
-        SensorLocation = "WareHouse",
-        Brightness = 964
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 86,
-        SensorLocation = "Company",
-        Brightness = 674
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 25,
-        SensorLocation = "Company",
-        Brightness = 233
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 31,
-        SensorLocation = "Company",
-        Brightness = 1037
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 36,
-        SensorLocation = "Company",
-        Brightness = 542
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 12,
-        SensorLocation = "Company",
-        Brightness = 330
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 10,
-        SensorLocation = "Office",
-        Brightness = 1166
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 47,
-        SensorLocation = "WareHouse",
-        Brightness = 1072
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 57,
-        SensorLocation = "Company",
-        Brightness = 505
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1519
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 44,
-        SensorLocation = "Office",
-        Brightness = 771
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 39,
-        SensorLocation = "WareHouse",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 14,
-        SensorLocation = "WareHouse",
-        Brightness = 1459
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 81,
-        SensorLocation = "Company",
-        Brightness = 1001
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 5,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 1471
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 11,
-        SensorLocation = "Office",
-        Brightness = 1379
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 700
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 73,
-        SensorLocation = "Office",
-        Brightness = 660
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 605
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 69,
-        SensorLocation = "WareHouse",
-        Brightness = 1300
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Office",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 1,
-        SensorLocation = "Company",
-        Brightness = 1222
-    },
-    new()
-    {
-        Temperature = 41,
-        AirQuality = 48,
-        SensorLocation = "Company",
-        Brightness = 983
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1128
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 48,
-        SensorLocation = "Office",
-        Brightness = 1130
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 90,
-        SensorLocation = "Office",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 1173
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 1,
-        SensorLocation = "WareHouse",
-        Brightness = 568
-    },
-    new()
-    {
-        Temperature = 26,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 1071
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 2,
-        SensorLocation = "WareHouse",
-        Brightness = 1157
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 96,
-        SensorLocation = "WareHouse",
-        Brightness = 342
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 49,
-        SensorLocation = "Company",
-        Brightness = 1110
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 92,
-        SensorLocation = "Company",
-        Brightness = 337
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 44,
-        SensorLocation = "Company",
-        Brightness = 442
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 86,
-        SensorLocation = "Office",
-        Brightness = 644
-    },
-    new()
-    {
-        Temperature = 44,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1464
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 7,
-        SensorLocation = "Company",
-        Brightness = 1438
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 14,
-        SensorLocation = "Office",
-        Brightness = 1143
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 97,
-        SensorLocation = "WareHouse",
-        Brightness = 1528
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 61,
-        SensorLocation = "WareHouse",
-        Brightness = 1346
-    },
-    new()
-    {
-        Temperature = 32,
-        AirQuality = 35,
-        SensorLocation = "WareHouse",
-        Brightness = 807
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 10,
-        SensorLocation = "WareHouse",
-        Brightness = 625
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 53,
-        SensorLocation = "Office",
-        Brightness = 702
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 1121
-    },
-    new()
-    {
-        Temperature = 36,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 315
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 623
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 87,
-        SensorLocation = "WareHouse",
-        Brightness = 1033
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 1122
-    },
-    new()
-    {
-        Temperature = 53,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 893
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 1505
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1480
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 1321
-    },
-    new()
-    {
-        Temperature = 24,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 694
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 1380
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 37,
-        SensorLocation = "Office",
-        Brightness = 1068
-    },
-    new()
-    {
-        Temperature = 48,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 467
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 485
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 73,
-        SensorLocation = "WareHouse",
-        Brightness = 1100
-    },
-    new()
-    {
-        Temperature = 28,
-        AirQuality = 23,
-        SensorLocation = "Company",
-        Brightness = 1295
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 65,
-        SensorLocation = "Company",
-        Brightness = 437
-    },
-    new()
-    {
-        Temperature = 45,
-        AirQuality = 72,
-        SensorLocation = "Office",
-        Brightness = 535
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1258
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 84,
-        SensorLocation = "Company",
-        Brightness = 1213
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "WareHouse",
-        Brightness = 1169
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 56,
-        SensorLocation = "Office",
-        Brightness = 1003
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 85,
-        SensorLocation = "WareHouse",
-        Brightness = 915
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 1506
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 9,
-        SensorLocation = "Office",
-        Brightness = 241
-    },
-    new()
-    {
-        Temperature = 38,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 1481
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 36,
-        SensorLocation = "Office",
-        Brightness = 1129
-    },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 44,
-        SensorLocation = "WareHouse",
-        Brightness = 682
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 85,
-        SensorLocation = "Office",
-        Brightness = 632
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 21,
-        SensorLocation = "Office",
-        Brightness = 267
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1408
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 773
-    },
-    new()
-    {
-        Temperature = 6,
-        AirQuality = 35,
-        SensorLocation = "Company",
-        Brightness = 499
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 6,
-        SensorLocation = "Office",
-        Brightness = 557
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 67,
-        SensorLocation = "Company",
-        Brightness = 1294
-    },
-    new()
-    {
-        Temperature = 11,
-        AirQuality = 16,
-        SensorLocation = "Company",
-        Brightness = 795
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 94,
-        SensorLocation = "Office",
-        Brightness = 1556
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 59,
-        SensorLocation = "Company",
-        Brightness = 769
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 38,
-        SensorLocation = "Company",
-        Brightness = 1293
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 79,
-        SensorLocation = "WareHouse",
-        Brightness = 848
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 61,
-        SensorLocation = "Office",
-        Brightness = 1232
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 15,
-        SensorLocation = "Office",
-        Brightness = 1429
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 79,
-        SensorLocation = "Office",
-        Brightness = 1371
-    },
-    new()
-    {
-        Temperature = 9,
-        AirQuality = 86,
-        SensorLocation = "WareHouse",
-        Brightness = 603
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 29,
-        SensorLocation = "Office",
-        Brightness = 1132
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 54,
-        SensorLocation = "WareHouse",
-        Brightness = 229
-    },
-    new()
-    {
-        Temperature = 51,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 989
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 47,
-        SensorLocation = "Office",
-        Brightness = 269
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 98,
-        SensorLocation = "WareHouse",
-        Brightness = 863
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 25,
-        SensorLocation = "WareHouse",
-        Brightness = 1466
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 16,
-        SensorLocation = "WareHouse",
-        Brightness = 658
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 96,
-        SensorLocation = "Office",
-        Brightness = 1559
-    },
-    new()
-    {
-        Temperature = 39,
-        AirQuality = 24,
-        SensorLocation = "Office",
-        Brightness = 1136
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 22,
-        SensorLocation = "WareHouse",
-        Brightness = 578
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 68,
-        SensorLocation = "WareHouse",
-        Brightness = 332
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 31,
-        SensorLocation = "WareHouse",
-        Brightness = 1190
-    },
-    new()
-    {
-        Temperature = 22,
-        AirQuality = 13,
-        SensorLocation = "Office",
-        Brightness = 444
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 18,
-        SensorLocation = "WareHouse",
-        Brightness = 1338
-    },
-    new()
-    {
-        Temperature = 54,
-        AirQuality = 42,
-        SensorLocation = "Office",
-        Brightness = 922
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 59,
-        SensorLocation = "Office",
-        Brightness = 507
-    },
-    new()
-    {
-        Temperature = 14,
-        AirQuality = 22,
-        SensorLocation = "Office",
-        Brightness = 260
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 65,
-        SensorLocation = "WareHouse",
-        Brightness = 880
-    },
-    new()
-    {
-        Temperature = 42,
-        AirQuality = 66,
-        SensorLocation = "WareHouse",
-        Brightness = 1502
-    },
-    new()
-    {
-        Temperature = 16,
-        AirQuality = 20,
-        SensorLocation = "WareHouse",
-        Brightness = 1098
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 51,
-        SensorLocation = "WareHouse",
-        Brightness = 1142
-    },
-    new()
-    {
-        Temperature = 20,
-        AirQuality = 57,
-        SensorLocation = "Office",
-        Brightness = 492
-    },
-    new()
-    {
-        Temperature = 33,
-        AirQuality = 11,
-        SensorLocation = "WareHouse",
-        Brightness = 1518
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 60,
-        SensorLocation = "WareHouse",
-        Brightness = 1306
-    },
-    new()
-    {
-        Temperature = 27,
-        AirQuality = 95,
-        SensorLocation = "Company",
-        Brightness = 430
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 61,
-        SensorLocation = "Company",
-        Brightness = 888
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 83,
-        SensorLocation = "Office",
-        Brightness = 1509
-    },
-    new()
-    {
-        Temperature = 47,
-        AirQuality = 94,
-        SensorLocation = "WareHouse",
-        Brightness = 457
-    },
-    new()
-    {
-        Temperature = 34,
-        AirQuality = 13,
-        SensorLocation = "WareHouse",
-        Brightness = 723
-    },
-    new()
-    {
-        Temperature = 43,
-        AirQuality = 68,
-        SensorLocation = "Office",
-        Brightness = 1061
-    },
-    new()
-    {
-        Temperature = 18,
-        AirQuality = 8,
-        SensorLocation = "WareHouse",
-        Brightness = 1550
-    },
-    new()
-    {
-        Temperature = 10,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 963
-    },
-    new()
-    {
-        Temperature = 8,
-        AirQuality = 47,
-        SensorLocation = "Company",
-        Brightness = 470
-    },
-    new()
-    {
-        Temperature = 30,
-        AirQuality = 12,
-        SensorLocation = "WareHouse",
-        Brightness = 386
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 64,
-        SensorLocation = "Company",
-        Brightness = 1515
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 41,
-        SensorLocation = "WareHouse",
-        Brightness = 1007
-    },
-    new()
-    {
-        Temperature = 29,
-        AirQuality = 36,
-        SensorLocation = "WareHouse",
-        Brightness = 1185
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 24,
-        SensorLocation = "WareHouse",
-        Brightness = 446
-    },
-    new()
-    {
-        Temperature = 37,
-        AirQuality = 66,
-        SensorLocation = "Office",
-        Brightness = 876
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 40,
-        SensorLocation = "Company",
-        Brightness = 305
-    },
-    new()
-    {
-        Temperature = 13,
-        AirQuality = 37,
-        SensorLocation = "WareHouse",
-        Brightness = 1478
-    },
-    new()
-    {
-        Temperature = 12,
-        AirQuality = 56,
-        SensorLocation = "WareHouse",
-        Brightness = 981
-    },
-    new()
-    {
-        Temperature = 5,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 369
-    },
-    new()
-    {
-        Temperature = 23,
-        AirQuality = 51,
-        SensorLocation = "Office",
-        Brightness = 1015
-    },
-    new()
-    {
-        Temperature = 7,
-        AirQuality = 78,
-        SensorLocation = "Office",
-        Brightness = 1527
-    },
-    new()
-    {
-        Temperature = 35,
-        AirQuality = 89,
-        SensorLocation = "Office",
-        Brightness = 716
-    },
-    new()
-    {
-        Temperature = 25,
-        AirQuality = 85,
-        SensorLocation = "Company",
-        Brightness = 1220
-    },
-    new()
-    {
-        Temperature = 17,
-        AirQuality = 82,
-        SensorLocation = "Company",
-        Brightness = 1106
-    },
-    new()
-    {
-        Temperature = 19,
-        AirQuality = 34,
-        SensorLocation = "Company",
-        Brightness = 1017
-    },
-    new()
-    {
-        Temperature = 54,
         AirQuality = 66,
         SensorLocation = "Company",
-        Brightness = 1521
+        Brightness = 979,
+        Humidity = 66
     },
-    new()
-    {
-        Temperature = 50,
-        AirQuality = 34,
-        SensorLocation = "Office",
-        Brightness = 488
+    new() {
+        Temperature = 48,
+        AirQuality = 86,
+        SensorLocation = "Company",
+        Brightness = 385,
+        Humidity = 79
     },
-    new()
-    {
-        Temperature = 26,
+    new() {
+        Temperature = 76,
         AirQuality = 73,
-        SensorLocation = "Company",
-        Brightness = 844
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 50,
-        SensorLocation = "Company",
-        Brightness = 1465
-    },
-    new()
-    {
-        Temperature = 31,
-        AirQuality = 2,
-        SensorLocation = "Company",
-        Brightness = 529
-    },
-    new()
-    {
-        Temperature = 49,
-        AirQuality = 34,
         SensorLocation = "Office",
-        Brightness = 1064
+        Brightness = 303,
+        Humidity = 73
     },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 74,
+    new() {
+        Temperature = 27,
+        AirQuality = 20,
+        SensorLocation = "WareHourse",
+        Brightness = 910,
+        Humidity = 83
+    },
+    new() {
+        Temperature = 6,
+        AirQuality = 37,
+        SensorLocation = "WareHourse",
+        Brightness = 583,
+        Humidity = 50
+    },
+    new() {
+        Temperature = 73,
+        AirQuality = 9,
         SensorLocation = "Company",
-        Brightness = 729
+        Brightness = 1392,
+        Humidity = 91
     },
-    new()
-    {
-        Temperature = 15,
-        AirQuality = 33,
-        SensorLocation = "WareHouse",
-        Brightness = 468
-    },
-    new()
-    {
-        Temperature = 40,
-        AirQuality = 90,
-        SensorLocation = "Company",
-        Brightness = 1328
-    },
-    new()
-    {
-        Temperature = 46,
-        AirQuality = 67,
-        SensorLocation = "WareHouse",
-        Brightness = 1436
-    },
-    new()
-    {
-        Temperature = 21,
-        AirQuality = 59,
+    new() {
+        Temperature = 99,
+        AirQuality = 30,
         SensorLocation = "Office",
-        Brightness = 782
+        Brightness = 682,
+        Humidity = 74
+    },
+    new() {
+        Temperature = 5,
+        AirQuality = 10,
+        SensorLocation = "WareHourse",
+        Brightness = 498,
+        Humidity = 34
     }
 };
             #endregion
@@ -17556,21 +7057,20 @@ namespace DAL.Seeder
             #region data devices
             IList<Device> devices = new List<Device>() {
             new(){ Id="sensor-0",Name="S1",Type="sensor",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L1",Name="L1",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L2",Name="L2",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L3",Name="L3",Type="light",Status=false,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L4",Name="L4",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L5",Name="L5",Type="light",Status=false,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L6",Name="L6",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="L7",Name="L7",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-             new(){ Id="F1",Name="F1",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="F2",Name="F2",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="F3",Name="F3",Type="fan",Status=false,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="F4",Name="F4",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="F5",Name="F5",Type="fan",Status=false,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="F6",Name="F6",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-            new(){ Id="F7",Name="F7",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
-
+            new(){ Id="l1",Name="L1",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="l2",Name="L2",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="l3",Name="L3",Type="light",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="l4",Name="L4",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="l5",Name="L5",Type="light",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="l6",Name="L6",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="l7",Name="L7",Type="light",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+             new(){ Id="f1",Name="F1",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="f2",Name="F2",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="f3",Name="F3",Type="fan",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="f4",Name="F4",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="f5",Name="F5",Type="fan",Status=false,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="f6",Name="F6",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
+            new(){ Id="f7",Name="F7",Type="fan",Status=true,ConnectionStatus=false,FarmId=farm.Id},
             };
             #endregion
             _context.AddRange(devices);

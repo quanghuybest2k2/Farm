@@ -99,6 +99,9 @@ namespace DAL.Migrations
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Humidity")
+                        .HasColumnType("int");
+
                     b.Property<string>("SensorLocation")
                         .HasColumnType("nvarchar(max)");
 

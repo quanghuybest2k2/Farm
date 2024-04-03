@@ -12,5 +12,6 @@ namespace Core.Queries
         public int? AirQuality { get; set; }
         public string SensorLocation { get; set; }
         public int? Brightness { get; set; }
+        public int? Humidity { get; set; }
     }
 }

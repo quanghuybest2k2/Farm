@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Constract;
+using Core.DTO;
 using Core.Queries;
 using DAL.Repositories.Interface;
 using DAL.Repositories.UnitOfWork;
@@ -79,6 +80,24 @@ namespace farm_api.Services.Implementation
             _environmentRepository.Update(entityUpdate);
             _unitOfWork.Save();
 
+        }
+        public async Task<IEnumerable<EnvironmentStatistics>> GetDailyStatisticsAsync(DateTime? startDate, DateTime? endDate, CancellationToken cancellationToken = default)
+        {
+            // Logic to handle startDate and endDate remains the same
+            DateTime now = DateTime.Now.Date; // Use current date for defaults
+            startDate ??= now;
+            endDate ??= now;
+
+            // Call the repository method
+            var statistics = await _environmentRepository.GetDailyStatisticsAsync(startDate, endDate, cancellationToken);
+            return statistics;
+        }
+
+        public async Task<IEnumerable<TemperatureHumidityStats>> GetAverageTemperatureAndHumidityByLocationAsync(CancellationToken cancellationToken = default)
+        {
+            // Directly call the repository method
+            var stats = await _environmentRepository.GetAverageTemperatureAndHumidityByLocationAsync(cancellationToken);
+            return stats;
         }
     }
 }

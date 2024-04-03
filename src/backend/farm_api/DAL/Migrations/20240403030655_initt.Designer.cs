@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(FarmContext))]
-    [Migration("20240331111736_init")]
-    partial class init
+    [Migration("20240403030655_initt")]
+    partial class initt
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,6 +101,9 @@ namespace DAL.Migrations
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Humidity")
+                        .HasColumnType("int");
 
                     b.Property<string>("SensorLocation")
                         .HasColumnType("nvarchar(max)");
