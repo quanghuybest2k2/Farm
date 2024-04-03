@@ -128,7 +128,11 @@ const Dashboard = () => {
                                 device.status ? "btn-success" : "btn-danger"
                               }`}
                               onClick={() =>
-                                updateDeviceStatus(device.id, !device.status)
+                                updateDeviceStatus(
+                                  farmId,
+                                  device.id,
+                                  !device.status
+                                )
                               }
                             >
                               <div>{device.name}</div>
@@ -150,11 +154,11 @@ const Dashboard = () => {
   };
 
   // update status
-  const updateDeviceStatus = async (deviceId, newStatus) => {
+  const updateDeviceStatus = async (farmId, deviceId, newStatus) => {
     try {
       const device = devices.find((device) => device.id === deviceId);
-      const response = await axios.put(
-        `${config.API_URL}/devices/${deviceId}`,
+      const response = await axios.get(
+        `${config.API_URL}/socketmanagement/messageToDeviceSpecified?FarmId=${farmId}&DeviceId=${deviceId}&Action=${newStatus}`,
         {
           ...device,
           status: newStatus,
