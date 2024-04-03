@@ -3,12 +3,13 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import config from "../config";
 import axios from "axios";
 import PieChart from "../components/PieChart";
+import StackChart from "../components/StackChart";
 
 const Dashboard = () => {
   const [controlDevice, setControlDevice] = useState([]);
   const [devices, setDevices] = useState([]);
 
-  const farmId = "a023eaaa-6b6e-4169-88cf-95ef2dd8978a";
+  const farmId = "03093b4b-be1b-4ebf-91fa-07f179a24516";
 
   const fetchData = async () => {
     // socket weather
@@ -295,16 +296,13 @@ const Dashboard = () => {
                 {/* end trang thai thiet bi */}
               </div>
               {/* pie */}
-              <div className="row">
-                <div className="col-lg-6">
-                  <h2 className="h3 mb-3 text-gray-800">Biểu đồ tròn</h2>
-                  <div
-                    className="row"
-                    style={{ width: "300px", height: "200px" }}
-                  >
-                    <PieChart />
-                  </div>
-                </div>
+              {/* <div style={{ height: "500px", width: "500px" }}>
+                <h4>Thống kê dạng tròn</h4>
+                <PieChart />
+              </div> */}
+              <div style={{ height: "500px", width: "500px" }}>
+                <h4>Thống kê dạng cột</h4>
+                <StackChart />
               </div>
             </div>
           </div>
