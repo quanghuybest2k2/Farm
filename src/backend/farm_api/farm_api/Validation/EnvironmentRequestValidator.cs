@@ -9,10 +9,8 @@ namespace farm_api.Validation
         public EnvironmentRequestValidator() 
         {
             RuleFor(x => x.Temperature).NotEmpty().WithMessage("Not Null");
-            RuleFor(x => x.AirQuality).NotEmpty().WithMessage("Not Null");
             RuleFor(x => x.SensorLocation).NotEmpty().WithMessage("Not Null");
             RuleFor(x => x.Brightness).NotEmpty().WithMessage("Not Null");
-
         }
     }
 }

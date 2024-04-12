@@ -18,7 +18,8 @@ namespace farm_api.Mappers
             CreateMap<EnvironmentDTO, Environment>().ReverseMap();
             CreateMap<EnvirontmentRequest, Environment>().ReverseMap();
             CreateMap<EnvironmentQueryDTO, EnvironmentQuery>().ReverseMap();
-            CreateMap<DeviceDTO, Device>().ReverseMap();
+            CreateMap<DeviceDTO, Device>();
+            CreateMap<Device, DeviceDTO>().ForMember(des=>des.ControllerCode,opt=>opt.MapFrom(src=>src.Farm.ControllerCode));
             CreateMap<DeviceQueryDTO, DeviceQuery>().ReverseMap();
             CreateMap<DeviceRequest, Device>().ReverseMap();
             CreateMap<CameraDTO, Camera>().ReverseMap();

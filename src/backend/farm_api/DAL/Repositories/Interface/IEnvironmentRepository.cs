@@ -14,6 +14,12 @@ namespace DAL.Repositories.Interface
     {
         Task<IEnumerable<Environment>> GetAllAsync(EnvironmentQueryDTO environmentQueryDTO, CancellationToken cancellationToken = default);
         Task<IEnumerable<TemperatureHumidityStats>> GetAverageTemperatureAndHumidityByLocationAsync(CancellationToken cancellationToken = default);
-        Task<IEnumerable<EnvironmentStatistics>> GetDailyStatisticsAsync(DateTime ?startDate, DateTime? endDate,CancellationToken cancellationToken=default);
+        Task<IEnumerable<Environment>> GetEnvironmentsByLocationAndCreationDay(string sensorLocation,DateTime targetDate,CancellationToken cancellationToken = default);
+        Task<Environment> GetEnvironmentBySensorLocatonRecentDays(string sensorLocation, CancellationToken cancellationToken = default);
+        Task<IEnumerable<EnvironmentAverageData>> GetAverageEnvironmentValues(
+        string sensorLocation,
+        DateTime startDate,
+        DateTime endDate,
+        CancellationToken cancellationToken = default);
     }
 }

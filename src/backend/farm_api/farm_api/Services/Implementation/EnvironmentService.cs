@@ -11,6 +11,7 @@ using farm_api.Responses;
 using farm_api.Services.Interface;
 using farm_api.Validation;
 using FluentValidation;
+using System.Collections.Generic;
 using System.Formats.Asn1;
 using Environment = Core.Entities.Environment;
 
@@ -57,7 +58,7 @@ namespace farm_api.Services.Implementation
             var itemPage = result.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
                                 .Take(pagingParams.PageSize)
                                 .ToList();
-            return new PagedFarmResponse<EnvironmentDTO>(itemPage.Select(x => _mapper.Map<EnvironmentDTO>(x)),pagingParams.PageNumber,pagingParams.PageSize,totalItems);
+            return new PagedFarmResponse<EnvironmentDTO>(itemPage.Select(x => _mapper.Map<EnvironmentDTO>(x)), pagingParams.PageNumber, pagingParams.PageSize, totalItems);
         }
 
         public async Task<EnvironmentDTO> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
@@ -81,23 +82,31 @@ namespace farm_api.Services.Implementation
             _unitOfWork.Save();
 
         }
-        public async Task<IEnumerable<EnvironmentStatistics>> GetDailyStatisticsAsync(DateTime? startDate, DateTime? endDate, CancellationToken cancellationToken = default)
-        {
-            // Logic to handle startDate and endDate remains the same
-            DateTime now = DateTime.Now.Date; // Use current date for defaults
-            startDate ??= now;
-            endDate ??= now;
-
-            // Call the repository method
-            var statistics = await _environmentRepository.GetDailyStatisticsAsync(startDate, endDate, cancellationToken);
-            return statistics;
-        }
 
         public async Task<IEnumerable<TemperatureHumidityStats>> GetAverageTemperatureAndHumidityByLocationAsync(CancellationToken cancellationToken = default)
         {
             // Directly call the repository method
             var stats = await _environmentRepository.GetAverageTemperatureAndHumidityByLocationAsync(cancellationToken);
             return stats;
+        }
+
+        public async Task<IEnumerable<EnvironmentAverageData>> GetAverageEnvironmentValues(
+        string sensorLocation,
+        DateTime startDate,
+        DateTime endDate,
+        CancellationToken cancellationToken = default)
+        {
+            return await _environmentRepository.GetAverageEnvironmentValues(sensorLocation, startDate, endDate, cancellationToken);
+        }
+
+        public async Task<EnvironmentDTO> GetEnvironmentBySensorLocatonRecentDays(string sensorLocation, CancellationToken cancellationToken = default)
+        {
+            return _mapper.Map<EnvironmentDTO>(await _environmentRepository.GetEnvironmentBySensorLocatonRecentDays(sensorLocation, cancellationToken));
+        }
+
+        public async Task<IEnumerable<EnvironmentDTO>> GetEnvironmentsByLocationAndCreationDay(string sensorLocation, DateTime targetDate, CancellationToken cancellationToken = default)
+        {
+            return _mapper.Map<IEnumerable<EnvironmentDTO>>(await _environmentRepository.GetEnvironmentsByLocationAndCreationDay(sensorLocation, targetDate, cancellationToken));
         }
     }
 }

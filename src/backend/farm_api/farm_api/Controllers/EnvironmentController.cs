@@ -10,7 +10,7 @@ using System;
 namespace farm_api.Controllers
 {
     [ApiController]
-    [Route("environments")]
+    [Route("api/environments")]
     public class EnvironmentController : ControllerBase
     {
         private readonly IEnvironmentService _environmentService;
@@ -87,34 +87,34 @@ namespace farm_api.Controllers
             }
             return NoContent();
         }
-        [HttpGet("daily-statistics")]
-        public async Task<IActionResult> GetDailyStatistics([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var statistics = await _environmentService.GetDailyStatisticsAsync(startDate, endDate, cancellationToken);
-                return Ok(statistics);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception details
-                return StatusCode(500, "An error occurred while processing your request.");
-            }
-        }
 
-        [HttpGet("average-temperature-humidity")]
-        public async Task<IActionResult> GetAverageTemperatureAndHumidity(CancellationToken cancellationToken)
+
+        [HttpGet("real-time")]
+        public async Task<IActionResult> GetRecentEnvironment(string sensorLocation)
         {
-            try
-            {
-                var stats = await _environmentService.GetAverageTemperatureAndHumidityByLocationAsync(cancellationToken);
-                return Ok(stats);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception details
-                return StatusCode(500, "An error occurred while processing your request.");
-            }
+            var environment = await _environmentService.GetEnvironmentBySensorLocatonRecentDays(sensorLocation);
+            if (environment == null)
+                return NotFound("No recent environment data found.");
+
+            return Ok(environment);
+        }
+        [HttpGet("specifieddate")]
+        public async Task<IActionResult> GetEnvironmentsByDay(string sensorLocation, DateTime date)
+        {
+            var environments = await _environmentService.GetEnvironmentsByLocationAndCreationDay(sensorLocation, date);
+            if (environments == null)
+                return NotFound("No environment data found for the given day.");
+
+            return Ok(environments);
+        }
+        [HttpGet("daily-averages")]
+        public async Task<IActionResult> GetDailyAverages(string sensorLocation, DateTime startDate, DateTime endDate)
+        {
+            var averages = await _environmentService.GetAverageEnvironmentValues(sensorLocation, startDate, endDate);
+            if (averages == null)
+                return NotFound("No average data found for the given period.");
+
+            return Ok(averages);
         }
     }
 }

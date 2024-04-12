@@ -4,8 +4,8 @@ namespace farm_api.Filter.Farm
 {
     public class DeviceControlQuery
     {
-        public string FarmId { get; set; }
-        public string DeviceId { get; set; }
+        public Guid FarmId { get; set; }
+        public Guid DeviceId { get; set; }
         public bool Action { get; set; }
     }
 }

@@ -10,10 +10,11 @@ using FluentValidation;
 namespace farm_api.Controllers
 {
     [ApiController]
-    [Route("devices")]
+    [Route("api/devices")]
     public class DeviceController : ControllerBase
     {
         private readonly IDeviceService _deviceService;
+        private readonly IMQTTService _mQTTService;
         public DeviceController(IDeviceService deviceService)
         {
             _deviceService = deviceService;
@@ -21,9 +22,9 @@ namespace farm_api.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(DeviceDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(string id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (id==Guid.Empty)
             {
                 return NotFound();
             }
@@ -58,10 +59,11 @@ namespace farm_api.Controllers
             }
             return Ok();
         }
+        
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(string id, [FromBody] DeviceRequest deviceRequest)
+        public async Task<IActionResult> Update(Guid id, [FromBody] DeviceRequest deviceRequest)
         {
             try
             {
@@ -76,7 +78,7 @@ namespace farm_api.Controllers
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             try
             {

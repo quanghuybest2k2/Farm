@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(FarmContext))]
-    [Migration("20240403030655_initt")]
-    partial class initt
+    [Migration("20240412070832_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,11 +56,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Core.Entities.Device", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("ConnectionStatus")
-                        .HasColumnType("bit");
+                    b.Property<long>("BoardOrder")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
@@ -93,9 +94,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("AirQuality")
-                        .HasColumnType("int");
-
                     b.Property<int>("Brightness")
                         .HasColumnType("int");
 
@@ -106,15 +104,17 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SensorLocation")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Temperature")
-                        .HasColumnType("int");
+                    b.Property<float>("Temperature")
+                        .HasColumnType("real");
 
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SensorLocation");
 
                     b.ToTable("Environments");
                 });
@@ -125,35 +125,28 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ControllerCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SensorLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SensorLocation")
+                        .IsUnique();
 
                     b.ToTable("Farms");
-                });
-
-            modelBuilder.Entity("Core.Entities.Statistics", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Statistics");
                 });
 
             modelBuilder.Entity("Core.Entities.Device", b =>
@@ -167,9 +160,22 @@ namespace DAL.Migrations
                     b.Navigation("Farm");
                 });
 
+            modelBuilder.Entity("Core.Entities.Environment", b =>
+                {
+                    b.HasOne("Core.Entities.Farm", "Farm")
+                        .WithMany("Environments")
+                        .HasForeignKey("SensorLocation")
+                        .HasPrincipalKey("SensorLocation")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Farm");
+                });
+
             modelBuilder.Entity("Core.Entities.Farm", b =>
                 {
                     b.Navigation("Devices");
+
+                    b.Navigation("Environments");
                 });
 #pragma warning restore 612, 618
         }

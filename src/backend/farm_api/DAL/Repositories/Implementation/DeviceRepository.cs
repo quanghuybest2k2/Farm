@@ -28,7 +28,7 @@ namespace DAL.Repositories.Implementation
 
         private IQueryable<Device> Filter(DeviceQueryDTO deviceQueryDTO)
         {
-            IQueryable<Device> query = _context.Set<Device>();
+            IQueryable<Device> query = _context.Set<Device>().Include(x=>x.Farm);
             if (!string.IsNullOrEmpty(deviceQueryDTO.Name))
             {
                 query = query.Where(x => x.Name.Contains(deviceQueryDTO.Name));

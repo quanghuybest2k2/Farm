@@ -14,7 +14,6 @@ using FluentValidation.AspNetCore;
 using farm_api.Validation;
 using System.Net.WebSockets;
 using System.Text;
-using farm_api.Middleware;
 
 namespace farm_api.Extensions
 {
@@ -52,9 +51,7 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<IFarmRepositorty, FarmRepositorty>();
             builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
-            builder.Services.AddSingleton<SocketMangement>();
-            builder.Services.AddSingleton<SocketResultManagement>();
-
+            //builder.Services.AddSingleton<IMQTTService,MQTTService>();
             return builder;
         }
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app)
@@ -77,30 +74,6 @@ namespace farm_api.Extensions
         }
         public static WebApplication ConfigurePieline(this WebApplication app)
         {
-            //async Task ProcessSensorData(WebSocket webSocket)
-            //{
-            //    var buffer = new byte[100];
-            //    WebSocketReceiveResult result;
-
-            //    do
-            //    {
-            //        result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            //        if (result.MessageType == WebSocketMessageType.Text)
-            //        {
-            //            string sensorData = Encoding.UTF8.GetString(buffer, 0, result.Count);
-            //            Console.WriteLine($"Received data: {sensorData}");
-
-            //            // TODO: Process received data from sensor C
-            //        }
-
-            //        // Echo the received data back to the sender
-            //        if (result.MessageType == WebSocketMessageType.Close)
-            //        {
-            //            await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
-            //        }
-
-            //    } while (!result.CloseStatus.HasValue);
-            //}
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -114,29 +87,7 @@ namespace farm_api.Extensions
             app.UseCors(Cors);
             app.MapControllers();
             app.UseWebSockets();
-            app.UseMiddleware<WebSocketMiddleware>();
-            //app.Use(async (context, next) =>
-            //{
-            //    if (context.Request.Path == "/ws")
-            //    {
-            //        if (context.WebSockets.IsWebSocketRequest)
-            //        {
-            //            WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
-            //            await ProcessSensorData(webSocket);
-            //        }
-            //        else
-            //        {
-            //            context.Response.StatusCode = 400;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        await next();
-            //    }
-            //});
             return app;
         }
-
-
     }
 }

@@ -8,18 +8,12 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Device : IModifier
+    public class Device :BaseEntity, IModifier
     {
-        public Device()
-        {
-            Id=Guid.NewGuid().ToString();
-        }
-        [Key]
-        public string Id {  get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
-        public bool Status { get; set; }
-        public bool ConnectionStatus { get; set; }
+        public string Type { get; set; }// loại thiết bị
+        public bool Status { get; set; }// trạng thái thiết bị
+        public uint BoardOrder { get; set; }// thứ tự xác định thiết bị để điều khiển
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public Farm Farm { get; set; }

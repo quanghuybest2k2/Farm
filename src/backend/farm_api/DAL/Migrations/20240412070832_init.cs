@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class initt : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,59 +29,31 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Environments",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Temperature = table.Column<int>(type: "int", nullable: false),
-                    AirQuality = table.Column<int>(type: "int", nullable: false),
-                    SensorLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Humidity = table.Column<int>(type: "int", nullable: false),
-                    Brightness = table.Column<int>(type: "int", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Environments", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Farms",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    SensorLocation = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ControllerCode = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Farms", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Statistics",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Statistics", x => x.Id);
+                    table.UniqueConstraint("AK_Farms_SensorLocation", x => x.SensorLocation);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Devices",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false),
-                    ConnectionStatus = table.Column<bool>(type: "bit", nullable: false),
+                    BoardOrder = table.Column<long>(type: "bigint", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     FarmId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -97,10 +69,44 @@ namespace DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Environments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Temperature = table.Column<float>(type: "real", nullable: false),
+                    SensorLocation = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Humidity = table.Column<int>(type: "int", nullable: false),
+                    Brightness = table.Column<int>(type: "int", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Environments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Environments_Farms_SensorLocation",
+                        column: x => x.SensorLocation,
+                        principalTable: "Farms",
+                        principalColumn: "SensorLocation",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Devices_FarmId",
                 table: "Devices",
                 column: "FarmId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Environments_SensorLocation",
+                table: "Environments",
+                column: "SensorLocation");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Farms_SensorLocation",
+                table: "Farms",
+                column: "SensorLocation",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -114,9 +120,6 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Environments");
-
-            migrationBuilder.DropTable(
-                name: "Statistics");
 
             migrationBuilder.DropTable(
                 name: "Farms");

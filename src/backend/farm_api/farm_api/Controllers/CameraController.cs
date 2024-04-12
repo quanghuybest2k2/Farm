@@ -11,12 +11,12 @@ using farm_api.Services.Implementation;
 namespace farm_api.Controllers
 {
     [ApiController]
-    [Route("camera")]
+    [Route("api/camera")]
     public class CameraController : ControllerBase
     {
         private readonly ICameraService _cameraService;
         
-        public CameraController(ICameraService cameraService, SocketMangement socketMangement)
+        public CameraController(ICameraService cameraService)
         {
             _cameraService = cameraService;
         }
