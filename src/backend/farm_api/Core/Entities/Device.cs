@@ -13,7 +13,7 @@ namespace Core.Entities
         public string Name { get; set; }
         public string Type { get; set; }// loại thiết bị
         public bool Status { get; set; }// trạng thái thiết bị
-        public uint BoardOrder { get; set; }// thứ tự xác định thiết bị để điều khiển
+        public uint Order { get; set; }// thứ tự xác định thiết bị để điều khiển
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public Farm Farm { get; set; }

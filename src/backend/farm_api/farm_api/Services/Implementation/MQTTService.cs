@@ -1,41 +1,125 @@
-﻿using farm_api.Services.Interface;
-using MQTTnet.Client;
+﻿using Core.Constant;
+using Core.DTO;
+using farm_api.Services.Interface;
 using MQTTnet;
-
-namespace farm_api.Services.Implementation
+using MQTTnet.Client;
+using MQTTnet.Packets;
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+/// <summary>
+/// 
+/// </summary>
+public class MQTTService : IMQTTService
 {
-    public class MQTTService : IMQTTService
+    private readonly IMqttClient _client;
+    private MqttClientOptions _options;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Obsolete]
+    public MQTTService()
     {
-        private readonly IMqttClient _mqttClient;
-        public MQTTService()
+        var factory = new MqttFactory();
+        _client = factory.CreateMqttClient();
+
+        _options = new MqttClientOptionsBuilder()
+            .WithClientId(Guid.NewGuid().ToString())
+             .WithTcpServer(Ulities.HostServerMQTTHiveMQ,Ulities.PortServerMQTTHiveMQ) // Đổi "your_mqtt_broker_address" thành địa chỉ của máy chủ MQTT của bạn
+             .WithCredentials(Ulities.AccountMQTTHiveMQ, Ulities.PasswordMQTTHiveMQ) // Thay thế bằng thông tin đăng nhập nếu máy chủ yêu cầu
+             .WithTls() // Thêm dòng này để sử dụng kết nối qua TLS/SSL
+             .Build() as MqttClientOptions; ;
+
+
+        // Thiết lập các event handlers
+        _client.ConnectedAsync += async e =>
         {
-            var factory = new MqttFactory();
-            _mqttClient = factory.CreateMqttClient();
+            var topicFilter = new MqttTopicFilter { Topic = "esp8266/ledControl", QualityOfServiceLevel = MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce };
+            await _client.SubscribeAsync(topicFilter);
+            Console.WriteLine("Đã kết nối tới MQTT broker.");
+        };
 
-            var options = new MqttClientOptionsBuilder()
-                .WithClientId("CSharpClient")
-                .WithTcpServer("25b819a37cd6410aac50cb6c8093b3d2.s1.eu.hivemq.cloud", 8883) // Đổi "your_mqtt_broker_address" thành địa chỉ của máy chủ MQTT của bạn
-                .WithCredentials("farm3", "Admin@12345") // Thay thế bằng thông tin đăng nhập nếu máy chủ yêu cầu
-                .WithTls() // Thêm dòng này để sử dụng kết nối qua TLS/SSL
-                .Build();
-
-            _mqttClient.ConnectAsync(options).Wait();
-        }
-        public async Task PublishAsync(string topic, string payload)
+        _client.DisconnectedAsync += async e =>
         {
-            if (!_mqttClient.IsConnected)
-            {
-                Console.WriteLine("MQTT client not connected, message not sent.");
-                return;
-            }
+            Console.WriteLine("Đã ngắt kết nối với MQTT broker.");
+        };
 
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic(topic)
-                .WithPayload(payload)
-                .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                .Build();
-
-            await _mqttClient.PublishAsync(message);
+        _client.ApplicationMessageReceivedAsync += async e =>
+        {
+            Console.WriteLine($"Nhận được thông điệp: {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} trên chủ đề: {e.ApplicationMessage.Topic}");
+        };
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task ConnectAsync()
+    {
+        try
+        {
+            await _client.ConnectAsync(_options);
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Connection failed: {ex.Message}");
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task DisconnectAsync()
+    {
+        await _client.DisconnectAsync();
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="topic"></param>
+    /// <returns></returns>
+    public async Task SubscribeAsync(string topic)
+    {
+        var topicFilter = new MqttTopicFilter { Topic = topic, QualityOfServiceLevel = MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce };
+        await _client.SubscribeAsync(topicFilter);
+        Console.WriteLine($"Đã đăng ký chủ đề {topic}");
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="topic"></param>
+    /// <returns></returns>
+    public async Task UnsubscribeAsync(string topic)
+    {
+        await _client.UnsubscribeAsync(topic);
+        Console.WriteLine($"Unsubscribed from {topic}");
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="topic"></param>
+    /// <param name="payload"></param>
+    /// <returns></returns>
+    public async Task PublishAsync(string topic, DeviceRequestToESP payload)
+    {
+        string messagePayload = Ulities.SerializeDeviceData(payload);
+        var message = new MqttApplicationMessageBuilder()
+            .WithTopic(topic)
+            .WithPayload(messagePayload)
+            .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.ExactlyOnce)
+            .Build();
+
+        await _client.PublishAsync(message);
+        Console.WriteLine($"Published message to {topic}");
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="e"></param>
+    public void HandleReceivedMessage(MqttApplicationMessageReceivedEventArgs e)
+    {
+        Console.WriteLine($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} on topic: {e.ApplicationMessage.Topic}");
     }
 }

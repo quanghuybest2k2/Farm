@@ -28,7 +28,7 @@ namespace DAL.Seeder
             {
                 return;
             }
-            _context.AddRange(MockDataGenerator.GenerateEnvironments(30,20, "KV2"));
+            _context.AddRange(MockDataGenerator.GenerateEnvironments(30, 20, "KV2"));
             AddDevices(AddFarm());
             AddCameras();
             _unitOfWork.Save();
@@ -45,14 +45,14 @@ namespace DAL.Seeder
         {
             #region data devices
             IList<Device> devices = new List<Device>() {
-            new(){ Name="Đèn 1",Type="lamp",Status=true,FarmId=farm.Id,BoardOrder=1},
-            new(){ Name="Đèn 2",Type="lamp",Status=true,FarmId=farm.Id,BoardOrder=2},
-            new(){ Name="Đèn 3",Type="lamp",Status=true,FarmId=farm.Id, BoardOrder = 3},
-            new(){ Name="Đèn 4",Type="lamp",Status=true,FarmId=farm.Id, BoardOrder = 4},
-            new(){ Name="Quạt 5",Type="fan",Status=true,FarmId=farm.Id ,BoardOrder=5 },
-            new(){ Name="Quạt 6",Type="fan",Status=true,FarmId=farm.Id,BoardOrder=6},
-            new(){ Name="Quạt 7",Type="fan",Status=true,FarmId=farm.Id, BoardOrder = 7},
-            new(){ Name="Quạt 8",Type="fan",Status=true,FarmId=farm.Id, BoardOrder = 8},
+            new(){ Name="Đèn 1",Type="lamp",Status=true,FarmId=farm.Id,Order=0},
+            new(){ Name="Đèn 2",Type="lamp",Status=true,FarmId=farm.Id,Order=1},
+            new(){ Name="Đèn 3",Type="lamp",Status=true,FarmId=farm.Id, Order = 2},
+            new(){ Name="Đèn 4",Type="lamp",Status=true,FarmId=farm.Id, Order = 3},
+            new(){ Name="Quạt 5",Type="fan",Status=true,FarmId=farm.Id ,Order=4 },
+            new(){ Name="Quạt 6",Type="fan",Status=true,FarmId=farm.Id,Order=5},
+            new(){ Name="Quạt 7",Type="fan",Status=true,FarmId=farm.Id, Order = 6},
+            new(){ Name="Quạt 8",Type="fan",Status=true,FarmId=farm.Id, Order = 7},
             };
             #endregion
             _context.AddRange(devices);

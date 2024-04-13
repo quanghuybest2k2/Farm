@@ -1,8 +1,19 @@
-﻿namespace farm_api.Models.Request
+﻿using Core.DTO;
+
+namespace farm_api.Models.Request
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class TopicRequest
     {
-        public string TopicName { get; set; } 
-        public string Payload {  get; set; }    
+        /// <summary>
+        /// 
+        /// </summary>
+        public string TopicName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeviceRequestToESP Payload { get; set; }
     }
 }

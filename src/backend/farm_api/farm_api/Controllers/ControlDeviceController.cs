@@ -18,33 +18,32 @@ using static Core.Enums.MessageSocket;
 namespace farm_api.Controllers
 {
     [ApiController]
-    [Route("api/controldevice")]
+    [Route("api/controldevices")]
     public class ControlDeviceController : ControllerBase
     {
 
         private readonly IDeviceService _deviceService;
         private readonly IDeviceRepository _deviceRepository;
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
-        private FarmContext _farmContext;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+        private readonly IMQTTService _mQTTService;
 
-        public ControlDeviceController(
-                                        IDeviceService deviceService
+
+        public ControlDeviceController(IDeviceService deviceService
                                        , IUnitOfWork unitOfWork
-                                        , IMapper mapper
-                                        , IDeviceRepository deviceRepository
-                                        , FarmContext farmContext)
+                                       , IMapper mapper
+                                       , IDeviceRepository deviceRepository
+                                       , IMQTTService mQTT)
         {
             _deviceService = deviceService;
             _unitOfWork = unitOfWork;
             _deviceRepository = deviceRepository;
             _mapper = mapper;
-            _farmContext = farmContext;
+            _mQTTService = mQTT;
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [Route("controlldevice")]
         public async Task<IActionResult> ControllDevices([FromBody] TopicRequest topicRequest)
         {
             if (topicRequest == null)
@@ -53,12 +52,14 @@ namespace farm_api.Controllers
             }
             try
             {
-                //await _mQTTService.PublishAsync(topicRequest.TopicName, topicRequest.Payload);
+                await _mQTTService.ConnectAsync();
+                await _mQTTService.PublishAsync(topicRequest.TopicName, topicRequest.Payload);
+                await _mQTTService.DisconnectAsync();
             }
             catch (Exception ex)
             {
                 await Console.Out.WriteLineAsync(ex.Message);
-                return BadRequest(new FarmErrrorResponse(ex.GetType().Name, null));
+                return BadRequest(ex.GetType().Name);
             }
             return Ok();
         }

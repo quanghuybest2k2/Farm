@@ -59,7 +59,7 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<IFarmRepositorty, FarmRepositorty>();
             builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
-            //builder.Services.AddSingleton<IMQTTService,MQTTService>();
+            builder.Services.AddScoped<IMQTTService,MQTTService>();
             return builder;
         }
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app)
@@ -88,9 +88,7 @@ namespace farm_api.Extensions
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
             }
-
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
             app.UseCors(Cors);
             app.MapControllers();
