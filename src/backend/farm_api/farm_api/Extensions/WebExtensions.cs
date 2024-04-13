@@ -14,6 +14,7 @@ using FluentValidation.AspNetCore;
 using farm_api.Validation;
 using System.Net.WebSockets;
 using System.Text;
+using Microsoft.OpenApi.Models;
 
 namespace farm_api.Extensions
 {
@@ -27,7 +28,14 @@ namespace farm_api.Extensions
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddAutoMapper(typeof(Program));
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                // Tạo đường dẫn đến file XML chứa các bình luận tài liệu
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
             builder.Services.AddSignalR();
             builder.Services
                 .AddDbContext<FarmContext>(options =>
@@ -78,7 +86,7 @@ namespace farm_api.Extensions
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
             }
 
             app.UseHttpsRedirection();

@@ -28,7 +28,7 @@ namespace DAL.Seeder
             {
                 return;
             }
-            _context.AddRange(MockDataGenerator.GenerateEnvironments(30, "KV2"));
+            _context.AddRange(MockDataGenerator.GenerateEnvironments(30,20, "KV2"));
             AddDevices(AddFarm());
             AddCameras();
             _unitOfWork.Save();

@@ -10,7 +10,7 @@ using FluentValidation;
 namespace farm_api.Controllers
 {
     [ApiController]
-    [Route("farms")]
+    [Route("api/farms")]
     public class FarmController:ControllerBase
     {
         private readonly IFarmService _farmService;
@@ -18,6 +18,13 @@ namespace farm_api.Controllers
         {
             _farmService = farmService;
         }
+        /// <summary>
+        /// Retrieves a farm by its unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier of the farm.</param>
+        /// <returns>Returns the farm DTO if found, otherwise returns Not Found.</returns>
+        /// <response code="200">Returns the farm DTO if the farm is found.</response>
+        /// <response code="404">Returned when no farm is found for the provided ID.</response>
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(typeof(FarmDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -30,6 +37,13 @@ namespace farm_api.Controllers
             var result = await _farmService.GetByIdAsync(id);
             return Ok(result);
         }
+        /// <summary>
+        /// Retrieves all farms based on the specified query and paging parameters.
+        /// </summary>
+        /// <param name="farmQuery">The farm query parameters.</param>
+        /// <param name="pagingModel">The paging parameters.</param>
+        /// <returns>Paged list of farms.</returns>
+        /// <response code="200">Returns a paged list of farms.</response>
         [HttpGet]
         [ProducesResponseType(typeof(PagedFarmResponse<FarmDTO>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll([FromQuery] FarmQuery farmQuery, [FromQuery] PagingModel pagingModel)
@@ -38,6 +52,13 @@ namespace farm_api.Controllers
 
             return Ok(result);
         }
+        /// <summary>
+        /// Adds a new farm with the provided details.
+        /// </summary>
+        /// <param name="farmRequest">The farm details to add.</param>
+        /// <returns>A status code indicating success or failure.</returns>
+        /// <response code="400">Returned when the input model validation fails.</response>
+        /// <response code="200">Returned when the farm is successfully added.</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -58,6 +79,16 @@ namespace farm_api.Controllers
             }
             return Ok();
         }
+        /// <summary>
+        /// Updates a farm record.
+        /// </summary>
+        /// <param name="id">The unique identifier of the farm.</param>
+        /// <param name="farmRequest">The farm data to update.</param>
+        /// <remarks>
+        /// This method allows updating the details of an existing farm in the database.
+        /// </remarks>
+        /// <response code="204">Returns no content if the update was successful.</response>
+        /// <response code="400">Returns bad request if the update fails.</response>
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -73,6 +104,13 @@ namespace farm_api.Controllers
             }
             return NoContent();
         }
+        /// <summary>
+        /// Deletes a farm by its unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier of the farm to delete.</param>
+        /// <returns>Returns no content if the deletion was successful, otherwise bad request.</returns>
+        /// <response code="204">Returns no content if the farm is successfully deleted.</response>
+        /// <response code="400">Returned if an error occurs during deletion.</response>
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
