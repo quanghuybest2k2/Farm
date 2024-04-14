@@ -5,7 +5,21 @@ import { getStyle } from '@coreui/utils'
 import { format } from 'date-fns'
 import PropTypes from 'prop-types'
 
-import DataTypeEnum from '../../DataTypeEnum'
+const createChartData = (data, label, dataKey) => {
+  return {
+    labels: data.map((item) => format(new Date(item.createAt), 'HH:mm:ss')),
+    datasets: [
+      {
+        label: label,
+        backgroundColor: 'rgb(61, 153, 245)',
+        borderColor: 'rgb(237, 173, 33)',
+        pointBackgroundColor: 'rgb(237, 173, 33)',
+        pointBorderColor: '#fff',
+        data: data.map((item) => item[dataKey]),
+      },
+    ],
+  }
+}
 
 const StatisticsBySpecificDate = ({ data }) => {
   const chartRef = useRef(null)
@@ -30,43 +44,30 @@ const StatisticsBySpecificDate = ({ data }) => {
     })
   }, [chartRef])
 
-  const getLabel = () => {
-    switch (dataType) {
-      case DataTypeEnum.TEMPERATURE:
-        return 'Temperature'
-      case DataTypeEnum.HUMIDITY:
-        return 'Humidity'
-      case DataTypeEnum.BRIGHTNESS:
-        return 'Brightness'
-      default:
-        return 'Data'
-    }
-  }
-
   return (
     <>
       <CCol xs={12}>
         <CCard className="mb-4">
-          <CCardHeader>{getLabel()}</CCardHeader>
+          <CCardHeader>Temperature</CCardHeader>
           <CCardBody>
             {data && data.length > 0 ? (
-              <CChartLine
-                data={{
-                  labels: data.map((item) => format(new Date(item.date), 'dd/MM/yyyy')),
-                  datasets: [
-                    {
-                      label: getLabel(),
-                      backgroundColor: 'rgba(255, 46, 99, 0.2)',
-                      borderColor: 'rgba(255, 46, 99, 1)',
-                      pointBackgroundColor: 'rgba(255, 46, 99, 1)',
-                      pointBorderColor: '#fff',
-                      data: data.map((item) => {
-                        item.a
-                      }),
-                    },
-                  ],
-                }}
-              />
+              <CChartLine data={createChartData(data, 'Temperature', 'temperature')} />
+            ) : (
+              <p>No data available</p>
+            )}
+          </CCardBody>
+          <CCardHeader>Humidity</CCardHeader>
+          <CCardBody>
+            {data && data.length > 0 ? (
+              <CChartLine data={createChartData(data, 'Humidity', 'humidity')} />
+            ) : (
+              <p>No data available</p>
+            )}
+          </CCardBody>
+          <CCardHeader>Brightness</CCardHeader>
+          <CCardBody>
+            {data && data.length > 0 ? (
+              <CChartLine data={createChartData(data, 'Brightness', 'brightness')} />
             ) : (
               <p>No data available</p>
             )}
