@@ -42,14 +42,27 @@ const _nav = [
     },
   },
   {
-    component: CNavItem,
-    name: 'DeviceControl',
-    to: '/device-control',
+    component: CNavGroup,
+    name: 'Device Control',
+    to: '/greenhouse-a1',
     icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    },
+    items: [
+      {
+        component: CNavItem,
+        name: 'Greenhouse A1',
+        to: '/greenhouse-a1',
+      },
+      {
+        component: CNavItem,
+        name: 'Greenhouse A2',
+        to: '/greenhouse-a2',
+      },
+      {
+        component: CNavItem,
+        name: 'Greenhouse A3',
+        to: '/greenhouse-a3',
+      },
+    ],
   },
   {
     component: CNavItem,
