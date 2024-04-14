@@ -25,6 +25,7 @@ import StatisticalChart from './StatisticalChart'
 import config from '../../config'
 import axios from 'axios'
 import DataTypeEnum from '../../DataTypeEnum'
+import StatisticsBySpecificDate from './StatisticsBySpecificDate'
 
 const Statistical = () => {
   const [startDate, setStartDate] = useState(null)
@@ -251,32 +252,8 @@ const Statistical = () => {
               </CRow>
             </div>
           </div>
-          {/* <StatisticalChart data={statistics} dataType={selectedValue} /> */}
+          <StatisticsBySpecificDate data={statisticsSpecificDate} />
         </CCardBody>
-        <CCardFooter>
-          <CRow
-            xs={{ cols: 1, gutter: 4 }}
-            sm={{ cols: 2 }}
-            lg={{ cols: 4 }}
-            xl={{ cols: 5 }}
-            className="mb-2 text-center"
-          >
-            {progressExample.map((item, index, items) => (
-              <CCol
-                className={classNames({
-                  'd-none d-xl-block': index + 1 === items.length,
-                })}
-                key={index}
-              >
-                <div className="text-body-secondary">{item.title}</div>
-                <div className="fw-semibold text-truncate">
-                  {item.value} ({item.percent}%)
-                </div>
-                <CProgress thin className="mt-2" color={item.color} value={item.percent} />
-              </CCol>
-            ))}
-          </CRow>
-        </CCardFooter>
       </CCard>
     </>
   )
