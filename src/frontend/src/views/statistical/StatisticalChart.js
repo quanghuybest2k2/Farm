@@ -52,7 +52,7 @@ const StatisticalChart = ({ data, dataType }) => {
             {data && data.length > 0 ? (
               <CChartLine
                 data={{
-                  labels: data.map((item) => format(new Date(item.date), 'dd/MM/yyyy')),
+                  labels: data.map((item) => format(new Date(item.date), 'dd/MM/yyyy HH:mm:ss')),
                   datasets: [
                     {
                       label: getLabel(),

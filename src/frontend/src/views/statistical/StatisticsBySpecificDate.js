@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 const createChartData = (data, label, dataKey) => {
   return {
-    labels: data.map((item) => format(new Date(item.createAt), 'HH:mm:ss')),
+    labels: data.map((item) => format(new Date(item.createAt), 'dd/MM/yyyy HH:mm:ss')),
     datasets: [
       {
         label: label,
