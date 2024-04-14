@@ -118,9 +118,9 @@ const Statistical = () => {
     // call
     fetchData()
 
-    // const millisecond = 5000
-    // const interval = setInterval(fetchData, millisecond)
-    // return () => clearInterval(interval)
+    const millisecond = 5000
+    const interval = setInterval(fetchData, millisecond)
+    return () => clearInterval(interval)
   }, [startDate, endDate, selectedDate])
 
   return (

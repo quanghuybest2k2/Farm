@@ -23,8 +23,7 @@ import {
   cilUserFemale,
 } from '@coreui/icons'
 
-import WidgetsBrand from '../widgets/WidgetsBrand'
-import WidgetsDropdown from '../widgets/WidgetsDropdown'
+import InformationEnvironment from '../widgets/InformationEnvironment'
 import MainChart from './MainChart'
 
 const DeviceControl = () => {
@@ -60,7 +59,7 @@ const DeviceControl = () => {
 
   return (
     <>
-      <WidgetsDropdown className="mb-4" />
+      <InformationEnvironment className="mb-4" />
       <CCard className="mb-4">
         <CCardBody>
           <CRow>
@@ -115,7 +114,6 @@ const DeviceControl = () => {
           </CRow>
         </CCardFooter>
       </CCard>
-      <WidgetsBrand className="mb-4" withCharts />
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
