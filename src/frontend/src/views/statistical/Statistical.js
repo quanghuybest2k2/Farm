@@ -34,6 +34,9 @@ const Statistical = () => {
   const [selectedLocationValue, setSelectedLocationValue] = useState(
     DataTypeEnum.SENSORLOCATION.KV2,
   )
+  // choose date specific
+  const [selectedDate, setSelectedDate] = useState(null)
+  const [statisticsSpecificDate, setStatisticsSpecificDate] = useState(null)
 
   const handleItemClick = (value) => {
     setSelectedValue(value)
@@ -70,19 +73,39 @@ const Statistical = () => {
     const formattedEndDate = endDate
       ? format(endDate, 'yyyy-MM-dd')
       : format(endDateNow, 'yyyy-MM-dd')
+
+    // choose date specific
+    const formattedSelectedDate = selectedDate
+      ? format(selectedDate, 'yyyy-MM-dd')
+      : format(endDateNow, 'yyyy-MM-dd')
+
     console.log('start: ' + formattedStartDate)
-    console.log('end" ' + formattedEndDate)
+    console.log('end: ' + formattedEndDate)
+    console.log('choose date: ' + formattedSelectedDate)
 
     await axios
       .get(
         `${config.API_URL}/environments/daily-averages?sensorLocation=${sensorLocation}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
       )
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data) {
           setStatistics(res.data)
         } else {
           setStatistics([])
+        }
+      })
+
+    await axios
+      .get(
+        `${config.API_URL}/environments/specifieddate?sensorLocation=${sensorLocation}&date=${formattedSelectedDate}`,
+      )
+      .then((res) => {
+        console.log(res.data)
+        if (res.data) {
+          setStatisticsSpecificDate(res.data)
+        } else {
+          setStatisticsSpecificDate([])
         }
       })
 
@@ -94,10 +117,10 @@ const Statistical = () => {
     // call
     fetchData()
 
-    const millisecond = 5000
-    const interval = setInterval(fetchData, millisecond)
-    return () => clearInterval(interval)
-  }, [startDate, endDate])
+    // const millisecond = 5000
+    // const interval = setInterval(fetchData, millisecond)
+    // return () => clearInterval(interval)
+  }, [startDate, endDate, selectedDate])
 
   return (
     <>
@@ -141,7 +164,7 @@ const Statistical = () => {
                 <div className="me-2">
                   <h6 className="mb-3">From date</h6>
                   <DatePicker
-                    selected={startDate}
+                    selected={startDate ?? startDateBefore7Day}
                     onChange={(date) => setStartDate(date)}
                     selectsStart
                     startDate={startDate}
@@ -151,7 +174,6 @@ const Statistical = () => {
                     placeholderText="Choose from date"
                     className="form-control"
                     dateFormat="dd/MM/yyyy"
-                    minDate={startDateBefore7Day}
                     maxDate={endDateNow}
                   />
                 </div>
@@ -159,7 +181,7 @@ const Statistical = () => {
                 <div className="ms-2">
                   <h6 className="mb-3">To date</h6>
                   <DatePicker
-                    selected={endDate}
+                    selected={endDate ?? endDateNow}
                     onChange={(date) => setEndDate(date)}
                     selectsEnd
                     startDate={startDate}
@@ -205,6 +227,31 @@ const Statistical = () => {
             </CCol>
           </CRow>
           <StatisticalChart data={statistics} dataType={selectedValue} />
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <div className="col-2">
+              <h4>Specific date</h4>
+              <CRow className="mb-4">
+                <CCol sm={12}>
+                  <div className="d-flex mt-3 align-items-center">
+                    <div className="me-2">
+                      <h6 className="mb-3">Choose date</h6>
+                      <DatePicker
+                        selected={selectedDate ?? endDateNow}
+                        onChange={(date) => setSelectedDate(date)}
+                        maxDate={endDateNow}
+                        withPortal
+                        portalId="root-portal"
+                        placeholderText="Choose date"
+                        className="form-control"
+                        dateFormat="dd/MM/yyyy"
+                      />
+                    </div>
+                  </div>
+                </CCol>
+              </CRow>
+            </div>
+          </div>
+          {/* <StatisticalChart data={statistics} dataType={selectedValue} /> */}
         </CCardBody>
         <CCardFooter>
           <CRow
