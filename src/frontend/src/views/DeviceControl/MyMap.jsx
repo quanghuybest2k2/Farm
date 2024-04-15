@@ -11,7 +11,7 @@ class MyMap extends Component {
   // colors = ['red', 'blue', 'yellow', 'orange', 'grey']
 
   componentDidMount() {
-    console.log(mapData)
+    // console.log(mapData)
   }
 
   countryStyle = {

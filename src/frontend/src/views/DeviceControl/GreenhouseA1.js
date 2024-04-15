@@ -6,14 +6,11 @@ import CIcon from '@coreui/icons-react'
 import { cibDiscover } from '@coreui/icons'
 // dalat maps
 import MyMap from './MyMap'
+import axios from 'axios'
+import config from '../../config'
 
 const GreenhouseA1 = () => {
-  const [switchStates, setSwitchStates] = useState({
-    fan: true,
-    light2: false,
-    light3: true,
-    lightS: true,
-  })
+  const [farms, setFarms] = useState(null)
 
   const [checkboxes, setCheckboxes] = useState({
     parametersAutomatically: false,
@@ -27,11 +24,41 @@ const GreenhouseA1 = () => {
     })
   }, [])
 
-  const handleSwitchChange = (switchName) => {
-    setSwitchStates({
-      ...switchStates,
-      [switchName]: !switchStates[switchName],
-    })
+  const handleSwitchChange = async (topic, status, orderId) => {
+    try {
+      const reversedStatus = !status
+      const payload = {
+        topicName: topic,
+        payload: {
+          id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+          status: reversedStatus,
+          order: orderId,
+        },
+      }
+      alert(status)
+      const response = await axios.post(`${config.API_URL}/controldevices`, payload)
+      // console.log(response)
+
+      // Update switch status locally
+      setFarms((prevFarms) => {
+        return prevFarms.map((farm) => {
+          return {
+            ...farm,
+            devices: farm.devices.map((device) => {
+              if (device.controllerCode === topic) {
+                return {
+                  ...device,
+                  status: reversedStatus,
+                }
+              }
+              return device
+            }),
+          }
+        })
+      })
+    } catch (error) {
+      console.error('Lỗi khi gửi yêu cầu điều khiển thiết bị:', error)
+    }
   }
 
   const handleCheckboxChange = (checkboxName) => {
@@ -46,24 +73,56 @@ const GreenhouseA1 = () => {
     }
   }
 
-  const renderSwitchControl = (label, switchName) => (
-    <CRow>
-      <CCol sm={6}>
-        <CFormSwitch
-          label={label}
-          defaultChecked={switchStates[switchName]}
-          onChange={() => handleSwitchChange(switchName)}
-        />
-      </CCol>
-      <CCol sm={6}>
-        <CIcon
-          icon={cibDiscover}
-          size="xl"
-          style={{ color: switchStates[switchName] ? '#249542' : '#db5d5d' }}
-        />
-      </CCol>
-    </CRow>
-  )
+  const renderDeviceSwitchControls = () => {
+    if (!farms) return null
+
+    return farms.map((farm) =>
+      farm.devices.map((device) => (
+        <CRow key={device.id}>
+          <CCol sm={6}>
+            <CFormSwitch
+              label={device.name}
+              // defaultChecked={device.status}
+              onChange={() =>
+                handleSwitchChange(device.controllerCode, device.status, device.order)
+              }
+            />
+          </CCol>
+          <CCol sm={6}>
+            <CIcon
+              icon={cibDiscover}
+              size="xl"
+              style={{ color: device.status == true ? '#249542' : '#db5d5d' }}
+            />
+          </CCol>
+        </CRow>
+      )),
+    )
+  }
+
+  // call api
+  const fetchData = async () => {
+    await axios.get(`${config.API_URL}/farms`).then((res) => {
+      console.log(res.data.results)
+      if (res.data) {
+        setFarms(res.data.results)
+      } else {
+        setFarms([])
+      }
+    })
+
+    // log
+    // console.log('APIs called')
+  }
+
+  useEffect(() => {
+    // call
+    fetchData()
+
+    // const millisecond = 5000
+    // const interval = setInterval(fetchData, millisecond)
+    // return () => clearInterval(interval)
+  }, [])
 
   return (
     <>
@@ -90,7 +149,7 @@ const GreenhouseA1 = () => {
             </CCol>
           </CRow>
           <CRow className="mt-5">
-            <CCol sm={6}>
+            {/* <CCol sm={6}>
               <h4>Controller 1</h4>
               {renderSwitchControl('Quạt', 'fan')}
               {renderSwitchControl('Đèn 2', 'light2')}
@@ -99,7 +158,8 @@ const GreenhouseA1 = () => {
             <CCol sm={6}>
               <h4>Controller 2</h4>
               {renderSwitchControl('Đèn S', 'lightS')}
-            </CCol>
+            </CCol> */}
+            {renderDeviceSwitchControls()}
           </CRow>
         </CCardBody>
       </CCard>
@@ -110,7 +170,6 @@ const GreenhouseA1 = () => {
         </CCardHeader>
         <CCardBody>
           <CRow>
-            {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4641.859712062819!2d108.44707407521308!3d11.952111029191471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112deb9aaaaab%3A0xd6362221bbe37c2b!2zVHJ1bmcgdMOibSBIw6BuaCBjaMOtbmggdGjDoG5oIHBo4buRIMSQw6AgTOG6oXQ!5e0!3m2!1svi!2s!4v1713151799373!5m2!1svi!2s" width="600" height="450" style={{ border: "0" }} allowFullScreen ></iframe> */}
             <MyMap />
           </CRow>
         </CCardBody>
