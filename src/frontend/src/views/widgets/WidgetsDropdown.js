@@ -97,7 +97,7 @@ const WidgetsDropdown = (props) => {
               </CDropdownToggle>
               <CDropdownMenu>
                 <CDropdownItem>
-                  <CCardLink href="#/device-control">See more</CCardLink>
+                  <CCardLink href="#/greenhouse-a1">See more</CCardLink>
                 </CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -124,7 +124,7 @@ const WidgetsDropdown = (props) => {
               </CDropdownToggle>
               <CDropdownMenu>
                 <CDropdownItem>
-                  <CCardLink href="#/device-control">See more</CCardLink>
+                  <CCardLink href="#/greenhouse-a1">See more</CCardLink>
                 </CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -151,7 +151,7 @@ const WidgetsDropdown = (props) => {
               </CDropdownToggle>
               <CDropdownMenu>
                 <CDropdownItem>
-                  <CCardLink href="#/device-control">See more</CCardLink>
+                  <CCardLink href="#/greenhouse-a1">See more</CCardLink>
                 </CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
