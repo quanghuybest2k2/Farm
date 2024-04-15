@@ -36,7 +36,7 @@ namespace DAL.Seeder
 
         private Farm AddFarm()
         {
-            Farm farm = new Farm() { Name = "farm-2", ControllerCode = "KV2", SensorLocation = "KV2" };
+            Farm farm = new Farm() { Name = "farm-2", ControllerCode = "KV2", SensorLocation = "esp8266/ledControl" };
             _context.Add(farm);
             _unitOfWork.Save();
             return farm;

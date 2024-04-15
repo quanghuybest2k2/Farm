@@ -6,6 +6,10 @@ using farm_api.Models.Request;
 using FluentValidation;
 using farm_api.Filter.Environment;
 using System;
+using farm_api.Extensions;
+using Microsoft.AspNetCore.SignalR;
+using farm_api.Hub;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace farm_api.Controllers
 {
@@ -139,7 +143,6 @@ namespace farm_api.Controllers
             var environment = await _environmentService.GetEnvironmentBySensorLocatonRecentDays(sensorLocation);
             if (environment == null)
                 return NotFound("No recent environment data found.");
-
             return Ok(environment);
         }
         /// <summary>
@@ -153,8 +156,8 @@ namespace farm_api.Controllers
         {
             var environments = await _environmentService.GetEnvironmentsByLocationAndCreationDay(sensorLocation, date);
             if (environments == null)
+                
                 return NotFound("No environment data found for the given day.");
-
             return Ok(environments);
         }
         /// <summary>

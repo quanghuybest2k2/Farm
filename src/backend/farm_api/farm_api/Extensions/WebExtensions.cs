@@ -15,6 +15,7 @@ using farm_api.Validation;
 using System.Net.WebSockets;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using farm_api.Hub;
 
 namespace farm_api.Extensions
 {
@@ -44,8 +45,11 @@ namespace farm_api.Extensions
                                         => options.AddPolicy(Cors
                                         , policies =>
                                                 policies.AllowAnyOrigin()
+                                                .WithOrigins("http://localhost:3000")
                                                 .AllowAnyHeader()
-                                                .AllowAnyMethod()));
+                                                .AllowAnyMethod()
+                                                .AllowCredentials()));
+                
             builder.Services.AddValidatorsFromAssemblyContaining<EnvironmentRequestValidator>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -59,7 +63,7 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<IFarmRepositorty, FarmRepositorty>();
             builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
-            builder.Services.AddScoped<IMQTTService,MQTTService>();
+            builder.Services.AddSingleton<IMQTTService,MQTTService>();
             return builder;
         }
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app)
@@ -78,6 +82,20 @@ namespace farm_api.Extensions
                     .GetRequiredService<ILogger<Program>>()
                     .LogError(ex, "could not insert data into database");
             }
+            using var scopeMQTT = app.ApplicationServices.CreateScope();
+            try
+            {
+                scope.ServiceProvider
+                    .GetRequiredService<IMQTTService>()
+                    .InitializeAsync();
+            }
+            catch (Exception ex)
+            {
+
+                scope.ServiceProvider
+                    .GetRequiredService<ILogger<Program>>()
+                    .LogError(ex, "could not init MQTT");
+            }
             return app;
         }
         public static WebApplication ConfigurePieline(this WebApplication app)
@@ -88,6 +106,7 @@ namespace farm_api.Extensions
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
             }
+            app.MapHub<FarmHub>("/farmhub");
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.UseCors(Cors);

@@ -10,7 +10,7 @@ namespace farm_api.Models.Request
         /// <summary>
         /// 
         /// </summary>
-        public string TopicName { get; set; }
+        public string TopicName { get; set; }//controller code board
         /// <summary>
         /// 
         /// </summary>

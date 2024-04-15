@@ -52,9 +52,13 @@ namespace farm_api.Controllers
             }
             try
             {
-                await _mQTTService.ConnectAsync();
+                if (!_mQTTService.IsConnected)
+                {
+                    await _mQTTService.ConnectAsync();
+                }
+
                 await _mQTTService.PublishAsync(topicRequest.TopicName, topicRequest.Payload);
-                await _mQTTService.DisconnectAsync();
+               // await _mQTTService.DisconnectAsync();
             }
             catch (Exception ex)
             {
