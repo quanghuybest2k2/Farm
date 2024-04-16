@@ -42,7 +42,7 @@ public class MQTTService : IMQTTService
              .WithTls() // Thêm dòng này để sử dụng kết nối qua TLS/SSL
              .Build() as MqttClientOptions; ;
 
-
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         // Thiết lập các event handlers
         _client.ConnectedAsync += async e =>
         {
