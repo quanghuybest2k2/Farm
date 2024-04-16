@@ -104,15 +104,15 @@ const AutoConfig = () => {
                   </CTableRow>
                   <CTableRow>
                     <CTableHeaderCell scope="row">2</CTableHeaderCell>
-                    <CTableDataCell>agagagagagagagaaagaag</CTableDataCell>
+                    <CTableDataCell>Ánh sáng</CTableDataCell>
                     <CTableDataCell>
                       <CIcon icon={cilXCircle} style={{ background: 'red' }} />
                     </CTableDataCell>
-                    <CTableDataCell>aagagagagaagag</CTableDataCell>
-                    <CTableDataCell>magagagagado</CTableDataCell>
-                    <CTableDataCell>admagagagagdo</CTableDataCell>
-                    <CTableDataCell>amagagagagado</CTableDataCell>
-                    <CTableDataCell>daagagagagagag</CTableDataCell>
+                    <CTableDataCell>Đèn</CTableDataCell>
+                    <CTableDataCell>150</CTableDataCell>
+                    <CTableDataCell>450</CTableDataCell>
+                    <CTableDataCell>05/03/2024</CTableDataCell>
+                    <CTableDataCell>10/04/2024</CTableDataCell>
                     <CTableDataCell>
                       <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
                     </CTableDataCell>
