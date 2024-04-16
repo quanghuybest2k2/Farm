@@ -80,6 +80,7 @@ namespace DAL.Repositories.Implementation
                 .AsNoTracking()
                 .Where(e => e.SensorLocation == sensorLocation &&
                             e.CreateAt >= dateFrom && e.CreateAt < dateTo)
+                .OrderBy(e => e.CreateAt)
                 .ToListAsync(cancellationToken);
 
             return environments;
@@ -106,6 +107,7 @@ namespace DAL.Repositories.Implementation
                     AverageHumidity = g.Average(x => x.Humidity),
                     AverageBrightness = g.Average(x => x.Brightness)
                 })
+                .OrderBy(x=>x.Date)
                 .ToListAsync(cancellationToken);
 
             return dailyAverages;

@@ -16,6 +16,7 @@ using System.Net.WebSockets;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using farm_api.Hub;
+using Quartz;
 
 namespace farm_api.Extensions
 {
@@ -49,7 +50,7 @@ namespace farm_api.Extensions
                                                 .AllowAnyHeader()
                                                 .AllowAnyMethod()
                                                 .AllowCredentials()));
-                
+
             builder.Services.AddValidatorsFromAssemblyContaining<EnvironmentRequestValidator>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -63,7 +64,21 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<IFarmRepositorty, FarmRepositorty>();
             builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
-            builder.Services.AddSingleton<IMQTTService,MQTTService>();
+            builder.Services.AddSingleton<IMQTTService, MQTTService>();
+            // Cấu hình Quartz
+            builder.Services.AddQuartz(q =>
+            {
+                // Sử dụng một job factory được tích hợp với Microsoft DI
+                q.UseMicrosoftDependencyInjectionJobFactory();
+
+                // Cấu hình job detail và trigger ở đây hoặc sử dụng IJob instance trực tiếp
+            });
+
+            // Đăng ký Quartz Hosted Service với một cài đặt để đợi các công việc hoàn thành khi ứng dụng đang đóng
+            builder.Services.AddQuartzHostedService(options =>
+            {
+                options.WaitForJobsToComplete = true;
+            });
             return builder;
         }
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app)

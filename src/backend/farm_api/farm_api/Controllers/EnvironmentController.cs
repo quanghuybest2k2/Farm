@@ -22,7 +22,7 @@ namespace farm_api.Controllers
         /// Initializes a new instance of the <see cref="EnvironmentController"/> class.
         /// </summary>
         /// <param name="environmentService">The service that will handle environmental data operations.</param>
-        public EnvironmentController(IEnvironmentService environmentService) 
+        public EnvironmentController(IEnvironmentService environmentService)
         {
             _environmentService = environmentService;
         }
@@ -34,15 +34,15 @@ namespace farm_api.Controllers
         /// <response code="200">Returns the environment DTO if the record is found.</response>
         /// <response code="404">Returned when no environment record is found for the provided ID.</response>
         [HttpGet("{id:Guid}")]
-        [ProducesResponseType(typeof(EnvironmentDTO),StatusCodes.Status200OK)]
-        [ProducesResponseType( StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(EnvironmentDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(Guid id)
         {
-            if (id==Guid.Empty)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }
-            var result= await _environmentService.GetByIdAsync(id);
+            var result = await _environmentService.GetByIdAsync(id);
             return Ok(result);
         }
         /// <summary>
@@ -54,9 +54,9 @@ namespace farm_api.Controllers
         /// <response code="200">Returns a paged list of environment records.</response>
         [HttpGet]
         [ProducesResponseType(typeof(PagedFarmResponse<EnvironmentDTO>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAll([FromQuery]EnvironmentQuery environmentQuery,[FromQuery] PagingModel pagingModel)
+        public async Task<IActionResult> GetAll([FromQuery] EnvironmentQuery environmentQuery, [FromQuery] PagingModel pagingModel)
         {
-            var result= await _environmentService.GetAllAsync(environmentQuery, pagingModel);
+            var result = await _environmentService.GetAllAsync(environmentQuery, pagingModel);
 
             return Ok(result);
         }
@@ -72,17 +72,18 @@ namespace farm_api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Add(EnvirontmentRequest environtmentRequest)
         {
-            if (environtmentRequest == null) {
+            if (environtmentRequest == null)
+            {
                 return BadRequest();
             }
             try
             {
                 await _environmentService.AddEnvironmentAsync(environtmentRequest);
             }
-            catch (ValidationException  ex)
+            catch (ValidationException ex)
             {
 
-                return BadRequest(new FarmErrrorResponse(ex.GetType().Name, ex.Errors.Select(x =>$"{x.PropertyName} {x.ErrorMessage}")));
+                return BadRequest(new FarmErrrorResponse(ex.GetType().Name, ex.Errors.Select(x => $"{x.PropertyName} {x.ErrorMessage}")));
             }
             return Ok();
         }
@@ -97,7 +98,7 @@ namespace farm_api.Controllers
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid id,[FromBody] EnvirontmentRequest environtmentRequest)
+        public async Task<IActionResult> Update(Guid id, [FromBody] EnvirontmentRequest environtmentRequest)
         {
             try
             {
@@ -105,7 +106,7 @@ namespace farm_api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new FarmErrrorResponse(ex.GetType().Name,null));
+                return BadRequest(new FarmErrrorResponse(ex.GetType().Name, null));
             }
             return NoContent();
         }
@@ -156,7 +157,7 @@ namespace farm_api.Controllers
         {
             var environments = await _environmentService.GetEnvironmentsByLocationAndCreationDay(sensorLocation, date);
             if (environments == null)
-                
+
                 return NotFound("No environment data found for the given day.");
             return Ok(environments);
         }
