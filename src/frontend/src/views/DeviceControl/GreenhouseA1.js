@@ -10,7 +10,96 @@ import axios from 'axios'
 import config from '../../config'
 
 const GreenhouseA1 = () => {
-  const [farms, setFarms] = useState(null)
+  const [devices, setDevices] = useState([
+    {
+      id: '2e0c9661-6b21-4a1f-ab34-2b10c238bd2d',
+      name: 'Quạt 7',
+      type: 'fan',
+      status: false,
+      order: 6,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: '50ec967c-fac0-40a7-b08b-7bbbd1121dcc',
+      name: 'Đèn 1',
+      type: 'lamp',
+      status: false,
+      order: 0,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: 'a89d9828-7289-45ff-b84c-848f41862c2c',
+      name: 'Quạt 8',
+      type: 'fan',
+      status: false,
+      order: 7,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: 'b802af41-c3b5-47eb-b714-8a148328f652',
+      name: 'Đèn 2',
+      type: 'lamp',
+      status: false,
+      order: 1,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: '71ab5c65-0784-4d6e-a890-8bf2589fc1f5',
+      name: 'Quạt 6',
+      type: 'fan',
+      status: false,
+      order: 5,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: '5a85de82-fc97-4081-9b83-97c3c953cfa7',
+      name: 'Quạt 5',
+      type: 'fan',
+      status: false,
+      order: 4,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: '8dc5c8ed-f5be-4a93-8693-9a5a704938b8',
+      name: 'Đèn 4',
+      type: 'lamp',
+      status: false,
+      order: 3,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+    {
+      id: 'bb27e980-7810-4ee0-9839-dc6540f3fd72',
+      name: 'Đèn 3',
+      type: 'lamp',
+      status: false,
+      order: 2,
+      createAt: null,
+      updateAt: null,
+      controllerCode: 'esp8266/ledControl',
+      farmId: 'adaf9b85-edaa-4029-adfa-abc59f230d98',
+    },
+  ])
 
   const [checkboxes, setCheckboxes] = useState({
     parametersAutomatically: false,
@@ -18,47 +107,37 @@ const GreenhouseA1 = () => {
   })
 
   useEffect(() => {
-    setCheckboxes({
-      parametersAutomatically: false,
-      scheduledAutomation: false,
-    })
+    const devicesData = JSON.parse(localStorage.getItem('devices'))
+    if (devicesData) {
+      setDevices(devicesData)
+    }
   }, [])
 
-  const handleSwitchChange = async (topic, status, orderId) => {
-    try {
-      const reversedStatus = !status
-      const payload = {
-        topicName: topic,
-        payload: {
-          id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-          status: reversedStatus,
-          order: orderId,
-        },
-      }
-      alert(status)
-      const response = await axios.post(`${config.API_URL}/controldevices`, payload)
-      // console.log(response)
-
-      // Update switch status locally
-      setFarms((prevFarms) => {
-        return prevFarms.map((farm) => {
-          return {
-            ...farm,
-            devices: farm.devices.map((device) => {
-              if (device.controllerCode === topic) {
-                return {
-                  ...device,
-                  status: reversedStatus,
-                }
-              }
-              return device
-            }),
-          }
-        })
-      })
-    } catch (error) {
-      console.error('Lỗi khi gửi yêu cầu điều khiển thiết bị:', error)
+  const controlDevice = (device) => {
+    const postData = {
+      topicName: device.controllerCode,
+      payload: {
+        id: device.id,
+        status: !device.status,
+        order: device.order,
+      },
     }
+
+    axios
+      .post(`${config.API_URL}/controldevices`, postData)
+      .then((response) => {
+        const updatedDevices = devices.map((d) => {
+          if (d.id === device.id) {
+            return { ...d, status: !d.status }
+          }
+          return d
+        })
+        setDevices(updatedDevices)
+        localStorage.setItem('devices', JSON.stringify(updatedDevices))
+      })
+      .catch((error) => {
+        console.error('Error controlling device:', error)
+      })
   }
 
   const handleCheckboxChange = (checkboxName) => {
@@ -72,57 +151,6 @@ const GreenhouseA1 = () => {
       alert(`${checkboxName} đã bỏ check`)
     }
   }
-
-  const renderDeviceSwitchControls = () => {
-    if (!farms) return null
-
-    return farms.map((farm) =>
-      farm.devices.map((device) => (
-        <CRow key={device.id}>
-          <CCol sm={6}>
-            <CFormSwitch
-              label={device.name}
-              // defaultChecked={device.status}
-              onChange={() =>
-                handleSwitchChange(device.controllerCode, device.status, device.order)
-              }
-            />
-          </CCol>
-          <CCol sm={6}>
-            <CIcon
-              icon={cibDiscover}
-              size="xl"
-              style={{ color: device.status == true ? '#249542' : '#db5d5d' }}
-            />
-          </CCol>
-        </CRow>
-      )),
-    )
-  }
-
-  // call api
-  const fetchData = async () => {
-    await axios.get(`${config.API_URL}/farms`).then((res) => {
-      console.log(res.data.results)
-      if (res.data) {
-        setFarms(res.data.results)
-      } else {
-        setFarms([])
-      }
-    })
-
-    // log
-    // console.log('APIs called')
-  }
-
-  useEffect(() => {
-    // call
-    fetchData()
-
-    // const millisecond = 5000
-    // const interval = setInterval(fetchData, millisecond)
-    // return () => clearInterval(interval)
-  }, [])
 
   return (
     <>
@@ -149,17 +177,38 @@ const GreenhouseA1 = () => {
             </CCol>
           </CRow>
           <CRow className="mt-5">
-            {/* <CCol sm={6}>
-              <h4>Controller 1</h4>
-              {renderSwitchControl('Quạt', 'fan')}
-              {renderSwitchControl('Đèn 2', 'light2')}
-              {renderSwitchControl('Đèn 3', 'light3')}
-            </CCol>
-            <CCol sm={6}>
-              <h4>Controller 2</h4>
-              {renderSwitchControl('Đèn S', 'lightS')}
-            </CCol> */}
-            {renderDeviceSwitchControls()}
+            {devices
+              .reduce(
+                (rows, key, index) =>
+                  (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows,
+                [],
+              )
+              .map((row, rowIndex) => (
+                <CCol sm={6} key={rowIndex}>
+                  {row.map((device) => (
+                    <CRow key={device.id}>
+                      <CCol sm={6}>
+                        <div className="form-check form-switch">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            onChange={() => controlDevice(device)}
+                            checked={device.status}
+                          />
+                          <label className="form-check-label">{device.name}</label>
+                        </div>
+                      </CCol>
+                      <CCol sm={6}>
+                        <CIcon
+                          icon={cibDiscover}
+                          size="xl"
+                          style={{ color: device.status ? '#249542' : '#db5d5d' }}
+                        />
+                      </CCol>
+                    </CRow>
+                  ))}
+                </CCol>
+              ))}
           </CRow>
         </CCardBody>
       </CCard>
