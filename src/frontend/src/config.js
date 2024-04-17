@@ -1,6 +1,6 @@
 const config = {
-  BASE_URL: 'https://localhost:7171',
-  API_URL: 'https://localhost:7171/api',
+  BASE_URL: 'http://www.sensor-io.somee.com',
+  API_URL: 'http://www.sensor-io.somee.com/api',
 }
 
 export default config
