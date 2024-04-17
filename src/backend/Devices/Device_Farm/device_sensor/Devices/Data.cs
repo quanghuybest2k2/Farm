@@ -25,7 +25,7 @@ namespace device_sensor.Devices
                 {
                     ""devices"": [
         {
-          ""id"": ""F1"",
+          ""id"": ""f1"",
           ""name"": ""F1"",
           ""type"": ""fan"",
           ""status"": true,
@@ -35,7 +35,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""F2"",
+          ""id"": ""f2"",
           ""name"": ""F2"",
           ""type"": ""fan"",
           ""status"": true,
@@ -45,7 +45,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""F3"",
+          ""id"": ""f3"",
           ""name"": ""F3"",
           ""type"": ""fan"",
           ""status"": false,
@@ -55,7 +55,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""F4"",
+          ""id"": ""f4"",
           ""name"": ""F4"",
           ""type"": ""fan"",
           ""status"": true,
@@ -65,7 +65,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""F5"",
+          ""id"": ""f5"",
           ""name"": ""F5"",
           ""type"": ""fan"",
           ""status"": false,
@@ -75,7 +75,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""F6"",
+          ""id"": ""f6"",
           ""name"": ""F6"",
           ""type"": ""fan"",
           ""status"": true,
@@ -85,7 +85,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""F7"",
+          ""id"": ""f7"",
           ""name"": ""F7"",
           ""type"": ""fan"",
           ""status"": true,
@@ -95,7 +95,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L1"",
+          ""id"": ""l1"",
           ""name"": ""L1"",
           ""type"": ""light"",
           ""status"": true,
@@ -105,7 +105,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L2"",
+          ""id"": ""l2"",
           ""name"": ""L2"",
           ""type"": ""light"",
           ""status"": true,
@@ -115,7 +115,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L3"",
+          ""id"": ""l3"",
           ""name"": ""L3"",
           ""type"": ""light"",
           ""status"": false,
@@ -125,7 +125,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L4"",
+          ""id"": ""l4"",
           ""name"": ""L4"",
           ""type"": ""light"",
           ""status"": true,
@@ -135,7 +135,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L5"",
+          ""id"": ""l5"",
           ""name"": ""L5"",
           ""type"": ""light"",
           ""status"": false,
@@ -145,7 +145,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L6"",
+          ""id"": ""l6"",
           ""name"": ""L6"",
           ""type"": ""light"",
           ""status"": true,
@@ -155,7 +155,7 @@ namespace device_sensor.Devices
           ""farmId"": ""2ae5e786-48ec-4f13-b842-af68c8b148b9""
         },
         {
-          ""id"": ""L7"",
+          ""id"": ""l7"",
           ""name"": ""L7"",
           ""type"": ""light"",
           ""status"": true,
@@ -166,7 +166,7 @@ namespace device_sensor.Devices
         },
         {
           ""id"": ""sensor-0"",
-          ""name"": ""S1"",
+          ""name"": ""s1"",
           ""type"": ""sensor"",
           ""status"": true,
           ""connectionStatus"": false,

@@ -13,11 +13,13 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+
 /// <summary>
-/// 
+/// Manages MQTT client interactions including connection, subscription, and message handling for a farming application.
 /// </summary>
 public class MQTTService : IMQTTService
 {
+    private readonly ILogger<MQTTService> _logger;
     private readonly IMqttClient _client;
     private MqttClientOptions _options;
     private readonly IHubContext<FarmHub> _hubContext;
@@ -26,70 +28,56 @@ public class MQTTService : IMQTTService
     public bool IsConnected { get { return _isConnected; } }
 
     /// <summary>
-    /// 
+    /// Initializes a new instance of the MQTTService with dependency injection for the SignalR hub context and logger.
     /// </summary>
     [Obsolete]
-    public MQTTService(IHubContext<FarmHub> hubContext)
+    public MQTTService(IHubContext<FarmHub> hubContext, ILogger<MQTTService> logger)
     {
+        Console.OutputEncoding = Encoding.UTF8;
+        _logger = logger;
         _hubContext = hubContext;
         var factory = new MqttFactory();
         _client = factory.CreateMqttClient();
 
         _options = new MqttClientOptionsBuilder()
             .WithClientId(Guid.NewGuid().ToString())
-             .WithTcpServer(Ulities.HostServerMQTTHiveMQ, Ulities.PortServerMQTTHiveMQ) // Đổi "your_mqtt_broker_address" thành địa chỉ của máy chủ MQTT của bạn
-             .WithCredentials(Ulities.AccountMQTTHiveMQ, Ulities.PasswordMQTTHiveMQ) // Thay thế bằng thông tin đăng nhập nếu máy chủ yêu cầu
-             .WithTls() // Thêm dòng này để sử dụng kết nối qua TLS/SSL
-             .Build() as MqttClientOptions; ;
-
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
-        // Thiết lập các event handlers
-        _client.ConnectedAsync += async e =>
-        {
-            _isConnected = true;
-            var topicFilter = new MqttTopicFilter { Topic = "esp8266/ledControl", QualityOfServiceLevel = MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce };
-            await _client.SubscribeAsync(topicFilter);
-            var topicDeviceStatus = new MqttTopicFilter { Topic = "esp8266/ledStatus", QualityOfServiceLevel = MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce };
-            await _client.SubscribeAsync(topicDeviceStatus);
-            var topicSensorStatus = new MqttTopicFilter { Topic = "sensor/data", QualityOfServiceLevel = MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce };
-            await _client.SubscribeAsync(topicSensorStatus);
-            Console.WriteLine("Đã kết nối tới MQTT broker.");
-        };
-
-        _client.DisconnectedAsync += async e =>
-        {
-            _isConnected = false;
-            Console.WriteLine("Đã ngắt kết nối với MQTT broker.");
-        };
-
-        _client.ApplicationMessageReceivedAsync += async e =>
-        {
-            string messagePayload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
-            switch (e.ApplicationMessage.Topic)
-            {
-                case "esp8266/ledStatus":
-                    await _hubContext.Clients.All.SendAsync("StatusLed", messagePayload);
-                    break;
-                case "sensor/data":
-                    await _hubContext.Clients.All.SendAsync("sensorKV1", messagePayload);
-                    break;
-                default:
-                    break;
-            }
-            Console.WriteLine($"Nhận được thông điệp: {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} trên chủ đề: {e.ApplicationMessage.Topic}");
-            Console.WriteLine($"Nhận được thông điệp: {messagePayload} trên chủ đề: {e.ApplicationMessage.Topic}");
-            await _hubContext.Clients.All.SendAsync("ReceiveData", messagePayload);
-            // Deserialize JSON vào đối tượng C# của bạn
-            var deviceStatus = JsonConvert.DeserializeObject<StatusDeviceByFarm>(messagePayload);
-            // Sử dụng thông tin trong đối tượng
-            Console.WriteLine($"Tên thiết bị: {deviceStatus.Name}");
-            Console.WriteLine("Trạng thái của LED:");     
-        };
+            .WithTcpServer(Ulities.HostServerMQTTHiveMQ, Ulities.PortServerMQTTHiveMQ)
+            .WithCredentials(Ulities.AccountMQTTHiveMQ, Ulities.PasswordMQTTHiveMQ)
+            .WithTls()
+            .Build() as MqttClientOptions;
+        _client.ConnectedAsync += HandleConnectedAsync;
+        _client.DisconnectedAsync += HandleDisconnectedAsync;
+        _client.ApplicationMessageReceivedAsync += HandleReceivedMessageAsync;
     }
+
+    // Region for handling MQTT events such as connection, disconnection and message reception.
+    #region handler event MQTT (connected, disconnected, ReceivedMessage)
+    private async Task HandleConnectedAsync(MqttClientConnectedEventArgs e)
+    {
+        _isConnected = true;
+        // Subscribe to topics upon connection.
+        await SubscribeToTopicsAsync();
+        _logger.LogInformation($"Connected to MQTT broker at {Ulities.HostServerMQTTHiveMQ}:{Ulities.PortServerMQTTHiveMQ}");
+    }
+
+    private async Task HandleDisconnectedAsync(MqttClientDisconnectedEventArgs e)
+    {
+        _isConnected = false;
+        _logger.LogInformation($"Disconnected from MQTT broker at {Ulities.HostServerMQTTHiveMQ}:{Ulities.PortServerMQTTHiveMQ}");
+    }
+
+    private async Task HandleReceivedMessageAsync(MqttApplicationMessageReceivedEventArgs e)
+    {
+        string messagePayload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
+        // Log and forward the message to all clients via SignalR.
+        await _hubContext.Clients.All.SendAsync(e.ApplicationMessage.Topic, messagePayload);
+        _logger.LogInformation($"Message sent to FE with topic: {e.ApplicationMessage.Topic}");
+    }
+    #endregion
+
     /// <summary>
-    /// 
+    /// Connects the MQTT client to the broker with configured options.
     /// </summary>
-    /// <returns></returns>
     public async Task ConnectAsync()
     {
         try
@@ -98,45 +86,40 @@ public class MQTTService : IMQTTService
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Connection failed: {ex.Message}");
+            _logger.LogError($"Connection failed: {ex.Message}");
         }
     }
+
     /// <summary>
-    /// 
+    /// Disconnects the MQTT client from the broker.
     /// </summary>
-    /// <returns></returns>
     public async Task DisconnectAsync()
     {
         await _client.DisconnectAsync();
     }
+
     /// <summary>
-    /// 
+    /// Subscribes the MQTT client to a specified topic.
     /// </summary>
-    /// <param name="topic"></param>
-    /// <returns></returns>
     public async Task SubscribeAsync(string topic)
     {
         var topicFilter = new MqttTopicFilter { Topic = topic, QualityOfServiceLevel = MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce };
         await _client.SubscribeAsync(topicFilter);
-        Console.WriteLine($"Đã đăng ký chủ đề {topic}");
+        _logger.LogInformation($"Subscribed to topic {topic}");
     }
 
     /// <summary>
-    /// 
+    /// Unsubscribes the MQTT client from a specified topic.
     /// </summary>
-    /// <param name="topic"></param>
-    /// <returns></returns>
     public async Task UnsubscribeAsync(string topic)
     {
         await _client.UnsubscribeAsync(topic);
-        Console.WriteLine($"Unsubscribed from {topic}");
+        _logger.LogInformation($"Unsubscribed from topic {topic}");
     }
+
     /// <summary>
-    /// 
+    /// Publishes a message to a specified topic.
     /// </summary>
-    /// <param name="topic"></param>
-    /// <param name="payload"></param>
-    /// <returns></returns>
     public async Task PublishAsync(string topic, DeviceRequestToESP payload)
     {
         string messagePayload = Ulities.SerializeDeviceData(payload);
@@ -147,27 +130,41 @@ public class MQTTService : IMQTTService
             .Build();
 
         await _client.PublishAsync(message);
-        Console.WriteLine($"Published message to {topic}");
+        _logger.LogInformation($"Published message to {topic}");
     }
+
     /// <summary>
-    /// 
+    /// Handles incoming messages for direct processing.
     /// </summary>
-    /// <param name="e"></param>
     public void HandleReceivedMessage(MqttApplicationMessageReceivedEventArgs e)
     {
-        Console.WriteLine($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} on topic: {e.ApplicationMessage.Topic}");
+        _logger.LogInformation($"Received message on topic: {e.ApplicationMessage.Topic}");
     }
+
+    /// <summary>
+    /// Initializes and connects the MQTT client, typically called at application startup.
+    /// </summary>
     public async Task InitializeAsync()
     {
         try
         {
-            await _client.ConnectAsync(_options);
-            // Đăng ký các topics ở đây nếu cần
+            await ConnectAsync();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Connection failed: {ex.Message}");
-            // Xử lý lỗi nếu cần
+            _logger.LogError($"Connection failed: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// Subscribes to default topics after establishing a connection.
+    /// </summary>
+    private async Task SubscribeToTopicsAsync()
+    {
+        var topics = new string[] { "esp8266/ledControl", "esp8266/ledStatus", "sensor/data" };
+        foreach (var topic in topics)
+        {
+            await SubscribeAsync(topic);
         }
     }
 }

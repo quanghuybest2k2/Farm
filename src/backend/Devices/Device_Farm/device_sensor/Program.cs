@@ -151,7 +151,7 @@ public class Program
     public static async Task Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        const string deviceId = "2ae5e786-48ec-4f13-b842-af68c8b148b9";
+        const string deviceId = "03de1476-0eda-4fa1-b1db-5d4fe8e4321c";
         using (ClientWebSocket client = new ClientWebSocket())
         {
             try
