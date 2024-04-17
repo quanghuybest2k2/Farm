@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { MapContainer, GeoJSON, TileLayer, Marker } from 'react-leaflet'
 import mapData from '../../data/dalat.json'
 import 'leaflet/dist/leaflet.css'
-import './MyMap.css'
 import L from 'leaflet'
 
 class MyMap extends Component {
