@@ -9,17 +9,29 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace farm_api.Controllers
 {
+    /// <summary>
+    /// Controller to manage schedules.
+    /// </summary>
     [ApiController]
     [Route("api/schedules")]
     public class ScheduleController : ControllerBase
     {
         private readonly IScheduleService _scheduleService;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="ScheduleController"/>.
+        /// </summary>
+        /// <param name="scheduleService">Service to manage schedules.</param>
         public ScheduleController(IScheduleService scheduleService)
         {
             _scheduleService = scheduleService;
         }
 
+        /// <summary>
+        /// Creates a new schedule.
+        /// </summary>
+        /// <param name="scheduleRequest">Schedule data.</param>
+        /// <returns>Response for the request to create a schedule.</returns>
         [HttpPost]
         public async Task<IActionResult> CreateSchedule([FromBody] ScheduleRequest scheduleRequest)
         {
@@ -34,6 +46,12 @@ namespace farm_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing schedule.
+        /// </summary>
+        /// <param name="id">The ID of the schedule to update.</param>
+        /// <param name="scheduleRequest">Updated schedule data.</param>
+        /// <returns>Response for the request to update a schedule.</returns>
         [HttpPut("{id:Guid}")]
         public async Task<IActionResult> UpdateSchedule(Guid id, [FromBody] ScheduleRequest scheduleRequest)
         {
@@ -52,6 +70,11 @@ namespace farm_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a schedule.
+        /// </summary>
+        /// <param name="id">The ID of the schedule to delete.</param>
+        /// <returns>Response for the request to delete a schedule.</returns>
         [HttpDelete("{id:Guid}")]
         public async Task<IActionResult> DeleteSchedule(Guid id)
         {
@@ -70,6 +93,11 @@ namespace farm_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a schedule by ID.
+        /// </summary>
+        /// <param name="id">The ID of the schedule to retrieve.</param>
+        /// <returns>Response for the request to get a schedule by ID.</returns>
         [HttpGet("{id:Guid}")]
         public async Task<IActionResult> GetScheduleById(Guid id)
         {
@@ -88,6 +116,12 @@ namespace farm_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves all schedules with optional pagination.
+        /// </summary>
+        /// <param name="scheduleQuery">Query filters for schedules.</param>
+        /// <param name="pagingModel">Paging parameters.</param>
+        /// <returns>Response containing a paginated list of schedules.</returns>
         [HttpGet]
         [ProducesResponseType(typeof(PagedFarmResponse<ScheduleDTO>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll([FromQuery] ScheduleQuery scheduleQuery, [FromQuery] PagingModel pagingModel)
@@ -104,4 +138,3 @@ namespace farm_api.Controllers
         }
     }
 }
-

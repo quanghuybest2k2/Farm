@@ -14,6 +14,6 @@ namespace Core.Queries
         public int Device { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
     }
 }
