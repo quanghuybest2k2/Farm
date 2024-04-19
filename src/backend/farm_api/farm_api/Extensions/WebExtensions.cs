@@ -17,6 +17,9 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using farm_api.Hub;
 using Quartz;
+using farm_api.Job;
+using Quartz.Impl;
+using Microsoft.Extensions.Options;
 
 namespace farm_api.Extensions
 {
@@ -45,14 +48,12 @@ namespace farm_api.Extensions
             builder.Services.AddCors(options
                                         => options.AddPolicy(Cors
                                         , policies =>
-                                                policies.AllowAnyOrigin()
-                                                .WithOrigins("http://localhost:3000")
+                                                policies
                                                 .AllowAnyHeader()
-                                                .AllowAnyMethod()
-                                                .AllowCredentials()));
-
+                                                .SetIsOriginAllowed((host) => true)
+                                                .AllowCredentials()
+                                                .AllowAnyMethod()));
             builder.Services.AddValidatorsFromAssemblyContaining<EnvironmentRequestValidator>();
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IEnvironmentRepository, EnvironmentRepository>();
             builder.Services.AddScoped<IEnvironmentService, EnvironmentService>();
@@ -62,23 +63,31 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
             builder.Services.AddScoped<IDeviceService, DeviceService>();
             builder.Services.AddScoped<IFarmRepositorty, FarmRepositorty>();
+            builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
             builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
             builder.Services.AddSingleton<IMQTTService, MQTTService>();
-            // Cấu hình Quartz
+
+            builder.Services.AddLogging();
+            //-------------------------------------------------------------------------
+            builder.Services.AddScoped<IScheduleService, ScheduleService>();
             builder.Services.AddQuartz(q =>
             {
-                // Sử dụng một job factory được tích hợp với Microsoft DI
-                q.UseMicrosoftDependencyInjectionJobFactory();
-
-                // Cấu hình job detail và trigger ở đây hoặc sử dụng IJob instance trực tiếp
+                q.UseMicrosoftDependencyInjectionJobFactory(options =>
+                {
+                    // Cấu hình thêm nếu cần
+                    options.AllowDefaultConstructor = false; // Khuyến nghị chỉ dùng các constructor có tham số
+                });
+                q.UseSimpleTypeLoader();
+                q.UseInMemoryStore();
+                q.UseDefaultThreadPool(tp =>
+                {
+                    tp.MaxConcurrency = 10;
+                });
             });
 
-            // Đăng ký Quartz Hosted Service với một cài đặt để đợi các công việc hoàn thành khi ứng dụng đang đóng
-            builder.Services.AddQuartzHostedService(options =>
-            {
-                options.WaitForJobsToComplete = true;
-            });
+            // Đăng ký Quartz làm hosted service để tự động khởi tạo và quản lý lifecycle của IScheduler
+            builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
             return builder;
         }
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app)

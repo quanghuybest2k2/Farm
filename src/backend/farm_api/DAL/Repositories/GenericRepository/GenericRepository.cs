@@ -22,6 +22,11 @@ namespace DAL.Repositories.GenericRepository
             _context.Remove(await GetByIdAsync(Id));
         }
 
+        public async Task DeleteAsync(object ob)
+        {
+            _context.Remove(ob);
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             return await _context.Set<T>().ToListAsync();  

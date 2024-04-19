@@ -46,6 +46,28 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Schedules",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    Area = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AreaSensor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Device = table.Column<int>(type: "int", nullable: false),
+                    StartValue = table.Column<int>(type: "int", nullable: false),
+                    EndValue = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schedules", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Devices",
                 columns: table => new
                 {
@@ -120,6 +142,9 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Environments");
+
+            migrationBuilder.DropTable(
+                name: "Schedules");
 
             migrationBuilder.DropTable(
                 name: "Farms");

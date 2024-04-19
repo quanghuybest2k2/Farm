@@ -23,7 +23,7 @@ namespace Core.Constant
         public const string AccountMQTTHiveMQ = "farm3";
         public const string PasswordMQTTHiveMQ = "Admin@12345";
 
-        public static string SerializeDeviceData(DeviceRequestToESP data)
+        public static string SerializeDeviceData(object data)
         {
             var options = new JsonSerializerOptions
             {

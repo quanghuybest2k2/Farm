@@ -17,6 +17,7 @@ namespace DAL.Context
         public DbSet<Core.Entities.Environment> Environments { get; set; }
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Farm> Farms { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +26,7 @@ namespace DAL.Context
             modelBuilder.Entity<Core.Entities.Environment>().HasKey(x => x.Id);
             modelBuilder.Entity<Camera>().HasKey(x => x.Id);
             modelBuilder.Entity<Farm>().HasKey(x => x.Id);
+            modelBuilder.Entity<Schedule>().HasKey(x => x.Id);
 
             // config table farm
             modelBuilder.Entity<Farm>().HasMany(x => x.Devices)

@@ -167,4 +167,17 @@ public class MQTTService : IMQTTService
             await SubscribeAsync(topic);
         }
     }
+
+    public async Task PublishAsync(string topic, object payload)
+    {
+        string messagePayload = Ulities.SerializeDeviceData(payload);
+        var message = new MqttApplicationMessageBuilder()
+            .WithTopic(topic)
+            .WithPayload(messagePayload)
+            .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.ExactlyOnce)
+            .Build();
+
+        await _client.PublishAsync(message);
+        _logger.LogInformation($"Published message to {topic}");
+    }
 }

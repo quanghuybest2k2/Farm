@@ -13,5 +13,6 @@ namespace farm_api.Services.Interface
         Task PublishAsync(string topic, DeviceRequestToESP payload);
         void HandleReceivedMessage(MqttApplicationMessageReceivedEventArgs e);
         Task InitializeAsync();
+        Task PublishAsync(string topic, object payload);
     }
 }

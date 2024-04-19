@@ -13,6 +13,7 @@ namespace DAL.Repositories.GenericRepository
         Task<T> GetByIdAsync(object id, CancellationToken cancellationToken = default);
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
         Task Delete(object Id);
+        Task DeleteAsync(object ob);
         void Update(T environment);
         void Insert(T environment);
     }
