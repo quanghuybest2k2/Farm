@@ -1,17 +1,19 @@
-import { CCard, CCardBody, CCol, CRow, CCardHeader, CFormSwitch } from '@coreui/react'
+import { CCard, CCardBody, CCol, CRow, CCardHeader } from '@coreui/react'
 import CustomCheckbox from './CustomCheckbox'
 import React, { useEffect, useState } from 'react'
 import InformationEnvironment from '../widgets/InformationEnvironment'
 import CIcon from '@coreui/icons-react'
 import { cibDiscover } from '@coreui/icons'
-import devicesData from './devicesData'
+import * as signalR from '@microsoft/signalr'
 // dalat maps
 import MyMap from './MyMap'
 import axios from 'axios'
 import config from '../../config'
 
 const GreenhouseA1 = () => {
-  const [devices, setDevices] = useState(devicesData)
+  const [data, setData] = useState([])
+  const [connection, setConnection] = useState(null)
+  const [sensorData, setSensorData] = useState([])
 
   const [checkboxes, setCheckboxes] = useState({
     parametersAutomatically: false,
@@ -19,34 +21,67 @@ const GreenhouseA1 = () => {
   })
 
   useEffect(() => {
-    const devicesData = JSON.parse(localStorage.getItem('devices'))
-    if (devicesData) {
-      setDevices(devicesData)
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${config.API_URL}/farms`)
+        setData(response.data)
+      } catch (error) {
+        console.error('Error fetching data: ', error)
+      }
+    }
+
+    const connectSignalR = async () => {
+      try {
+        const connect = new signalR.HubConnectionBuilder()
+          .withUrl(`${config.BASE_URL}/farmhub`)
+          .withAutomaticReconnect()
+          .build()
+
+        connect.on('esp8266/ledStatus', (dataString) => {
+          try {
+            const data = JSON.parse(dataString)
+            console.log('Parsed data:', data)
+            setSensorData(data)
+          } catch (error) {
+            console.error('Error parsing JSON string:', error)
+          }
+        })
+
+        await connect.start()
+        console.log('Connected!')
+        setConnection(connect)
+        return () => {
+          connect.stop()
+        }
+      } catch (err) {
+        console.error('Error while establishing connection:', err)
+      }
+    }
+
+    fetchData()
+    connectSignalR()
+
+    // Clean up
+    return () => {
+      if (connection) {
+        connection.stop()
+      }
     }
   }, [])
 
-  const controlDevice = (device) => {
+  const controlDevice = (device, statusDevice) => {
     const postData = {
       topicName: device.controllerCode,
       payload: {
         id: device.id,
-        status: !device.status,
+        status: !statusDevice,
         order: device.order,
       },
     }
 
     axios
       .post(`${config.API_URL}/controldevices`, postData)
-      .then((response) => {
-        const updatedDevices = devices.map((d) => {
-          if (d.id === device.id) {
-            return { ...d, status: !d.status }
-          }
-          return d
-        })
-        setDevices(updatedDevices)
-        localStorage.setItem('devices', JSON.stringify(updatedDevices))
-      })
+      .then((response) => {})
       .catch((error) => {
         console.error('Error controlling device:', error)
       })
@@ -89,38 +124,38 @@ const GreenhouseA1 = () => {
             </CCol>
           </CRow>
           <CRow className="mt-5">
-            {devices
-              .reduce(
-                (rows, key, index) =>
-                  (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows,
-                [],
-              )
-              .map((row, rowIndex) => (
-                <CCol sm={6} key={rowIndex}>
-                  {row.map((device) => (
-                    <CRow key={device.id}>
-                      <CCol sm={6}>
-                        <div className="form-check form-switch">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            onChange={() => controlDevice(device)}
-                            checked={device.status}
+            {/* display devices */}
+            <CCol sm={6}>
+              {data.results &&
+                data.results.map((farm) => (
+                  <div key={farm.id}>
+                    <h4>{farm.sensorLocation}</h4>
+                    {farm.devices.map((device) => (
+                      <CRow key={device.id}>
+                        <CCol sm={6}>
+                          <div className="form-check form-switch">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              onChange={() => controlDevice(device, !sensorData.Status)}
+                              checked={sensorData.Status}
+                            />
+                            <label className="form-check-label">{device.name}</label>
+                          </div>
+                        </CCol>
+                        <CCol sm={6}>
+                          <CIcon
+                            icon={cibDiscover}
+                            size="xl"
+                            style={{ color: sensorData.Status ? '#249542' : '#db5d5d' }}
                           />
-                          <label className="form-check-label">{device.name}</label>
-                        </div>
-                      </CCol>
-                      <CCol sm={6}>
-                        <CIcon
-                          icon={cibDiscover}
-                          size="xl"
-                          style={{ color: device.status ? '#249542' : '#db5d5d' }}
-                        />
-                      </CCol>
-                    </CRow>
-                  ))}
-                </CCol>
-              ))}
+                        </CCol>
+                      </CRow>
+                    ))}
+                  </div>
+                ))}
+            </CCol>
+            {/* end display devices */}
           </CRow>
         </CCardBody>
       </CCard>
