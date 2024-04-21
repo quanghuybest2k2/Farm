@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
+import * as signalR from '@microsoft/signalr'
 
 import {
   CRow,
@@ -15,7 +16,6 @@ import { getStyle } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
 import { cilArrowTop, cilOptions, cilBrightness, cilDrop } from '@coreui/icons'
 import DataTypeEnum from '../../DataTypeEnum'
-import axios from 'axios'
 import config from '../../config'
 
 const InformationEnvironment = (props) => {
@@ -24,6 +24,7 @@ const InformationEnvironment = (props) => {
   const [selectedLocationValue, setSelectedLocationValue] = useState(
     DataTypeEnum.SENSORLOCATION.KV2,
   )
+  const [connection, setConnection] = useState(null)
   const [environment, setEnvironment] = useState(null)
 
   const handleLocationClick = (value) => {
@@ -59,16 +60,34 @@ const InformationEnvironment = (props) => {
 
   // call api
   const fetchData = async () => {
-    await axios
-      .get(`${config.API_URL}/environments/real-time?sensorLocation=${sensorLocation}`)
-      .then((res) => {
-        // console.log(res.data)
-        if (res.data) {
-          setEnvironment(res.data)
-        } else {
-          setEnvironment([])
-        }
+    const connect = new signalR.HubConnectionBuilder()
+      .withUrl(`${config.BASE_URL}/farmhub`)
+      .withAutomaticReconnect()
+      .build()
+
+    connect
+      .start()
+      .then(() => {
+        console.log('Connected!')
+        setConnection(connect)
+        // Set up event listener here after the connection is established
+        // Set up event listener here after connection is established
+        /**
+         * KV2
+         * esp8266/ledStatus
+         */
+        connect.on(sensorLocation, (dataString) => {
+          // console.log('Data received from server: ', dataString)
+          try {
+            const data = JSON.parse(dataString)
+            console.log('Parsed data:', data)
+            setEnvironment(data)
+          } catch (error) {
+            console.error('Error parsing JSON string:', error)
+          }
+        })
       })
+      .catch((err) => console.error('Error while establishing connection:', err))
 
     // log
     // console.log('APIs called')
@@ -77,10 +96,6 @@ const InformationEnvironment = (props) => {
   useEffect(() => {
     // call
     fetchData()
-
-    const millisecond = 5000
-    const interval = setInterval(fetchData, millisecond)
-    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -116,7 +131,7 @@ const InformationEnvironment = (props) => {
               color="primary"
               value={
                 <>
-                  {environment.brightness ?? 0}{' '}
+                  {environment.brightness.toFixed(2) ?? 0}{' '}
                   <span className="fs-6 fw-normal">
                     (Lux <CIcon icon={cilBrightness} /> )
                   </span>
@@ -170,7 +185,7 @@ const InformationEnvironment = (props) => {
               color="warning"
               value={
                 <>
-                  {environment.humidity ?? 0}{' '}
+                  {environment.humidity.toFixed(2) ?? 0}{' '}
                   <span className="fs-6 fw-normal">
                     (% <CIcon icon={cilDrop} />)
                   </span>
