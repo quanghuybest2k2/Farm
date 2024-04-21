@@ -5,15 +5,15 @@ import InformationEnvironment from '../widgets/InformationEnvironment'
 import CIcon from '@coreui/icons-react'
 import { cibDiscover } from '@coreui/icons'
 import * as signalR from '@microsoft/signalr'
-// dalat maps
-import MyMap from './MyMap'
 import axios from 'axios'
 import config from '../../config'
 
 const GreenhouseA1 = () => {
-  const [data, setData] = useState([])
   const [connection, setConnection] = useState(null)
-  const [sensorData, setSensorData] = useState([])
+  const [data, setData] = useState([])
+  const [deviceStatusCode, setDeviceStatusCode] = useState(null)
+  const [fetchDataCompleted, setFetchDataCompleted] = useState(false)
+  const [sensorData, setSensorData] = useState({ Status: [] })
 
   const [checkboxes, setCheckboxes] = useState({
     parametersAutomatically: false,
@@ -25,19 +25,23 @@ const GreenhouseA1 = () => {
       try {
         const response = await axios.get(`${config.API_URL}/farms`)
         setData(response.data)
+        setDeviceStatusCode(response.data.results[0].deviceStatusCode)
+        setFetchDataCompleted(true)
       } catch (error) {
         console.error('Error fetching data: ', error)
       }
     }
 
     const connectSignalR = async () => {
+      if (!fetchDataCompleted) return
       try {
         const connect = new signalR.HubConnectionBuilder()
           .withUrl(`${config.BASE_URL}/farmhub`)
           .withAutomaticReconnect()
           .build()
 
-        connect.on('esp8266/ledStatus', (dataString) => {
+        //  esp8266/ledStatus
+        connect.on(deviceStatusCode ?? '', (dataString) => {
           try {
             const data = JSON.parse(dataString)
             console.log('Parsed data:', data)
@@ -67,14 +71,14 @@ const GreenhouseA1 = () => {
         connection.stop()
       }
     }
-  }, [])
+  }, [fetchDataCompleted])
 
   const controlDevice = (device, statusDevice) => {
     const postData = {
       topicName: device.controllerCode,
       payload: {
         id: device.id,
-        status: !statusDevice,
+        status: statusDevice,
         order: device.order,
       },
     }
@@ -129,7 +133,7 @@ const GreenhouseA1 = () => {
               {data.results &&
                 data.results.map((farm) => (
                   <div key={farm.id}>
-                    <h4>{farm.sensorLocation}</h4>
+                    <h4>{farm.name}</h4>
                     {farm.devices.map((device) => (
                       <CRow key={device.id}>
                         <CCol sm={6}>
@@ -137,8 +141,10 @@ const GreenhouseA1 = () => {
                             <input
                               className="form-check-input"
                               type="checkbox"
-                              onChange={() => controlDevice(device, !sensorData.Status)}
-                              checked={sensorData.Status}
+                              onChange={() =>
+                                controlDevice(device, !sensorData.Status[device.order])
+                              }
+                              checked={sensorData.Status[device.order]}
                             />
                             <label className="form-check-label">{device.name}</label>
                           </div>
@@ -147,7 +153,9 @@ const GreenhouseA1 = () => {
                           <CIcon
                             icon={cibDiscover}
                             size="xl"
-                            style={{ color: sensorData.Status ? '#249542' : '#db5d5d' }}
+                            style={{
+                              color: sensorData.Status[device.order] ? '#249542' : '#db5d5d',
+                            }}
                           />
                         </CCol>
                       </CRow>
@@ -156,17 +164,6 @@ const GreenhouseA1 = () => {
                 ))}
             </CCol>
             {/* end display devices */}
-          </CRow>
-        </CCardBody>
-      </CCard>
-      {/* maps */}
-      <CCard className="mb-4">
-        <CCardHeader>
-          <code>Distribution map</code>
-        </CCardHeader>
-        <CCardBody>
-          <CRow>
-            <MyMap />
           </CRow>
         </CCardBody>
       </CCard>
