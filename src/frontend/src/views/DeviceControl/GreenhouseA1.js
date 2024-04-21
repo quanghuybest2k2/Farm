@@ -9,8 +9,9 @@ import axios from 'axios'
 import config from '../../config'
 
 const GreenhouseA1 = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [connection, setConnection] = useState(null)
-  const [data, setData] = useState([])
+  const [location, setLocation] = useState(null)
   const [deviceStatusCode, setDeviceStatusCode] = useState(null)
   const [fetchDataCompleted, setFetchDataCompleted] = useState(false)
   const [sensorData, setSensorData] = useState({ Status: [] })
@@ -23,18 +24,22 @@ const GreenhouseA1 = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.get(`${config.API_URL}/farms`)
-        setData(response.data)
+        setLocation(response.data.results[0])
         setDeviceStatusCode(response.data.results[0].deviceStatusCode)
         setFetchDataCompleted(true)
+        setIsLoading(false)
       } catch (error) {
         console.error('Error fetching data: ', error)
+        setIsLoading(false)
       }
     }
 
     const connectSignalR = async () => {
       if (!fetchDataCompleted) return
       try {
+        setIsLoading(true)
         const connect = new signalR.HubConnectionBuilder()
           .withUrl(`${config.BASE_URL}/farmhub`)
           .withAutomaticReconnect()
@@ -54,11 +59,13 @@ const GreenhouseA1 = () => {
         await connect.start()
         console.log('Connected!')
         setConnection(connect)
+        setIsLoading(false)
         return () => {
           connect.stop()
         }
       } catch (err) {
         console.error('Error while establishing connection:', err)
+        setIsLoading(false)
       }
     }
 
@@ -108,7 +115,7 @@ const GreenhouseA1 = () => {
       <InformationEnvironment className="mb-4" />
       <CCard className="mb-4">
         <CCardHeader>
-          <code>Greenhouse A1</code>
+          <code>Greenhouse A2</code>
         </CCardHeader>
         <CCardBody>
           <CRow>
@@ -130,38 +137,44 @@ const GreenhouseA1 = () => {
           <CRow className="mt-5">
             {/* display devices */}
             <CCol sm={6}>
-              {data.results &&
-                data.results.map((farm) => (
-                  <div key={farm.id}>
-                    <h4>{farm.name}</h4>
-                    {farm.devices.map((device) => (
-                      <CRow key={device.id}>
-                        <CCol sm={6}>
-                          <div className="form-check form-switch">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              onChange={() =>
-                                controlDevice(device, !sensorData.Status[device.order])
-                              }
-                              checked={sensorData.Status[device.order]}
-                            />
-                            <label className="form-check-label">{device.name}</label>
-                          </div>
-                        </CCol>
-                        <CCol sm={6}>
-                          <CIcon
-                            icon={cibDiscover}
-                            size="xl"
-                            style={{
-                              color: sensorData.Status[device.order] ? '#249542' : '#db5d5d',
-                            }}
-                          />
-                        </CCol>
-                      </CRow>
-                    ))}
-                  </div>
-                ))}
+              {isLoading ? (
+                <div>Loading...</div>
+              ) : (
+                <>
+                  {location && (
+                    <>
+                      <h4>{location.name}</h4>
+                      {location.devices &&
+                        location.devices.map((device) => (
+                          <CRow key={device.id}>
+                            <CCol sm={6}>
+                              <div className="form-check form-switch">
+                                <input
+                                  className="form-check-input"
+                                  type="checkbox"
+                                  onChange={() =>
+                                    controlDevice(device, !sensorData.Status[device.order])
+                                  }
+                                  checked={sensorData.Status[device.order]}
+                                />
+                                <label className="form-check-label">{device.name}</label>
+                              </div>
+                            </CCol>
+                            <CCol sm={6}>
+                              <CIcon
+                                icon={cibDiscover}
+                                size="xl"
+                                style={{
+                                  color: sensorData.Status[device.order] ? '#249542' : '#db5d5d',
+                                }}
+                              />
+                            </CCol>
+                          </CRow>
+                        ))}
+                    </>
+                  )}
+                </>
+              )}
             </CCol>
             {/* end display devices */}
           </CRow>
