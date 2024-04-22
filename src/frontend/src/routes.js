@@ -7,6 +7,8 @@ const GreenhouseA1 = React.lazy(() => import('./views/DeviceControl/GreenhouseA1
 const GreenhouseA2 = React.lazy(() => import('./views/DeviceControl/GreenhouseA2'))
 const GreenhouseA3 = React.lazy(() => import('./views/DeviceControl/GreenhouseA3'))
 const AutoConfig = React.lazy(() => import('./views/AutoConfig/AutoConfig'))
+const CreateConfig = React.lazy(() => import('./views/AutoConfig/CreateConfig'))
+const EditConfig = React.lazy(() => import('./views/AutoConfig/EditConfig'))
 const Camera = React.lazy(() => import('./views/Camera/Camera'))
 // end pages
 
@@ -68,6 +70,8 @@ const routes = [
   { path: '/greenhouse-a2', name: 'GreenhouseA2', element: GreenhouseA2 },
   { path: '/greenhouse-a3', name: 'GreenhouseA3', element: GreenhouseA3 },
   { path: '/auto-config', name: 'AutoConfig', element: AutoConfig },
+  { path: '/auto-config/create', name: 'CreateConfig', element: CreateConfig },
+  { path: '/auto-config/edit/:id', name: 'EditConfig', element: EditConfig },
   { path: '/camera', name: 'Camera', element: Camera },
   // end page router
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
