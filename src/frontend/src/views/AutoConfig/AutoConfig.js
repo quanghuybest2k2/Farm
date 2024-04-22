@@ -42,25 +42,27 @@ const AutoConfig = () => {
             <CCardBody>
               <p className="text-body-secondary small">
                 Basic information for the <code>Device</code>
-                <Link to={'/'}>
+                <CLink href={'#auto-config/create'}>
                   <CButton color="success" type="button" size="sm" className="float-end">
                     <CIcon icon={cilPlus} />
                     <text>Create New</text>
                   </CButton>
-                </Link>
+                </CLink>
               </p>
               <CTable responsive>
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">STT</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Type</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Area</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Area Sensor</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Device</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Status</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Device Name</CTableHeaderCell>
                     <CTableHeaderCell scope="col">From value</CTableHeaderCell>
                     <CTableHeaderCell scope="col">To value</CTableHeaderCell>
                     <CTableHeaderCell scope="col">From date</CTableHeaderCell>
                     <CTableHeaderCell scope="col">To date</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">SD ngày</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Is Active</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Action</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
@@ -68,22 +70,24 @@ const AutoConfig = () => {
                   <CTableRow>
                     <CTableHeaderCell scope="row">1</CTableHeaderCell>
                     <CTableDataCell>Nhiệt độ</CTableDataCell>
+                    <CTableDataCell>farm-2</CTableDataCell>
+                    <CTableDataCell>KV2</CTableDataCell>
+                    <CTableDataCell>Đèn 1</CTableDataCell>
                     <CTableDataCell>
                       <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
                     </CTableDataCell>
-                    <CTableDataCell>Quạt</CTableDataCell>
                     <CTableDataCell>25</CTableDataCell>
                     <CTableDataCell>30</CTableDataCell>
                     <CTableDataCell>8/4/2024</CTableDataCell>
                     <CTableDataCell>8/4/2024</CTableDataCell>
                     <CTableDataCell>
-                      <CIcon icon={cilXCircle} style={{ background: 'red' }} />
+                      <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
                     </CTableDataCell>
                     <CTableDataCell>
                       <CButtonGroup role="group" aria-label="Basic mixed styles example">
                         <CCol xs={8}>
                           <CTooltip content="Edit">
-                            <CLink>
+                            <CLink href="#auto-config/edit/1">
                               <CButton color="warning" type="button" size="sm">
                                 <CIcon icon={cilColorBorder} />
                               </CButton>
@@ -105,10 +109,12 @@ const AutoConfig = () => {
                   <CTableRow>
                     <CTableHeaderCell scope="row">2</CTableHeaderCell>
                     <CTableDataCell>Ánh sáng</CTableDataCell>
+                    <CTableDataCell>farm-2</CTableDataCell>
+                    <CTableDataCell>KV2</CTableDataCell>
+                    <CTableDataCell>Đèn 2</CTableDataCell>
                     <CTableDataCell>
                       <CIcon icon={cilXCircle} style={{ background: 'red' }} />
                     </CTableDataCell>
-                    <CTableDataCell>Đèn</CTableDataCell>
                     <CTableDataCell>150</CTableDataCell>
                     <CTableDataCell>450</CTableDataCell>
                     <CTableDataCell>05/03/2024</CTableDataCell>
