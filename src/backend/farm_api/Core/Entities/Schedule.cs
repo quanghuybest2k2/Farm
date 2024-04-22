@@ -10,9 +10,6 @@ namespace Core.Entities
     public class Schedule : BaseEntity, IModifier
     {
         public int Type { get; set; }
-        public string Area { get; set; }
-        public string AreaSensor { get; set; }
-        public int Device { get; set; }
         public bool Status { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }
@@ -21,6 +18,13 @@ namespace Core.Entities
         public bool IsActive { get; set; }
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
+        // Khóa ngoại và mối quan hệ với Farm
+        public Guid FarmId { get; set; }
+        public Farm Farm { get; set; }
+
+        // Khóa ngoại và mối quan hệ với Device
+        public Guid DeviceId { get; set; }
+        public Device Device { get; set; }
 
     }
 }

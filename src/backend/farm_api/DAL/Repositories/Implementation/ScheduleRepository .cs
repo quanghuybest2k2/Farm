@@ -22,7 +22,7 @@ namespace DAL.Repositories.Implementation
         }
         private IQueryable<Schedule> Filter(ScheduleQueryDTO scheduleQueryDTO)
         {
-            IQueryable<Schedule> query = _context.Set<Schedule>();
+            IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.Device).Include(x=>x.Farm);
             #region Condition Filter
             if (scheduleQueryDTO.Type > 0)
             {
@@ -30,7 +30,7 @@ namespace DAL.Repositories.Implementation
             }
             if (scheduleQueryDTO.Device >= 0)
             {
-                query = query.Where(x => x.Device == scheduleQueryDTO.Device);
+                query = query.Where(x => x.Device.Order == scheduleQueryDTO.Device);
             }
             if (scheduleQueryDTO.StartValue > 0)
             {
@@ -50,11 +50,11 @@ namespace DAL.Repositories.Implementation
             }
             if (!string.IsNullOrEmpty(scheduleQueryDTO.AreaSensor))
             {
-                query = query.Where(x => x.AreaSensor == scheduleQueryDTO.AreaSensor);
+                query = query.Where(x => x.Farm.SensorLocation == scheduleQueryDTO.AreaSensor);
             }
             if (!string.IsNullOrEmpty(scheduleQueryDTO.Area))
             {
-                query = query.Where(x => x.Area == scheduleQueryDTO.Area);
+                query = query.Where(x => x.Farm.SensorLocation == scheduleQueryDTO.Area);
             }
             #endregion
             return query;
