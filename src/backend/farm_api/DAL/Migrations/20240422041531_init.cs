@@ -34,6 +34,9 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Latitude = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Longitude = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DeviceStatusCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     SensorLocation = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -54,6 +57,7 @@ namespace DAL.Migrations
                     Area = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AreaSensor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Device = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
                     StartValue = table.Column<int>(type: "int", nullable: false),
                     EndValue = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),

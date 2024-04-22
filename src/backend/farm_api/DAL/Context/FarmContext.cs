@@ -27,6 +27,8 @@ namespace DAL.Context
             modelBuilder.Entity<Camera>().HasKey(x => x.Id);
             modelBuilder.Entity<Farm>().HasKey(x => x.Id);
             modelBuilder.Entity<Schedule>().HasKey(x => x.Id);
+            modelBuilder.Entity<Schedule>().Property(s => s.Type)
+                .HasConversion<int>();
 
             // config table farm
             modelBuilder.Entity<Farm>().HasMany(x => x.Devices)

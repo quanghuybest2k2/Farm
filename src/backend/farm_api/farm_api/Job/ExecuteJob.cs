@@ -25,6 +25,7 @@ namespace farm_api.Job
             string areaSensor = dataMap.GetString("AreaSensor");
             int valueStart = dataMap.GetInt("StartValue");
             int valueEnd = dataMap.GetInt("EndValue");
+            bool statusDevice = dataMap.GetBoolean("Status");
             _logger.LogInformation($"information is sent  to MQTT : =>" +
             $" type : {type} : area : {area} : device : {device} : areaSensor : {areaSensor} : StartValue : {valueStart} : EndValue : {valueEnd}");
             var payload = new
@@ -33,12 +34,13 @@ namespace farm_api.Job
                 Area = area,
                 Device = device,
                 ValueStart = valueStart,
-                ValueEnd = valueStart,
-                AreaSensor = areaSensor
+                ValueEnd = valueEnd,
+                AreaSensor = areaSensor,
+                StatusDevice= statusDevice
 
             };
             await Console.Out.WriteLineAsync("");
-            string topic = $"control/{payload.AreaSensor}";
+            string topic = $"schedule/{payload.AreaSensor}";
             if (!_mqttPushService.IsConnected)
             {
                 await _mqttPushService.ConnectAsync();

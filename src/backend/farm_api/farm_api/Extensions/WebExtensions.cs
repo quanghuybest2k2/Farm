@@ -124,12 +124,13 @@ namespace farm_api.Extensions
         }
         public static WebApplication ConfigurePieline(this WebApplication app)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
-            }
+            //if (app.Environment.IsDevelopment())
+            //{
+            //    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
+            //}
             app.MapHub<FarmHub>("/farmhub");
             app.UseHttpsRedirection();
             app.UseAuthorization();

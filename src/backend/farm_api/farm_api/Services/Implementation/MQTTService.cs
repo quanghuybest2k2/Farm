@@ -161,7 +161,7 @@ public class MQTTService : IMQTTService
     /// </summary>
     private async Task SubscribeToTopicsAsync()
     {
-        var topics = new string[] { "esp8266/ledControl", "esp8266/ledStatus", "sensor/data" };
+        var topics = new string[] { "esp8266/ledControl", "esp8266/ledStatus", "KV2" };
         foreach (var topic in topics)
         {
             await SubscribeAsync(topic);

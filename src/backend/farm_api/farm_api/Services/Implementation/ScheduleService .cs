@@ -90,26 +90,29 @@ namespace farm_api.Services.Implementation
                 throw new KeyNotFoundException("Schedule not found");
             }
 
+            // Ghi nhận trạng thái hoạt động trước cập nhật
             bool wasActive = schedule.IsActive;
+
+            // Áp dụng các cập nhật vào lịch trình
             _mapper.Map(scheduleRequest, schedule);
             _repository.Update(schedule);
             _unitOfWork.Save();
             _logger.LogInformation("Schedule updated.");
 
-            if (schedule.IsActive != wasActive)
+            // Xóa công việc hiện tại nếu nó đã tồn tại
+            if (await _scheduler.CheckExists(new JobKey(id.ToString())))
             {
-                if (schedule.IsActive)
-                {
-                    _logger.LogInformation("Schedule status changed to active. Scheduling job.");
-                    await ScheduleJob(schedule, cancellationToken);
-                }
-                else
-                {
-                    _logger.LogInformation("Schedule status changed to inactive. Unscheduling job.");
-                    await UnscheduleJob(schedule.Id, cancellationToken);
-                }
+                await _scheduler.DeleteJob(new JobKey(id.ToString()));
+            }
+
+            // Lên lịch công việc mới nếu lịch trình đang hoạt động
+            if (schedule.IsActive)
+            {
+                _logger.LogInformation("Scheduling job for updated schedule.");
+                await ScheduleJob(schedule, cancellationToken);
             }
         }
+
         /// <summary>
         /// Deletes a schedule asynchronously and unschedules any associated jobs.
         /// </summary>
@@ -168,6 +171,7 @@ namespace farm_api.Services.Implementation
                                        .UsingJobData("AreaSensor", schedule.AreaSensor)
                                        .UsingJobData("Device", schedule.Device)
                                        .UsingJobData("StartValue", schedule.StartValue)
+                                       .UsingJobData("Status",schedule.Status)
                                        .UsingJobData("EndValue", schedule.EndValue)
                                        .Build();
             ITrigger trigger = TriggerBuilder.Create()

@@ -12,6 +12,7 @@ namespace Core.Queries
         public string Area { get; set; }
         public string AreaSensor { get; set; }
         public int Device { get; set; }
+        public bool Status { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }
         public bool? IsActive { get; set; }
