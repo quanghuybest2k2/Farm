@@ -17,6 +17,7 @@ namespace Core.Entities
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public Farm Farm { get; set; }
-        public Guid FarmId { get; set; }    
+        public Guid FarmId { get; set; }
+        public ICollection<Schedule> Schedules { get; set; }
     }
 }

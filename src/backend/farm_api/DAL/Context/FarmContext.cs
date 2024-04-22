@@ -30,15 +30,28 @@ namespace DAL.Context
             modelBuilder.Entity<Schedule>().Property(s => s.Type)
                 .HasConversion<int>();
 
+
+            modelBuilder.Entity<Schedule>()
+                .HasOne(s => s.Farm)
+                .WithMany(f => f.Schedules)
+                .HasForeignKey(s => s.FarmId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Schedule>()
+                .HasOne(s => s.Device)
+                .WithMany(d => d.Schedules)
+                .HasForeignKey(s => s.DeviceId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             // config table farm
             modelBuilder.Entity<Farm>().HasMany(x => x.Devices)
                 .WithOne(x => x.Farm)
                 .HasForeignKey(x => x.FarmId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // set relationship between Tables Farm and environment
-            modelBuilder.Entity<Farm>().HasMany(f=>f.Environments)
-                .WithOne(e=>e.Farm)
+            modelBuilder.Entity<Farm>().HasMany(f => f.Environments)
+                .WithOne(e => e.Farm)
                 .HasForeignKey(e => e.SensorLocation)
                 .HasPrincipalKey(f => f.SensorLocation)
                 .OnDelete(DeleteBehavior.Cascade);

@@ -21,6 +21,8 @@ namespace farm_api.Services.Implementation
     public class ScheduleService : IScheduleService
     {
         private readonly IScheduleRepository _repository;
+        private readonly IDeviceRepository _deviceRepository;
+        private readonly IFarmRepositorty _farmRepositorty;
         private readonly ISchedulerFactory _schedulerFactory;
         private  IScheduler _scheduler;
         private readonly ILogger<ScheduleService> _logger;
@@ -34,13 +36,21 @@ namespace farm_api.Services.Implementation
         /// <param name="logger">The logger for logging information.</param>
         /// <param name="unitOfWork">The unit of work for transaction management.</param>
         /// <param name="mapper">The mapper for object transformations.</param>
-        public ScheduleService(IScheduleRepository repository, ISchedulerFactory schedulerFactory, ILogger<ScheduleService> logger, IUnitOfWork unitOfWork, IMapper mapper)
+        public ScheduleService(IScheduleRepository repository
+            , ISchedulerFactory schedulerFactory
+            , ILogger<ScheduleService> logger
+            , IUnitOfWork unitOfWork
+            , IMapper mapper
+            , IFarmRepositorty farmRepositorty
+            ,IDeviceRepository deviceRepository)
         {
             _schedulerFactory = schedulerFactory;
             _repository = repository;
             _logger = logger;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _farmRepositorty = farmRepositorty;
+            _deviceRepository = deviceRepository;
             InitializeScheduler();
             _logger.LogDebug("Initialized ScheduleService with necessary dependencies.");
         }
@@ -58,12 +68,21 @@ namespace farm_api.Services.Implementation
         /// <param name="cancellationToken">Cancellation token for async operations.</param>
         public async Task CreateScheduleAsync(ScheduleRequest scheduleRequest, CancellationToken cancellationToken = default)
         {
+            // chỗ này  cần xử lý logic ở chỗ này 
+
+            var device = await _deviceRepository.GetByIdAsync(scheduleRequest.DeviceId);// lấy thiết bị theo  Id
+            var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
+            if (device == null || farm == null) throw new KeyNotFoundException("device or farm not found"); // kiểm tra 2 cái trên xem có tồn tại ko 
+            if (device.FarmId.ToString() != farm.Id.ToString()) throw new Exception("device not belong farm");// kiểm tra xem nếu thiết bị không thuộc farm thì ném exception
+
+
             _logger.LogInformation("Creating schedule.");
             var schedule = _mapper.Map<Schedule>(scheduleRequest);
             _repository.Insert(schedule);
             _unitOfWork.Save();
             _logger.LogInformation("Schedule created and saved.");
-
+            schedule.Farm = farm;
+            schedule.Device = device;
             if (schedule.IsActive)
             {
                 _logger.LogInformation("Schedule is active. Scheduling job.");
@@ -82,6 +101,12 @@ namespace farm_api.Services.Implementation
         /// <param name="cancellationToken">Cancellation token for async operations.</param>
         public async Task UpdateScheduleAsync(Guid id, ScheduleRequest scheduleRequest, CancellationToken cancellationToken = default)
         {
+            var device = await _deviceRepository.GetByIdAsync(scheduleRequest.DeviceId);// lấy thiết bị theo  Id
+            var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
+            if (device == null || farm == null) throw new KeyNotFoundException("device or farm not found"); // kiểm tra 2 cái trên xem có tồn tại ko 
+            if (device.FarmId.ToString() != farm.Id.ToString()) throw new Exception("device not belong farm");// kiểm tra xem nếu thiết bị không thuộc farm thì ném exception
+
+
             _logger.LogInformation("Updating schedule {ScheduleId}.", id);
             var schedule = await _repository.GetByIdAsync(id);
             if (schedule == null)
@@ -98,7 +123,8 @@ namespace farm_api.Services.Implementation
             _repository.Update(schedule);
             _unitOfWork.Save();
             _logger.LogInformation("Schedule updated.");
-
+            schedule.Farm = farm;
+            schedule.Device = device;
             // Xóa công việc hiện tại nếu nó đã tồn tại
             if (await _scheduler.CheckExists(new JobKey(id.ToString())))
             {
@@ -167,9 +193,9 @@ namespace farm_api.Services.Implementation
             IJobDetail job = JobBuilder.Create<ExecuteJob>()
                                        .WithIdentity(jobKey)
                                        .UsingJobData("Type", schedule.Type)
-                                       .UsingJobData("Area", schedule.Area)
-                                       .UsingJobData("AreaSensor", schedule.AreaSensor)
-                                       .UsingJobData("Device", schedule.Device)
+                                       .UsingJobData("Area", schedule.Farm.SensorLocation)
+                                       .UsingJobData("AreaSensor", schedule.Farm.SensorLocation)
+                                       .UsingJobData("Device", schedule.Device.Order)
                                        .UsingJobData("StartValue", schedule.StartValue)
                                        .UsingJobData("Status",schedule.Status)
                                        .UsingJobData("EndValue", schedule.EndValue)

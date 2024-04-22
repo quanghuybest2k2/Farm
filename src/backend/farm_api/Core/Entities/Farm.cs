@@ -20,5 +20,6 @@ namespace Core.Entities
         public string ControllerCode { get; set; }// mã để gửi thông điệp điều khiển thiết bị theo từng farm
         public ICollection<Environment> Environments { get; set; }
         public ICollection<Device> Devices { get; set; }
+        public ICollection<Schedule> Schedules { get; set; }
     }
 }

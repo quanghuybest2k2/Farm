@@ -1,13 +1,11 @@
-﻿using farm_api.Models.Common;
+﻿using Core.Entities;
+using farm_api.Models.Common;
 
 namespace farm_api.Models
 {
     public class ScheduleDTO:BaseDTO
     {
         public int Type { get; set; }
-        public string Area { get; set; }
-        public string AreaSensor { get; set; }
-        public int Device { get; set; }
         public bool Status { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }
@@ -16,5 +14,12 @@ namespace farm_api.Models
         public bool IsActive { get; set; }
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
+        // Khóa ngoại và mối quan hệ với Farm
+        public Guid FarmId { get; set; }
+        public FarmDTO Farm { get; set; }
+
+        // Khóa ngoại và mối quan hệ với Device
+        public Guid DeviceId { get; set; }
+        public DeviceDTO Device { get; set; }
     }
 }
