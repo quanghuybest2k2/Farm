@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -13,39 +13,39 @@ import {
   CFormLabel,
   CRow,
   CLink,
-} from "@coreui/react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { subDays, format, startOfDay, endOfDay, parseISO } from "date-fns";
-import axios from "axios";
-import config from "../../config";
+} from '@coreui/react'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { subDays, format, startOfDay, endOfDay, parseISO } from 'date-fns'
+import axios from 'axios'
+import config from '../../config'
 
 const EditConfig = () => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
-  const [schedule, setSchedule] = useState(null);
-  const today = new Date();
-  const [startDate, setStartDate] = useState(today);
-  const [endDate, setEndDate] = useState(null);
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
+  const [schedule, setSchedule] = useState(null)
+  const today = new Date()
+  const [startDate, setStartDate] = useState(today)
+  const [endDate, setEndDate] = useState(null)
   // id from url
-  const { id } = useParams();
+  const { id } = useParams()
 
   useEffect(() => {
     axios
       .get(`${config.API_URL}/schedules/${id}`)
       .then((response) => {
-        console.log(response.data);
-        setSchedule(response.data);
-        setLoading(false);
+        console.log(response.data)
+        setSchedule(response.data)
+        setLoading(false)
       })
       .catch((error) => {
-        console.error("Error fetching schedules:", error);
-        setLoading(false);
-      });
-  }, []);
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }, [])
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const updatedSchedule = {
         type: parseInt(schedule.type),
@@ -56,22 +56,20 @@ const EditConfig = () => {
         endDate: schedule.endDate,
         isActive: schedule.isActive,
 
-        farmId: "140e8470-86ec-4e10-b28e-cb94d9165c54",
-        deviceId: "8a8bd086-1167-4d69-93a4-351317c20080",
+        farmId: '140e8470-86ec-4e10-b28e-cb94d9165c54',
+        deviceId: '8a8bd086-1167-4d69-93a4-351317c20080',
         // farmId: schedule.farmId,
         // deviceId: schedule.deviceId,
-      };
+      }
 
-      await axios
-        .put(`${config.API_URL}/schedules/${id}`, updatedSchedule)
-        .then((res) => {
-          alert("Update successfully");
-          navigate("/auto-config");
-        });
+      await axios.put(`${config.API_URL}/schedules/${id}`, updatedSchedule).then((res) => {
+        alert('Update successfully')
+        navigate('/auto-config')
+      })
     } catch (error) {
-      console.error("Error updating schedule:", error);
+      console.error('Error updating schedule:', error)
     }
-  };
+  }
 
   return (
     <>
@@ -88,25 +86,20 @@ const EditConfig = () => {
             </CCardHeader>
             <CCardBody>
               <p className="text-body-secondary small">
-                Edit automatic profiles to replace scheduled manual{" "}
-                <code>on/off</code>.
+                Edit automatic profiles to replace scheduled manual <code>on/off</code>.
               </p>
               <CForm>
                 {schedule && (
                   <>
                     <CRow className="mb-3">
-                      <CFormLabel className="col-sm-2 col-form-label">
-                        Type
-                      </CFormLabel>
+                      <CFormLabel className="col-sm-2 col-form-label">Type</CFormLabel>
                       <CCol sm={10}>
                         <CFormSelect
                           size="large"
                           className="mb-3"
                           aria-label="Select status"
                           value={schedule.type}
-                          onChange={(e) =>
-                            setSchedule({ ...schedule, type: e.target.value })
-                          }
+                          onChange={(e) => setSchedule({ ...schedule, type: e.target.value })}
                         >
                           <option>Select Type</option>
                           <option value="1">Nhiệt độ</option>
@@ -116,9 +109,7 @@ const EditConfig = () => {
                       </CCol>
                     </CRow>
                     <CRow className="mb-3">
-                      <CFormLabel className="col-sm-2 col-form-label">
-                        Area
-                      </CFormLabel>
+                      <CFormLabel className="col-sm-2 col-form-label">Area</CFormLabel>
                       <CCol sm={10}>
                         <CFormInput
                           type="text"
@@ -128,17 +119,13 @@ const EditConfig = () => {
                       </CCol>
                     </CRow>
                     <CRow className="mb-3">
-                      <CFormLabel className="col-sm-2 col-form-label">
-                        Device
-                      </CFormLabel>
+                      <CFormLabel className="col-sm-2 col-form-label">Device</CFormLabel>
                       <CCol sm={10}>
                         <CFormSelect
                           size="large"
                           className="mb-3"
                           aria-label="Select device"
-                          value={schedule.farm.devices.map(
-                            (device) => device.order
-                          )}
+                          value={schedule.farm.devices.map((device) => device.order)}
                         >
                           <option>Select device</option>
                           <option value="0">Đèn 1</option>
@@ -153,19 +140,17 @@ const EditConfig = () => {
                       </CCol>
                     </CRow>
                     <CRow className="mb-3">
-                      <CFormLabel className="col-sm-2 col-form-label">
-                        Status
-                      </CFormLabel>
+                      <CFormLabel className="col-sm-2 col-form-label">Status</CFormLabel>
                       <CCol sm={10}>
                         <CFormSelect
                           size="large"
                           className="mb-3"
                           aria-label="Select status"
-                          value={schedule.status ? "1" : "0"}
+                          value={schedule.status ? '1' : '0'}
                           onChange={(e) =>
                             setSchedule({
                               ...schedule,
-                              status: e.target.value === "1" ? true : false,
+                              status: e.target.value === '1' ? true : false,
                             })
                           }
                         >
@@ -254,19 +239,17 @@ const EditConfig = () => {
                       </CCol>
                     </CRow>
                     <CRow className="mt-4">
-                      <CFormLabel className="col-sm-2 col-form-label">
-                        Active
-                      </CFormLabel>
+                      <CFormLabel className="col-sm-2 col-form-label">Active</CFormLabel>
                       <CCol sm={10}>
                         <CFormSelect
                           size="large"
                           className="mb-3"
                           aria-label="Select active"
-                          value={schedule.isActive ? "1" : "0"}
+                          value={schedule.isActive ? '1' : '0'}
                           onChange={(e) =>
                             setSchedule({
                               ...schedule,
-                              isActive: e.target.value === "1" ? true : false,
+                              isActive: e.target.value === '1' ? true : false,
                             })
                           }
                         >
@@ -277,11 +260,7 @@ const EditConfig = () => {
                       </CCol>
                     </CRow>
                     <CCol className="mt-3">
-                      <CButton
-                        color="primary"
-                        type="submit"
-                        onClick={handleSubmit}
-                      >
+                      <CButton color="primary" type="submit" onClick={handleSubmit}>
                         Update
                       </CButton>
                     </CCol>
@@ -293,7 +272,7 @@ const EditConfig = () => {
         </CCol>
       </CRow>
     </>
-  );
-};
+  )
+}
 
-export default EditConfig;
+export default EditConfig
