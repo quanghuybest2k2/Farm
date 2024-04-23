@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import CIcon from '@coreui/icons-react'
+import React, { useState } from "react";
+import CIcon from "@coreui/icons-react";
 import {
   CCard,
   CCardBody,
@@ -21,17 +21,28 @@ import {
   CDropdownMenu,
   CDropdownItem,
   CFormLabel,
-} from '@coreui/react'
+  CModal,
+  CModalBody,
+  CModalHeader,
+  CModalFooter,
+  CModalTitle,
+} from "@coreui/react";
 
-import { cilTrash, cilColorBorder, cilCheckCircle, cilXCircle, cilPlus } from '@coreui/icons'
-import { Link } from 'react-router-dom'
+import {
+  cilTrash,
+  cilColorBorder,
+  cilCheckCircle,
+  cilXCircle,
+  cilPlus,
+} from "@coreui/icons";
 
 const AutoConfig = () => {
-  const [selectedValue, setSelectedValue] = useState(null)
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [visible, setVisible] = useState(false);
 
   const handleItemClick = (value) => {
-    setSelectedValue(value)
-  }
+    setSelectedValue(value);
+  };
 
   return (
     <>
@@ -42,8 +53,13 @@ const AutoConfig = () => {
             <CCardBody>
               <p className="text-body-secondary small">
                 Basic information for the <code>Device</code>
-                <CLink href={'#auto-config/create'}>
-                  <CButton color="success" type="button" size="sm" className="float-end">
+                <CLink href={"#auto-config/create"}>
+                  <CButton
+                    color="success"
+                    type="button"
+                    size="sm"
+                    className="float-end"
+                  >
                     <CIcon icon={cilPlus} />
                     <text>Create New</text>
                   </CButton>
@@ -74,17 +90,26 @@ const AutoConfig = () => {
                     <CTableDataCell>KV2</CTableDataCell>
                     <CTableDataCell>Đèn 1</CTableDataCell>
                     <CTableDataCell>
-                      <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
+                      <CIcon
+                        icon={cilCheckCircle}
+                        style={{ background: "green" }}
+                      />
                     </CTableDataCell>
                     <CTableDataCell>25</CTableDataCell>
                     <CTableDataCell>30</CTableDataCell>
-                    <CTableDataCell>8/4/2024</CTableDataCell>
-                    <CTableDataCell>8/4/2024</CTableDataCell>
+                    <CTableDataCell>08/04/2024</CTableDataCell>
+                    <CTableDataCell>08/04/2024</CTableDataCell>
                     <CTableDataCell>
-                      <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
+                      <CIcon
+                        icon={cilCheckCircle}
+                        style={{ background: "green" }}
+                      />
                     </CTableDataCell>
                     <CTableDataCell>
-                      <CButtonGroup role="group" aria-label="Basic mixed styles example">
+                      <CButtonGroup
+                        role="group"
+                        aria-label="Basic mixed styles example"
+                      >
                         <CCol xs={8}>
                           <CTooltip content="Edit">
                             <CLink href="#auto-config/edit/1">
@@ -97,7 +122,12 @@ const AutoConfig = () => {
                         <CCol xs={8}>
                           <CTooltip content="Delete">
                             <CLink>
-                              <CButton color="danger" type="button" size="sm">
+                              <CButton
+                                color="danger"
+                                type="button"
+                                size="sm"
+                                onClick={() => setVisible(!visible)}
+                              >
                                 <CIcon icon={cilTrash} />
                               </CButton>
                             </CLink>
@@ -113,17 +143,20 @@ const AutoConfig = () => {
                     <CTableDataCell>KV2</CTableDataCell>
                     <CTableDataCell>Đèn 2</CTableDataCell>
                     <CTableDataCell>
-                      <CIcon icon={cilXCircle} style={{ background: 'red' }} />
+                      <CIcon icon={cilXCircle} style={{ background: "red" }} />
                     </CTableDataCell>
                     <CTableDataCell>150</CTableDataCell>
                     <CTableDataCell>450</CTableDataCell>
                     <CTableDataCell>05/03/2024</CTableDataCell>
                     <CTableDataCell>10/04/2024</CTableDataCell>
                     <CTableDataCell>
-                      <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
+                      <CIcon icon={cilXCircle} style={{ background: "red" }} />
                     </CTableDataCell>
                     <CTableDataCell>
-                      <CButtonGroup role="group" aria-label="Basic mixed styles example">
+                      <CButtonGroup
+                        role="group"
+                        aria-label="Basic mixed styles example"
+                      >
                         <CCol xs={8}>
                           <CTooltip content="Edit">
                             <CLink>
@@ -136,7 +169,12 @@ const AutoConfig = () => {
                         <CCol xs={8}>
                           <CTooltip content="Delete">
                             <CLink>
-                              <CButton color="danger" type="button" size="sm">
+                              <CButton
+                                color="danger"
+                                type="button"
+                                size="sm"
+                                onClick={() => setVisible(!visible)}
+                              >
                                 <CIcon icon={cilTrash} />
                               </CButton>
                             </CLink>
@@ -148,22 +186,52 @@ const AutoConfig = () => {
                 </CTableBody>
               </CTable>
               <br />
-              <CFormLabel style={{ marginRight: '10px' }}>Show</CFormLabel>
+              <CFormLabel style={{ marginRight: "10px" }}>Show</CFormLabel>
               <CDropdown>
-                <CDropdownToggle color="primary">{selectedValue || '10'}</CDropdownToggle>
+                <CDropdownToggle color="primary">
+                  {selectedValue || "10"}
+                </CDropdownToggle>
                 <CDropdownMenu>
-                  <CDropdownItem onClick={() => handleItemClick('10')}>10</CDropdownItem>
-                  <CDropdownItem onClick={() => handleItemClick('20')}>20</CDropdownItem>
-                  <CDropdownItem onClick={() => handleItemClick('30')}>30</CDropdownItem>
+                  <CDropdownItem onClick={() => handleItemClick("10")}>
+                    10
+                  </CDropdownItem>
+                  <CDropdownItem onClick={() => handleItemClick("20")}>
+                    20
+                  </CDropdownItem>
+                  <CDropdownItem onClick={() => handleItemClick("30")}>
+                    30
+                  </CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
-              <CFormLabel style={{ marginLeft: '10px' }}>entices</CFormLabel>
+              <CFormLabel style={{ marginLeft: "10px" }}>entices</CFormLabel>
             </CCardBody>
           </CCard>
         </CCol>
       </CRow>
+      {/* model show */}
+      <CModal
+        backdrop="static"
+        visible={visible}
+        onClose={() => setVisible(false)}
+        aria-labelledby="StaticBackdropExampleLabel"
+      >
+        <CModalHeader>
+          <CModalTitle id="StaticBackdropExampleLabel">
+            Are you sure you want to delete this item?
+          </CModalTitle>
+        </CModalHeader>
+        <CModalBody>
+          The data will be permanently deleted. Do you really want to continue?
+        </CModalBody>
+        <CModalFooter>
+          <CButton color="primary">Submit</CButton>
+          <CButton color="secondary" onClick={() => setVisible(false)}>
+            Cancel
+          </CButton>
+        </CModalFooter>
+      </CModal>
     </>
-  )
-}
+  );
+};
 
-export default AutoConfig
+export default AutoConfig;
