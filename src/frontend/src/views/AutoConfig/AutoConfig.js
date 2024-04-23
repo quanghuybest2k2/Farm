@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import config from '../../config'
+import { format } from 'date-fns'
 import CIcon from '@coreui/icons-react'
 import {
   CCard,
@@ -31,12 +34,31 @@ import {
 import { cilTrash, cilColorBorder, cilCheckCircle, cilXCircle, cilPlus } from '@coreui/icons'
 
 const AutoConfig = () => {
+  const [loading, setLoading] = useState(true)
   const [selectedValue, setSelectedValue] = useState(null)
+  // visible show model
   const [visible, setVisible] = useState(false)
+  // list item
+  const [schedules, setSchedules] = useState([])
 
+  // show record per page
   const handleItemClick = (value) => {
     setSelectedValue(value)
   }
+
+  useEffect(() => {
+    axios
+      .get(`${config.API_URL}/schedules`)
+      .then((response) => {
+        // console.log(response.data.results)
+        setSchedules(response.data.results)
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <>
@@ -60,8 +82,8 @@ const AutoConfig = () => {
                     <CTableHeaderCell scope="col">STT</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Type</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Area</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Device</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Device name</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Device status</CTableHeaderCell>
                     <CTableHeaderCell scope="col">From value</CTableHeaderCell>
                     <CTableHeaderCell scope="col">To value</CTableHeaderCell>
                     <CTableHeaderCell scope="col">From date</CTableHeaderCell>
@@ -71,92 +93,79 @@ const AutoConfig = () => {
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                    <CTableDataCell>Nhiệt độ</CTableDataCell>
-                    <CTableDataCell>farm-2</CTableDataCell>
-                    <CTableDataCell>Đèn 1</CTableDataCell>
-                    <CTableDataCell>
-                      <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
-                    </CTableDataCell>
-                    <CTableDataCell>25</CTableDataCell>
-                    <CTableDataCell>30</CTableDataCell>
-                    <CTableDataCell>08/04/2024</CTableDataCell>
-                    <CTableDataCell>08/04/2024</CTableDataCell>
-                    <CTableDataCell>
-                      <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      <CButtonGroup role="group" aria-label="Basic mixed styles example">
-                        <CCol xs={8}>
-                          <CTooltip content="Edit">
-                            <CLink href="#auto-config/edit/1">
-                              <CButton color="warning" type="button" size="sm">
-                                <CIcon icon={cilColorBorder} />
-                              </CButton>
-                            </CLink>
-                          </CTooltip>
-                        </CCol>
-                        <CCol xs={8}>
-                          <CTooltip content="Delete">
-                            <CLink>
-                              <CButton
-                                color="danger"
-                                type="button"
-                                size="sm"
-                                onClick={() => setVisible(!visible)}
-                              >
-                                <CIcon icon={cilTrash} />
-                              </CButton>
-                            </CLink>
-                          </CTooltip>
-                        </CCol>
-                      </CButtonGroup>
-                    </CTableDataCell>
-                  </CTableRow>
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">2</CTableHeaderCell>
-                    <CTableDataCell>Ánh sáng</CTableDataCell>
-                    <CTableDataCell>farm-2</CTableDataCell>
-                    <CTableDataCell>Đèn 1</CTableDataCell>
-                    <CTableDataCell>
-                      <CIcon icon={cilXCircle} style={{ background: 'red' }} />
-                    </CTableDataCell>
-                    <CTableDataCell>150</CTableDataCell>
-                    <CTableDataCell>450</CTableDataCell>
-                    <CTableDataCell>05/03/2024</CTableDataCell>
-                    <CTableDataCell>10/04/2024</CTableDataCell>
-                    <CTableDataCell>
-                      <CIcon icon={cilXCircle} style={{ background: 'red' }} />
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      <CButtonGroup role="group" aria-label="Basic mixed styles example">
-                        <CCol xs={8}>
-                          <CTooltip content="Edit">
-                            <CLink>
-                              <CButton color="warning" type="button" size="sm">
-                                <CIcon icon={cilColorBorder} />
-                              </CButton>
-                            </CLink>
-                          </CTooltip>
-                        </CCol>
-                        <CCol xs={8}>
-                          <CTooltip content="Delete">
-                            <CLink>
-                              <CButton
-                                color="danger"
-                                type="button"
-                                size="sm"
-                                onClick={() => setVisible(!visible)}
-                              >
-                                <CIcon icon={cilTrash} />
-                              </CButton>
-                            </CLink>
-                          </CTooltip>
-                        </CCol>
-                      </CButtonGroup>
-                    </CTableDataCell>
-                  </CTableRow>
+                  {loading ? (
+                    <CTableRow>
+                      <CTableDataCell colSpan="11">Loading...</CTableDataCell>
+                    </CTableRow>
+                  ) : (
+                    schedules.map((schedule) => (
+                      <CTableRow key={schedule.id}>
+                        <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                        <CTableDataCell>
+                          {schedule.type === 1
+                            ? 'Nhiệt độ'
+                            : schedule.type === 2
+                              ? 'Độ ẩm'
+                              : 'Độ sáng'}
+                        </CTableDataCell>
+                        <CTableDataCell>{schedule.farm.name}</CTableDataCell>
+                        <CTableDataCell>
+                          {schedule.farm.devices.map((device) => (
+                            <text key={device.id}>{device.name}</text>
+                          ))}
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          {schedule.status ? (
+                            <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
+                          ) : (
+                            <CIcon icon={cilXCircle} style={{ background: 'red' }} />
+                          )}
+                        </CTableDataCell>
+                        <CTableDataCell>{schedule.startValue}</CTableDataCell>
+                        <CTableDataCell>{schedule.endValue}</CTableDataCell>
+                        <CTableDataCell>
+                          {format(new Date(schedule.startDate), 'dd/MM/yyyy HH:mm:ss')}
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          {format(new Date(schedule.endDate), 'dd/MM/yyyy HH:mm:ss')}
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          {schedule.isActive ? (
+                            <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
+                          ) : (
+                            <CIcon icon={cilXCircle} style={{ background: 'red' }} />
+                          )}
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          <CButtonGroup role="group" aria-label="Basic mixed styles example">
+                            <CCol xs={8}>
+                              <CTooltip content="Edit">
+                                <CLink href="#auto-config/edit/1">
+                                  <CButton color="warning" type="button" size="sm">
+                                    <CIcon icon={cilColorBorder} />
+                                  </CButton>
+                                </CLink>
+                              </CTooltip>
+                            </CCol>
+                            <CCol xs={8}>
+                              <CTooltip content="Delete">
+                                <CLink>
+                                  <CButton
+                                    color="danger"
+                                    type="button"
+                                    size="sm"
+                                    onClick={() => setVisible(!visible)}
+                                  >
+                                    <CIcon icon={cilTrash} />
+                                  </CButton>
+                                </CLink>
+                              </CTooltip>
+                            </CCol>
+                          </CButtonGroup>
+                        </CTableDataCell>
+                      </CTableRow>
+                    ))
+                  )}
                 </CTableBody>
               </CTable>
               <br />
