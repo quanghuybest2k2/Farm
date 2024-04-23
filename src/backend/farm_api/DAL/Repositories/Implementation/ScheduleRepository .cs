@@ -20,6 +20,10 @@ namespace DAL.Repositories.Implementation
         {
             return await Filter(scheduleQueryDTO).ToListAsync(cancellationToken);
         }
+        public async Task<Schedule> GetByIdDetailAsync(Guid Id,CancellationToken cancellationToken=default)
+        {
+            return await _context.Set<Schedule>().Include(x=>x.Device).Include(x=>x.Farm).Where(x=>x.Id==Id).FirstOrDefaultAsync();
+        }
         private IQueryable<Schedule> Filter(ScheduleQueryDTO scheduleQueryDTO)
         {
             IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.Device).Include(x=>x.Farm);

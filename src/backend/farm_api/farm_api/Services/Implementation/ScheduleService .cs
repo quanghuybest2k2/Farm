@@ -169,7 +169,7 @@ namespace farm_api.Services.Implementation
         public async Task<ScheduleDTO> GetScheduleByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Retrieving schedule by ID {ScheduleId}.", id);
-            return _mapper.Map<ScheduleDTO>(await _repository.GetByIdAsync(id));
+            return _mapper.Map<ScheduleDTO>(await _repository.GetByIdDetailAsync(id));
         }
         /// <summary>
         /// Retrieves all schedules asynchronously.

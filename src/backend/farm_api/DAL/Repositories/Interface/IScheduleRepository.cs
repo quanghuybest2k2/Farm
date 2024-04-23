@@ -12,5 +12,6 @@ namespace DAL.Repositories.Interface
     public interface IScheduleRepository:IGenericRepository<Schedule>
     {
         Task<IEnumerable<Schedule>> GetAllAsync(ScheduleQueryDTO scheduleQueryDTO, CancellationToken cancellationToken = default);
+        Task<Schedule> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default);
     }
 }
