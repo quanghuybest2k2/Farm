@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
   CButton,
@@ -20,6 +21,7 @@ import axios from "axios";
 import config from "../../config";
 
 const EditConfig = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [schedule, setSchedule] = useState(null);
   const today = new Date();
@@ -41,6 +43,35 @@ const EditConfig = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const updatedSchedule = {
+        type: parseInt(schedule.type),
+        status: schedule.status,
+        startValue: parseInt(schedule.startValue),
+        endValue: parseInt(schedule.endValue),
+        startDate: schedule.startDate,
+        endDate: schedule.endDate,
+        isActive: schedule.isActive,
+
+        farmId: "140e8470-86ec-4e10-b28e-cb94d9165c54",
+        deviceId: "8a8bd086-1167-4d69-93a4-351317c20080",
+        // farmId: schedule.farmId,
+        // deviceId: schedule.deviceId,
+      };
+
+      await axios
+        .put(`${config.API_URL}/schedules/${id}`, updatedSchedule)
+        .then((res) => {
+          alert("Update successfully");
+          navigate("/auto-config");
+        });
+    } catch (error) {
+      console.error("Error updating schedule:", error);
+    }
+  };
 
   return (
     <>
@@ -73,6 +104,9 @@ const EditConfig = () => {
                           className="mb-3"
                           aria-label="Select status"
                           value={schedule.type}
+                          onChange={(e) =>
+                            setSchedule({ ...schedule, type: e.target.value })
+                          }
                         >
                           <option>Select Type</option>
                           <option value="1">Nhiệt độ</option>
@@ -127,7 +161,13 @@ const EditConfig = () => {
                           size="large"
                           className="mb-3"
                           aria-label="Select status"
-                          value={schedule.type ? "1" : "0"}
+                          value={schedule.status ? "1" : "0"}
+                          onChange={(e) =>
+                            setSchedule({
+                              ...schedule,
+                              status: e.target.value === "1" ? true : false,
+                            })
+                          }
                         >
                           <option>Select status</option>
                           <option value="0">Off</option>
@@ -146,6 +186,12 @@ const EditConfig = () => {
                               type="number"
                               placeholder="Enter start value...."
                               value={schedule.startValue}
+                              onChange={(e) =>
+                                setSchedule({
+                                  ...schedule,
+                                  startValue: e.target.value,
+                                })
+                              }
                             />
                           </div>
                           <span className="text-muted mt-4">-</span>
@@ -157,6 +203,12 @@ const EditConfig = () => {
                               type="number"
                               placeholder="Enter end value...."
                               value={schedule.endValue}
+                              onChange={(e) =>
+                                setSchedule({
+                                  ...schedule,
+                                  endValue: e.target.value,
+                                })
+                              }
                             />
                           </div>
                         </div>
@@ -211,6 +263,12 @@ const EditConfig = () => {
                           className="mb-3"
                           aria-label="Select active"
                           value={schedule.isActive ? "1" : "0"}
+                          onChange={(e) =>
+                            setSchedule({
+                              ...schedule,
+                              isActive: e.target.value === "1" ? true : false,
+                            })
+                          }
                         >
                           <option>Select active</option>
                           <option value="0">Off</option>
@@ -219,7 +277,11 @@ const EditConfig = () => {
                       </CCol>
                     </CRow>
                     <CCol className="mt-3">
-                      <CButton color="primary" type="submit">
+                      <CButton
+                        color="primary"
+                        type="submit"
+                        onClick={handleSubmit}
+                      >
                         Update
                       </CButton>
                     </CCol>
