@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import config from "../../config";
-import { format } from "date-fns";
-import CIcon from "@coreui/icons-react";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import config from '../../config'
+import { format } from 'date-fns'
+import CIcon from '@coreui/icons-react'
 import {
   CCard,
   CCardBody,
@@ -29,42 +29,36 @@ import {
   CModalHeader,
   CModalFooter,
   CModalTitle,
-} from "@coreui/react";
+} from '@coreui/react'
 
-import {
-  cilTrash,
-  cilColorBorder,
-  cilCheckCircle,
-  cilXCircle,
-  cilPlus,
-} from "@coreui/icons";
+import { cilTrash, cilColorBorder, cilCheckCircle, cilXCircle, cilPlus } from '@coreui/icons'
 
 const AutoConfig = () => {
-  const [loading, setLoading] = useState(true);
-  const [selectedValue, setSelectedValue] = useState(null);
+  const [loading, setLoading] = useState(true)
+  const [selectedValue, setSelectedValue] = useState(null)
   // visible show model
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false)
   // list item
-  const [schedules, setSchedules] = useState([]);
+  const [schedules, setSchedules] = useState([])
 
   // show record per page
   const handleItemClick = (value) => {
-    setSelectedValue(value);
-  };
+    setSelectedValue(value)
+  }
 
   useEffect(() => {
     axios
       .get(`${config.API_URL}/schedules`)
       .then((response) => {
         // console.log(response.data.results)
-        setSchedules(response.data.results);
-        setLoading(false);
+        setSchedules(response.data.results)
+        setLoading(false)
       })
       .catch((error) => {
-        console.error("Error fetching schedules:", error);
-        setLoading(false);
-      });
-  }, []);
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <>
@@ -75,13 +69,8 @@ const AutoConfig = () => {
             <CCardBody>
               <p className="text-body-secondary small">
                 Basic information for the <code>Device</code>
-                <CLink href={"#auto-config/create"}>
-                  <CButton
-                    color="success"
-                    type="button"
-                    size="sm"
-                    className="float-end"
-                  >
+                <CLink href={'#auto-config/create'}>
+                  <CButton color="success" type="button" size="sm" className="float-end">
                     <CIcon icon={cilPlus} />
                     <text>Create New</text>
                   </CButton>
@@ -94,9 +83,7 @@ const AutoConfig = () => {
                     <CTableHeaderCell scope="col">Type</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Area</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Device name</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">
-                      Device status
-                    </CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Device status</CTableHeaderCell>
                     <CTableHeaderCell scope="col">From value</CTableHeaderCell>
                     <CTableHeaderCell scope="col">To value</CTableHeaderCell>
                     <CTableHeaderCell scope="col">From date</CTableHeaderCell>
@@ -116,10 +103,10 @@ const AutoConfig = () => {
                         <CTableHeaderCell scope="row">1</CTableHeaderCell>
                         <CTableDataCell>
                           {schedule.type === 1
-                            ? "Nhiệt độ"
+                            ? 'Nhiệt độ'
                             : schedule.type === 2
-                            ? "Độ ẩm"
-                            : "Độ sáng"}
+                              ? 'Độ ẩm'
+                              : 'Độ sáng'}
                         </CTableDataCell>
                         <CTableDataCell>{schedule.farm.name}</CTableDataCell>
                         <CTableDataCell>
@@ -129,59 +116,32 @@ const AutoConfig = () => {
                         </CTableDataCell>
                         <CTableDataCell>
                           {schedule.status ? (
-                            <CIcon
-                              icon={cilCheckCircle}
-                              style={{ background: "green" }}
-                            />
+                            <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
                           ) : (
-                            <CIcon
-                              icon={cilXCircle}
-                              style={{ background: "red" }}
-                            />
+                            <CIcon icon={cilXCircle} style={{ background: 'red' }} />
                           )}
                         </CTableDataCell>
                         <CTableDataCell>{schedule.startValue}</CTableDataCell>
                         <CTableDataCell>{schedule.endValue}</CTableDataCell>
                         <CTableDataCell>
-                          {format(
-                            new Date(schedule.startDate),
-                            "dd/MM/yyyy HH:mm:ss"
-                          )}
+                          {format(new Date(schedule.startDate), 'dd/MM/yyyy HH:mm:ss')}
                         </CTableDataCell>
                         <CTableDataCell>
-                          {format(
-                            new Date(schedule.endDate),
-                            "dd/MM/yyyy HH:mm:ss"
-                          )}
+                          {format(new Date(schedule.endDate), 'dd/MM/yyyy HH:mm:ss')}
                         </CTableDataCell>
                         <CTableDataCell>
                           {schedule.isActive ? (
-                            <CIcon
-                              icon={cilCheckCircle}
-                              style={{ background: "green" }}
-                            />
+                            <CIcon icon={cilCheckCircle} style={{ background: 'green' }} />
                           ) : (
-                            <CIcon
-                              icon={cilXCircle}
-                              style={{ background: "red" }}
-                            />
+                            <CIcon icon={cilXCircle} style={{ background: 'red' }} />
                           )}
                         </CTableDataCell>
                         <CTableDataCell>
-                          <CButtonGroup
-                            role="group"
-                            aria-label="Basic mixed styles example"
-                          >
+                          <CButtonGroup role="group" aria-label="Basic mixed styles example">
                             <CCol xs={8}>
                               <CTooltip content="Edit">
-                                <CLink
-                                  href={`#auto-config/edit/${schedule.id}`}
-                                >
-                                  <CButton
-                                    color="warning"
-                                    type="button"
-                                    size="sm"
-                                  >
+                                <CLink href={`#auto-config/edit/${schedule.id}`}>
+                                  <CButton color="warning" type="button" size="sm">
                                     <CIcon icon={cilColorBorder} />
                                   </CButton>
                                 </CLink>
@@ -209,24 +169,16 @@ const AutoConfig = () => {
                 </CTableBody>
               </CTable>
               <br />
-              <CFormLabel style={{ marginRight: "10px" }}>Show</CFormLabel>
+              <CFormLabel style={{ marginRight: '10px' }}>Show</CFormLabel>
               <CDropdown>
-                <CDropdownToggle color="primary">
-                  {selectedValue || "10"}
-                </CDropdownToggle>
+                <CDropdownToggle color="primary">{selectedValue || '10'}</CDropdownToggle>
                 <CDropdownMenu>
-                  <CDropdownItem onClick={() => handleItemClick("10")}>
-                    10
-                  </CDropdownItem>
-                  <CDropdownItem onClick={() => handleItemClick("20")}>
-                    20
-                  </CDropdownItem>
-                  <CDropdownItem onClick={() => handleItemClick("30")}>
-                    30
-                  </CDropdownItem>
+                  <CDropdownItem onClick={() => handleItemClick('10')}>10</CDropdownItem>
+                  <CDropdownItem onClick={() => handleItemClick('20')}>20</CDropdownItem>
+                  <CDropdownItem onClick={() => handleItemClick('30')}>30</CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
-              <CFormLabel style={{ marginLeft: "10px" }}>entices</CFormLabel>
+              <CFormLabel style={{ marginLeft: '10px' }}>entices</CFormLabel>
             </CCardBody>
           </CCard>
         </CCol>
@@ -254,7 +206,7 @@ const AutoConfig = () => {
         </CModalFooter>
       </CModal>
     </>
-  );
-};
+  )
+}
 
-export default AutoConfig;
+export default AutoConfig
