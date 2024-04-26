@@ -4,12 +4,14 @@ using farm_api.Hub;
 using farm_api.Models.Request;
 using farm_api.Services.Interface;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Packets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -24,6 +26,7 @@ public class MQTTService : IMQTTService
     private MqttClientOptions _options;
     private readonly IHubContext<FarmHub> _hubContext;
     private bool _isConnected;
+    private readonly IServiceScopeFactory _serviceScopeFactory;
 
     public bool IsConnected { get { return _isConnected; } }
 
@@ -31,14 +34,14 @@ public class MQTTService : IMQTTService
     /// Initializes a new instance of the MQTTService with dependency injection for the SignalR hub context and logger.
     /// </summary>
     [Obsolete]
-    public MQTTService(IHubContext<FarmHub> hubContext, ILogger<MQTTService> logger)
+    public MQTTService(IHubContext<FarmHub> hubContext, ILogger<MQTTService> logger, IServiceScopeFactory scopeFactory)
     {
         Console.OutputEncoding = Encoding.UTF8;
         _logger = logger;
+        _serviceScopeFactory = scopeFactory;
         _hubContext = hubContext;
         var factory = new MqttFactory();
         _client = factory.CreateMqttClient();
-
         _options = new MqttClientOptionsBuilder()
             .WithClientId(Guid.NewGuid().ToString())
             .WithTcpServer(Ulities.HostServerMQTTHiveMQ, Ulities.PortServerMQTTHiveMQ)
@@ -56,8 +59,25 @@ public class MQTTService : IMQTTService
     {
         _isConnected = true;
         // Subscribe to topics upon connection.
-        await SubscribeToTopicsAsync();
-        _logger.LogInformation($"Connected to MQTT broker at {Ulities.HostServerMQTTHiveMQ}:{Ulities.PortServerMQTTHiveMQ}");
+        _logger.LogInformation("Connection established.");
+
+        // Subscribe to topics upon connection.
+        using (var scope = _serviceScopeFactory.CreateScope())
+        {
+            var topicService = scope.ServiceProvider.GetService<ITopicService>();
+            if (topicService == null)
+            {
+                _logger.LogError("Failed to retrieve TopicService from service provider.");
+                return;
+            }
+
+            _logger.LogInformation("Retrieving topics...");
+            var topics = await topicService.GetAllTopicAsync();
+            _logger.LogInformation("Subscribing to topics...");
+            await SubscribeToTopicsAsync(topics);
+            _logger.LogInformation("Subscribed to all topics successfully.");
+            _logger.LogInformation($"Connected to MQTT broker at {Ulities.HostServerMQTTHiveMQ}:{Ulities.PortServerMQTTHiveMQ}");
+        }
     }
 
     private async Task HandleDisconnectedAsync(MqttClientDisconnectedEventArgs e)
@@ -128,7 +148,6 @@ public class MQTTService : IMQTTService
             .WithPayload(messagePayload)
             .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.ExactlyOnce)
             .Build();
-
         await _client.PublishAsync(message);
         _logger.LogInformation($"Published message to {topic}");
     }
@@ -155,16 +174,15 @@ public class MQTTService : IMQTTService
             _logger.LogError($"Connection failed: {ex.Message}");
         }
     }
-
     /// <summary>
     /// Subscribes to default topics after establishing a connection.
     /// </summary>
-    private async Task SubscribeToTopicsAsync()
+    private async Task SubscribeToTopicsAsync(IEnumerable<string> topics)
     {
-        var topics = new string[] { "esp8266/ledControl", "esp8266/ledStatus", "KV2" };
-        foreach (var topic in topics)
+        foreach (var item in topics)
         {
-            await SubscribeAsync(topic);
+            await SubscribeAsync(item);
+            _logger.LogInformation($"Register successful topic {item}");
         }
     }
 
@@ -176,7 +194,6 @@ public class MQTTService : IMQTTService
             .WithPayload(messagePayload)
             .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.ExactlyOnce)
             .Build();
-
         await _client.PublishAsync(message);
         _logger.LogInformation($"Published message to {topic}");
     }

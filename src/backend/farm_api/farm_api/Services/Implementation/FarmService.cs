@@ -21,18 +21,23 @@ namespace farm_api.Services.Implementation
         private readonly IMapper _mapper;
         private readonly IValidator<FarmRequest> _validator;
         private readonly IUnitOfWork _unitOfWork;
-        public FarmService(IFarmRepositorty farmRepositorty, IMapper mapper, IValidator<FarmRequest> validator, IUnitOfWork unitOfWork)
+        private readonly  IMQTTService _mQTTService;
+        public FarmService(IFarmRepositorty farmRepositorty, IMapper mapper, IValidator<FarmRequest> validator,IMQTTService mQTTService, IUnitOfWork unitOfWork)
         {
             _farmRepositorty = farmRepositorty;
             _mapper = mapper;
             _validator = validator;
             _unitOfWork = unitOfWork;
+            _mQTTService = mQTTService;
         }
 
         public async Task AddFarmAsync(FarmRequest farmRequest, CancellationToken cancellationToken = default)
         {
             await _validator.ValidateAndThrowAsync(farmRequest);
             var env = _mapper.Map<Farm>(farmRequest);
+            if (env == null) { throw new ArgumentNullException(); }
+            await _mQTTService.SubscribeAsync(env.DeviceStatusCode);
+            await _mQTTService.SubscribeAsync(env.SensorLocation);
             _farmRepositorty.Insert(env);
             _unitOfWork.Save();
         }
@@ -40,7 +45,6 @@ namespace farm_api.Services.Implementation
         public async Task DeleteFarmAsync(Guid id)
         {
             await _farmRepositorty.Delete(id);
-
             _unitOfWork.Save();
         }
 
@@ -57,7 +61,7 @@ namespace farm_api.Services.Implementation
 
         public async Task<FarmDTO> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var result = await _farmRepositorty.GetByIdAsync(id, cancellationToken);
+            var result = await _farmRepositorty.GetByIdDetailAsync(id, cancellationToken);
             return _mapper.Map<FarmDTO>(result);
         }
 
@@ -68,11 +72,12 @@ namespace farm_api.Services.Implementation
             if (entityUpdate == null)
             {
                 throw new KeyNotFoundException($"not found item with id {id} to update, please  check again ");
-
             }
             _mapper.Map(farmRequest, entityUpdate);
-
             _farmRepositorty.Update(entityUpdate);
+            if (entityUpdate == null) { throw new ArgumentNullException(); }
+            await _mQTTService.SubscribeAsync(entityUpdate.DeviceStatusCode);
+            await _mQTTService.SubscribeAsync(entityUpdate.SensorLocation);
             _unitOfWork.Save();
 
         }

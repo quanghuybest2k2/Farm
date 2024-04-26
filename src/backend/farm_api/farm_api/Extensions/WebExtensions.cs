@@ -66,7 +66,9 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
             builder.Services.AddScoped<IFarmService, FarmService>();
             builder.Services.AddScoped<ISeeder, Seeder>();
+            builder.Services.AddScoped<ITopicService,TopicService>();
             builder.Services.AddSingleton<IMQTTService, MQTTService>();
+
 
             builder.Services.AddLogging();
             //-------------------------------------------------------------------------

@@ -73,5 +73,10 @@ namespace DAL.Repositories.Implementation
                 CreateAt = farm.CreateAt,
             };
         }
+
+        public async Task<Farm> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Farm>().Include(x => x.Devices).Where(x => x.Id == Id).FirstOrDefaultAsync();
+        }
     }
 }

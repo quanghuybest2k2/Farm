@@ -15,6 +15,8 @@ using Core.Constract;
 using Core.Queries;
 using DAL.Repositories.Implementation;
 using farm_api.Filter.Farm;
+using FluentValidation;
+using Core.DTO;
 
 namespace farm_api.Services.Implementation
 {
@@ -24,10 +26,11 @@ namespace farm_api.Services.Implementation
         private readonly IDeviceRepository _deviceRepository;
         private readonly IFarmRepositorty _farmRepositorty;
         private readonly ISchedulerFactory _schedulerFactory;
-        private  IScheduler _scheduler;
+        private IScheduler _scheduler;
         private readonly ILogger<ScheduleService> _logger;
+        private readonly IValidator<ScheduleRequest> _validator;
         private readonly IUnitOfWork _unitOfWork;
-        private  IMapper _mapper;
+        private IMapper _mapper;
         /// <summary>
         /// Initializes a new instance of the ScheduleService with necessary dependencies.
         /// </summary>
@@ -42,7 +45,8 @@ namespace farm_api.Services.Implementation
             , IUnitOfWork unitOfWork
             , IMapper mapper
             , IFarmRepositorty farmRepositorty
-            ,IDeviceRepository deviceRepository)
+            , IDeviceRepository deviceRepository
+            , IValidator<ScheduleRequest> validator)
         {
             _schedulerFactory = schedulerFactory;
             _repository = repository;
@@ -51,6 +55,7 @@ namespace farm_api.Services.Implementation
             _mapper = mapper;
             _farmRepositorty = farmRepositorty;
             _deviceRepository = deviceRepository;
+            _validator = validator;
             InitializeScheduler();
             _logger.LogDebug("Initialized ScheduleService with necessary dependencies.");
         }
@@ -68,30 +73,56 @@ namespace farm_api.Services.Implementation
         /// <param name="cancellationToken">Cancellation token for async operations.</param>
         public async Task CreateScheduleAsync(ScheduleRequest scheduleRequest, CancellationToken cancellationToken = default)
         {
-            // chỗ này  cần xử lý logic ở chỗ này 
 
-            var device = await _deviceRepository.GetByIdAsync(scheduleRequest.DeviceId);// lấy thiết bị theo  Id
-            var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
-            if (device == null || farm == null) throw new KeyNotFoundException("device or farm not found"); // kiểm tra 2 cái trên xem có tồn tại ko 
-            if (device.FarmId.ToString() != farm.Id.ToString()) throw new Exception("device not belong farm");// kiểm tra xem nếu thiết bị không thuộc farm thì ném exception
-
-
-            _logger.LogInformation("Creating schedule.");
-            var schedule = _mapper.Map<Schedule>(scheduleRequest);
-            _repository.Insert(schedule);
-            _unitOfWork.Save();
-            _logger.LogInformation("Schedule created and saved.");
-            schedule.Farm = farm;
-            schedule.Device = device;
-            if (schedule.IsActive)
+            await _validator.ValidateAndThrowAsync(scheduleRequest);
+            //// chỗ này  cần xử lý logic ở chỗ này 
+            //var device = await _deviceRepository.GetByIdAsync(scheduleRequest.DeviceId);// lấy thiết bị theo  Id
+            //var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
+            //if (device == null || farm == null) throw new KeyNotFoundException("device or farm not found"); // kiểm tra 2 cái trên xem có tồn tại ko 
+            //if (device.FarmId.ToString() != farm.Id.ToString()) throw new Exception("device not belong farm");// kiểm tra xem nếu thiết bị không thuộc farm thì ném exception
+            //_logger.LogInformation("Creating schedule.");
+            //var schedule = _mapper.Map<Schedule>(scheduleRequest);
+            //_repository.Insert(schedule);
+            //_unitOfWork.Save();
+            //_logger.LogInformation("Schedule created and saved.");
+            //schedule.Farm = farm;
+            //schedule.Device = device;
+            //if (schedule.IsActive)
+            //{
+            //    _logger.LogInformation("Schedule is active. Scheduling job.");
+            //    await ScheduleJob(schedule, cancellationToken);
+            //}
+            //else
+            //{
+            //    _logger.LogInformation("Schedule is not active. No job scheduled.");
+            //}
+        }
+        private async Task<IEnumerable<DeviceTrans>> GetDivicesAsync(IEnumerable<Guid> guids)
+        {
+            IList<DeviceTrans> deviceTrans = new List<DeviceTrans>();
+            var temp = Guid.Empty;
+            foreach (Guid guid in guids)
             {
-                _logger.LogInformation("Schedule is active. Scheduling job.");
-                await ScheduleJob(schedule, cancellationToken);
+                var device = await _deviceRepository.GetByIdAsync(guid);
+                if (device != null)
+                {
+                    if (temp == Guid.Empty)
+                    {
+                        temp = device.FarmId;
+                    }
+                    else
+                    {
+                        temp = temp != device.FarmId ? throw new Exception("Device not belong to farm") : temp;
+                    }
+                    deviceTrans.Add(_mapper.Map<DeviceTrans>(device));
+                }
+                else
+                {
+                    _logger.LogError($"Not Found device with Id is {guid}");
+                    throw new KeyNotFoundException($"Not Found device with Id is {guid}");
+                }
             }
-            else
-            {
-                _logger.LogInformation("Schedule is not active. No job scheduled.");
-            }
+            return deviceTrans;
         }
         /// <summary>
         /// Updates an existing schedule asynchronously and manages job scheduling based on activation status.
@@ -101,42 +132,42 @@ namespace farm_api.Services.Implementation
         /// <param name="cancellationToken">Cancellation token for async operations.</param>
         public async Task UpdateScheduleAsync(Guid id, ScheduleRequest scheduleRequest, CancellationToken cancellationToken = default)
         {
-            var device = await _deviceRepository.GetByIdAsync(scheduleRequest.DeviceId);// lấy thiết bị theo  Id
-            var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
-            if (device == null || farm == null) throw new KeyNotFoundException("device or farm not found"); // kiểm tra 2 cái trên xem có tồn tại ko 
-            if (device.FarmId.ToString() != farm.Id.ToString()) throw new Exception("device not belong farm");// kiểm tra xem nếu thiết bị không thuộc farm thì ném exception
+            //var device = await _deviceRepository.GetByIdAsync(scheduleRequest.DeviceId);// lấy thiết bị theo  Id
+            //var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
+            //if (device == null || farm == null) throw new KeyNotFoundException("device or farm not found"); // kiểm tra 2 cái trên xem có tồn tại ko 
+            //if (device.FarmId.ToString() != farm.Id.ToString()) throw new Exception("device not belong farm");// kiểm tra xem nếu thiết bị không thuộc farm thì ném exception
 
 
-            _logger.LogInformation("Updating schedule {ScheduleId}.", id);
-            var schedule = await _repository.GetByIdAsync(id);
-            if (schedule == null)
-            {
-                _logger.LogWarning("Schedule {ScheduleId} not found.", id);
-                throw new KeyNotFoundException("Schedule not found");
-            }
+            //_logger.LogInformation("Updating schedule {ScheduleId}.", id);
+            //var schedule = await _repository.GetByIdAsync(id);
+            //if (schedule == null)
+            //{
+            //    _logger.LogWarning("Schedule {ScheduleId} not found.", id);
+            //    throw new KeyNotFoundException("Schedule not found");
+            //}
 
-            // Ghi nhận trạng thái hoạt động trước cập nhật
-            bool wasActive = schedule.IsActive;
+            //// Ghi nhận trạng thái hoạt động trước cập nhật
+            //bool wasActive = schedule.IsActive;
 
-            // Áp dụng các cập nhật vào lịch trình
-            _mapper.Map(scheduleRequest, schedule);
-            _repository.Update(schedule);
-            _unitOfWork.Save();
-            _logger.LogInformation("Schedule updated.");
-            schedule.Farm = farm;
-            schedule.Device = device;
-            // Xóa công việc hiện tại nếu nó đã tồn tại
-            if (await _scheduler.CheckExists(new JobKey(id.ToString())))
-            {
-                await _scheduler.DeleteJob(new JobKey(id.ToString()));
-            }
+            //// Áp dụng các cập nhật vào lịch trình
+            //_mapper.Map(scheduleRequest, schedule);
+            //_repository.Update(schedule);
+            //_unitOfWork.Save();
+            //_logger.LogInformation("Schedule updated.");
+            //schedule.Farm = farm;
+            //schedule.Device = device;
+            //// Xóa công việc hiện tại nếu nó đã tồn tại
+            //if (await _scheduler.CheckExists(new JobKey(id.ToString())))
+            //{
+            //    await _scheduler.DeleteJob(new JobKey(id.ToString()));
+            //}
 
-            // Lên lịch công việc mới nếu lịch trình đang hoạt động
-            if (schedule.IsActive)
-            {
-                _logger.LogInformation("Scheduling job for updated schedule.");
-                await ScheduleJob(schedule, cancellationToken);
-            }
+            //// Lên lịch công việc mới nếu lịch trình đang hoạt động
+            //if (schedule.IsActive)
+            //{
+            //    _logger.LogInformation("Scheduling job for updated schedule.");
+            //    await ScheduleJob(schedule, cancellationToken);
+            //}
         }
 
         /// <summary>
@@ -197,7 +228,7 @@ namespace farm_api.Services.Implementation
                                        .UsingJobData("AreaSensor", schedule.Farm.SensorLocation)
                                        .UsingJobData("Device", schedule.Device.Order)
                                        .UsingJobData("StartValue", schedule.StartValue)
-                                       .UsingJobData("Status",schedule.Status)
+                                       .UsingJobData("Status", schedule.Status)
                                        .UsingJobData("EndValue", schedule.EndValue)
                                        .Build();
             ITrigger trigger = TriggerBuilder.Create()

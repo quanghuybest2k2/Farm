@@ -13,8 +13,8 @@ namespace farm_api.Models.Request
         public bool IsActive { get; set; }  
         // Khóa ngoại và mối quan hệ với Farm
         public Guid FarmId { get; set; }
-
         // Khóa ngoại và mối quan hệ với Device
-        public Guid DeviceId { get; set; }
+        //public Guid DeviceId { get; set; }
+        public IEnumerable<Guid> DevicesId { get; set; }
     }
 }

@@ -12,5 +12,6 @@ namespace DAL.Repositories.Interface
     public interface IFarmRepositorty:IGenericRepository<Farm>
     {
         Task<IEnumerable<Farm>> GetAllAsync(FarmQueryDTO farmQueryDTO,CancellationToken cancellationToken = default);
+        Task<Farm> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default);
     }
 }

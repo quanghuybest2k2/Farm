@@ -5,7 +5,7 @@ namespace farm_api.Services.Interface
 {
     public interface IMQTTService
     {
-        bool IsConnected { get;}
+        bool IsConnected { get; }
         Task ConnectAsync();
         Task DisconnectAsync();
         Task SubscribeAsync(string topic);

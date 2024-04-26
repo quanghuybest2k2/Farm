@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.DTO;
 using Core.Entities;
 using Core.Queries;
 using farm_api.Filter.Camera;
@@ -32,6 +33,8 @@ namespace farm_api.Mappers
             CreateMap<FarmQueryDTO, FarmQuery>().ReverseMap();
             CreateMap<ScheduleRequest,Schedule>().ReverseMap();
             CreateMap<ScheduleDTO, Schedule>().ReverseMap();
+            CreateMap<Device, DeviceTrans>().ReverseMap();
+
         }
     }
 }
