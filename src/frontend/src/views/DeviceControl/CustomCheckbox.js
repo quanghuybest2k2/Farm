@@ -5,13 +5,11 @@ import { CCol, CRow, CFormCheck } from '@coreui/react'
 
 const CustomCheckbox = ({ label, defaultChecked, onChange }) => {
   return (
-    <>
-      <CRow>
-        <CCol sm={6}>
-          <CFormCheck label={label} defaultChecked={defaultChecked} onChange={onChange} />
-        </CCol>
-      </CRow>
-    </>
+    <CRow>
+      <CCol sm={6}>
+        <CFormCheck label={label} defaultChecked={defaultChecked} onChange={onChange} />
+      </CCol>
+    </CRow>
   )
 }
 

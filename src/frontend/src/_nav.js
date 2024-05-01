@@ -28,22 +28,22 @@ const _nav = [
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'info',
-      text: 'NEW',
+      text: 'MỚI',
     },
   },
   {
     component: CNavItem,
-    name: 'Statistical',
+    name: 'Thống kê',
     to: '/statistical',
     icon: <CIcon icon={cilCompass} customClassName="nav-icon" />,
     badge: {
       color: 'info',
-      text: 'NEW',
+      text: 'MỚI',
     },
   },
   {
     component: CNavGroup,
-    name: 'Device Control',
+    name: 'Điều khiển thiết bị',
     to: '/greenhouse-a1',
     icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
     items: [
@@ -66,12 +66,12 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Auto Config',
+    name: 'Cấu hình tự động',
     to: '/auto-config',
     icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
     badge: {
       color: 'info',
-      text: 'NEW',
+      text: 'MỚI',
     },
   },
   {

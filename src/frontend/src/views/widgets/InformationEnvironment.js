@@ -145,7 +145,7 @@ const InformationEnvironment = (props) => {
                   </CDropdownToggle>
                   <CDropdownMenu>
                     <CDropdownItem>
-                      <CCardLink href="#/greenhouse-a1">See more</CCardLink>
+                      <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
                     </CDropdownItem>
                   </CDropdownMenu>
                 </CDropdown>
@@ -172,7 +172,7 @@ const InformationEnvironment = (props) => {
                   </CDropdownToggle>
                   <CDropdownMenu>
                     <CDropdownItem>
-                      <CCardLink href="#/greenhouse-a1">See more</CCardLink>
+                      <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
                     </CDropdownItem>
                   </CDropdownMenu>
                 </CDropdown>
@@ -199,7 +199,7 @@ const InformationEnvironment = (props) => {
                   </CDropdownToggle>
                   <CDropdownMenu>
                     <CDropdownItem>
-                      <CCardLink href="#/greenhouse-a1">See more</CCardLink>
+                      <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
                     </CDropdownItem>
                   </CDropdownMenu>
                 </CDropdown>

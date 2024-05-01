@@ -115,7 +115,7 @@ const GreenhouseA2 = () => {
       <InformationEnvironment className="mb-4" />
       <CCard className="mb-4">
         <CCardHeader>
-          <code>Greenhouse A2</code>
+          <code>Nhà kính A2</code>
         </CCardHeader>
         <CCardBody>
           <CRow>
