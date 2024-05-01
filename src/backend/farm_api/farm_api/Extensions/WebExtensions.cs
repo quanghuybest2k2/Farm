@@ -20,6 +20,9 @@ using Quartz;
 using farm_api.Job;
 using Quartz.Impl;
 using Microsoft.Extensions.Options;
+using farm_api.Caching.Implementation;
+using farm_api.Caching.Interface;
+using farm_api.Caching.Decorator;
 
 namespace farm_api.Extensions
 {
@@ -30,6 +33,8 @@ namespace farm_api.Extensions
 
         public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder)
         {
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSingleton<ICache, MemoryCacheAdapter>();
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddAutoMapper(typeof(Program));
@@ -68,8 +73,8 @@ namespace farm_api.Extensions
             builder.Services.AddScoped<ISeeder, Seeder>();
             builder.Services.AddScoped<ITopicService,TopicService>();
             builder.Services.AddSingleton<IMQTTService, MQTTService>();
-
-
+            builder.Services.AddScoped<IDeviceScheduleRepository, DeviceScheduleRepository>();
+            builder.Services.Decorate<IScheduleRepository, ScheduleRepositoryDecorator>();
             builder.Services.AddLogging();
             //-------------------------------------------------------------------------
             builder.Services.AddScoped<IScheduleService, ScheduleService>();

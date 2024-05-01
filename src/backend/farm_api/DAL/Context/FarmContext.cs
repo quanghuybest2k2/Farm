@@ -18,6 +18,7 @@ namespace DAL.Context
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Farm> Farms { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<DeviceSchedule> DeviceSchedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,19 +31,24 @@ namespace DAL.Context
             modelBuilder.Entity<Schedule>().Property(s => s.Type)
                 .HasConversion<int>();
 
-
+            modelBuilder.Entity<DeviceSchedule>().HasKey(x => x.Id);
             modelBuilder.Entity<Schedule>()
                 .HasOne(s => s.Farm)
                 .WithMany(f => f.Schedules)
                 .HasForeignKey(s => s.FarmId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Schedule>()
-                .HasOne(s => s.Device)
-                .WithMany(d => d.Schedules)
-                .HasForeignKey(s => s.DeviceId)
+                .HasMany(x=>x.DeviceSchedules)
+                .WithOne(x=>x.Schedule)
+                .HasForeignKey(x=>x.ScheduleId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Device>()
+               .HasMany(x => x.DeviceSchedules)
+               .WithOne(x => x.Device)
+               .HasForeignKey(x => x.DeviceId)
+               .OnDelete(DeleteBehavior.Restrict);
             // config table farm
             modelBuilder.Entity<Farm>().HasMany(x => x.Devices)
                 .WithOne(x => x.Farm)

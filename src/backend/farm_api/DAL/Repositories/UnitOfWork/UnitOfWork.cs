@@ -43,8 +43,17 @@ namespace DAL.Repositories.UnitOfWork
         /// <inheritdoc />
         public void Save()
         {
-            ChangeModifiedAt();
-            _context.SaveChanges();
+            try
+            {
+                ChangeModifiedAt();
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Conflict Forinkey ,Cannot Remove");
+            }
+            
         }
 
         /// <summary>

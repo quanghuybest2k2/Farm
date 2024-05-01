@@ -91,6 +91,9 @@ public class MQTTService : IMQTTService
         string messagePayload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
         // Log and forward the message to all clients via SignalR.
         await _hubContext.Clients.All.SendAsync(e.ApplicationMessage.Topic, messagePayload);
+        Console.WriteLine(e.ApplicationMessage.Topic);
+        Console.WriteLine(messagePayload);
+
         _logger.LogInformation($"Message sent to FE with topic: {e.ApplicationMessage.Topic}");
     }
     #endregion

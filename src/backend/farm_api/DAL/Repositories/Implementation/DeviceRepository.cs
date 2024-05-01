@@ -21,9 +21,9 @@ namespace DAL.Repositories.Implementation
             return await Filter(deviceQueryDTO).ToListAsync(cancellationToken);
         }
 
-        public async Task<Device> GetByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<Device> GetByIdDetailAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await _context.Set<Device>().FindAsync(id);
+            return await _context.Set<Device>().AsNoTracking().FirstOrDefaultAsync(x=>x.Id==id);
         }
 
         private IQueryable<Device> Filter(DeviceQueryDTO deviceQueryDTO)
@@ -41,6 +41,7 @@ namespace DAL.Repositories.Implementation
             {
                 query = query.Where(x => x.Status==deviceQueryDTO.Status);
             }
+            query = query.Where(x => x.IsDeleted != false);
             return query;
 
         }

@@ -1,4 +1,5 @@
-﻿using Environments = Core.Entities.Environment;
+﻿using System.Globalization;
+using Environments = Core.Entities.Environment;
 namespace farm_api.Ulities
 {
     public static class MockDataGenerator
@@ -29,6 +30,11 @@ namespace farm_api.Ulities
             }
 
             return environments;
+        }
+        public static DateTime ConvertToDateTime(string dateStr)
+        {
+            DateTime.TryParseExact(dateStr, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AssumeLocal, out DateTime date);
+            return date;
         }
 
     }

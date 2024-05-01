@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core.DTO;
+using Core.Entities;
 using Core.Queries;
 using DAL.Context;
 using DAL.Repositories.GenericRepository;
@@ -22,20 +23,25 @@ namespace DAL.Repositories.Implementation
         }
         public async Task<Schedule> GetByIdDetailAsync(Guid Id,CancellationToken cancellationToken=default)
         {
-            return await _context.Set<Schedule>().Include(x=>x.Device).Include(x=>x.Farm).Where(x=>x.Id==Id).FirstOrDefaultAsync();
+            return await _context.Set<Schedule>().AsNoTracking().Include(x=>x.DeviceSchedules).ThenInclude(x=>x.Device).Include(x=>x.Farm).Where(x=>x.Id==Id).FirstOrDefaultAsync();
         }
+
+        public async Task<IEnumerable<DeviceJob>> GetDevices(Guid ScheduleId, CancellationToken cancellationToken = default)
+        {
+            var deviceSchedules =  await _context.Schedules.Where(x => x.Id == ScheduleId).FirstOrDefaultAsync(cancellationToken);
+            if (deviceSchedules == null) { throw new KeyNotFoundException(); }
+            return deviceSchedules.DeviceSchedules.Select(x=>new DeviceJob() { Order=x.Device.Order,Status=x.StatusDevice}).ToList();
+        }
+
         private IQueryable<Schedule> Filter(ScheduleQueryDTO scheduleQueryDTO)
         {
-            IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.Device).Include(x=>x.Farm);
+            IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.DeviceSchedules).Include(x=>x.Farm);
             #region Condition Filter
             if (scheduleQueryDTO.Type > 0)
             {
                 query = query.Where(x => x.Type == scheduleQueryDTO.Type);
             }
-            if (scheduleQueryDTO.Device >= 0)
-            {
-                query = query.Where(x => x.Device.Order == scheduleQueryDTO.Device);
-            }
+           
             if (scheduleQueryDTO.StartValue > 0)
             {
                 query = query.Where(x => x.StartValue == scheduleQueryDTO.StartValue);

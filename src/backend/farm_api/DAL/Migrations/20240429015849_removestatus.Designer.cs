@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(FarmContext))]
-    [Migration("20240422080259_init")]
-    partial class init
+    [Migration("20240429015849_removestatus")]
+    partial class removestatus
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,6 +66,9 @@ namespace DAL.Migrations
                     b.Property<Guid>("FarmId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -86,6 +89,36 @@ namespace DAL.Migrations
                     b.HasIndex("FarmId");
 
                     b.ToTable("Devices");
+                });
+
+            modelBuilder.Entity("Core.Entities.DeviceSchedule", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DeviceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ScheduleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("StatusDevice")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId");
+
+                    b.HasIndex("ScheduleId");
+
+                    b.ToTable("DeviceSchedules");
                 });
 
             modelBuilder.Entity("Core.Entities.Environment", b =>
@@ -167,9 +200,6 @@ namespace DAL.Migrations
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DeviceId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -188,9 +218,6 @@ namespace DAL.Migrations
                     b.Property<int>("StartValue")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -198,8 +225,6 @@ namespace DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DeviceId");
 
                     b.HasIndex("FarmId");
 
@@ -217,6 +242,25 @@ namespace DAL.Migrations
                     b.Navigation("Farm");
                 });
 
+            modelBuilder.Entity("Core.Entities.DeviceSchedule", b =>
+                {
+                    b.HasOne("Core.Entities.Device", "Device")
+                        .WithMany("DeviceSchedules")
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Schedule", "Schedule")
+                        .WithMany("DeviceSchedules")
+                        .HasForeignKey("ScheduleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Device");
+
+                    b.Navigation("Schedule");
+                });
+
             modelBuilder.Entity("Core.Entities.Environment", b =>
                 {
                     b.HasOne("Core.Entities.Farm", "Farm")
@@ -230,26 +274,18 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Core.Entities.Schedule", b =>
                 {
-                    b.HasOne("Core.Entities.Device", "Device")
-                        .WithMany("Schedules")
-                        .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.Farm", "Farm")
                         .WithMany("Schedules")
                         .HasForeignKey("FarmId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Device");
 
                     b.Navigation("Farm");
                 });
 
             modelBuilder.Entity("Core.Entities.Device", b =>
                 {
-                    b.Navigation("Schedules");
+                    b.Navigation("DeviceSchedules");
                 });
 
             modelBuilder.Entity("Core.Entities.Farm", b =>
@@ -259,6 +295,11 @@ namespace DAL.Migrations
                     b.Navigation("Environments");
 
                     b.Navigation("Schedules");
+                });
+
+            modelBuilder.Entity("Core.Entities.Schedule", b =>
+                {
+                    b.Navigation("DeviceSchedules");
                 });
 #pragma warning restore 612, 618
         }

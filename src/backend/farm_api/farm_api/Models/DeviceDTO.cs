@@ -13,5 +13,6 @@ namespace farm_api.Models
         public DateTime? UpdateAt { get; set; }
         public string ControllerCode { get; set; }// cái để cho thiết bị biết mã để điều khiển cần phải mapper
         public Guid FarmId { get; set; }
+        public ICollection<DeviceScheduleDTO> DeviceSchedules { get; set; }
     }
 }

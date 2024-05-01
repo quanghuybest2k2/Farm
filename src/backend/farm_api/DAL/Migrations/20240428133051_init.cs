@@ -59,6 +59,7 @@ namespace DAL.Migrations
                     Order = table.Column<long>(type: "bigint", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true),
                     FarmId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -109,22 +110,43 @@ namespace DAL.Migrations
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FarmId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DeviceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    FarmId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Schedules", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Schedules_Devices_DeviceId",
-                        column: x => x.DeviceId,
-                        principalTable: "Devices",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Schedules_Farms_FarmId",
                         column: x => x.FarmId,
                         principalTable: "Farms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DeviceSchedules",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DeviceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StatusDevice = table.Column<bool>(type: "bit", nullable: false),
+                    ScheduleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DeviceSchedules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DeviceSchedules_Devices_DeviceId",
+                        column: x => x.DeviceId,
+                        principalTable: "Devices",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_DeviceSchedules_Schedules_ScheduleId",
+                        column: x => x.ScheduleId,
+                        principalTable: "Schedules",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -133,6 +155,16 @@ namespace DAL.Migrations
                 name: "IX_Devices_FarmId",
                 table: "Devices",
                 column: "FarmId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DeviceSchedules_DeviceId",
+                table: "DeviceSchedules",
+                column: "DeviceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DeviceSchedules_ScheduleId",
+                table: "DeviceSchedules",
+                column: "ScheduleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Environments_SensorLocation",
@@ -144,11 +176,6 @@ namespace DAL.Migrations
                 table: "Farms",
                 column: "SensorLocation",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Schedules_DeviceId",
-                table: "Schedules",
-                column: "DeviceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Schedules_FarmId",
@@ -163,13 +190,16 @@ namespace DAL.Migrations
                 name: "Cameras");
 
             migrationBuilder.DropTable(
+                name: "DeviceSchedules");
+
+            migrationBuilder.DropTable(
                 name: "Environments");
 
             migrationBuilder.DropTable(
-                name: "Schedules");
+                name: "Devices");
 
             migrationBuilder.DropTable(
-                name: "Devices");
+                name: "Schedules");
 
             migrationBuilder.DropTable(
                 name: "Farms");

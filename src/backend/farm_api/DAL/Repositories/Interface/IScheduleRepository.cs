@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core.DTO;
+using Core.Entities;
 using Core.Queries;
 using DAL.Repositories.GenericRepository;
 using System;
@@ -13,5 +14,7 @@ namespace DAL.Repositories.Interface
     {
         Task<IEnumerable<Schedule>> GetAllAsync(ScheduleQueryDTO scheduleQueryDTO, CancellationToken cancellationToken = default);
         Task<Schedule> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default);
+
+        Task<IEnumerable<DeviceJob>> GetDevices(Guid ScheduleId, CancellationToken cancellationToken = default);
     }
 }

@@ -47,7 +47,7 @@ namespace DAL.Repositories.Implementation
             if (!string.IsNullOrEmpty(farmQueryDTO.Name))
             {
                 query = query.Where(x => x.Name.Contains(farmQueryDTO.Name));
-            }
+            }         
             query = query.Select(f => SortByDeviceOrderInFarm(f));
             return query;
         }
@@ -76,7 +76,7 @@ namespace DAL.Repositories.Implementation
 
         public async Task<Farm> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default)
         {
-            return await _context.Set<Farm>().Include(x => x.Devices).Where(x => x.Id == Id).FirstOrDefaultAsync();
+            return await _context.Set<Farm>().AsNoTracking().Include(x => x.Devices).Where(x => x.Id == Id).FirstOrDefaultAsync();
         }
     }
 }

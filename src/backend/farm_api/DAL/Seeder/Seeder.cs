@@ -36,7 +36,7 @@ namespace DAL.Seeder
 
         private Farm AddFarm()
         {
-            Farm farm = new Farm() { Name = "farm-2", ControllerCode = "esp8266/ledControl", SensorLocation = "KV2" };
+            Farm farm = new Farm() { Name = "Farm 2", ControllerCode = "esp8266/ledControl", DeviceStatusCode = "esp8266/ledStatus", SensorLocation = "KV2", Latitude = 11.955105m, Longitude = 108.444718m };
             _context.Add(farm);
             _unitOfWork.Save();
             return farm;

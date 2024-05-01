@@ -16,6 +16,7 @@ namespace farm_api.Models
         public int Off { get { return Devices.Where(x => x.Status == false).Count(); } }
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
+        public ICollection<ScheduleDTO> Schedules { get; set; }
 
     }
 }

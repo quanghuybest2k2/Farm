@@ -10,7 +10,6 @@ namespace Core.Entities
     public class Schedule : BaseEntity, IModifier
     {
         public int Type { get; set; }
-        public bool Status { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }
         public DateTime StartDate { get; set; }
@@ -20,11 +19,8 @@ namespace Core.Entities
         public DateTime? UpdateAt { get; set; }
         // Khóa ngoại và mối quan hệ với Farm
         public Guid FarmId { get; set; }
-        public Farm Farm { get; set; }
-
-        // Khóa ngoại và mối quan hệ với Device
-        public Guid DeviceId { get; set; }
-        public Device Device { get; set; }
+        public Farm Farm { get; set; }    
+        public ICollection<DeviceSchedule> DeviceSchedules { get; set; }// nhiều thiết bị
 
     }
 }
