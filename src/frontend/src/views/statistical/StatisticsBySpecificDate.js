@@ -45,36 +45,34 @@ const StatisticsBySpecificDate = ({ data }) => {
   }, [chartRef])
 
   return (
-    <>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>Temperature</CCardHeader>
-          <CCardBody>
-            {data && data.length > 0 ? (
-              <CChartLine data={createChartData(data, 'Temperature', 'temperature')} />
-            ) : (
-              <p>No data available</p>
-            )}
-          </CCardBody>
-          <CCardHeader>Humidity</CCardHeader>
-          <CCardBody>
-            {data && data.length > 0 ? (
-              <CChartLine data={createChartData(data, 'Humidity', 'humidity')} />
-            ) : (
-              <p>No data available</p>
-            )}
-          </CCardBody>
-          <CCardHeader>Brightness</CCardHeader>
-          <CCardBody>
-            {data && data.length > 0 ? (
-              <CChartLine data={createChartData(data, 'Brightness', 'brightness')} />
-            ) : (
-              <p>No data available</p>
-            )}
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </>
+    <CCol xs={12}>
+      <CCard className="mb-4">
+        <CCardHeader>Nhiệt độ</CCardHeader>
+        <CCardBody>
+          {data && data.length > 0 ? (
+            <CChartLine data={createChartData(data, 'Temperature', 'temperature')} />
+          ) : (
+            <p>Không có dữ liệu</p>
+          )}
+        </CCardBody>
+        <CCardHeader>Độ ẩm</CCardHeader>
+        <CCardBody>
+          {data && data.length > 0 ? (
+            <CChartLine data={createChartData(data, 'Humidity', 'humidity')} />
+          ) : (
+            <p>Không có dữ liệu</p>
+          )}
+        </CCardBody>
+        <CCardHeader>Độ sáng</CCardHeader>
+        <CCardBody>
+          {data && data.length > 0 ? (
+            <CChartLine data={createChartData(data, 'Brightness', 'brightness')} />
+          ) : (
+            <p>Không có dữ liệu</p>
+          )}
+        </CCardBody>
+      </CCard>
+    </CCol>
   )
 }
 

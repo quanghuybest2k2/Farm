@@ -40,6 +40,7 @@ const AutoConfig = () => {
   const [visible, setVisible] = useState(false)
   // list item
   const [schedules, setSchedules] = useState([])
+  let stt = 1
 
   // show record per page
   const handleItemClick = (value) => {
@@ -65,14 +66,14 @@ const AutoConfig = () => {
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
-            <CCardHeader>Automatic Configuration</CCardHeader>
+            <CCardHeader>Cấu hình tự động</CCardHeader>
             <CCardBody>
               <p className="text-body-secondary small">
-                Basic information for the <code>Device</code>
+                Thông tin căn bản của <code>thiết bị</code>
                 <CLink href={'#auto-config/create'}>
                   <CButton color="success" type="button" size="sm" className="float-end">
                     <CIcon icon={cilPlus} />
-                    <text>Create New</text>
+                    <text>Tạo mới</text>
                   </CButton>
                 </CLink>
               </p>
@@ -80,16 +81,16 @@ const AutoConfig = () => {
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">STT</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Type</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Area</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Device name</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Device status</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">From value</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">To value</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">From date</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">To date</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Is Active</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Action</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Loại</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Khu vực</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Tên thiết bị</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Trạng thái</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Từ giá trị</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Đến giá trị</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Từ ngày</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Đến ngày</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Kích hoạt</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Thao tác</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
@@ -100,7 +101,7 @@ const AutoConfig = () => {
                   ) : (
                     schedules.map((schedule) => (
                       <CTableRow key={schedule.id}>
-                        <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                        <CTableHeaderCell scope="row">{stt++}</CTableHeaderCell>
                         <CTableDataCell>
                           {schedule.type === 1
                             ? 'Nhiệt độ'
@@ -169,7 +170,7 @@ const AutoConfig = () => {
                 </CTableBody>
               </CTable>
               <br />
-              <CFormLabel style={{ marginRight: '10px' }}>Show</CFormLabel>
+              <CFormLabel style={{ marginRight: '10px' }}>Hiển thị</CFormLabel>
               <CDropdown>
                 <CDropdownToggle color="primary">{selectedValue || '10'}</CDropdownToggle>
                 <CDropdownMenu>
@@ -178,7 +179,7 @@ const AutoConfig = () => {
                   <CDropdownItem onClick={() => handleItemClick('30')}>30</CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
-              <CFormLabel style={{ marginLeft: '10px' }}>entices</CFormLabel>
+              <CFormLabel style={{ marginLeft: '10px' }}>bản ghi</CFormLabel>
             </CCardBody>
           </CCard>
         </CCol>
@@ -191,17 +192,13 @@ const AutoConfig = () => {
         aria-labelledby="StaticBackdropExampleLabel"
       >
         <CModalHeader>
-          <CModalTitle id="StaticBackdropExampleLabel">
-            Are you sure you want to delete this item?
-          </CModalTitle>
+          <CModalTitle id="StaticBackdropExampleLabel">Bạn có chắc muốn xóa mục này?</CModalTitle>
         </CModalHeader>
-        <CModalBody>
-          The data will be permanently deleted. Do you really want to continue?
-        </CModalBody>
+        <CModalBody>Dữ liệu sẽ không thể khôi phục. Bạn có muốn tiếp tục?</CModalBody>
         <CModalFooter>
-          <CButton color="primary">Submit</CButton>
+          <CButton color="primary">Xác nhận</CButton>
           <CButton color="secondary" onClick={() => setVisible(false)}>
-            Cancel
+            Hủy bỏ
           </CButton>
         </CModalFooter>
       </CModal>
