@@ -113,7 +113,7 @@ const EditConfig = () => {
                       <CFormInput
                         type="text"
                         placeholder="Nhập khu vực...."
-                        value={schedule.farm.name}
+                        value={schedule.deviceSchedules.name}
                       />
                     </CCol>
                   </CRow>
@@ -124,7 +124,7 @@ const EditConfig = () => {
                         size="large"
                         className="mb-3"
                         aria-label="Chọn thiết bị"
-                        value={schedule.farm.devices.map((device) => device.order)}
+                        value={schedule.deviceSchedules.map((device) => device.order)}
                       >
                         <option>Select device</option>
                         <option value="0">Đèn 1</option>

@@ -109,9 +109,9 @@ const AutoConfig = () => {
                               ? 'Độ ẩm'
                               : 'Độ sáng'}
                         </CTableDataCell>
-                        <CTableDataCell>{schedule.farm.name}</CTableDataCell>
+                        <CTableDataCell>abcfagagagaga</CTableDataCell>
                         <CTableDataCell>
-                          {schedule.farm.devices.map((device) => (
+                          {schedule.deviceSchedules.map((device) => (
                             <text key={device.id}>{device.name}</text>
                           ))}
                         </CTableDataCell>
