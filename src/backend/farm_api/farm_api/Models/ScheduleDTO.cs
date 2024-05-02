@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core.DTO;
+using Core.Entities;
 using farm_api.Models.Common;
 
 namespace farm_api.Models
@@ -15,6 +16,6 @@ namespace farm_api.Models
         public DateTime? UpdateAt { get; set; }
         // Khóa ngoại và mối quan hệ với Farm
         public Guid FarmId { get; set; }
-        public ICollection<DeviceScheduleDTO> DeviceSchedules { get; set; }// nhiều thiết bị
+        public ICollection<DeviceInfoSchedule> DeviceSchedules { get; set; }// nhiều thiết bị
     }
 }

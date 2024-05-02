@@ -35,7 +35,7 @@ namespace DAL.Repositories.Implementation
 
         private IQueryable<Schedule> Filter(ScheduleQueryDTO scheduleQueryDTO)
         {
-            IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.DeviceSchedules).Include(x=>x.Farm);
+            IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.DeviceSchedules).ThenInclude(x=>x.Device).Include(x=>x.Farm);
             #region Condition Filter
             if (scheduleQueryDTO.Type > 0)
             {
