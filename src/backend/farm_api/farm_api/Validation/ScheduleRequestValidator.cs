@@ -23,9 +23,8 @@ namespace farm_api.Validation
         {
             if (date == null)
                 return false;
-
             // Updated regex to allow one or two digits for the hour
-            Regex regex = new Regex(@"^\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])\s([0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$");
+            Regex regex = new Regex(@"^\d{4}/(0?[1-9]|1[0-2])/(0?[1-9]|[12][0-9]|3[01])\s([01]?[0-9]|2[0-3]):([0-5]?[0-9]):([0-5]?[0-9])$");
             Match match = regex.Match(date);
             return match.Success;
         }
