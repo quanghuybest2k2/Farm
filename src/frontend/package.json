@@ -43,7 +43,8 @@
     "react-router-dom": "^6.22.3",
     "react-zoom-pan-pinch": "^3.4.4",
     "redux": "5.0.1",
-    "simplebar-react": "^3.2.4"
+    "simplebar-react": "^3.2.4",
+    "sweetalert2": "^11.10.8"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

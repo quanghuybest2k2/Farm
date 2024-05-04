@@ -18,7 +18,8 @@ import 'react-datepicker/dist/react-datepicker.css'
 import config from '../../config'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { parseISO } from 'date-fns'
+import { format } from 'date-fns'
+import Swal from 'sweetalert2'
 
 const CreateConfig = () => {
   const [loading, setLoading] = useState(true)
@@ -88,16 +89,30 @@ const CreateConfig = () => {
     setSchedule({ ...schedule, [field]: value })
   }
 
+  //Chọn ngày giờ start
+  const handleStartDateChange = (date) => {
+    setStartDate(date)
+  }
+
+  //Chọn ngày giờ end
+  const handleEndDateChange = (date) => {
+    setEndDate(date)
+  }
+
   // api tạo mới
   const submitForm = (e) => {
     e.preventDefault()
+
+    // format date
+    const formatStartDate = format(startDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
+    const formatEndDate = format(endDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
 
     const data = {
       type: parseInt(schedule.type),
       startValue: parseInt(schedule.startValue),
       endValue: parseInt(schedule.endValue),
-      startDate: schedule.startDate,
-      endDate: schedule.endDate,
+      startDate: formatStartDate,
+      endDate: formatEndDate,
       isActive: schedule.isActive,
       farmId: schedule.farmId,
       devices: selectedDevices.map((deviceId) => ({
@@ -106,17 +121,32 @@ const CreateConfig = () => {
       })),
     }
     console.log(data)
-    // axios
-    //   .post(`${config.API_URL}/schedules`, data)
-    //   .then((res) => {
-    //     alert('Thành công')
-    //     navigate('#/auto-config')
-    //     setLoading(false)
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error created schedules:', error)
-    //     setLoading(false)
-    //   })
+
+    axios
+      .post(`${config.API_URL}/schedules`, data)
+      .then((res) => {
+        Swal.fire({
+          icon: 'success',
+          text: 'Tạo mới thành công',
+          showConfirmButton: false,
+          position: 'top-end',
+          toast: true,
+          timer: 2000,
+          showClass: {
+            popup: `
+                animate__animated
+                animate__fadeInRight
+                animate__faster
+            `,
+          },
+        })
+        navigate('/auto-config')
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error created schedules:', error)
+        setLoading(false)
+      })
   }
 
   return (
@@ -274,34 +304,36 @@ const CreateConfig = () => {
                         <div className="me-2">
                           <h6 className="mb-3">Từ ngày</h6>
                           <DatePicker
-                            selected={parseISO(schedule.startDate)}
-                            onChange={(date) => setStartDate(date)}
-                            selectsStart
-                            startDate={parseISO(schedule.startDate)}
-                            endDate={endDate}
-                            minDate={today}
                             withPortal
                             portalId="root-portal"
                             placeholderText="Chọn ngày bắt đầu"
                             className="form-control"
                             dateFormat="dd/MM/yyyy HH:mm:ss"
+                            showTimeSelect
+                            timeFormat="HH:mm:ss"
+                            timeIntervals={10}
+                            selected={startDate}
+                            onChange={handleStartDateChange}
+                            selectsStart
+                            minDate={today}
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
                         <div className="ms-2">
                           <h6 className="mb-3">Đến ngày</h6>
                           <DatePicker
-                            selected={parseISO(schedule.endDate)}
-                            onChange={(date) => setEndDate(date)}
-                            selectsEnd
-                            startDate={startDate}
-                            endDate={endDate}
-                            minDate={startDate || today}
                             withPortal
                             portalId="root-portal"
                             placeholderText="Chọn ngày kết thúc"
                             className="form-control"
                             dateFormat="dd/MM/yyyy HH:mm:ss"
+                            showTimeSelect
+                            timeFormat="HH:mm:ss"
+                            timeIntervals={10}
+                            selected={endDate}
+                            onChange={handleEndDateChange}
+                            selectsEnd
+                            minDate={startDate || today}
                           />
                         </div>
                       </div>
