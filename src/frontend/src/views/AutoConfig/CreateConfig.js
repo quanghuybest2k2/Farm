@@ -18,6 +18,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import config from '../../config'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { parseISO } from 'date-fns'
 
 const CreateConfig = () => {
   const [loading, setLoading] = useState(true)
@@ -25,18 +26,28 @@ const CreateConfig = () => {
   const [startDate, setStartDate] = useState(today)
   const [endDate, setEndDate] = useState(null)
   const [farms, setFarms] = useState([])
+  // optiop ở chọn khu vực
+  const [farmSelected, setFarmSelected] = useState(false)
   // chọn thiết bị
   const [selectedDevices, setSelectedDevices] = useState([])
+  // status device
+  const [selectedStatus, setSelectedStatus] = useState('')
   const [disabledOption, setDisabledOption] = useState(false)
   const navigate = useNavigate()
   const [schedule, setSchedule] = useState({
-    type: 0,
+    type: 1,
     startValue: 0,
     endValue: 0,
     startDate: '',
     endDate: '',
     isActive: false,
     farmId: 0,
+    devices: [
+      {
+        id: '',
+        statusDevice: false,
+      },
+    ],
   })
 
   useEffect(() => {
@@ -61,40 +72,51 @@ const CreateConfig = () => {
     }
   }
 
+  // xử lý chọn status của đèn
+  const handleStatusChange = (e) => {
+    setSelectedStatus(e.target.value)
+  }
+
   // reset chọn thiết bị
   const resetSelectedDevices = () => {
     setSelectedDevices([])
     setDisabledOption(false)
   }
 
-  const handleInput = (e) => {
-    e.persist()
-    setSchedule({ ...schedule, [e.target.name]: e.target.value })
+  // xử lý lấy giá trị của control
+  const handleInput = (field, value) => {
+    setSchedule({ ...schedule, [field]: value })
   }
+
   // api tạo mới
   const submitForm = (e) => {
     e.preventDefault()
 
     const data = {
-      type: schedule.type,
-      startValue: schedule.startValue,
-      endValue: schedule.endValue,
+      type: parseInt(schedule.type),
+      startValue: parseInt(schedule.startValue),
+      endValue: parseInt(schedule.endValue),
       startDate: schedule.startDate,
       endDate: schedule.endDate,
       isActive: schedule.isActive,
       farmId: schedule.farmId,
+      devices: selectedDevices.map((deviceId) => ({
+        id: deviceId,
+        statusDevice: selectedStatus === '1',
+      })),
     }
-    axios
-      .post(`${config.API_URL}/schedules`, data)
-      .then((res) => {
-        alert('Thành công')
-        navigate('#/auto-config')
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error created schedules:', error)
-        setLoading(false)
-      })
+    console.log(data)
+    // axios
+    //   .post(`${config.API_URL}/schedules`, data)
+    //   .then((res) => {
+    //     alert('Thành công')
+    //     navigate('#/auto-config')
+    //     setLoading(false)
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error created schedules:', error)
+    //     setLoading(false)
+    //   })
   }
 
   return (
@@ -121,9 +143,19 @@ const CreateConfig = () => {
                 </p>
                 <CForm onSubmit={submitForm}>
                   <CRow className="mb-3">
-                    <CFormLabel className="col-sm-2 col-form-label">Loại</CFormLabel>
+                    <CFormLabel
+                      className="col-sm-2 col-form-label"
+                      onChange={(e) => handleInput('type', e.target.value)}
+                    >
+                      Loại
+                    </CFormLabel>
                     <CCol sm={10}>
-                      <CFormSelect size="large" className="mb-3" aria-label="Chọn loại">
+                      <CFormSelect
+                        size="large"
+                        className="mb-3"
+                        aria-label="Chọn loại"
+                        onChange={(e) => handleInput('type', e.target.value)}
+                      >
                         <option disabled>Chọn loại</option>
                         <option value="1">Nhiệt độ</option>
                         <option value="2">Độ ẩm</option>
@@ -134,8 +166,16 @@ const CreateConfig = () => {
                   <CRow className="mb-3">
                     <CFormLabel className="col-sm-2 col-form-label">Khu vực</CFormLabel>
                     <CCol sm={10}>
-                      <CFormSelect size="large" className="mb-3" aria-label="Chọn khu vực">
-                        <option disabled>Chọn khu vực</option>
+                      <CFormSelect
+                        size="large"
+                        className="mb-3"
+                        aria-label="Chọn khu vực"
+                        onChange={(e) => {
+                          handleInput('farmId', e.target.value)
+                          setFarmSelected(true)
+                        }}
+                      >
+                        <option disabled={farmSelected}>Chọn khu vực</option>
                         {farms.map((farm) => (
                           <option value={farm.id} key={farm.id}>
                             {farm.name}
@@ -168,10 +208,15 @@ const CreateConfig = () => {
                           )),
                         )}
                       </CFormSelect>
-                      <CFormSelect size="large" className="mb-3" aria-label="Chọn trạng thái">
-                        <option value="selectStatus">Chọn trạng thái</option>
-                        <option value="false">Tắt</option>
-                        <option value="true">Bật</option>
+                      <CFormSelect
+                        size="large"
+                        className="mb-3"
+                        aria-label="Chọn trạng thái"
+                        onChange={handleStatusChange}
+                      >
+                        <option disabled>Chọn trạng thái</option>
+                        <option value="0">Tắt</option>
+                        <option value="1">Bật</option>
                       </CFormSelect>
                       {/* Danh sách chọn */}
                       <ul>
@@ -199,14 +244,26 @@ const CreateConfig = () => {
                           <h6 className="mb-3">
                             Từ giá trị <code>(số nguyên)</code>
                           </h6>
-                          <CFormInput type="number" placeholder="Nhập giá trị bắt đầu...." />
+                          <CFormInput
+                            type="number"
+                            placeholder="Nhập giá trị bắt đầu...."
+                            name="startValue"
+                            value={schedule.startValue}
+                            onChange={(e) => handleInput('startValue', e.target.value)}
+                          />
                         </div>
                         <span className="text-muted mt-4">-</span>
                         <div className="ms-2">
                           <h6 className="mb-3">
                             Đến giá trị <code>(số nguyên)</code>
                           </h6>
-                          <CFormInput type="number" placeholder="Nhập giá trị kết thúc...." />
+                          <CFormInput
+                            type="number"
+                            placeholder="Nhập giá trị kết thúc...."
+                            name="endValue"
+                            value={schedule.endValue}
+                            onChange={(e) => handleInput('endValue', e.target.value)}
+                          />
                         </div>
                       </div>
                     </CCol>
@@ -217,24 +274,24 @@ const CreateConfig = () => {
                         <div className="me-2">
                           <h6 className="mb-3">Từ ngày</h6>
                           <DatePicker
-                            selected={startDate}
+                            selected={parseISO(schedule.startDate)}
                             onChange={(date) => setStartDate(date)}
                             selectsStart
-                            startDate={startDate}
+                            startDate={parseISO(schedule.startDate)}
                             endDate={endDate}
                             minDate={today}
                             withPortal
                             portalId="root-portal"
                             placeholderText="Chọn ngày bắt đầu"
                             className="form-control"
-                            dateFormat="dd/MM/yyyy"
+                            dateFormat="dd/MM/yyyy HH:mm:ss"
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
                         <div className="ms-2">
                           <h6 className="mb-3">Đến ngày</h6>
                           <DatePicker
-                            selected={endDate}
+                            selected={parseISO(schedule.endDate)}
                             onChange={(date) => setEndDate(date)}
                             selectsEnd
                             startDate={startDate}
@@ -244,7 +301,7 @@ const CreateConfig = () => {
                             portalId="root-portal"
                             placeholderText="Chọn ngày kết thúc"
                             className="form-control"
-                            dateFormat="dd/MM/yyyy"
+                            dateFormat="dd/MM/yyyy HH:mm:ss"
                           />
                         </div>
                       </div>
@@ -253,7 +310,12 @@ const CreateConfig = () => {
                   <CRow className="mt-4">
                     <CFormLabel className="col-sm-2 col-form-label">Tình trạng</CFormLabel>
                     <CCol sm={10}>
-                      <CFormSelect size="large" className="mb-3" aria-label="Chọn giá trị">
+                      <CFormSelect
+                        size="large"
+                        className="mb-3"
+                        aria-label="Chọn giá trị"
+                        onChange={(e) => handleInput('isActive', e.target.value === '1')}
+                      >
                         <option disabled>Chọn giá trị</option>
                         <option value="0">Tắt</option>
                         <option value="1">Bật</option>
