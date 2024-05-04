@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   CButton,
   CCard,
@@ -14,11 +14,29 @@ import {
 } from '@coreui/react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import config from '../../config'
+import axios from 'axios'
 
 const CreateConfig = () => {
+  const [loading, setLoading] = useState(true)
   const today = new Date()
   const [startDate, setStartDate] = useState(today)
   const [endDate, setEndDate] = useState(null)
+  const [farms, setFarms] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(`${config.API_URL}/farms`)
+      .then((response) => {
+        console.log(response.data.results)
+        setFarms(response.data.results)
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <CRow>
@@ -40,16 +58,24 @@ const CreateConfig = () => {
               <CRow className="mb-3">
                 <CFormLabel className="col-sm-2 col-form-label">Loại</CFormLabel>
                 <CCol sm={10}>
-                  <CFormInput type="text" placeholder="Nhập loại...." />
+                  <CFormSelect size="large" className="mb-3" aria-label="Chọn loại">
+                    <option disabled>Chọn loại</option>
+                    <option value="1">Nhiệt độ</option>
+                    <option value="2">Độ ẩm</option>
+                    <option value="3">Độ sáng</option>
+                  </CFormSelect>
                 </CCol>
               </CRow>
               <CRow className="mb-3">
                 <CFormLabel className="col-sm-2 col-form-label">Khu vực</CFormLabel>
                 <CCol sm={10}>
                   <CFormSelect size="large" className="mb-3" aria-label="Chọn khu vực">
-                    <option>Chọn khu vực</option>
-                    <option value="kv2">KV1</option>
-                    <option value="kv2">KV2</option>
+                    <option disabled>Chọn khu vực</option>
+                    {farms.map((farm) => (
+                      <option value={farm.id} key={farm.id}>
+                        {farm.name}
+                      </option>
+                    ))}
                   </CFormSelect>
                 </CCol>
               </CRow>
@@ -61,16 +87,6 @@ const CreateConfig = () => {
                     <option value="0">Quạt 1</option>
                     <option value="1">Đèn 1</option>
                     <option value="2">Đèn 2</option>
-                  </CFormSelect>
-                </CCol>
-              </CRow>
-              <CRow className="mb-3">
-                <CFormLabel className="col-sm-2 col-form-label">Status</CFormLabel>
-                <CCol sm={10}>
-                  <CFormSelect size="large" className="mb-3" aria-label="Chọn trạng thái">
-                    <option>Chọn trạng thái</option>
-                    <option value="0">Tắt</option>
-                    <option value="1">Bật</option>
                   </CFormSelect>
                 </CCol>
               </CRow>
@@ -133,10 +149,10 @@ const CreateConfig = () => {
                 </CCol>
               </CRow>
               <CRow className="mt-4">
-                <CFormLabel className="col-sm-2 col-form-label">Kích hoạt</CFormLabel>
+                <CFormLabel className="col-sm-2 col-form-label">Tình trạng</CFormLabel>
                 <CCol sm={10}>
                   <CFormSelect size="large" className="mb-3" aria-label="Chọn giá trị">
-                    <option>Chọn giá trị</option>
+                    <option disabled>Chọn giá trị</option>
                     <option value="0">Tắt</option>
                     <option value="1">Bật</option>
                   </CFormSelect>

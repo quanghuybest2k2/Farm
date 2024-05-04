@@ -1,8 +1,8 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import config from "../../config";
-import { useParams } from "react-router-dom";
-import { format } from "date-fns";
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import config from '../../config'
+import { useParams } from 'react-router-dom'
+import { format } from 'date-fns'
 import {
   CCard,
   CCardBody,
@@ -16,26 +16,26 @@ import {
   CButton,
   CTableHead,
   CTableHeaderCell,
-} from "@coreui/react";
+} from '@coreui/react'
 
 function DetailConfig() {
-  const [loading, setLoading] = useState(true);
-  const [scheduleDetail, setScheduleDetail] = useState([]);
-  const { id } = useParams();
+  const [loading, setLoading] = useState(true)
+  const [scheduleDetail, setScheduleDetail] = useState([])
+  const { id } = useParams()
 
   useEffect(() => {
     axios
       .get(`${config.API_URL}/schedules/${id}`)
       .then((response) => {
         // console.log(response.data)
-        setScheduleDetail(response.data);
-        setLoading(false);
+        setScheduleDetail(response.data)
+        setLoading(false)
       })
       .catch((error) => {
-        console.error("Error fetching schedule detail:", error);
-        setLoading(false);
-      });
-  }, [id]);
+        console.error('Error fetching schedule detail:', error)
+        setLoading(false)
+      })
+  }, [id])
 
   return (
     <div>
@@ -61,10 +61,10 @@ function DetailConfig() {
                     <CTableDataCell>Loại</CTableDataCell>
                     <CTableDataCell>
                       {scheduleDetail.type === 1
-                        ? "Nhiệt độ"
+                        ? 'Nhiệt độ'
                         : scheduleDetail.type === 2
-                        ? "Độ ẩm"
-                        : "Độ sáng"}
+                          ? 'Độ ẩm'
+                          : 'Độ sáng'}
                     </CTableDataCell>
                   </CTableRow>
                   <CTableRow>
@@ -77,37 +77,21 @@ function DetailConfig() {
                       <CTable striped bordered hover responsive>
                         <CTableHead>
                           <CTableRow>
-                            <CTableHeaderCell scope="col">
-                              Tên thiết bị
-                            </CTableHeaderCell>
-                            <CTableHeaderCell scope="col">
-                              Trạng thái
-                            </CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Tên thiết bị</CTableHeaderCell>
+                            <CTableHeaderCell scope="col">Trạng thái</CTableHeaderCell>
                           </CTableRow>
                         </CTableHead>
                         <CTableBody>
-                          {scheduleDetail.deviceSchedules.map(
-                            (deviceSchedule) => (
-                              <CTableRow key={deviceSchedule.deviceId}>
-                                <CTableDataCell>
-                                  {deviceSchedule.name}
-                                </CTableDataCell>
-                                <CTableDataCell>
-                                  <CBadge
-                                    color={
-                                      deviceSchedule.statusDevice
-                                        ? "success"
-                                        : "danger"
-                                    }
-                                  >
-                                    {deviceSchedule.statusDevice
-                                      ? "Bật"
-                                      : "Tắt"}
-                                  </CBadge>
-                                </CTableDataCell>
-                              </CTableRow>
-                            )
-                          )}
+                          {scheduleDetail.deviceSchedules.map((deviceSchedule) => (
+                            <CTableRow key={deviceSchedule.deviceId}>
+                              <CTableDataCell>{deviceSchedule.name}</CTableDataCell>
+                              <CTableDataCell>
+                                <CBadge color={deviceSchedule.statusDevice ? 'success' : 'danger'}>
+                                  {deviceSchedule.statusDevice ? 'Bật' : 'Tắt'}
+                                </CBadge>
+                              </CTableDataCell>
+                            </CTableRow>
+                          ))}
                         </CTableBody>
                       </CTable>
                     </CTableDataCell>
@@ -123,30 +107,20 @@ function DetailConfig() {
                   <CTableRow>
                     <CTableDataCell>Từ ngày</CTableDataCell>
                     <CTableDataCell>
-                      {format(
-                        new Date(scheduleDetail.startDate),
-                        "dd/MM/yyyy HH:mm:ss"
-                      )}
+                      {format(new Date(scheduleDetail.startDate), 'dd/MM/yyyy HH:mm:ss')}
                     </CTableDataCell>
                   </CTableRow>
                   <CTableRow>
                     <CTableDataCell>Đến ngày</CTableDataCell>
                     <CTableDataCell>
-                      {format(
-                        new Date(scheduleDetail.endDate),
-                        "dd/MM/yyyy HH:mm:ss"
-                      )}
+                      {format(new Date(scheduleDetail.endDate), 'dd/MM/yyyy HH:mm:ss')}
                     </CTableDataCell>
                   </CTableRow>
                   <CTableRow>
                     <CTableDataCell>Tình trạng</CTableDataCell>
                     <CTableDataCell>
-                      <CBadge
-                        color={scheduleDetail.isActive ? "success" : "danger"}
-                      >
-                        {scheduleDetail.isActive
-                          ? "Đang hoạt động"
-                          : "Không hoạt động"}
+                      <CBadge color={scheduleDetail.isActive ? 'success' : 'danger'}>
+                        {scheduleDetail.isActive ? 'Đang hoạt động' : 'Không hoạt động'}
                       </CBadge>
                     </CTableDataCell>
                   </CTableRow>
@@ -157,7 +131,7 @@ function DetailConfig() {
         </CCardBody>
       </CCard>
     </div>
-  );
+  )
 }
 
-export default DetailConfig;
+export default DetailConfig
