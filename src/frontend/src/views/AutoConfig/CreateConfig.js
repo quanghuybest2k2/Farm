@@ -25,7 +25,7 @@ const CreateConfig = () => {
   const [loading, setLoading] = useState(true)
   const today = new Date()
   const [startDate, setStartDate] = useState(today)
-  const [endDate, setEndDate] = useState(null)
+  const [endDate, setEndDate] = useState(today)
   const [farms, setFarms] = useState([])
   // optiop ở chọn khu vực
   const [farmSelected, setFarmSelected] = useState(false)
