@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import config from '../../config'
 import { format } from 'date-fns'
+import Swal from 'sweetalert2'
 import CIcon from '@coreui/icons-react'
 import {
   CCard,
@@ -42,13 +43,15 @@ const AutoConfig = () => {
   // list item
   const [schedules, setSchedules] = useState([])
   let stt = 1
+  const [scheduleId, setScheduleId] = useState(null)
 
   // show record per page
   const handleItemClick = (value) => {
     setSelectedValue(value)
   }
 
-  useEffect(() => {
+  // get all Schedules
+  const getSchedules = () => {
     axios
       .get(`${config.API_URL}/schedules`)
       .then((response) => {
@@ -60,7 +63,46 @@ const AutoConfig = () => {
         console.error('Error fetching schedules:', error)
         setLoading(false)
       })
+  }
+
+  useEffect(() => {
+    getSchedules()
   }, [])
+
+  // xóa lập lịch
+  const deleteSchedule = (id) => {
+    setScheduleId(id)
+    setVisible(true)
+  }
+
+  // xử lý xác nhận xóa
+  const handleDeleteConfirmed = (id) => {
+    axios
+      .delete(`${config.API_URL}/schedules/${id}`)
+      .then((res) => {
+        Swal.fire({
+          icon: 'success',
+          text: 'Xóa thành công',
+          showConfirmButton: false,
+          position: 'top-end',
+          toast: true,
+          timer: 2000,
+          showClass: {
+            popup: `
+                animate__animated
+                animate__fadeInRight
+                animate__faster
+            `,
+          },
+        })
+        getSchedules()
+        setVisible(false)
+      })
+      .catch((error) => {
+        console.error('Error deleted schedule:', error)
+        setLoading(false)
+      })
+  }
 
   return (
     <>
@@ -97,6 +139,12 @@ const AutoConfig = () => {
                   {loading ? (
                     <CTableRow>
                       <CTableDataCell colSpan="11">Loading...</CTableDataCell>
+                    </CTableRow>
+                  ) : schedules.length === 0 ? (
+                    <CTableRow>
+                      <CTableDataCell colSpan="11">
+                        Hiện tại chưa có lịch. Bạn có thể bắt đầu bằng cách tạo lịch mới!
+                      </CTableDataCell>
                     </CTableRow>
                   ) : (
                     schedules.map((schedule) => (
@@ -146,16 +194,14 @@ const AutoConfig = () => {
                             </CCol>
                             <CCol xs={5}>
                               <CTooltip content="Xóa">
-                                <CLink>
-                                  <CButton
-                                    color="danger"
-                                    type="button"
-                                    size="sm"
-                                    onClick={() => setVisible(!visible)}
-                                  >
-                                    <CIcon icon={cilTrash} />
-                                  </CButton>
-                                </CLink>
+                                <CButton
+                                  color="danger"
+                                  type="button"
+                                  size="sm"
+                                  onClick={() => deleteSchedule(schedule.id)}
+                                >
+                                  <CIcon icon={cilTrash} />
+                                </CButton>
                               </CTooltip>
                             </CCol>
                           </CButtonGroup>
@@ -175,7 +221,7 @@ const AutoConfig = () => {
                   <CDropdownItem onClick={() => handleItemClick('30')}>30</CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
-              <CFormLabel style={{ marginLeft: '10px' }}>bản ghi</CFormLabel>
+              <CFormLabel style={{ marginLeft: '10px' }}>bản ghi trên trang</CFormLabel>
             </CCardBody>
           </CCard>
         </CCol>
@@ -185,14 +231,17 @@ const AutoConfig = () => {
         backdrop="static"
         visible={visible}
         onClose={() => setVisible(false)}
-        aria-labelledby="StaticBackdropExampleLabel"
+        aria-labelledby="Xóa lịch"
       >
         <CModalHeader>
-          <CModalTitle id="StaticBackdropExampleLabel">Bạn có chắc muốn xóa mục này?</CModalTitle>
+          <CModalTitle>Bạn có chắc muốn xóa mục này?</CModalTitle>
         </CModalHeader>
         <CModalBody>Dữ liệu sẽ không thể khôi phục. Bạn có muốn tiếp tục?</CModalBody>
         <CModalFooter>
-          <CButton color="primary">Xác nhận</CButton>
+          <CButton color="primary" onClick={() => handleDeleteConfirmed(scheduleId)}>
+            Xác nhận
+          </CButton>
+
           <CButton color="secondary" onClick={() => setVisible(false)}>
             Hủy bỏ
           </CButton>
