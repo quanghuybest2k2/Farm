@@ -79,15 +79,14 @@ const EditConfig = () => {
       setSelectedDevices([...selectedDevices, deviceId])
       setDisabledOption(true)
 
-      // Kiểm tra xem thiết bị đã được chọn chưa
-      const isDeviceSelected = schedule.deviceSchedules.some(
-        (device) => device.deviceId === deviceId,
-      )
-      if (!isDeviceSelected) {
-        // Nếu chưa được chọn, thêm vào danh sách
-        const selectedDevice = farms
-          .flatMap((farm) => farm.devices)
-          .find((device) => device.id === deviceId)
+      const selectedDevice = farms
+        .flatMap((farm) => farm.devices)
+        .find((device) => device.id === deviceId)
+
+      if (selectedDevice) {
+        selectedDevice.deviceId = deviceId
+        selectedDevice.statusDevice = selectedStatus === '1'
+
         setSchedule((prevState) => ({
           ...prevState,
           deviceSchedules: [...prevState.deviceSchedules, selectedDevice],
@@ -105,6 +104,10 @@ const EditConfig = () => {
   const resetSelectedDevices = () => {
     setSelectedDevices([])
     setDisabledOption(false)
+    setSchedule((prevState) => ({
+      ...prevState,
+      deviceSchedules: [],
+    }))
   }
 
   // xử lý lấy giá trị của control
@@ -140,38 +143,46 @@ const EditConfig = () => {
       endDate: formatEndDate,
       isActive: schedule.isActive,
       farmId: schedule.farmId,
-      devices: selectedDevices.map((deviceId) => ({
-        id: deviceId,
+      devices: schedule.deviceSchedules.map((device) => ({
+        id: device.deviceId,
         statusDevice: selectedStatus === '1',
+        name: device.name,
+        type: device.type,
+        order: device.order,
+        createAt: device.createAt,
+        updateAt: device.updateAt,
+        farmId: device.farmId,
+        scheduleId: device.scheduleId,
       })),
     }
+
     console.log(data)
 
-    // axios
-    //   .put(`${config.API_URL}/schedules/${id}`, data)
-    //   .then((res) => {
-    //     Swal.fire({
-    //       icon: 'success',
-    //       text: 'Cập nhật thành công',
-    //       showConfirmButton: false,
-    //       position: 'top-end',
-    //       toast: true,
-    //       timer: 2000,
-    //       showClass: {
-    //         popup: `
-    //             animate__animated
-    //             animate__fadeInRight
-    //             animate__faster
-    //         `,
-    //       },
-    //     })
-    //     navigate('/auto-config')
-    //     setLoading(false)
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error updated schedules:', error)
-    //     setLoading(false)
-    //   })
+    axios
+      .put(`${config.API_URL}/schedules/${id}`, data)
+      .then((res) => {
+        Swal.fire({
+          icon: 'success',
+          text: 'Cập nhật thành công',
+          showConfirmButton: false,
+          position: 'top-end',
+          toast: true,
+          timer: 2000,
+          showClass: {
+            popup: `
+                animate__animated
+                animate__fadeInRight
+                animate__faster
+            `,
+          },
+        })
+        navigate('/auto-config')
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error updated schedules:', error)
+        setLoading(false)
+      })
   }
 
   return (
@@ -274,11 +285,10 @@ const EditConfig = () => {
                       </CFormSelect>
                       {/* Danh sách chọn */}
                       <ul>
-                        {schedule.deviceSchedules.map((device) => (
+                        {schedule.deviceSchedules?.map((device) => (
                           <li key={device.deviceId}>{device.name}</li>
                         ))}
                       </ul>
-
                       <CButton
                         color="danger"
                         size="sm"
@@ -337,7 +347,7 @@ const EditConfig = () => {
                             selected={schedule.startDate}
                             onChange={handleStartDateChange}
                             selectsStart
-                            minDate={schedule.startDate}
+                            minDate={today}
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
