@@ -58,16 +58,16 @@ const Statistical = () => {
   // call api
   const fetchData = async () => {
     const formattedStartDate = startDate
-      ? format(startDate, 'yyyy-MM-dd')
-      : format(startDateBefore7Day, 'yyyy-MM-dd')
+      ? format(startDate, 'yyyy/MM/dd')
+      : format(startDateBefore7Day, 'yyyy/MM/dd')
     const formattedEndDate = endDate
-      ? format(endDate, 'yyyy-MM-dd')
-      : format(endDateNow, 'yyyy-MM-dd')
+      ? format(endDate, 'yyyy/MM/dd')
+      : format(endDateNow, 'yyyy/MM/dd')
 
     // choose date specific
     const formattedSelectedDate = selectedDate
-      ? format(selectedDate, 'yyyy-MM-dd')
-      : format(endDateNow, 'yyyy-MM-dd')
+      ? format(selectedDate, 'yyyy/MM/dd')
+      : format(endDateNow, 'yyyy/MM/dd')
 
     console.log('start: ' + formattedStartDate)
     console.log('end: ' + formattedEndDate)
