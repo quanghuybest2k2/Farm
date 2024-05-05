@@ -30,6 +30,8 @@ const EditConfig = () => {
   const today = new Date()
   const [startDate, setStartDate] = useState(today)
   const [endDate, setEndDate] = useState(today)
+  // status device
+  const [selectedStatus, setSelectedStatus] = useState('')
   // id from url
   const { id } = useParams()
 
@@ -68,6 +70,16 @@ const EditConfig = () => {
       })
   }, [id])
 
+  // xử lý chọn status của đèn
+  const handleStatusChange = (e) => {
+    setSelectedStatus(e.target.value)
+  }
+
+  // xử lý lấy giá trị của control
+  const handleInput = (field, value) => {
+    setSchedule({ ...schedule, [field]: value })
+  }
+
   //Chọn ngày giờ start
   const handleStartDateChange = (date) => {
     setStartDate(date)
@@ -98,7 +110,7 @@ const EditConfig = () => {
       farmId: schedule.farmId,
       devices: schedule.deviceSchedules.map((device) => ({
         id: device.deviceId,
-        statusDevice: device.statusDevice,
+        statusDevice: selectedStatus === '1',
       })),
     }
     console.log(data)
@@ -295,6 +307,7 @@ const EditConfig = () => {
                         className="mb-3"
                         aria-label="Chọn giá trị"
                         onChange={(e) => handleInput('isActive', e.target.value === '1')}
+                        value={schedule.isActive ? '1' : '0'}
                       >
                         <option disabled>Chọn giá trị</option>
                         <option value="0">Tắt</option>
