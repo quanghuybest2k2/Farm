@@ -30,8 +30,11 @@ const EditConfig = () => {
   const today = new Date()
   const [startDate, setStartDate] = useState(today)
   const [endDate, setEndDate] = useState(today)
+  // chọn thiết bị
+  const [selectedDevices, setSelectedDevices] = useState([])
   // status device
   const [selectedStatus, setSelectedStatus] = useState('')
+  const [disabledOption, setDisabledOption] = useState(false)
   // id from url
   const { id } = useParams()
 
@@ -70,9 +73,38 @@ const EditConfig = () => {
       })
   }, [id])
 
+  // xử lý chọn thiết bị
+  const handleDeviceChange = (deviceId) => {
+    if (!selectedDevices.includes(deviceId)) {
+      setSelectedDevices([...selectedDevices, deviceId])
+      setDisabledOption(true)
+
+      // Kiểm tra xem thiết bị đã được chọn chưa
+      const isDeviceSelected = schedule.deviceSchedules.some(
+        (device) => device.deviceId === deviceId,
+      )
+      if (!isDeviceSelected) {
+        // Nếu chưa được chọn, thêm vào danh sách
+        const selectedDevice = farms
+          .flatMap((farm) => farm.devices)
+          .find((device) => device.id === deviceId)
+        setSchedule((prevState) => ({
+          ...prevState,
+          deviceSchedules: [...prevState.deviceSchedules, selectedDevice],
+        }))
+      }
+    }
+  }
+
   // xử lý chọn status của đèn
   const handleStatusChange = (e) => {
     setSelectedStatus(e.target.value)
+  }
+
+  // reset chọn thiết bị
+  const resetSelectedDevices = () => {
+    setSelectedDevices([])
+    setDisabledOption(false)
   }
 
   // xử lý lấy giá trị của control
@@ -108,8 +140,8 @@ const EditConfig = () => {
       endDate: formatEndDate,
       isActive: schedule.isActive,
       farmId: schedule.farmId,
-      devices: schedule.deviceSchedules.map((device) => ({
-        id: device.deviceId,
+      devices: selectedDevices.map((deviceId) => ({
+        id: deviceId,
         statusDevice: selectedStatus === '1',
       })),
     }
@@ -207,24 +239,54 @@ const EditConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
+                    <code className="mb-3">
+                      <strong>Mẹo</strong>: Có thể chọn nhiều thiết bị
+                    </code>
                     <CFormLabel className="col-sm-2 col-form-label">Thiết bị</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
                         aria-label="Chọn thiết bị"
-                        value={schedule.deviceSchedules.map((device) => device.order)}
+                        onChange={(e) => handleDeviceChange(e.target.value)}
+                        value="select"
                       >
-                        <option>Select device</option>
-                        <option value="0">Đèn 1</option>
-                        <option value="1">Đèn 2</option>
-                        <option value="2">Đèn 3</option>
-                        <option value="3">Đèn 4</option>
-                        <option value="4">Quạt 5</option>
-                        <option value="5">Quạt 6</option>
-                        <option value="6">Quạt 7</option>
-                        <option value="7">Quạt 8</option>
+                        <option disabled={disabledOption} value="select">
+                          Chọn thiết bị
+                        </option>
+                        {farms.map((farm) =>
+                          farm.devices.map((device) => (
+                            <option value={device.id} key={device.id}>
+                              {device.name}
+                            </option>
+                          )),
+                        )}
                       </CFormSelect>
+                      <CFormSelect
+                        size="large"
+                        className="mb-3"
+                        aria-label="Chọn trạng thái"
+                        onChange={handleStatusChange}
+                      >
+                        <option disabled>Chọn trạng thái</option>
+                        <option value="0">Tắt</option>
+                        <option value="1">Bật</option>
+                      </CFormSelect>
+                      {/* Danh sách chọn */}
+                      <ul>
+                        {schedule.deviceSchedules.map((device) => (
+                          <li key={device.deviceId}>{device.name}</li>
+                        ))}
+                      </ul>
+
+                      <CButton
+                        color="danger"
+                        size="sm"
+                        className="float-end"
+                        onClick={resetSelectedDevices}
+                      >
+                        Làm mới
+                      </CButton>
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
