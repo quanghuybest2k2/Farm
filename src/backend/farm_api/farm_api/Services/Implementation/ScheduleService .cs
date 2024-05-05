@@ -19,6 +19,7 @@ using FluentValidation;
 using Core.DTO;
 using System.Collections;
 using farm_api.Ulities;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace farm_api.Services.Implementation
 {
@@ -252,6 +253,9 @@ namespace farm_api.Services.Implementation
         /// <param name="cancellationToken">Cancellation token for async operations.</param>
         private async Task ScheduleJob(Schedule schedule, CancellationToken cancellationToken = default)
         {
+            var timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Ví dụ cho múi giờ GMT+7
+            var startOffset = new DateTimeOffset(schedule.StartDate, timeZoneInfo.GetUtcOffset(schedule.StartDate));
+            var endOffset = new DateTimeOffset(schedule.EndDate, timeZoneInfo.GetUtcOffset(schedule.EndDate));
             _logger.LogInformation("Scheduling job for schedule {ScheduleId}.", schedule.Id);
             var jobKey = new JobKey(schedule.Id.ToString());
             IJobDetail job = JobBuilder.Create<ExecuteJob>()
@@ -263,8 +267,8 @@ namespace farm_api.Services.Implementation
                                        .Build();
             ITrigger trigger = TriggerBuilder.Create()
                                              .WithIdentity($"Trigger-{schedule.Id}")
-                                             .StartAt(schedule.StartDate)
-                                             .EndAt(schedule.EndDate)
+                                             .StartAt(startOffset)
+                                             .EndAt(endOffset)
                                              .WithSimpleSchedule(x => x.WithIntervalInSeconds(20).RepeatForever())
                                              .Build();
 

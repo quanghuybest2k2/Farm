@@ -11,7 +11,8 @@ namespace farm_api.Ulities
 
             for (int day = 0; day < numberOfDays; day++)
             {
-                var date = DateTime.Today.AddDays(-day);
+                // Sử dụng ngày hiện tại trừ đi số ngày, chuyển đổi sang giờ Việt Nam
+                var date = ConvertToVietnamTime(DateTime.SpecifyKind(DateTime.UtcNow.AddDays(-day), DateTimeKind.Utc));
 
                 for (int record = 0; record < recordsPerDay; record++)
                 {
@@ -25,16 +26,29 @@ namespace farm_api.Ulities
                         Brightness = random.Next(100, 1000), // Brightness from 100 to 1000 lux
                         CreateAt = updateTime,
                         UpdateAt = updateTime
-                    }); ;
+                    });
                 }
             }
 
             return environments;
         }
+
+        public static DateTime ConvertToVietnamTime(DateTime dateTime)
+        {
+            TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            return TimeZoneInfo.ConvertTimeFromUtc(dateTime, vnTimeZone);
+        }
         public static DateTime ConvertToDateTime(string dateStr)
         {
-            DateTime.TryParseExact(dateStr, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AssumeLocal, out DateTime date);
-            return date;
+            string[] formats = { "yyyy/M/d HH:mm:ss", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/d HH:mm:ss", "yyyy/M/dd HH:mm:ss" };
+            // Phân tích chuỗi ngày tháng với các định dạng linh hoạt và giả sử là UTC
+            if (DateTime.TryParseExact(dateStr, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+            {
+                // Chỉ định rằng DateTime là UTC
+                date = DateTime.SpecifyKind(date, DateTimeKind.Unspecified);
+                return date;
+            }
+            return DateTime.MinValue;  // Trả về giá trị mặc định nếu parsing thất bại
         }
 
     }

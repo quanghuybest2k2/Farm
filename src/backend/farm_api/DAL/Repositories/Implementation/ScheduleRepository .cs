@@ -23,7 +23,7 @@ namespace DAL.Repositories.Implementation
         }
         public async Task<Schedule> GetByIdDetailAsync(Guid Id,CancellationToken cancellationToken=default)
         {
-            return await _context.Set<Schedule>().AsNoTracking().Include(x=>x.DeviceSchedules).ThenInclude(x=>x.Device).Include(x=>x.Farm).Where(x=>x.Id==Id).FirstOrDefaultAsync();
+            return await _context.Set<Schedule>().AsNoTracking().Include(x=>x.DeviceSchedules).ThenInclude(x=>x.Device).AsNoTracking().Include(x=>x.Farm).AsNoTracking().Where(x=>x.Id==Id).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<DeviceJob>> GetDevices(Guid ScheduleId, CancellationToken cancellationToken = default)

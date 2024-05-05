@@ -39,7 +39,7 @@ namespace farm_api.Mappers
             CreateMap<ScheduleDTO, Schedule>().ReverseMap();
             CreateMap<Device, DeviceTrans>().ReverseMap();
             CreateMap<DeviceSchedule, DeviceScheduleDTO>().ReverseMap();
-
+            CreateMap<Schedule, ScheduleDTO>().ForMember(des => des.FarmName, opt => opt.MapFrom(src=>src.Farm.Name));
             CreateMap<DeviceSchedule, DeviceInfoSchedule>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Device.Name))
             .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Device.Type))

@@ -20,7 +20,16 @@ namespace DAL.Repositories.UnitOfWork
             _context.Dispose();
         }
 
-
+        private DateTime GetVietnamDateTime()
+        {
+            // Lấy thời gian hiện tại của UTC
+            DateTime utcNow = DateTime.UtcNow;
+            // Tìm múi giờ của Việt Nam
+            TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            // Chuyển đổi từ UTC sang giờ Việt Nam
+            DateTime vnTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, vnTimeZone);
+            return vnTime;
+        }
         private void ChangeModifiedAt()
         {
             var entries = _context.ChangeTracker
@@ -31,11 +40,12 @@ namespace DAL.Repositories.UnitOfWork
 
             foreach (var entityEntry in entries)
             {
-                ((IModifier)entityEntry.Entity).UpdateAt = DateTime.Now;
+                DateTime nowInVietnam = GetVietnamDateTime();
+                ((IModifier)entityEntry.Entity).UpdateAt = nowInVietnam;
 
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((IModifier)entityEntry.Entity).CreateAt = DateTime.Now;
+                    ((IModifier)entityEntry.Entity).CreateAt = nowInVietnam;
                 }
             }
         }
@@ -53,7 +63,7 @@ namespace DAL.Repositories.UnitOfWork
 
                 throw new Exception("Conflict Forinkey ,Cannot Remove");
             }
-            
+
         }
 
         /// <summary>
