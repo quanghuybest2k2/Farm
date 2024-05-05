@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -13,62 +12,122 @@ import {
   CFormLabel,
   CRow,
   CLink,
+  CSpinner,
 } from '@coreui/react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { subDays, format, startOfDay, endOfDay, parseISO } from 'date-fns'
+import { format } from 'date-fns'
 import axios from 'axios'
 import config from '../../config'
+import Swal from 'sweetalert2'
 
 const EditConfig = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
-  const [schedule, setSchedule] = useState(null)
+  const [schedule, setSchedule] = useState({})
+  // list item
+  const [farms, setFarms] = useState([])
   const today = new Date()
   const [startDate, setStartDate] = useState(today)
-  const [endDate, setEndDate] = useState(null)
+  const [endDate, setEndDate] = useState(today)
   // id from url
   const { id } = useParams()
 
-  useEffect(() => {
+  // get all Schedules
+  const getFarms = () => {
     axios
-      .get(`${config.API_URL}/schedules/${id}`)
+      .get(`${config.API_URL}/farms`)
       .then((response) => {
-        console.log(response.data)
-        setSchedule(response.data)
+        // console.log(response.data.results)
+        setFarms(response.data.results)
         setLoading(false)
       })
       .catch((error) => {
         console.error('Error fetching schedules:', error)
         setLoading(false)
       })
-  }, [])
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      const updatedSchedule = {
-        type: parseInt(schedule.type),
-        status: schedule.status,
-        startValue: parseInt(schedule.startValue),
-        endValue: parseInt(schedule.endValue),
-        startDate: schedule.startDate,
-        endDate: schedule.endDate,
-        isActive: schedule.isActive,
+  useEffect(() => {
+    // get all farms
+    getFarms()
 
-        farmId: '140e8470-86ec-4e10-b28e-cb94d9165c54',
-        deviceId: '8a8bd086-1167-4d69-93a4-351317c20080',
-        // farmId: schedule.farmId,
-        // deviceId: schedule.deviceId,
-      }
-
-      await axios.put(`${config.API_URL}/schedules/${id}`, updatedSchedule).then((res) => {
-        alert('Update successfully')
-        navigate('/auto-config')
+    axios
+      .get(`${config.API_URL}/schedules/${id}`)
+      .then((response) => {
+        const scheduleData = response.data
+        scheduleData.startDate = new Date(scheduleData.startDate)
+        scheduleData.endDate = new Date(scheduleData.endDate)
+        setSchedule(scheduleData)
+        console.log(scheduleData)
+        setLoading(false)
       })
-    } catch (error) {
-      console.error('Error updating schedule:', error)
+      .catch((error) => {
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }, [id])
+
+  //Chọn ngày giờ start
+  const handleStartDateChange = (date) => {
+    setStartDate(date)
+    setSchedule({ ...schedule, startDate: date })
+  }
+
+  //Chọn ngày giờ end
+  const handleEndDateChange = (date) => {
+    setEndDate(date)
+    setSchedule({ ...schedule, endDate: date })
+  }
+
+  // xử lý cập nhật
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // format date
+    const formatStartDate = format(startDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
+    const formatEndDate = format(endDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
+
+    const data = {
+      type: parseInt(schedule.type) ?? 1,
+      startValue: parseInt(schedule.startValue),
+      endValue: parseInt(schedule.endValue),
+      startDate: formatStartDate,
+      endDate: formatEndDate,
+      isActive: schedule.isActive,
+      farmId: schedule.farmId,
+      devices: schedule.deviceSchedules.map((device) => ({
+        id: device.deviceId,
+        statusDevice: device.statusDevice,
+      })),
     }
+    console.log(data)
+
+    // axios
+    //   .put(`${config.API_URL}/schedules/${id}`, data)
+    //   .then((res) => {
+    //     Swal.fire({
+    //       icon: 'success',
+    //       text: 'Cập nhật thành công',
+    //       showConfirmButton: false,
+    //       position: 'top-end',
+    //       toast: true,
+    //       timer: 2000,
+    //       showClass: {
+    //         popup: `
+    //             animate__animated
+    //             animate__fadeInRight
+    //             animate__faster
+    //         `,
+    //       },
+    //     })
+    //     navigate('/auto-config')
+    //     setLoading(false)
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error updated schedules:', error)
+    //     setLoading(false)
+    //   })
   }
 
   return (
@@ -84,23 +143,32 @@ const EditConfig = () => {
             </CLink>
           </CCardHeader>
           <CCardBody>
-            <p className="text-body-secondary small">
-              Sửa lập lịch cấu hình tự động thay cho việc <code>Bật/Tắt</code> thủ công.
-            </p>
-            <CForm>
-              {schedule && (
-                <>
+            {loading ? (
+              <div className="text-center">
+                <CSpinner color="primary" />
+              </div>
+            ) : (
+              <>
+                <p className="text-body-secondary small">
+                  Sửa lập lịch cấu hình tự động thay cho việc <code>Bật/Tắt</code> thủ công.
+                </p>
+                <CForm onSubmit={handleSubmit}>
                   <CRow className="mb-3">
-                    <CFormLabel className="col-sm-2 col-form-label">Loại</CFormLabel>
+                    <CFormLabel
+                      className="col-sm-2 col-form-label"
+                      onChange={(e) => handleInput('type', e.target.value)}
+                    >
+                      Loại
+                    </CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
-                        aria-label="Select status"
+                        aria-label="Chọn loại"
+                        onChange={(e) => handleInput('type', e.target.value)}
                         value={schedule.type}
-                        onChange={(e) => setSchedule({ ...schedule, type: e.target.value })}
                       >
-                        <option>Select Type</option>
+                        <option disabled>Chọn loại</option>
                         <option value="1">Nhiệt độ</option>
                         <option value="2">Độ ẩm</option>
                         <option value="3">Độ sáng</option>
@@ -110,11 +178,20 @@ const EditConfig = () => {
                   <CRow className="mb-3">
                     <CFormLabel className="col-sm-2 col-form-label">Khu vực</CFormLabel>
                     <CCol sm={10}>
-                      <CFormInput
-                        type="text"
-                        placeholder="Nhập khu vực...."
-                        value={schedule.deviceSchedules.name}
-                      />
+                      <CFormSelect
+                        size="large"
+                        className="mb-3"
+                        aria-label="Chọn khu vực"
+                        onChange={(e) => handleInput('farmId', e.target.value)}
+                        value={schedule.farmId}
+                      >
+                        <option disabled>Chọn khu vực</option>
+                        {farms.map((farm) => (
+                          <option value={farm.id} key={farm.id}>
+                            {farm.name}
+                          </option>
+                        ))}
+                      </CFormSelect>
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
@@ -139,27 +216,6 @@ const EditConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
-                    <CFormLabel className="col-sm-2 col-form-label">Trạng thái</CFormLabel>
-                    <CCol sm={10}>
-                      <CFormSelect
-                        size="large"
-                        className="mb-3"
-                        aria-label="Chọn trạng thái"
-                        value={schedule.status ? '1' : '0'}
-                        onChange={(e) =>
-                          setSchedule({
-                            ...schedule,
-                            status: e.target.value === '1' ? true : false,
-                          })
-                        }
-                      >
-                        <option>Chọn trạng thái</option>
-                        <option value="0">Tắt</option>
-                        <option value="1">Bật</option>
-                      </CFormSelect>
-                    </CCol>
-                  </CRow>
-                  <CRow className="mb-3">
                     <CCol sm={5}>
                       <div className="d-flex mt-3 align-items-center">
                         <div className="me-2">
@@ -169,13 +225,9 @@ const EditConfig = () => {
                           <CFormInput
                             type="number"
                             placeholder="Nhập giá trị bắt đầu...."
+                            name="startValue"
                             value={schedule.startValue}
-                            onChange={(e) =>
-                              setSchedule({
-                                ...schedule,
-                                startValue: e.target.value,
-                              })
-                            }
+                            onChange={(e) => handleInput('startValue', e.target.value)}
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
@@ -186,13 +238,9 @@ const EditConfig = () => {
                           <CFormInput
                             type="number"
                             placeholder="Nhập giá trị kết thúc...."
+                            name="endValue"
                             value={schedule.endValue}
-                            onChange={(e) =>
-                              setSchedule({
-                                ...schedule,
-                                endValue: e.target.value,
-                              })
-                            }
+                            onChange={(e) => handleInput('endValue', e.target.value)}
                           />
                         </div>
                       </div>
@@ -204,68 +252,64 @@ const EditConfig = () => {
                         <div className="me-2">
                           <h6 className="mb-3">Từ ngày</h6>
                           <DatePicker
-                            selected={parseISO(schedule.startDate)}
-                            onChange={(date) => setStartDate(date)}
-                            selectsStart
-                            startDate={parseISO(schedule.startDate)}
-                            endDate={endDate}
-                            minDate={today}
                             withPortal
                             portalId="root-portal"
                             placeholderText="Chọn ngày bắt đầu"
                             className="form-control"
                             dateFormat="dd/MM/yyyy HH:mm:ss"
+                            showTimeSelect
+                            timeFormat="HH:mm:ss"
+                            timeIntervals={10}
+                            selected={schedule.startDate}
+                            onChange={handleStartDateChange}
+                            selectsStart
+                            minDate={schedule.startDate}
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
                         <div className="ms-2">
                           <h6 className="mb-3">Đến ngày</h6>
                           <DatePicker
-                            selected={parseISO(schedule.endDate)}
-                            onChange={(date) => setEndDate(date)}
-                            selectsEnd
-                            startDate={startDate}
-                            endDate={endDate}
-                            minDate={startDate || today}
                             withPortal
                             portalId="root-portal"
                             placeholderText="Chọn ngày kết thúc"
                             className="form-control"
                             dateFormat="dd/MM/yyyy HH:mm:ss"
+                            showTimeSelect
+                            timeFormat="HH:mm:ss"
+                            timeIntervals={10}
+                            selected={schedule.endDate}
+                            onChange={handleEndDateChange}
+                            selectsEnd
+                            minDate={today}
                           />
                         </div>
                       </div>
                     </CCol>
                   </CRow>
                   <CRow className="mt-4">
-                    <CFormLabel className="col-sm-2 col-form-label">Kích hoạt</CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">Tình trạng</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
                         aria-label="Chọn giá trị"
-                        value={schedule.isActive ? '1' : '0'}
-                        onChange={(e) =>
-                          setSchedule({
-                            ...schedule,
-                            isActive: e.target.value === '1' ? true : false,
-                          })
-                        }
+                        onChange={(e) => handleInput('isActive', e.target.value === '1')}
                       >
-                        <option>Chọn giá trị</option>
+                        <option disabled>Chọn giá trị</option>
                         <option value="0">Tắt</option>
                         <option value="1">Bật</option>
                       </CFormSelect>
                     </CCol>
                   </CRow>
                   <CCol className="mt-3">
-                    <CButton color="primary" type="submit" onClick={handleSubmit}>
+                    <CButton color="primary" type="submit">
                       Cập nhật
                     </CButton>
                   </CCol>
-                </>
-              )}
-            </CForm>
+                </CForm>
+              </>
+            )}
           </CCardBody>
         </CCard>
       </CCol>
