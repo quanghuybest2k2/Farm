@@ -82,6 +82,11 @@ namespace farm_api.Services.Implementation
 
             await _validator.ValidateAndThrowAsync(scheduleRequest);
             var device = await GetDivicesAsync(scheduleRequest.Devices);
+            var distinctDevice = device.DistinctBy(x => x.Id);
+            if (distinctDevice.Count() != device.Count())
+            {
+                throw new Exception("duplicated device Id ,please check input api");
+            }
             if (!(device.Count() > 0)) throw new Exception("Not Found Device");
             var farm = await _farmRepositorty.GetByIdAsync(scheduleRequest.FarmId);// lấy farm theo id
             if (farm == null)
@@ -96,7 +101,7 @@ namespace farm_api.Services.Implementation
             schedule.StartDate = MockDataGenerator.ConvertToDateTime(scheduleRequest.StartDate);
             schedule.EndDate = MockDataGenerator.ConvertToDateTime(scheduleRequest.EndDate);
             _mapper.Map(scheduleRequest, schedule);
-           
+
             _repository.Insert(schedule);
 
             foreach (var item in scheduleRequest.Devices)
@@ -155,15 +160,20 @@ namespace farm_api.Services.Implementation
         public async Task UpdateScheduleAsync(Guid id, ScheduleRequest scheduleRequest, CancellationToken cancellationToken = default)
         {
             await _validator.ValidateAndThrowAsync(scheduleRequest);
-            var device = await GetDivicesAsync(scheduleRequest.Devices);
-            if (!(device.Count() > 0)) throw new Exception("Not Found Device");
-            var farm = await _farmRepositorty.GetByIdDetailAsync(scheduleRequest.FarmId);// lấy farm theo id
+            var devices = await GetDivicesAsync(scheduleRequest.Devices);
+            var distinctDevice = devices.DistinctBy(x => x.Id);
+            if (distinctDevice.Count() != devices.Count())
+            {
+                throw new Exception("duplicated device Id ,please check input api");
+            }
+            if (!devices.Any()) throw new Exception("Not Found Device");
+            var farm = await _farmRepositorty.GetByIdDetailAsync(scheduleRequest.FarmId); // lấy farm theo id
 
             if (farm == null)
             {
                 throw new KeyNotFoundException("farm not found");
             }
-            if (device.Any(x => x.FarmId != farm.Id))
+            if (devices.Any(x => x.FarmId != farm.Id))
             {
                 throw new Exception("device not belong farm");
             }
@@ -175,21 +185,29 @@ namespace farm_api.Services.Implementation
                 _logger.LogWarning("Schedule {ScheduleId} not found.", id);
                 throw new KeyNotFoundException("Schedule not found");
             }
-            schedule.DeviceSchedules.Clear();
-            // Ghi nhận trạng thái hoạt động trước cập nhật
-            bool wasActive = schedule.IsActive;
+
+            // Xóa các DeviceSchedule cũ từ cơ sở dữ liệu
+            var existingDeviceSchedules = schedule.DeviceSchedules.ToList();
+            foreach (var deviceSchedule in existingDeviceSchedules)
+            {
+                await _deviceScheduleRepository.DeleteAsync(deviceSchedule); // Giả định có phương thức Delete
+            }
+
+            // Thêm các DeviceSchedule mới
             foreach (var item in scheduleRequest.Devices)
             {
                 _deviceScheduleRepository.Insert(new DeviceSchedule() { DeviceId = item.Id, StatusDevice = item.StatusDevice, ScheduleId = schedule.Id });
             }
+
             // Áp dụng các cập nhật vào lịch trình
             _mapper.Map(scheduleRequest, schedule);
-            schedule.StartDate=MockDataGenerator.ConvertToDateTime(scheduleRequest.StartDate);
+            schedule.StartDate = MockDataGenerator.ConvertToDateTime(scheduleRequest.StartDate);
             schedule.EndDate = MockDataGenerator.ConvertToDateTime(scheduleRequest.EndDate);
 
             _repository.Update(schedule);
             _unitOfWork.Save();
             _logger.LogInformation("Schedule updated.");
+
             // Xóa công việc hiện tại nếu nó đã tồn tại
             if (await _scheduler.CheckExists(new JobKey(id.ToString())))
             {
@@ -203,6 +221,7 @@ namespace farm_api.Services.Implementation
                 await ScheduleJob(schedule, cancellationToken);
             }
         }
+
 
         /// <summary>
         /// Deletes a schedule asynchronously and unschedules any associated jobs.

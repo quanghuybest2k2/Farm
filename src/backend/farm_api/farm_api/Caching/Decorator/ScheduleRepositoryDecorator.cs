@@ -30,50 +30,34 @@ namespace farm_api.Caching.Decorator
         }
 
         public async Task<IEnumerable<Schedule>> GetAllAsync(ScheduleQueryDTO scheduleQueryDTO, CancellationToken cancellationToken = default)
-        {
-            // Implement caching based on the query parameters if feasible
-            var cacheKey = $"Schedules-{scheduleQueryDTO.GetHashCode()}";
-            if (_cache.TryGetValue(cacheKey, out IEnumerable<Schedule> cachedResult))
-            {
-                return cachedResult;
-            }
-
+        { 
             var result = await _innerRepository.GetAllAsync(scheduleQueryDTO, cancellationToken);
-            _cache.Set(cacheKey, result, _cacheDuration);
             return result;
         }
 
         public async Task<Schedule> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default)
         {
-            var cacheKey = $"ScheduleDetail-{Id}";
-            if (_cache.TryGetValue(cacheKey, out Schedule cachedSchedule))
-            {
-                return cachedSchedule;
-            }
-
-            Schedule schedule = await _innerRepository.GetByIdDetailAsync(Id, cancellationToken);
-            if (schedule != null)
-            {
-                _cache.Set(cacheKey, schedule, _cacheDuration);
-            }
+            //var cacheKey = $"Schedule-{Id}";
+            //var schedule = _cache.Get<Schedule>(cacheKey);
+            //if (schedule == null)
+            //{
+                var schedule = await _innerRepository.GetByIdDetailAsync(Id, cancellationToken);
+            //    if (schedule != null)
+            //    {
+            //        _cache.Set(cacheKey, schedule, _cacheDuration);
+            //    }
+            //}
             return schedule;
         }
 
         public async Task<Schedule> GetByIdAsync(object id, CancellationToken cancellationToken = default)
         {
-            return await GetByIdDetailAsync((Guid)id, cancellationToken);
+            return await _innerRepository.GetByIdAsync((Guid)id, cancellationToken);
         }
 
         public async Task<IEnumerable<DeviceJob>> GetDevices(Guid ScheduleId, CancellationToken cancellationToken = default)
         {
-            var cacheKey = $"Devices-{ScheduleId}";
-            if (_cache.TryGetValue(cacheKey, out IEnumerable<DeviceJob> cachedDevices))
-            {
-                return cachedDevices;
-            }
-
-            var devices = await _innerRepository.GetDevices(ScheduleId, cancellationToken);
-            _cache.Set(cacheKey, devices, _cacheDuration);
+            var devices = await _innerRepository.GetDevices(ScheduleId, cancellationToken);       
             return devices;
         }
 
@@ -87,6 +71,7 @@ namespace farm_api.Caching.Decorator
         public async Task DeleteAsync(object ob)
         {
             await _innerRepository.DeleteAsync(ob);
+            _cache.Remove($"Schedule-{ob}");
         }
 
         public void Insert(Schedule schedule)
@@ -97,6 +82,7 @@ namespace farm_api.Caching.Decorator
         public void Update(Schedule schedule)
         {
             _innerRepository.Update(schedule);
+            _cache.Remove($"Schedule-{schedule.Id}"); // Đảm bảo xóa cache trước khi cập nhật
             _cache.Set($"Schedule-{schedule.Id}", schedule, _cacheDuration);
         }
     }
