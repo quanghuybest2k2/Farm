@@ -24,7 +24,21 @@ import Swal from 'sweetalert2'
 const EditConfig = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
-  const [schedule, setSchedule] = useState({})
+  const [schedule, setSchedule] = useState({
+    type: 1,
+    startValue: 0,
+    endValue: 0,
+    startDate: '',
+    endDate: '',
+    isActive: false,
+    farmId: 0,
+    devices: [
+      {
+        id: '',
+        statusDevice: false,
+      },
+    ],
+  })
   // list item
   const [farms, setFarms] = useState([])
   const today = new Date()
@@ -146,13 +160,6 @@ const EditConfig = () => {
       devices: schedule.deviceSchedules.map((device) => ({
         id: device.deviceId,
         statusDevice: selectedStatus === '1',
-        name: device.name,
-        type: device.type,
-        order: device.order,
-        createAt: device.createAt,
-        updateAt: device.updateAt,
-        farmId: device.farmId,
-        scheduleId: device.scheduleId,
       })),
     }
 
