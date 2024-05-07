@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import {
   CButton,
   CCard,
@@ -12,100 +12,100 @@ import {
   CRow,
   CLink,
   CSpinner,
-} from '@coreui/react'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-import config from '../../config'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { format } from 'date-fns'
-import Swal from 'sweetalert2'
+} from "@coreui/react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import config from "../../config";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
+import Swal from "sweetalert2";
 
 const CreateConfig = () => {
-  const [loading, setLoading] = useState(true)
-  const today = new Date()
-  const [startDate, setStartDate] = useState(today)
-  const [endDate, setEndDate] = useState(today)
-  const [farms, setFarms] = useState([])
+  const [loading, setLoading] = useState(true);
+  const today = new Date();
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(today);
+  const [farms, setFarms] = useState([]);
   // optiop ở chọn khu vực
-  const [farmSelected, setFarmSelected] = useState(false)
+  const [farmSelected, setFarmSelected] = useState(false);
   // chọn thiết bị
-  const [selectedDevices, setSelectedDevices] = useState([])
+  const [selectedDevices, setSelectedDevices] = useState([]);
   // status device
-  const [selectedStatus, setSelectedStatus] = useState('')
-  const [disabledOption, setDisabledOption] = useState(false)
-  const navigate = useNavigate()
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [disabledOption, setDisabledOption] = useState(false);
+  const navigate = useNavigate();
   const [schedule, setSchedule] = useState({
     type: 1,
     startValue: 0,
     endValue: 0,
-    startDate: '',
-    endDate: '',
+    startDate: "",
+    endDate: "",
     isActive: false,
     farmId: 0,
     devices: [
       {
-        id: '',
+        id: "",
         statusDevice: false,
       },
     ],
-  })
+  });
 
   useEffect(() => {
     axios
       .get(`${config.API_URL}/farms`)
       .then((response) => {
         // console.log(response.data.results)
-        setFarms(response.data.results)
-        setLoading(false)
+        setFarms(response.data.results);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error('Error fetching schedules:', error)
-        setLoading(false)
-      })
-  }, [])
+        console.error("Error fetching schedules:", error);
+        setLoading(false);
+      });
+  }, []);
 
   // xử lý chọn thiết bị
   const handleDeviceChange = (deviceId) => {
     if (!selectedDevices.includes(deviceId)) {
-      setSelectedDevices([...selectedDevices, deviceId])
-      setDisabledOption(true)
+      setSelectedDevices([...selectedDevices, deviceId]);
+      setDisabledOption(true);
     }
-  }
+  };
 
   // xử lý chọn status của đèn
   const handleStatusChange = (e) => {
-    setSelectedStatus(e.target.value)
-  }
+    setSelectedStatus(e.target.value);
+  };
 
   // reset chọn thiết bị
   const resetSelectedDevices = () => {
-    setSelectedDevices([])
-    setDisabledOption(false)
-  }
+    setSelectedDevices([]);
+    setDisabledOption(false);
+  };
 
   // xử lý lấy giá trị của control
   const handleInput = (field, value) => {
-    setSchedule({ ...schedule, [field]: value })
-  }
+    setSchedule({ ...schedule, [field]: value });
+  };
 
   //Chọn ngày giờ start
   const handleStartDateChange = (date) => {
-    setStartDate(date)
-  }
+    setStartDate(date);
+  };
 
   //Chọn ngày giờ end
   const handleEndDateChange = (date) => {
-    setEndDate(date)
-  }
+    setEndDate(date);
+  };
 
   // api tạo mới
   const submitForm = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // format date
-    const formatStartDate = format(startDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
-    const formatEndDate = format(endDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
+    const formatStartDate = format(startDate, "yyyy/MM/dd HH:mm:ss") ?? "";
+    const formatEndDate = format(endDate, "yyyy/MM/dd HH:mm:ss") ?? "";
 
     const data = {
       type: parseInt(schedule.type),
@@ -117,19 +117,19 @@ const CreateConfig = () => {
       farmId: schedule.farmId,
       devices: selectedDevices.map((deviceId) => ({
         id: deviceId,
-        statusDevice: selectedStatus === '1',
+        statusDevice: selectedStatus === "1",
       })),
-    }
-    console.log(data)
+    };
+    // console.log(data)
 
     axios
       .post(`${config.API_URL}/schedules`, data)
       .then((res) => {
         Swal.fire({
-          icon: 'success',
-          text: 'Tạo mới thành công',
+          icon: "success",
+          text: "Tạo mới thành công",
           showConfirmButton: false,
-          position: 'top-end',
+          position: "top-end",
           toast: true,
           timer: 2000,
           showClass: {
@@ -139,15 +139,15 @@ const CreateConfig = () => {
                 animate__faster
             `,
           },
-        })
-        navigate('/auto-config')
-        setLoading(false)
+        });
+        navigate("/auto-config");
+        setLoading(false);
       })
       .catch((error) => {
-        console.error('Error created schedules:', error)
-        setLoading(false)
-      })
-  }
+        console.error("Error created schedules:", error);
+        setLoading(false);
+      });
+  };
 
   return (
     <CRow>
@@ -169,13 +169,14 @@ const CreateConfig = () => {
             ) : (
               <>
                 <p className="text-body-secondary small">
-                  Tạo lập lịch cấu hình tự động thay cho việc <code>Bật/Tắt</code> thủ công.
+                  Tạo lập lịch cấu hình tự động thay cho việc{" "}
+                  <code>Bật/Tắt</code> thủ công.
                 </p>
                 <CForm onSubmit={submitForm}>
                   <CRow className="mb-3">
                     <CFormLabel
                       className="col-sm-2 col-form-label"
-                      onChange={(e) => handleInput('type', e.target.value)}
+                      onChange={(e) => handleInput("type", e.target.value)}
                     >
                       Loại
                     </CFormLabel>
@@ -184,7 +185,7 @@ const CreateConfig = () => {
                         size="large"
                         className="mb-3"
                         aria-label="Chọn loại"
-                        onChange={(e) => handleInput('type', e.target.value)}
+                        onChange={(e) => handleInput("type", e.target.value)}
                       >
                         <option disabled>Chọn loại</option>
                         <option value="1">Nhiệt độ</option>
@@ -194,15 +195,17 @@ const CreateConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
-                    <CFormLabel className="col-sm-2 col-form-label">Khu vực</CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">
+                      Khu vực
+                    </CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
                         aria-label="Chọn khu vực"
                         onChange={(e) => {
-                          handleInput('farmId', e.target.value)
-                          setFarmSelected(true)
+                          handleInput("farmId", e.target.value);
+                          setFarmSelected(true);
                         }}
                       >
                         <option disabled={farmSelected}>Chọn khu vực</option>
@@ -218,7 +221,9 @@ const CreateConfig = () => {
                     <code className="mb-3">
                       <strong>Mẹo</strong>: Có thể chọn nhiều thiết bị
                     </code>
-                    <CFormLabel className="col-sm-2 col-form-label">Thiết bị</CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">
+                      Thiết bị
+                    </CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
@@ -231,11 +236,20 @@ const CreateConfig = () => {
                           Chọn thiết bị
                         </option>
                         {farms.map((farm) =>
-                          farm.devices.map((device) => (
-                            <option value={device.id} key={device.id}>
-                              {device.name}
-                            </option>
-                          )),
+                          farm.devices.map((device) => {
+                            const isDeviceSelected = selectedDevices.includes(
+                              device.id
+                            );
+                            return (
+                              <option
+                                key={device.id}
+                                value={device.id}
+                                hidden={isDeviceSelected}
+                              >
+                                {device.name}
+                              </option>
+                            );
+                          })
                         )}
                       </CFormSelect>
                       <CFormSelect
@@ -253,8 +267,8 @@ const CreateConfig = () => {
                         {selectedDevices.map((deviceId) => {
                           const device = farms
                             .flatMap((farm) => farm.devices)
-                            .find((device) => device.id === deviceId)
-                          return <li key={device.id}>{device.name}</li>
+                            .find((device) => device.id === deviceId);
+                          return <li key={device.id}>{device.name}</li>;
                         })}
                       </ul>
                       <CButton
@@ -279,7 +293,9 @@ const CreateConfig = () => {
                             placeholder="Nhập giá trị bắt đầu...."
                             name="startValue"
                             value={schedule.startValue}
-                            onChange={(e) => handleInput('startValue', e.target.value)}
+                            onChange={(e) =>
+                              handleInput("startValue", e.target.value)
+                            }
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
@@ -292,7 +308,9 @@ const CreateConfig = () => {
                             placeholder="Nhập giá trị kết thúc...."
                             name="endValue"
                             value={schedule.endValue}
-                            onChange={(e) => handleInput('endValue', e.target.value)}
+                            onChange={(e) =>
+                              handleInput("endValue", e.target.value)
+                            }
                           />
                         </div>
                       </div>
@@ -340,13 +358,17 @@ const CreateConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mt-4">
-                    <CFormLabel className="col-sm-2 col-form-label">Tình trạng</CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">
+                      Tình trạng
+                    </CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
                         aria-label="Chọn giá trị"
-                        onChange={(e) => handleInput('isActive', e.target.value === '1')}
+                        onChange={(e) =>
+                          handleInput("isActive", e.target.value === "1")
+                        }
                       >
                         <option disabled>Chọn giá trị</option>
                         <option value="0">Tắt</option>
@@ -366,7 +388,7 @@ const CreateConfig = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default CreateConfig
+export default CreateConfig;
