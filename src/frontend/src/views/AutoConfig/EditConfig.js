@@ -187,7 +187,6 @@ const EditConfig = () => {
         setLoading(false)
       })
       .catch((error) => {
-        Swal.fire('Lỗi rồi', error, 'error')
         if (error.response?.data) {
           Swal.fire({
             icon: 'error',
