@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -13,44 +13,44 @@ import {
   CRow,
   CLink,
   CSpinner,
-} from "@coreui/react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { format } from "date-fns";
-import axios from "axios";
-import config from "../../config";
-import Swal from "sweetalert2";
+} from '@coreui/react'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { format } from 'date-fns'
+import axios from 'axios'
+import config from '../../config'
+import Swal from 'sweetalert2'
 
 const EditConfig = () => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   const [schedule, setSchedule] = useState({
     type: 1,
     startValue: 0,
     endValue: 0,
-    startDate: "",
-    endDate: "",
+    startDate: '',
+    endDate: '',
     isActive: false,
     farmId: 0,
     devices: [
       {
-        id: "",
+        id: '',
         statusDevice: false,
       },
     ],
-  });
+  })
   // list item
-  const [farms, setFarms] = useState([]);
-  const today = new Date();
-  const [startDate, setStartDate] = useState(today);
-  const [endDate, setEndDate] = useState(today);
+  const [farms, setFarms] = useState([])
+  const today = new Date()
+  const [startDate, setStartDate] = useState(today)
+  const [endDate, setEndDate] = useState(today)
   // chọn thiết bị
-  const [selectedDevices, setSelectedDevices] = useState([]);
+  const [selectedDevices, setSelectedDevices] = useState([])
   // status device
-  const [selectedStatus, setSelectedStatus] = useState("");
-  const [disabledOption, setDisabledOption] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState('')
+  const [disabledOption, setDisabledOption] = useState(false)
   // id from url
-  const { id } = useParams();
+  const { id } = useParams()
 
   // get all Schedules
   const getFarms = () => {
@@ -58,96 +58,96 @@ const EditConfig = () => {
       .get(`${config.API_URL}/farms`)
       .then((response) => {
         // console.log(response.data.results)
-        setFarms(response.data.results);
-        setLoading(false);
+        setFarms(response.data.results)
+        setLoading(false)
       })
       .catch((error) => {
-        console.error("Error fetching schedules:", error);
-        setLoading(false);
-      });
-  };
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }
 
   useEffect(() => {
     // get all farms
-    getFarms();
+    getFarms()
 
     axios
       .get(`${config.API_URL}/schedules/${id}`)
       .then((response) => {
-        const scheduleData = response.data;
-        scheduleData.startDate = new Date(scheduleData.startDate);
-        scheduleData.endDate = new Date(scheduleData.endDate);
-        setSchedule(scheduleData);
-        console.log(scheduleData);
-        setLoading(false);
+        const scheduleData = response.data
+        scheduleData.startDate = new Date(scheduleData.startDate)
+        scheduleData.endDate = new Date(scheduleData.endDate)
+        setSchedule(scheduleData)
+        // console.log(scheduleData)
+        setLoading(false)
       })
       .catch((error) => {
-        console.error("Error fetching schedules:", error);
-        setLoading(false);
-      });
-  }, [id]);
+        console.error('Error fetching schedules:', error)
+        setLoading(false)
+      })
+  }, [id])
 
   // xử lý chọn thiết bị
   const handleDeviceChange = (deviceId) => {
     if (!selectedDevices.includes(deviceId)) {
-      setSelectedDevices([...selectedDevices, deviceId]);
-      setDisabledOption(true);
+      setSelectedDevices([...selectedDevices, deviceId])
+      setDisabledOption(true)
 
       const selectedDevice = farms
         .flatMap((farm) => farm.devices)
-        .find((device) => device.id === deviceId);
+        .find((device) => device.id === deviceId)
 
       if (selectedDevice) {
-        selectedDevice.deviceId = deviceId;
-        selectedDevice.statusDevice = selectedStatus === "1";
+        selectedDevice.deviceId = deviceId
+        selectedDevice.statusDevice = selectedStatus === '1'
 
         setSchedule((prevState) => ({
           ...prevState,
           deviceSchedules: [...prevState.deviceSchedules, selectedDevice],
-        }));
+        }))
       }
     }
-  };
+  }
 
   // xử lý chọn status của đèn
   const handleStatusChange = (e) => {
-    setSelectedStatus(e.target.value);
-  };
+    setSelectedStatus(e.target.value)
+  }
 
   // reset chọn thiết bị
   const resetSelectedDevices = () => {
-    setSelectedDevices([]);
-    setDisabledOption(false);
+    setSelectedDevices([])
+    setDisabledOption(false)
     setSchedule((prevState) => ({
       ...prevState,
       deviceSchedules: [],
-    }));
-  };
+    }))
+  }
 
   // xử lý lấy giá trị của control
   const handleInput = (field, value) => {
-    setSchedule({ ...schedule, [field]: value });
-  };
+    setSchedule({ ...schedule, [field]: value })
+  }
 
   //Chọn ngày giờ start
   const handleStartDateChange = (date) => {
-    setStartDate(date);
-    setSchedule({ ...schedule, startDate: date });
-  };
+    setStartDate(date)
+    setSchedule({ ...schedule, startDate: date })
+  }
 
   //Chọn ngày giờ end
   const handleEndDateChange = (date) => {
-    setEndDate(date);
-    setSchedule({ ...schedule, endDate: date });
-  };
+    setEndDate(date)
+    setSchedule({ ...schedule, endDate: date })
+  }
 
   // xử lý cập nhật
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // format date
-    const formatStartDate = format(startDate, "yyyy/MM/dd HH:mm:ss") ?? "";
-    const formatEndDate = format(endDate, "yyyy/MM/dd HH:mm:ss") ?? "";
+    const formatStartDate = format(startDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
+    const formatEndDate = format(endDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
 
     const data = {
       type: parseInt(schedule.type) ?? 1,
@@ -159,20 +159,20 @@ const EditConfig = () => {
       farmId: schedule.farmId,
       devices: schedule.deviceSchedules.map((device) => ({
         id: device.deviceId,
-        statusDevice: selectedStatus === "1",
+        statusDevice: selectedStatus === '1',
       })),
-    };
+    }
 
-    // console.log(data)
+    console.log(data)
 
     axios
       .put(`${config.API_URL}/schedules/${id}`, data)
       .then((res) => {
         Swal.fire({
-          icon: "success",
-          text: "Cập nhật thành công",
+          icon: 'success',
+          text: 'Cập nhật thành công',
           showConfirmButton: false,
-          position: "top-end",
+          position: 'top-end',
           toast: true,
           timer: 2000,
           showClass: {
@@ -182,15 +182,25 @@ const EditConfig = () => {
                 animate__faster
             `,
           },
-        });
-        navigate("/auto-config");
-        setLoading(false);
+        })
+        navigate('/auto-config')
+        setLoading(false)
       })
       .catch((error) => {
-        console.error("Error updated schedules:", error);
-        setLoading(false);
-      });
-  };
+        Swal.fire('Lỗi rồi', error, 'error')
+        if (error.response?.data) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Lỗi rồi',
+            text: error.response.data,
+            timer: 2000,
+          })
+        } else {
+          console.log(error)
+        }
+        setLoading(false)
+      })
+  }
 
   return (
     <CRow>
@@ -212,14 +222,13 @@ const EditConfig = () => {
             ) : (
               <>
                 <p className="text-body-secondary small">
-                  Sửa lập lịch cấu hình tự động thay cho việc{" "}
-                  <code>Bật/Tắt</code> thủ công.
+                  Sửa lập lịch cấu hình tự động thay cho việc <code>Bật/Tắt</code> thủ công.
                 </p>
                 <CForm onSubmit={handleSubmit}>
                   <CRow className="mb-3">
                     <CFormLabel
                       className="col-sm-2 col-form-label"
-                      onChange={(e) => handleInput("type", e.target.value)}
+                      onChange={(e) => handleInput('type', e.target.value)}
                     >
                       Loại
                     </CFormLabel>
@@ -228,7 +237,7 @@ const EditConfig = () => {
                         size="large"
                         className="mb-3"
                         aria-label="Chọn loại"
-                        onChange={(e) => handleInput("type", e.target.value)}
+                        onChange={(e) => handleInput('type', e.target.value)}
                         value={schedule.type}
                       >
                         <option disabled>Chọn loại</option>
@@ -239,15 +248,13 @@ const EditConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
-                    <CFormLabel className="col-sm-2 col-form-label">
-                      Khu vực
-                    </CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">Khu vực</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
                         aria-label="Chọn khu vực"
-                        onChange={(e) => handleInput("farmId", e.target.value)}
+                        onChange={(e) => handleInput('farmId', e.target.value)}
                         value={schedule.farmId}
                       >
                         <option disabled>Chọn khu vực</option>
@@ -263,9 +270,7 @@ const EditConfig = () => {
                     <code className="mb-3">
                       <strong>Mẹo</strong>: Có thể chọn nhiều thiết bị
                     </code>
-                    <CFormLabel className="col-sm-2 col-form-label">
-                      Thiết bị
-                    </CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">Thiết bị</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
@@ -279,21 +284,15 @@ const EditConfig = () => {
                         </option>
                         {farms.map((farm) =>
                           farm.devices.map((device) => {
-                            const isDeviceSelected =
-                              schedule.deviceSchedules?.some(
-                                (selectedDevice) =>
-                                  selectedDevice.deviceId === device.id
-                              );
+                            const isDeviceSelected = schedule.deviceSchedules?.some(
+                              (selectedDevice) => selectedDevice.deviceId === device.id,
+                            )
                             return (
-                              <option
-                                key={device.id}
-                                value={device.id}
-                                hidden={isDeviceSelected}
-                              >
+                              <option key={device.id} value={device.id} hidden={isDeviceSelected}>
                                 {device.name}
                               </option>
-                            );
-                          })
+                            )
+                          }),
                         )}
                       </CFormSelect>
                       <CFormSelect
@@ -334,9 +333,7 @@ const EditConfig = () => {
                             placeholder="Nhập giá trị bắt đầu...."
                             name="startValue"
                             value={schedule.startValue}
-                            onChange={(e) =>
-                              handleInput("startValue", e.target.value)
-                            }
+                            onChange={(e) => handleInput('startValue', e.target.value)}
                           />
                         </div>
                         <span className="text-muted mt-4">-</span>
@@ -349,9 +346,7 @@ const EditConfig = () => {
                             placeholder="Nhập giá trị kết thúc...."
                             name="endValue"
                             value={schedule.endValue}
-                            onChange={(e) =>
-                              handleInput("endValue", e.target.value)
-                            }
+                            onChange={(e) => handleInput('endValue', e.target.value)}
                           />
                         </div>
                       </div>
@@ -399,18 +394,14 @@ const EditConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mt-4">
-                    <CFormLabel className="col-sm-2 col-form-label">
-                      Tình trạng
-                    </CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">Tình trạng</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
                         className="mb-3"
                         aria-label="Chọn giá trị"
-                        onChange={(e) =>
-                          handleInput("isActive", e.target.value === "1")
-                        }
-                        value={schedule.isActive ? "1" : "0"}
+                        onChange={(e) => handleInput('isActive', e.target.value === '1')}
+                        value={schedule.isActive ? '1' : '0'}
                       >
                         <option disabled>Chọn giá trị</option>
                         <option value="0">Tắt</option>
@@ -430,7 +421,7 @@ const EditConfig = () => {
         </CCard>
       </CCol>
     </CRow>
-  );
-};
+  )
+}
 
-export default EditConfig;
+export default EditConfig
