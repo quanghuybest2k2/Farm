@@ -14,7 +14,7 @@ import {
 } from '@coreui/react'
 import { getStyle } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
-import { cilArrowTop, cilOptions, cilBrightness, cilDrop } from '@coreui/icons'
+import { cilArrowTop, cilOptions, cilBrightness, cilDrop, cilSun, cilMoon } from '@coreui/icons'
 import DataTypeEnum from '../../DataTypeEnum'
 import config from '../../config'
 
@@ -26,6 +26,7 @@ const InformationEnvironment = (props) => {
   )
   const [connection, setConnection] = useState(null)
   const [environment, setEnvironment] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const handleLocationClick = (value) => {
     Swal.fire({
@@ -60,6 +61,7 @@ const InformationEnvironment = (props) => {
 
   // call api
   const fetchData = async () => {
+    setLoading(true)
     const connect = new signalR.HubConnectionBuilder()
       .withUrl(`${config.BASE_URL}/farmhub`)
       .withAutomaticReconnect()
@@ -82,8 +84,10 @@ const InformationEnvironment = (props) => {
             const data = JSON.parse(dataString)
             console.log('Parsed data:', data)
             setEnvironment(data)
+            setLoading(false)
           } catch (error) {
             console.error('Error parsing JSON string:', error)
+            setLoading(false)
           }
         })
       })
@@ -100,112 +104,117 @@ const InformationEnvironment = (props) => {
 
   return (
     <CRow className={props.className} xs={{ gutter: 4 }}>
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <div className="col-2">
-          <h4>Khu vực</h4>
-        </div>
-        <div className="col-10">
-          <CDropdown className="align-self-start">
-            <CDropdownToggle color="success">
-              {selectedLocationValue || DataTypeEnum.SENSORLOCATION.KV2}
-            </CDropdownToggle>
-            <CDropdownMenu>
-              <CDropdownItem onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV1)}>
-                KV1
-              </CDropdownItem>
-              <CDropdownItem onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV2)}>
-                KV2
-              </CDropdownItem>
-              <CDropdownItem onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV3)}>
-                KV3
-              </CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown>
-        </div>
-      </div>
-      {environment && (
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
         <>
-          <CCol sm={6} xl={4} xxl={3}>
-            <CWidgetStatsA
-              className="pb-5"
-              color="primary"
-              value={
-                <>
-                  {environment.brightness.toFixed(2) ?? 0}{' '}
-                  <span className="fs-6 fw-normal">
-                    (Lux <CIcon icon={cilBrightness} /> )
-                  </span>
-                </>
-              }
-              title="Cường độ ánh sáng"
-              action={
-                <CDropdown alignment="end">
-                  <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
-                    <CIcon icon={cilOptions} />
-                  </CDropdownToggle>
-                  <CDropdownMenu>
-                    <CDropdownItem>
-                      <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
-                    </CDropdownItem>
-                  </CDropdownMenu>
-                </CDropdown>
-              }
-            />
-          </CCol>
-          <CCol sm={6} xl={4} xxl={3}>
-            <CWidgetStatsA
-              className="pb-5"
-              color="info"
-              value={
-                <>
-                  {environment.temperature.toFixed(2) ?? 0}{' '}
-                  <span className="fs-6 fw-normal">
-                    (<sup>o</sup>C <CIcon icon={cilArrowTop} />)
-                  </span>
-                </>
-              }
-              title="Nhiệt độ"
-              action={
-                <CDropdown alignment="end">
-                  <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
-                    <CIcon icon={cilOptions} />
-                  </CDropdownToggle>
-                  <CDropdownMenu>
-                    <CDropdownItem>
-                      <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
-                    </CDropdownItem>
-                  </CDropdownMenu>
-                </CDropdown>
-              }
-            />
-          </CCol>
-          <CCol sm={6} xl={4} xxl={3}>
-            <CWidgetStatsA
-              className="pb-5"
-              color="warning"
-              value={
-                <>
-                  {environment.humidity.toFixed(2) ?? 0}{' '}
-                  <span className="fs-6 fw-normal">
-                    (% <CIcon icon={cilDrop} />)
-                  </span>
-                </>
-              }
-              title="Độ ẩm"
-              action={
-                <CDropdown alignment="end">
-                  <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
-                    <CIcon icon={cilOptions} />
-                  </CDropdownToggle>
-                  <CDropdownMenu>
-                    <CDropdownItem>
-                      <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
-                    </CDropdownItem>
-                  </CDropdownMenu>
-                </CDropdown>
-              }
-            />
-          </CCol>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <div className="col-2">
+              <h4>Khu vực</h4>
+            </div>
+            <div className="col-10">
+              <CDropdown className="align-self-start">
+                <CDropdownToggle color="success">
+                  {selectedLocationValue || DataTypeEnum.SENSORLOCATION.KV2}
+                </CDropdownToggle>
+                <CDropdownMenu>
+                  <CDropdownItem
+                    onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV1)}
+                  >
+                    KV1
+                  </CDropdownItem>
+                  <CDropdownItem
+                    onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV2)}
+                  >
+                    KV2
+                  </CDropdownItem>
+                  <CDropdownItem
+                    onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV3)}
+                  >
+                    KV3
+                  </CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            </div>
+          </div>
+          {environment && (
+            <>
+              <CCol sm={6} xl={4} xxl={3}>
+                <CWidgetStatsA
+                  className="pb-5"
+                  color={parseInt(environment.brightness) < 50 ? 'dark' : 'warning'}
+                  value={
+                    <>
+                      {environment.brightness.toFixed(0) ?? 0}{' '}
+                      <span className="fs-6 fw-normal">
+                        (Lux <CIcon icon={cilBrightness} /> )
+                      </span>
+                    </>
+                  }
+                  title="Cường độ ánh sáng"
+                  action={
+                    <CDropdown alignment="end">
+                      <CIcon icon={parseInt(environment.brightness) < 50 ? cilSun : cilMoon} />
+                    </CDropdown>
+                  }
+                />
+              </CCol>
+              <CCol sm={6} xl={4} xxl={3}>
+                <CWidgetStatsA
+                  className="pb-5"
+                  color={parseInt(environment.temperature) < 30 ? 'info' : 'danger'}
+                  value={
+                    <>
+                      {environment.temperature.toFixed(2) ?? 0}{' '}
+                      <span className="fs-6 fw-normal">
+                        (<sup>o</sup>C <CIcon icon={cilArrowTop} />)
+                      </span>
+                    </>
+                  }
+                  title="Nhiệt độ"
+                  action={
+                    <CDropdown alignment="end">
+                      <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
+                        <CIcon icon={cilOptions} />
+                      </CDropdownToggle>
+                      <CDropdownMenu>
+                        <CDropdownItem>
+                          <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
+                        </CDropdownItem>
+                      </CDropdownMenu>
+                    </CDropdown>
+                  }
+                />
+              </CCol>
+              <CCol sm={6} xl={4} xxl={3}>
+                <CWidgetStatsA
+                  className="pb-5"
+                  color="primary"
+                  value={
+                    <>
+                      {environment.humidity ?? 0}{' '}
+                      <span className="fs-6 fw-normal">
+                        (% <CIcon icon={cilDrop} />)
+                      </span>
+                    </>
+                  }
+                  title="Độ ẩm"
+                  action={
+                    <CDropdown alignment="end">
+                      <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
+                        <CIcon icon={cilOptions} />
+                      </CDropdownToggle>
+                      <CDropdownMenu>
+                        <CDropdownItem>
+                          <CCardLink href="#/greenhouse-a1">Xem thêm</CCardLink>
+                        </CDropdownItem>
+                      </CDropdownMenu>
+                    </CDropdown>
+                  }
+                />
+              </CCol>
+            </>
+          )}
         </>
       )}
     </CRow>
