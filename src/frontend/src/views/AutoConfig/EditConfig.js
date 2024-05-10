@@ -13,6 +13,10 @@ import {
   CRow,
   CLink,
   CSpinner,
+  CDropdown,
+  CDropdownMenu,
+  CDropdownItem,
+  CDropdownToggle,
 } from '@coreui/react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -51,6 +55,8 @@ const EditConfig = () => {
   const [disabledOption, setDisabledOption] = useState(false)
   // id from url
   const { id } = useParams()
+  // loại cấu hình: Chung hoặc riêng lẻ
+  const [optionConfig, setOptionConfig] = useState('Chung')
 
   // get all Schedules
   const getFarms = () => {
@@ -107,6 +113,11 @@ const EditConfig = () => {
         }))
       }
     }
+  }
+
+  // Xử lý chọn cấu hình
+  const handleOptionConfig = (value) => {
+    setOptionConfig(value)
   }
 
   // xử lý chọn status của đèn
@@ -266,11 +277,24 @@ const EditConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
-                    <code className="mb-3">
-                      <strong>Mẹo</strong>: Có thể chọn nhiều thiết bị
-                    </code>
                     <CFormLabel className="col-sm-2 col-form-label">Thiết bị</CFormLabel>
                     <CCol sm={10}>
+                      {/* chon option */}
+                      <CDropdown className="align-self-start mb-3">
+                        <CDropdownToggle color="success">{optionConfig || 'Chung'}</CDropdownToggle>
+                        <CDropdownMenu>
+                          <CDropdownItem onClick={() => handleOptionConfig('Chung')}>
+                            Chung
+                          </CDropdownItem>
+                          <CDropdownItem onClick={() => handleOptionConfig('Riêng lẻ')}>
+                            Riêng lẻ
+                          </CDropdownItem>
+                        </CDropdownMenu>
+                        <code className="ms-3">
+                          Chung: cấu hình nhiều thiết bị cùng lúc, riêng lẻ: cấu hình theo từng
+                          thiết bị
+                        </code>
+                      </CDropdown>
                       <CFormSelect
                         size="large"
                         className="mb-3"
@@ -299,6 +323,7 @@ const EditConfig = () => {
                         className="mb-3"
                         aria-label="Chọn trạng thái"
                         onChange={handleStatusChange}
+                        hidden={optionConfig === 'Riêng lẻ'}
                       >
                         <option disabled>Chọn trạng thái</option>
                         <option value="0">Tắt</option>
