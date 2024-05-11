@@ -26,6 +26,10 @@ import config from '../../config'
 import Swal from 'sweetalert2'
 
 const EditConfig = () => {
+  const optionSelect = {
+    chung: 'Chung',
+    le: 'Riêng lẻ',
+  }
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [schedule, setSchedule] = useState({
@@ -56,7 +60,7 @@ const EditConfig = () => {
   // id from url
   const { id } = useParams()
   // loại cấu hình: Chung hoặc riêng lẻ
-  const [optionConfig, setOptionConfig] = useState('Chung')
+  const [optionConfig, setOptionConfig] = useState(optionSelect.chung)
 
   // get all Schedules
   const getFarms = () => {
@@ -170,46 +174,46 @@ const EditConfig = () => {
       farmId: schedule.farmId,
       devices: schedule.deviceSchedules.map((device) => ({
         id: device.deviceId,
-        statusDevice: selectedStatus === '1',
+        statusDevice: optionConfig === optionSelect.chung ? selectedStatus === '1' : device.status,
       })),
     }
 
     console.log(data)
 
-    axios
-      .put(`${config.API_URL}/schedules/${id}`, data)
-      .then((res) => {
-        Swal.fire({
-          icon: 'success',
-          text: 'Cập nhật thành công',
-          showConfirmButton: false,
-          position: 'top-end',
-          toast: true,
-          timer: 2000,
-          showClass: {
-            popup: `
-                animate__animated
-                animate__fadeInRight
-                animate__faster
-            `,
-          },
-        })
-        navigate('/auto-config')
-        setLoading(false)
-      })
-      .catch((error) => {
-        if (error.response?.data) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Lỗi rồi',
-            text: error.response.data,
-            timer: 2000,
-          })
-        } else {
-          console.log(error)
-        }
-        setLoading(false)
-      })
+    // axios
+    //   .put(`${config.API_URL}/schedules/${id}`, data)
+    //   .then((res) => {
+    //     Swal.fire({
+    //       icon: 'success',
+    //       text: 'Cập nhật thành công',
+    //       showConfirmButton: false,
+    //       position: 'top-end',
+    //       toast: true,
+    //       timer: 2000,
+    //       showClass: {
+    //         popup: `
+    //             animate__animated
+    //             animate__fadeInRight
+    //             animate__faster
+    //         `,
+    //       },
+    //     })
+    //     navigate('/auto-config')
+    //     setLoading(false)
+    //   })
+    //   .catch((error) => {
+    //     if (error.response?.data) {
+    //       Swal.fire({
+    //         icon: 'error',
+    //         title: 'Lỗi rồi',
+    //         text: error.response.data,
+    //         timer: 2000,
+    //       })
+    //     } else {
+    //       console.log(error)
+    //     }
+    //     setLoading(false)
+    //   })
   }
 
   return (
@@ -281,13 +285,15 @@ const EditConfig = () => {
                     <CCol sm={10}>
                       {/* chon option */}
                       <CDropdown className="align-self-start mb-3">
-                        <CDropdownToggle color="success">{optionConfig || 'Chung'}</CDropdownToggle>
+                        <CDropdownToggle color="success">
+                          {optionConfig || optionSelect.chung}
+                        </CDropdownToggle>
                         <CDropdownMenu>
-                          <CDropdownItem onClick={() => handleOptionConfig('Chung')}>
-                            Chung
+                          <CDropdownItem onClick={() => handleOptionConfig(optionSelect.chung)}>
+                            {optionSelect.chung}
                           </CDropdownItem>
-                          <CDropdownItem onClick={() => handleOptionConfig('Riêng lẻ')}>
-                            Riêng lẻ
+                          <CDropdownItem onClick={() => handleOptionConfig(optionSelect.le)}>
+                            {optionSelect.le}
                           </CDropdownItem>
                         </CDropdownMenu>
                         <code className="ms-3">
@@ -323,7 +329,7 @@ const EditConfig = () => {
                         className="mb-3"
                         aria-label="Chọn trạng thái"
                         onChange={handleStatusChange}
-                        hidden={optionConfig === 'Riêng lẻ'}
+                        hidden={optionConfig === optionSelect.le}
                       >
                         <option disabled>Chọn trạng thái</option>
                         <option value="0">Tắt</option>
@@ -332,7 +338,20 @@ const EditConfig = () => {
                       {/* Danh sách chọn */}
                       <ul>
                         {schedule.deviceSchedules?.map((device) => (
-                          <li key={device.deviceId}>{device.name}</li>
+                          <>
+                            <li key={device.deviceId}>{device.name}</li>
+                            <CFormSelect
+                              size="large"
+                              className="mb-2 mt-2"
+                              aria-label="Chọn trạng thái"
+                              hidden={optionConfig === optionSelect.chung}
+                              value={device.statusDevice ? '1' : '0'}
+                            >
+                              <option disabled>Chọn trạng thái</option>
+                              <option value="0">Tắt</option>
+                              <option value="1">Bật</option>
+                            </CFormSelect>
+                          </>
                         ))}
                       </ul>
                       <CButton
