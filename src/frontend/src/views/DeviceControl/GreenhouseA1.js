@@ -26,8 +26,8 @@ const GreenhouseA1 = () => {
       try {
         setIsLoading(true)
         const response = await axios.get(`${config.API_URL}/farms`)
-        setLocation(response.data.results[0])
-        setDeviceStatusCode(response.data.results[0].deviceStatusCode)
+        setLocation(response.data.results[1])
+        setDeviceStatusCode(response.data.results[1].deviceStatusCode)
         setFetchDataCompleted(true)
         setIsLoading(false)
       } catch (error) {
@@ -144,33 +144,32 @@ const GreenhouseA1 = () => {
                   {location && (
                     <>
                       <h4>{location.name}</h4>
-                      {location.devices &&
-                        location.devices.map((device) => (
-                          <CRow key={device.id}>
-                            <CCol sm={6}>
-                              <div className="form-check form-switch">
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  onChange={() =>
-                                    controlDevice(device, !sensorData.Status[device.order])
-                                  }
-                                  checked={sensorData.Status[device.order]}
-                                />
-                                <label className="form-check-label">{device.name}</label>
-                              </div>
-                            </CCol>
-                            <CCol sm={6}>
-                              <CIcon
-                                icon={cibDiscover}
-                                size="xl"
-                                style={{
-                                  color: sensorData.Status[device.order] ? '#249542' : '#db5d5d',
-                                }}
+                      {location.devices?.map((device) => (
+                        <CRow key={device.id}>
+                          <CCol sm={6}>
+                            <div className="form-check form-switch">
+                              <input
+                                className="form-check-input"
+                                type="checkbox"
+                                onChange={() =>
+                                  controlDevice(device, !sensorData.Status[device.order])
+                                }
+                                checked={sensorData.Status[device.order]}
                               />
-                            </CCol>
-                          </CRow>
-                        ))}
+                              <label className="form-check-label">{device.name}</label>
+                            </div>
+                          </CCol>
+                          <CCol sm={6}>
+                            <CIcon
+                              icon={cibDiscover}
+                              size="xl"
+                              style={{
+                                color: sensorData.Status[device.order] ? '#249542' : '#db5d5d',
+                              }}
+                            />
+                          </CCol>
+                        </CRow>
+                      ))}
                     </>
                   )}
                 </>
