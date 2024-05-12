@@ -12,6 +12,10 @@ import {
   CRow,
   CLink,
   CSpinner,
+  CDropdown,
+  CDropdownMenu,
+  CDropdownItem,
+  CDropdownToggle,
 } from '@coreui/react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -22,6 +26,10 @@ import { format } from 'date-fns'
 import Swal from 'sweetalert2'
 
 const CreateConfig = () => {
+  const optionSelect = {
+    chung: 'Chung',
+    le: 'Riêng lẻ',
+  }
   const [loading, setLoading] = useState(true)
   const today = new Date()
   const [startDate, setStartDate] = useState(today)
@@ -34,8 +42,11 @@ const CreateConfig = () => {
   // status device
   const [selectedStatus, setSelectedStatus] = useState('')
   const [disabledOption, setDisabledOption] = useState(false)
+  // loại cấu hình: Chung hoặc riêng lẻ
+  const [optionConfig, setOptionConfig] = useState(optionSelect.chung)
   const navigate = useNavigate()
   const [schedule, setSchedule] = useState({
+    name: '',
     type: 1,
     startValue: 0,
     endValue: 0,
@@ -67,10 +78,15 @@ const CreateConfig = () => {
 
   // xử lý chọn thiết bị
   const handleDeviceChange = (deviceId) => {
-    if (!selectedDevices.includes(deviceId)) {
+    if (!selectedDevices.some((device) => device.id === deviceId)) {
       setSelectedDevices([...selectedDevices, deviceId])
       setDisabledOption(true)
     }
+  }
+
+  // Xử lý chọn cấu hình
+  const handleOptionConfig = (value) => {
+    setOptionConfig(value)
   }
 
   // xử lý chọn status của đèn
@@ -108,6 +124,7 @@ const CreateConfig = () => {
     const formatEndDate = format(endDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
 
     const data = {
+      name: schedule.name,
       type: parseInt(schedule.type),
       startValue: parseInt(schedule.startValue),
       endValue: parseInt(schedule.endValue),
@@ -117,10 +134,10 @@ const CreateConfig = () => {
       farmId: schedule.farmId,
       devices: selectedDevices.map((deviceId) => ({
         id: deviceId,
-        statusDevice: selectedStatus === '1',
+        statusDevice: optionConfig === optionSelect.chung ? selectedStatus === '1' : deviceId,
       })),
     }
-    // console.log(data)
+    console.log(data)
 
     axios
       .post(`${config.API_URL}/schedules`, data)
@@ -144,7 +161,16 @@ const CreateConfig = () => {
         setLoading(false)
       })
       .catch((error) => {
-        console.error('Error created schedules:', error)
+        if (error.response?.data) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Lỗi rồi',
+            text: error.response.data,
+            timer: 2000,
+          })
+        } else {
+          console.log(error)
+        }
         setLoading(false)
       })
   }
@@ -173,12 +199,18 @@ const CreateConfig = () => {
                 </p>
                 <CForm onSubmit={submitForm}>
                   <CRow className="mb-3">
-                    <CFormLabel
-                      className="col-sm-2 col-form-label"
-                      onChange={(e) => handleInput('type', e.target.value)}
-                    >
-                      Loại
-                    </CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">Tên</CFormLabel>
+                    <CCol sm={10}>
+                      <CFormInput
+                        type="text"
+                        placeholder="Nhập tên lịch...."
+                        name="name"
+                        onChange={(e) => handleInput('name', e.target.value)}
+                      />
+                    </CCol>
+                  </CRow>
+                  <CRow className="mb-3">
+                    <CFormLabel className="col-sm-2 col-form-label">Loại</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"
@@ -215,11 +247,26 @@ const CreateConfig = () => {
                     </CCol>
                   </CRow>
                   <CRow className="mb-3">
-                    <code className="mb-3">
-                      <strong>Mẹo</strong>: Có thể chọn nhiều thiết bị
-                    </code>
                     <CFormLabel className="col-sm-2 col-form-label">Thiết bị</CFormLabel>
                     <CCol sm={10}>
+                      {/* chon option */}
+                      <CDropdown className="align-self-start mb-3">
+                        <CDropdownToggle color="success">
+                          {optionConfig || optionSelect.chung}
+                        </CDropdownToggle>
+                        <CDropdownMenu>
+                          <CDropdownItem onClick={() => handleOptionConfig(optionSelect.chung)}>
+                            {optionSelect.chung}
+                          </CDropdownItem>
+                          <CDropdownItem onClick={() => handleOptionConfig(optionSelect.le)}>
+                            {optionSelect.le}
+                          </CDropdownItem>
+                        </CDropdownMenu>
+                        <code className="ms-3">
+                          Chung: cấu hình nhiều thiết bị cùng lúc, riêng lẻ: cấu hình theo từng
+                          thiết bị
+                        </code>
+                      </CDropdown>
                       <CFormSelect
                         size="large"
                         className="mb-3"
@@ -246,6 +293,7 @@ const CreateConfig = () => {
                         className="mb-3"
                         aria-label="Chọn trạng thái"
                         onChange={handleStatusChange}
+                        hidden={optionConfig === optionSelect.le}
                       >
                         <option disabled>Chọn trạng thái</option>
                         <option value="0">Tắt</option>
@@ -257,7 +305,21 @@ const CreateConfig = () => {
                           const device = farms
                             .flatMap((farm) => farm.devices)
                             .find((device) => device.id === deviceId)
-                          return <li key={device.id}>{device.name}</li>
+                          return (
+                            <>
+                              <li key={device.id}>{device.name}</li>
+                              <CFormSelect
+                                size="large"
+                                className="mb-2 mt-2"
+                                aria-label="Chọn trạng thái"
+                                hidden={optionConfig === optionSelect.chung}
+                              >
+                                <option disabled>Chọn trạng thái</option>
+                                <option value="0">Tắt</option>
+                                <option value="1">Bật</option>
+                              </CFormSelect>
+                            </>
+                          )
                         })}
                       </ul>
                       <CButton

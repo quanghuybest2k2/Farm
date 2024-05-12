@@ -33,6 +33,7 @@ const EditConfig = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [schedule, setSchedule] = useState({
+    name: '',
     type: 1,
     startValue: 0,
     endValue: 0,
@@ -183,6 +184,7 @@ const EditConfig = () => {
     const formatEndDate = format(endDate, 'yyyy/MM/dd HH:mm:ss') ?? ''
 
     const data = {
+      name: schedule.name,
       type: parseInt(schedule.type) ?? 1,
       startValue: parseInt(schedule.startValue),
       endValue: parseInt(schedule.endValue),
@@ -259,12 +261,19 @@ const EditConfig = () => {
                 </p>
                 <CForm onSubmit={handleSubmit}>
                   <CRow className="mb-3">
-                    <CFormLabel
-                      className="col-sm-2 col-form-label"
-                      onChange={(e) => handleInput('type', e.target.value)}
-                    >
-                      Loại
-                    </CFormLabel>
+                    <CFormLabel className="col-sm-2 col-form-label">Tên</CFormLabel>
+                    <CCol sm={10}>
+                      <CFormInput
+                        type="text"
+                        placeholder="Nhập tên lịch...."
+                        name="name"
+                        onChange={(e) => handleInput('name', e.target.value)}
+                        value={schedule.name}
+                      />
+                    </CCol>
+                  </CRow>
+                  <CRow className="mb-3">
+                    <CFormLabel className="col-sm-2 col-form-label">Loại</CFormLabel>
                     <CCol sm={10}>
                       <CFormSelect
                         size="large"

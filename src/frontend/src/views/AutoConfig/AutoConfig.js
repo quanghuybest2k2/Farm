@@ -41,7 +41,7 @@ const AutoConfig = () => {
   const [scheduleId, setScheduleId] = useState(null)
   // pagination
   const [pageNumber, setPageNumber] = useState(1)
-  const [pageSize, setPageSize] = useState(2)
+  const [pageSize, setPageSize] = useState(1)
   const [totalPage, setTotalPage] = useState(0)
   const [totalItems, setTotalItems] = useState(0)
 
@@ -127,6 +127,7 @@ const AutoConfig = () => {
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">STT</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Tên</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Loại</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Khu vực</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Số thiết bị</CTableHeaderCell>
@@ -153,6 +154,7 @@ const AutoConfig = () => {
                     schedules.map((schedule) => (
                       <CTableRow key={schedule.id}>
                         <CTableHeaderCell scope="row">{stt++}</CTableHeaderCell>
+                        <CTableDataCell>{schedule.name}</CTableDataCell>
                         <CTableDataCell>
                           {schedule.type === 1
                             ? 'Nhiệt độ'
