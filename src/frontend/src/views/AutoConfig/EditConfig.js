@@ -119,15 +119,22 @@ const EditConfig = () => {
     }
   }
 
-  // chọn status riêng từng cái
+  // Xử lý cấu hình bật/tắt riêng lẻ
   const handleDeviceStatusChange = (deviceId, status) => {
-    const updatedDeviceSchedules = schedule.deviceSchedules.map((device) => {
+    const updatedDeviceSchedules = schedule.deviceSchedules?.map((device) => {
       if (device.deviceId === deviceId) {
-        return { ...device, statusDevice: status === '1' }
+        return {
+          ...device,
+          statusDevice: status === '1',
+        }
       }
       return device
     })
-    setSchedule((prevState) => ({ ...prevState, deviceSchedules: updatedDeviceSchedules }))
+
+    setSchedule((prevState) => ({
+      ...prevState,
+      deviceSchedules: updatedDeviceSchedules,
+    }))
   }
 
   // Xử lý chọn cấu hình
@@ -192,40 +199,40 @@ const EditConfig = () => {
 
     console.log(data)
 
-    axios
-      .put(`${config.API_URL}/schedules/${id}`, data)
-      .then((res) => {
-        Swal.fire({
-          icon: 'success',
-          text: 'Cập nhật thành công',
-          showConfirmButton: false,
-          position: 'top-end',
-          toast: true,
-          timer: 2000,
-          showClass: {
-            popup: `
-                animate__animated
-                animate__fadeInRight
-                animate__faster
-            `,
-          },
-        })
-        navigate('/auto-config')
-        setLoading(false)
-      })
-      .catch((error) => {
-        if (error.response?.data) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Lỗi rồi',
-            text: error.response.data,
-            timer: 2000,
-          })
-        } else {
-          console.log(error)
-        }
-        setLoading(false)
-      })
+    // axios
+    //   .put(`${config.API_URL}/schedules/${id}`, data)
+    //   .then((res) => {
+    //     Swal.fire({
+    //       icon: 'success',
+    //       text: 'Cập nhật thành công',
+    //       showConfirmButton: false,
+    //       position: 'top-end',
+    //       toast: true,
+    //       timer: 2000,
+    //       showClass: {
+    //         popup: `
+    //             animate__animated
+    //             animate__fadeInRight
+    //             animate__faster
+    //         `,
+    //       },
+    //     })
+    //     navigate('/auto-config')
+    //     setLoading(false)
+    //   })
+    //   .catch((error) => {
+    //     if (error.response?.data) {
+    //       Swal.fire({
+    //         icon: 'error',
+    //         title: 'Lỗi rồi',
+    //         text: error.response.data,
+    //         timer: 2000,
+    //       })
+    //     } else {
+    //       console.log(error)
+    //     }
+    //     setLoading(false)
+    //   })
   }
 
   return (
@@ -357,9 +364,8 @@ const EditConfig = () => {
                               className="mb-2 mt-2"
                               aria-label="Chọn trạng thái"
                               hidden={optionConfig === optionSelect.chung}
-                              value={device.statusDevice ? '1' : '0'}
                               onChange={(e) =>
-                                handleDeviceStatusChange(device.deviceId, e.target.value === '1')
+                                handleDeviceStatusChange(device.deviceId, e.target.value)
                               }
                             >
                               <option disabled>Chọn trạng thái</option>
