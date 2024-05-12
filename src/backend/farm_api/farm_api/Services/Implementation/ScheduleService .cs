@@ -83,6 +83,10 @@ namespace farm_api.Services.Implementation
             await _validator.ValidateAndThrowAsync(scheduleRequest);
             var device = await GetDivicesAsync(scheduleRequest.Devices);
             var distinctDevice = device.DistinctBy(x => x.Id);
+            if (await _repository.IsExisted(scheduleRequest.Name, null))
+            {
+                throw new Exception("Name is already existed");
+            }
             if (distinctDevice.Count() != device.Count())
             {
                 throw new Exception("duplicated device Id ,please check input api");
@@ -167,6 +171,10 @@ namespace farm_api.Services.Implementation
                 throw new Exception("duplicated device Id ,please check input api");
             }
             if (!devices.Any()) throw new Exception("Not Found Device");
+            if (await _repository.IsExisted(scheduleRequest.Name, id))
+            {
+                throw new Exception("Name is already existed");
+            }
             var farm = await _farmRepositorty.GetByIdDetailAsync(scheduleRequest.FarmId); // lấy farm theo id
 
             if (farm == null)
@@ -327,5 +335,7 @@ namespace farm_api.Services.Implementation
                                 .ToList();
             return new PagedFarmResponse<ScheduleDTO>(itemPage.Select(x => _mapper.Map<ScheduleDTO>(x)), pagingParams.PageNumber, pagingParams.PageSize, totalItems);
         }
+
+       
     }
 }

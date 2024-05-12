@@ -31,6 +31,9 @@ namespace DAL.Context
             modelBuilder.Entity<Schedule>().Property(s => s.Type)
                 .HasConversion<int>();
 
+            modelBuilder.Entity<Schedule>().HasIndex(x=>x.Name).IsUnique();
+            modelBuilder.Entity<Schedule>().Property(x => x.Name).IsRequired();
+
             modelBuilder.Entity<DeviceSchedule>().HasKey(x => x.Id);
             modelBuilder.Entity<Schedule>()
                 .HasOne(s => s.Farm)

@@ -4,6 +4,7 @@ using Core.Queries;
 using DAL.Repositories.Interface;
 using farm_api.Caching.Interface;
 using Microsoft.Extensions.Caching.Memory;
+using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,6 +85,11 @@ namespace farm_api.Caching.Decorator
             _innerRepository.Update(schedule);
             _cache.Remove($"Schedule-{schedule.Id}"); // Đảm bảo xóa cache trước khi cập nhật
             _cache.Set($"Schedule-{schedule.Id}", schedule, _cacheDuration);
+        }
+
+        public async Task<bool> IsExisted(string name, object id)
+        {
+             return await _innerRepository.IsExisted(name,id);
         }
     }
 

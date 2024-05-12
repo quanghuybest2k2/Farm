@@ -5,6 +5,7 @@ namespace farm_api.Models.Request
 {
     public class ScheduleRequest
     {
+        public string Name { get; set; }
         public int Type { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }

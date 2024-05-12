@@ -1,6 +1,9 @@
 ﻿using Core.Constant;
+using DAL.Repositories.Implementation;
 using DAL.Repositories.Interface;
 using farm_api.Models.Request;
+using farm_api.Services.Implementation;
+using farm_api.Services.Interface;
 using FluentValidation;
 using System.Text.RegularExpressions;
 
@@ -10,7 +13,7 @@ namespace farm_api.Validation
     {
         public ScheduleRequestValidator()
         {
-            RuleFor(x => x.FarmId).NotNull().WithMessage(APIResponseMessage.NotNull);
+             RuleFor(x => x.FarmId).NotNull().WithMessage(APIResponseMessage.NotNull);
             RuleFor(x => x.Devices).NotNull().WithMessage(APIResponseMessage.NotNull);
             RuleFor(x => x.StartValue).NotNull().WithMessage(APIResponseMessage.NotNull);
             RuleFor(x => x.EndValue).NotNull().WithMessage(APIResponseMessage.NotNull);

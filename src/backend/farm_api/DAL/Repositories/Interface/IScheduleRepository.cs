@@ -16,5 +16,6 @@ namespace DAL.Repositories.Interface
         Task<Schedule> GetByIdDetailAsync(Guid Id, CancellationToken cancellationToken = default);
 
         Task<IEnumerable<DeviceJob>> GetDevices(Guid ScheduleId, CancellationToken cancellationToken = default);
+        Task<bool> IsExisted(string name,object id);
     }
 }

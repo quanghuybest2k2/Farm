@@ -41,7 +41,6 @@ namespace DAL.Repositories.GenericRepository
         {
             _context.Add(environment);
         }
-
         public void Update(T environment)
         {
             _context.Update(environment);

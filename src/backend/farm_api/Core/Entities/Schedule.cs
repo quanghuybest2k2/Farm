@@ -9,6 +9,7 @@ namespace Core.Entities
 {
     public class Schedule : BaseEntity, IModifier
     {
+        public string Name { get;set; }
         public int Type { get; set; }
         public int StartValue { get; set; }
         public int EndValue { get; set; }

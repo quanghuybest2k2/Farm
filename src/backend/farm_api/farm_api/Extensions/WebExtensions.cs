@@ -23,6 +23,8 @@ using Microsoft.Extensions.Options;
 using farm_api.Caching.Implementation;
 using farm_api.Caching.Interface;
 using farm_api.Caching.Decorator;
+using farm_api.Models.Request;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace farm_api.Extensions
 {

@@ -33,6 +33,16 @@ namespace DAL.Repositories.Implementation
             return deviceSchedules.DeviceSchedules.Select(x=>new DeviceJob() { Order=x.Device.Order,Status=x.StatusDevice}).ToList();
         }
 
+        public async Task<bool> IsExisted(string name, object id)
+        {
+            if (id is null)
+            {
+                return _context.Schedules.Any(x => x.Name == name);
+            }
+            var isExisted=  _context.Schedules.Any(x => x.Name == name && x.Id != (Guid)id);
+            return isExisted;
+        }
+
         private IQueryable<Schedule> Filter(ScheduleQueryDTO scheduleQueryDTO)
         {
             IQueryable<Schedule> query = _context.Set<Schedule>().Include(x=>x.DeviceSchedules).ThenInclude(x=>x.Device).Include(x=>x.Farm);

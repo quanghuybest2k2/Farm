@@ -15,6 +15,5 @@ namespace farm_api.Services.Interface
         Task DeleteScheduleAsync(Guid id, CancellationToken cancellationToken = default);
         Task<ScheduleDTO> GetScheduleByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<PagedFarmResponse<ScheduleDTO>> GetAllAsync(ScheduleQuery scheduleQuery, IPagingParams pagingParams, CancellationToken cancellationToken = default);
-
     }
 }
