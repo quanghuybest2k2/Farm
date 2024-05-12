@@ -1,6 +1,6 @@
 const config = {
-  BASE_URL: "https://farmapi20240503105607.azurewebsites.net",
-  API_URL: "https://farmapi20240503105607.azurewebsites.net/api",
-};
+  BASE_URL: 'https://www.sensor-io.somee.com',
+  API_URL: 'https://www.sensor-io.somee.com/api',
+}
 
-export default config;
+export default config

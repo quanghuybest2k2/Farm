@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import config from '../../config'
+import Pagination from '../../components/Pagination'
 import { format } from 'date-fns'
 import Swal from 'sweetalert2'
 import CIcon from '@coreui/icons-react'
@@ -20,11 +21,6 @@ import {
   CLink,
   CTooltip,
   CButtonGroup,
-  CDropdown,
-  CDropdownToggle,
-  CDropdownMenu,
-  CDropdownItem,
-  CFormLabel,
   CModal,
   CModalBody,
   CModalHeader,
@@ -37,25 +33,27 @@ import { cilTrash, cilColorBorder, cilPlus, cilInfo } from '@coreui/icons'
 
 const AutoConfig = () => {
   const [loading, setLoading] = useState(true)
-  const [selectedValue, setSelectedValue] = useState(null)
   // visible show model
   const [visible, setVisible] = useState(false)
   // list item
   const [schedules, setSchedules] = useState([])
   let stt = 1
   const [scheduleId, setScheduleId] = useState(null)
-
-  // show record per page
-  const handleItemClick = (value) => {
-    setSelectedValue(value)
-  }
+  // pagination
+  const [pageNumber, setPageNumber] = useState(1)
+  const [pageSize, setPageSize] = useState(2)
+  const [totalPage, setTotalPage] = useState(0)
+  const [totalItems, setTotalItems] = useState(0)
 
   // get all Schedules
   const getSchedules = () => {
     axios
-      .get(`${config.API_URL}/schedules`)
+      .get(`${config.API_URL}/schedules?PageSize=${pageSize}&PageNumber=${pageNumber}`)
       .then((response) => {
-        // console.log(response.data.results)
+        setPageNumber(response.data.pageNumber)
+        setPageSize(response.data.pageSize)
+        setTotalPage(response.data.totalPage)
+        setTotalItems(response.data.totalItems)
         setSchedules(response.data.results)
         setLoading(false)
       })
@@ -67,7 +65,12 @@ const AutoConfig = () => {
 
   useEffect(() => {
     getSchedules()
-  }, [])
+  }, [pageSize, pageNumber])
+
+  // chọn trang
+  const handlePageChange = (data) => {
+    setPageNumber(data.selected + 1)
+  }
 
   // xóa lập lịch
   const deleteSchedule = (id) => {
@@ -212,16 +215,14 @@ const AutoConfig = () => {
                 </CTableBody>
               </CTable>
               <br />
-              <CFormLabel style={{ marginRight: '10px' }}>Hiển thị</CFormLabel>
-              <CDropdown>
-                <CDropdownToggle color="primary">{selectedValue || '10'}</CDropdownToggle>
-                <CDropdownMenu>
-                  <CDropdownItem onClick={() => handleItemClick('10')}>10</CDropdownItem>
-                  <CDropdownItem onClick={() => handleItemClick('20')}>20</CDropdownItem>
-                  <CDropdownItem onClick={() => handleItemClick('30')}>30</CDropdownItem>
-                </CDropdownMenu>
-              </CDropdown>
-              <CFormLabel style={{ marginLeft: '10px' }}>bản ghi trên trang</CFormLabel>
+              <div className="mt-4 d-flex justify-content-between align-items-center">
+                <span>
+                  Hiển thị {pageSize} / {totalItems} bản ghi
+                </span>
+                {totalPage > 1 && (
+                  <Pagination pageCount={totalPage} onPageChange={handlePageChange} />
+                )}
+              </div>
             </CCardBody>
           </CCard>
         </CCol>
@@ -241,7 +242,6 @@ const AutoConfig = () => {
           <CButton color="primary" onClick={() => handleDeleteConfirmed(scheduleId)}>
             Xác nhận
           </CButton>
-
           <CButton color="secondary" onClick={() => setVisible(false)}>
             Hủy bỏ
           </CButton>
