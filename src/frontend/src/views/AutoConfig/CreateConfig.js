@@ -38,7 +38,7 @@ const CreateConfig = () => {
   // optiop ở chọn khu vực
   const [farmSelected, setFarmSelected] = useState(false)
   // chọn thiết bị
-  const [selectedDevices, setSelectedDevices] = useState([])
+  const [selectedDevicesList, setSelectedDevicesList] = useState([])
   // status device
   const [selectedStatus, setSelectedStatus] = useState('')
   const [disabledOption, setDisabledOption] = useState(false)
@@ -76,27 +76,50 @@ const CreateConfig = () => {
       })
   }, [])
 
-  // xử lý chọn thiết bị
-  const handleDeviceChange = (deviceId) => {
-    if (!selectedDevices.some((device) => device.id === deviceId)) {
-      setSelectedDevices([...selectedDevices, deviceId])
-      setDisabledOption(true)
-    }
-  }
-
   // Xử lý chọn cấu hình
   const handleOptionConfig = (value) => {
     setOptionConfig(value)
   }
 
-  // xử lý chọn status của đèn
-  const handleStatusChange = (e) => {
+  //Chọn status chung
+  const handleStatusCommonChange = (e) => {
     setSelectedStatus(e.target.value)
+  }
+
+  // xử lý chọn status của đèn
+  const handleStatusChange = (e, deviceId) => {
+    const status = e.target.value
+    setSelectedDevicesList((prevDevices) =>
+      prevDevices.map((device) => {
+        if (device.id === deviceId) {
+          return {
+            ...device,
+            status: status === '1',
+          }
+        }
+        return device
+      }),
+    )
+  }
+
+  const handleDeviceChange = (deviceId) => {
+    // Kiểm tra xem thiết bị đã được chọn chưa
+    const isDeviceSelected = selectedDevicesList.some((device) => device.id === deviceId)
+    if (!isDeviceSelected) {
+      // Tìm thiết bị dựa trên id
+      const selectedDevice = farms
+        .flatMap((farm) => farm.devices)
+        .find((device) => device.id === deviceId)
+      if (selectedDevice) {
+        // Thêm thiết bị vào danh sách đã chọn
+        setSelectedDevicesList([...selectedDevicesList, selectedDevice])
+      }
+    }
   }
 
   // reset chọn thiết bị
   const resetSelectedDevices = () => {
-    setSelectedDevices([])
+    setSelectedDevicesList([])
     setDisabledOption(false)
   }
 
@@ -132,9 +155,9 @@ const CreateConfig = () => {
       endDate: formatEndDate,
       isActive: schedule.isActive,
       farmId: schedule.farmId,
-      devices: selectedDevices.map((deviceId) => ({
-        id: deviceId,
-        statusDevice: optionConfig === optionSelect.chung ? selectedStatus === '1' : deviceId,
+      devices: selectedDevicesList.map((device) => ({
+        id: device.id,
+        statusDevice: optionConfig === optionSelect.chung ? selectedStatus === '1' : device.status,
       })),
     }
     console.log(data)
@@ -279,7 +302,9 @@ const CreateConfig = () => {
                         </option>
                         {farms.map((farm) =>
                           farm.devices.map((device) => {
-                            const isDeviceSelected = selectedDevices.includes(device.id)
+                            const isDeviceSelected = selectedDevicesList?.some(
+                              (selectedDevice) => selectedDevice.id === device.id,
+                            )
                             return (
                               <option key={device.id} value={device.id} hidden={isDeviceSelected}>
                                 {device.name}
@@ -292,7 +317,7 @@ const CreateConfig = () => {
                         size="large"
                         className="mb-3"
                         aria-label="Chọn trạng thái"
-                        onChange={handleStatusChange}
+                        onChange={handleStatusCommonChange}
                         hidden={optionConfig === optionSelect.le}
                       >
                         <option disabled>Chọn trạng thái</option>
@@ -301,26 +326,22 @@ const CreateConfig = () => {
                       </CFormSelect>
                       {/* Danh sách chọn */}
                       <ul>
-                        {selectedDevices.map((deviceId) => {
-                          const device = farms
-                            .flatMap((farm) => farm.devices)
-                            .find((device) => device.id === deviceId)
-                          return (
-                            <>
-                              <li key={device.id}>{device.name}</li>
-                              <CFormSelect
-                                size="large"
-                                className="mb-2 mt-2"
-                                aria-label="Chọn trạng thái"
-                                hidden={optionConfig === optionSelect.chung}
-                              >
-                                <option disabled>Chọn trạng thái</option>
-                                <option value="0">Tắt</option>
-                                <option value="1">Bật</option>
-                              </CFormSelect>
-                            </>
-                          )
-                        })}
+                        {selectedDevicesList.map((device) => (
+                          <>
+                            <li key={device.id}>{device.name}</li>
+                            <CFormSelect
+                              size="large"
+                              className="mb-2 mt-2"
+                              aria-label="Chọn trạng thái"
+                              hidden={optionConfig === optionSelect.chung}
+                              onChange={(e) => handleStatusChange(e, device.id)}
+                            >
+                              <option disabled>Chọn trạng thái</option>
+                              <option value="0">Tắt</option>
+                              <option value="1">Bật</option>
+                            </CFormSelect>
+                          </>
+                        ))}
                       </ul>
                       <CButton
                         color="danger"
