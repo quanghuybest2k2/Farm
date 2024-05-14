@@ -154,7 +154,7 @@ const InformationEnvironment = (props) => {
                   title="Cường độ ánh sáng"
                   action={
                     <CDropdown alignment="end">
-                      <CIcon icon={parseInt(environment.brightness) < 50 ? cilSun : cilMoon} />
+                      <CIcon icon={parseInt(environment.brightness) < 50 ? cilMoon : cilSun} />
                     </CDropdown>
                   }
                 />

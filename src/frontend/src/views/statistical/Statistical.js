@@ -218,13 +218,13 @@ const Statistical = () => {
         <StatisticalChart data={statistics} dataType={selectedValue} />
         <div className="d-flex justify-content-between align-items-center mb-3">
           <div className="col-2">
-            {/* <h4>Ngày cụ thể</h4> */}
-            <h4>Hôm nay</h4>
-            {/* <CRow className="mb-4">
+            {/* <h4>Hôm nay</h4> */}
+            <h4>Ngày cụ thể</h4>
+            <CRow className="mb-4">
               <CCol sm={12}>
                 <div className="d-flex mt-3 align-items-center">
                   <div className="me-2">
-                    <h6 className="mb-3">Choose date</h6>
+                    <h6 className="mb-3">Chọn ngày</h6>
                     <DatePicker
                       selected={selectedDate ?? endDateNow}
                       onChange={(date) => setSelectedDate(date)}
@@ -238,7 +238,7 @@ const Statistical = () => {
                   </div>
                 </div>
               </CCol>
-            </CRow> */}
+            </CRow>
           </div>
         </div>
         <StatisticsBySpecificDate data={statisticsSpecificDate} />
