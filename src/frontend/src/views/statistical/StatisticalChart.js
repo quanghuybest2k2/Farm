@@ -33,13 +33,13 @@ const StatisticalChart = ({ data, dataType }) => {
   const getLabel = () => {
     switch (dataType) {
       case DataTypeEnum.TEMPERATURE:
-        return 'Temperature'
+        return 'Nhiệt độ'
       case DataTypeEnum.HUMIDITY:
-        return 'Humidity'
+        return 'Độ ẩm'
       case DataTypeEnum.BRIGHTNESS:
-        return 'Brightness'
+        return 'Độ sáng'
       default:
-        return 'Data'
+        return 'Dữ liệu'
     }
   }
 
