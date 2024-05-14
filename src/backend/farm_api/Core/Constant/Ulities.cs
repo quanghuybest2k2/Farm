@@ -16,13 +16,11 @@ namespace Core.Constant
     {
         public static readonly  string  Sensor= "Sensor";
         public static  bool flag = true;
-
-        public const string HostServerMQTTHiveMQ = "25b819a37cd6410aac50cb6c8093b3d2.s1.eu.hivemq.cloud";
+        public const string HostServerMQTTHiveMQ = "50b1dfc82a5a4ea2a4e6462bbf4f2fd5.s1.eu.hivemq.cloud";
         public const int PortServerMQTTHiveMQ = 8883;
         public const string ClientId = "HiChaoCau";
         public const string AccountMQTTHiveMQ = "farm3";
         public const string PasswordMQTTHiveMQ = "Admin@12345";
-
         public static string SerializeDeviceData(object data)
         {
             var options = new JsonSerializerOptions

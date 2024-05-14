@@ -13,7 +13,7 @@
             get
             {
                 var totalpage = TotalItems / PageSize;
-                if (PageSize % PageSize > 0)
+                if (TotalItems % PageSize > 0)
                 {
                     totalpage += 1;
                 }
