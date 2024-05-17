@@ -41,7 +41,7 @@ const AutoConfig = () => {
   const [scheduleId, setScheduleId] = useState(null)
   // pagination
   const [pageNumber, setPageNumber] = useState(1)
-  const [pageSize, setPageSize] = useState(3)
+  const [pageSize, setPageSize] = useState(5)
   const [totalPage, setTotalPage] = useState(0)
   const [totalItems, setTotalItems] = useState(0)
 
