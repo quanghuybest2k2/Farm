@@ -22,11 +22,12 @@ import config from '../../config'
 
 const Dashboard = () => {
   const [farms, setFarms] = useState([])
+  const [scheduledstatus, setScheduledStatus] = useState({})
 
   // call api
   const getDevices = async () => {
     await axios.get(`${config.API_URL}/farms`).then((res) => {
-      console.log(res.data.results)
+      // console.log(res.data.results)
       if (res.data.results) {
         setFarms(res.data.results)
       } else {
@@ -35,8 +36,21 @@ const Dashboard = () => {
     })
   }
 
+  // get Scheduled Status
+  const getScheduledStatus = async () => {
+    await axios.get(`${config.BASE_URL}/scheduledstatus`).then((res) => {
+      // console.log(res.data)
+      if (res.data) {
+        setScheduledStatus(res.data)
+      } else {
+        setScheduledStatus({})
+      }
+    })
+  }
+
   useEffect(() => {
     getDevices()
+    getScheduledStatus()
   }, [])
   const cameras = [
     {
@@ -255,10 +269,10 @@ const Dashboard = () => {
                     className="mb-3"
                     color="success"
                     icon={<CIcon icon={cilChartPie} height={36} />}
-                    progress={{ color: 'light', value: 40 }}
+                    progress={{ color: 'light', value: 50 }}
                     text="Widget helper text"
                     title="Đang hoạt động"
-                    value="4 lịch trình"
+                    value={`${scheduledstatus.on} lịch trình`}
                   />
                 </CCol>
                 <CCol xs={6}>
@@ -267,10 +281,10 @@ const Dashboard = () => {
                     color="danger"
                     icon={<CIcon icon={cilChartPie} height={36} />}
                     inverse
-                    progress={{ color: 'light', value: 60 }}
+                    progress={{ color: 'light', value: 50 }}
                     text="Widget helper text"
                     title="Không hoạt động"
-                    value="6 lịch trình"
+                    value={`${scheduledstatus.off} lịch trình`}
                   />
                 </CCol>
               </CRow>

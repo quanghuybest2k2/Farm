@@ -48,7 +48,9 @@ const AutoConfig = () => {
   // get all Schedules
   const getSchedules = () => {
     axios
-      .get(`${config.API_URL}/schedules?PageSize=${pageSize}&PageNumber=${pageNumber}`)
+      .get(
+        `${config.API_URL}/schedules?PageSize=${pageSize}&PageNumber=${pageNumber}&SortColumn=createAt&SortOrder=desc`,
+      )
       .then((response) => {
         setPageNumber(response.data.pageNumber)
         setPageSize(response.data.pageSize)
