@@ -38,7 +38,7 @@ const Dashboard = () => {
 
   // get Scheduled Status
   const getScheduledStatus = async () => {
-    await axios.get(`${config.BASE_URL}/scheduledstatus`).then((res) => {
+    await axios.get(`${config.API_URL}/schedules/scheduledstatus`).then((res) => {
       // console.log(res.data)
       if (res.data) {
         setScheduledStatus(res.data)
