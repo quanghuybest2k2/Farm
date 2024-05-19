@@ -12,6 +12,7 @@ using farm_api.Services.Interface;
 using farm_api.Validation;
 using FluentValidation;
 using System.Collections.Generic;
+using System.Linq.Dynamic.Core;
 using System.Formats.Asn1;
 using Environment = Core.Entities.Environment;
 
@@ -55,9 +56,12 @@ namespace farm_api.Services.Implementation
             var mapper = _mapper.Map<EnvironmentQueryDTO>(environmentQuery);
             var result = await _environmentRepository.GetAllAsync(mapper, cancellationToken);
             var totalItems = result.Count();
+            // Áp dụng dynamic sorting
             var itemPage = result.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
-                                .Take(pagingParams.PageSize)
-                                .ToList();
+                                 .Take(pagingParams.PageSize)
+                                 .AsQueryable()  // Chuyển đổi sang IQueryable để sử dụng Dynamic Linq
+                                 .OrderBy($"{pagingParams.SortColumn} {pagingParams.SortOrder}")
+                                 .ToList();
             return new PagedFarmResponse<EnvironmentDTO>(itemPage.Select(x => _mapper.Map<EnvironmentDTO>(x)), pagingParams.PageNumber, pagingParams.PageSize, totalItems);
         }
 

@@ -81,6 +81,26 @@ namespace farm_api.Controllers
             }
             return Ok();
         }
+        [HttpGet("location/{location}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetByLocation([FromRoute]string location)
+        {
+            if (string.IsNullOrEmpty(location))
+            {
+                return BadRequest();
+            }
+            try
+            {
+                 var result= await _cameraService.GetByLocationAsync(location);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new FarmErrrorResponse(ex.GetType().Name, null));
+            }
+           
+        }
         /// <summary>
         /// Updates a camera record.
         /// </summary>

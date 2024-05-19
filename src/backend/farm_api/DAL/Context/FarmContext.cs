@@ -26,6 +26,7 @@ namespace DAL.Context
             modelBuilder.Entity<Device>().HasKey(x => x.Id);
             modelBuilder.Entity<Core.Entities.Environment>().HasKey(x => x.Id);
             modelBuilder.Entity<Camera>().HasKey(x => x.Id);
+            modelBuilder.Entity<Camera>().HasIndex(x => x.Location).IsUnique();
             modelBuilder.Entity<Farm>().HasKey(x => x.Id);
             modelBuilder.Entity<Schedule>().HasKey(x => x.Id);
             modelBuilder.Entity<Schedule>().Property(s => s.Type)

@@ -11,6 +11,7 @@ using FluentValidation;
 using Core.Entities;
 using farm_api.Filter.Device;
 using DAL.Repositories.UnitOfWork;
+using System.Linq.Dynamic.Core;
 
 namespace farm_api.Services.Implementation
 {
@@ -52,9 +53,12 @@ namespace farm_api.Services.Implementation
             var mapper = _mapper.Map<DeviceQueryDTO>(deviceQuery);
             var result = await _deviceRepository.GetAllAsync(mapper, cancellationToken);
             var totalItems = result.Count();
+            // Áp dụng dynamic sorting
             var itemPage = result.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
-                                .Take(pagingParams.PageSize)
-                                .ToList();
+                                 .Take(pagingParams.PageSize)
+                                 .AsQueryable()  // Chuyển đổi sang IQueryable để sử dụng Dynamic Linq
+                                 .OrderBy($"{pagingParams.SortColumn} {pagingParams.SortOrder}")
+                                 .ToList();
             return new PagedFarmResponse<DeviceDTO>(itemPage.Select(x => _mapper.Map<DeviceDTO>(x)), pagingParams.PageNumber, pagingParams.PageSize, totalItems);
         }
 

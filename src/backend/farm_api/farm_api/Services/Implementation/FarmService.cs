@@ -10,6 +10,7 @@ using farm_api.Filter.Farm;
 using farm_api.Models;
 using farm_api.Models.Request;
 using farm_api.Responses;
+using System.Linq.Dynamic.Core;
 using farm_api.Services.Interface;
 using FluentValidation;
 
@@ -53,9 +54,12 @@ namespace farm_api.Services.Implementation
             var mapper = _mapper.Map<FarmQueryDTO>(farmQuery);
             var result = await _farmRepositorty.GetAllAsync(mapper, cancellationToken);
             var totalItems = result.Count();
+            // Áp dụng dynamic sorting
             var itemPage = result.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
-                                .Take(pagingParams.PageSize)
-                                .ToList();
+                                 .Take(pagingParams.PageSize)
+                                 .AsQueryable()  // Chuyển đổi sang IQueryable để sử dụng Dynamic Linq
+                                 .OrderBy($"{pagingParams.SortColumn} {pagingParams.SortOrder}")
+                                 .ToList();
             return new PagedFarmResponse<FarmDTO>(itemPage.Select(x => _mapper.Map<FarmDTO>(x)), pagingParams.PageNumber, pagingParams.PageSize, totalItems);
         }
 

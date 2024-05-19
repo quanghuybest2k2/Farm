@@ -5,6 +5,7 @@ using farm_api.Models;
 using farm_api.Responses;
 using Core.Queries;
 using farm_api.Filter.Camera;
+using Core.Entities;
 
 namespace farm_api.Services.Interface
 {
@@ -15,5 +16,6 @@ namespace farm_api.Services.Interface
         Task DeleteCameraAsync(Guid id);
         Task UpdateCameraAsync(Guid Id, CameraRequest cameraRequest, CancellationToken cancellationToken = default);
         Task<PagedFarmResponse<CameraDTO>> GetAllAsync(CameraQuery cameraQuery, IPagingParams pagingParams, CancellationToken cancellationToken = default);
+        Task<CameraDTO> GetByLocationAsync(string location, CancellationToken cancellationToken = default);
     }
 }

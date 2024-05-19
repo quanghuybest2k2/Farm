@@ -63,11 +63,11 @@ namespace DAL.Seeder
         {
             #region data devices
             IList<Camera> cameras = new List<Camera>() {
-            new(){ Name="Camera khu A",IPAddress="192.168.1.10",Port=8080,Location="Nhà máy chăn nuôi"},
-            new(){ Name="Camera khu B",IPAddress="192.168.1.20",Port=8080,Location="Khu vực chuồng gia súc"},
-            new(){ Name="Camera khu C",IPAddress="192.168.1.30",Port=8080,Location="Khu vực trang trại"},
-            new(){ Name="Camera khu D",IPAddress="192.168.1.40",Port=8080,Location="Khu vực vườn rau"},
-            new(){ Name="Camera khu E",IPAddress="192.168.1.50",Port=8080,Location="Khu vực chuồng gia cầm"},
+            new(){ Name="Camera khu A",IPAddress="192.168.1.10",Port=8080,Location="KV2",StaticFileStream="test"},
+            new(){ Name="Camera khu B",IPAddress="192.168.1.20",Port=8080,Location="KV3",StaticFileStream="test"},
+            new(){ Name="Camera khu C",IPAddress="192.168.1.30",Port=8080,Location="KV4",StaticFileStream="test"},
+            new(){ Name="Camera khu D",IPAddress="192.168.1.40",Port=8080,Location="KV4",StaticFileStream="test"},
+            new(){ Name="Camera khu E",IPAddress="192.168.1.50",Port=8080,Location="KV5",StaticFileStream="test"},
 
             };
             #endregion

@@ -1,4 +1,5 @@
-﻿using farm_api.Filter.Farm;
+﻿using Core.DTO;
+using farm_api.Filter.Farm;
 using farm_api.Filter.Schedule;
 using farm_api.Models;
 using farm_api.Models.Request;
@@ -129,6 +130,24 @@ namespace farm_api.Controllers
             try
             {
                 var result = await _scheduleService.GetAllAsync(scheduleQuery, pagingModel);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error retrieving all schedules: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Retrieves scheduled status 
+        /// </summary>
+        /// <returns>return a result contains scheduled status</returns>
+        [HttpGet("scheduledstatus")]
+        [ProducesResponseType(typeof(StastusSchedulesDTO), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetStatusSchedules()
+        {
+            try
+            {
+                var result = await _scheduleService.GetStatusSchedulesAsync();
                 return Ok(result);
             }
             catch (Exception ex)

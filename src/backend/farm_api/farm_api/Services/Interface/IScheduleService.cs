@@ -1,4 +1,5 @@
 ﻿using Core.Constract;
+using Core.DTO;
 using Core.Entities;
 using farm_api.Filter.Farm;
 using farm_api.Filter.Schedule;
@@ -15,5 +16,6 @@ namespace farm_api.Services.Interface
         Task DeleteScheduleAsync(Guid id, CancellationToken cancellationToken = default);
         Task<ScheduleDTO> GetScheduleByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<PagedFarmResponse<ScheduleDTO>> GetAllAsync(ScheduleQuery scheduleQuery, IPagingParams pagingParams, CancellationToken cancellationToken = default);
+        Task<StastusSchedulesDTO> GetStatusSchedulesAsync(CancellationToken cancellationToken=default);
     }
 }

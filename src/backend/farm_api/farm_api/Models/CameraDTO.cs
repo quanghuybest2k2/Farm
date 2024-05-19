@@ -8,5 +8,6 @@ namespace farm_api.Models
         public string IPAddress { get; set; }
         public int Port { get; set; }
         public string Location { get; set; }
+        public string StaticFileStream { get; set; }
     }
 }

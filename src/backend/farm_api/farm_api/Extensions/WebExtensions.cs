@@ -144,8 +144,8 @@ namespace farm_api.Extensions
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.UseCors(Cors);
+            app.UseStaticFiles();
             app.MapControllers();
-            app.UseWebSockets();
             return app;
         }
     }

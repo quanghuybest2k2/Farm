@@ -20,6 +20,12 @@ namespace DAL.Repositories.Implementation
         {
             return await Filter(cameraQueryDTO).ToListAsync(cancellationToken);
         }
+
+        public async Task<Camera> GetByLocationAsync(string location, CancellationToken cancellationToken = default)
+        {
+            return await _context.Cameras.FirstOrDefaultAsync(x => x.Location == location,cancellationToken);
+        }
+
         private IQueryable<Camera> Filter(CameraQueryDTO cameraQueryDTO)
         {
             IQueryable<Camera> query = _context.Set<Camera>();

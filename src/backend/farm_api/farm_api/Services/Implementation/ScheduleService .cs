@@ -17,6 +17,7 @@ using DAL.Repositories.Implementation;
 using farm_api.Filter.Farm;
 using FluentValidation;
 using Core.DTO;
+using System.Linq.Dynamic.Core;
 using System.Collections;
 using farm_api.Ulities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -330,12 +331,19 @@ namespace farm_api.Services.Implementation
             var mapper = _mapper.Map<ScheduleQueryDTO>(scheduleQuery);
             var result = await _repository.GetAllAsync(mapper, cancellationToken);
             var totalItems = result.Count();
-            var itemPage = result.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
-                                .Take(pagingParams.PageSize)
-                                .ToList();
+            // Áp dụng dynamic sorting
+            var itemPage = result.OrderByDescending(x => x.CreateAt)
+                                  .Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
+                                 .Take(pagingParams.PageSize)                             
+                                 .ToList();
             return new PagedFarmResponse<ScheduleDTO>(itemPage.Select(x => _mapper.Map<ScheduleDTO>(x)), pagingParams.PageNumber, pagingParams.PageSize, totalItems);
         }
 
-       
+        public async Task<StastusSchedulesDTO> GetStatusSchedulesAsync(CancellationToken cancellationToken = default)
+        {
+            var total = await _repository.GetAllAsync();
+            var activeSchedules=total.Where(x => x.IsActive).Count();
+            return new StastusSchedulesDTO() { On=activeSchedules,Off=total.Count()-activeSchedules};
+        }
     }
 }

@@ -12,6 +12,6 @@ namespace DAL.Repositories.Interface
     public interface ICameraRepository:IGenericRepository<Camera>
     {
         Task<IEnumerable<Camera>> GetAllAsync(CameraQueryDTO cameraQueryDTO, CancellationToken cancellationToken = default);
-
+        Task<Camera> GetByLocationAsync(string location, CancellationToken cancellationToken = default);
     }
 }
