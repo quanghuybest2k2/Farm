@@ -1,0 +1,82 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar color="primary">
+    <ion-title>Tổng quan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" mode="ios">
+  <div *ngIf="loading" class="ion-text-center">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-card *ngIf="sensorData" color="primary">
+    <ion-card-header>
+      <ion-card-title
+        *ngIf="sensorData.sensorLocation !== undefined"
+        class="center"
+      >
+        <ion-list lines="none">
+          <ion-item>
+            <ion-select
+              aria-label="Sensor Location"
+              (ionChange)="onSensorLocationChange($event)"
+              value="{{sensorData.sensorLocation }}"
+              interface="action-sheet"
+              mode="ios"
+              color="primary"
+            >
+              <ion-select-option value="KV1">KV1</ion-select-option>
+              <ion-select-option value="KV2">KV2</ion-select-option>
+              <ion-select-option value="KV3">KV3</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-card *ngIf="sensorData.temperature !== undefined" color="danger">
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-icon size="large" name="thermometer-outline"></ion-icon>
+          </ion-card-subtitle>
+          <ion-card-title>
+            <strong>
+              {{ sensorData.temperature.toFixed() }}<sup>o</sup>C
+            </strong>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <strong>Temperature</strong>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="sensorData.humidity !== undefined" color="tertiary">
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-icon size="large" name="water-outline"></ion-icon>
+          </ion-card-subtitle>
+          <ion-card-title
+            ><strong> {{ sensorData.humidity.toFixed() }}</strong>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <strong>Humidity</strong>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="sensorData.brightness !== undefined" color="warning">
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-icon size="large" name="sunny-outline"></ion-icon>
+          </ion-card-subtitle>
+          <ion-card-title>
+            <strong>{{ sensorData.brightness.toFixed() }}</strong>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content><strong>Brightness</strong></ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="!loading && !sensorData">
+    <ion-card-content>Data is not available</ion-card-content>
+  </ion-card>
+</ion-content>
