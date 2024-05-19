@@ -1,0 +1,37 @@
+﻿using Core.DTO;
+using Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+using System.Xml;
+
+namespace Core.Constant
+{
+    public static class Ulities
+    {
+        public static readonly  string  Sensor= "Sensor";
+        public static  bool flag = true;
+        public const string HostServerMQTTHiveMQ = "50b1dfc82a5a4ea2a4e6462bbf4f2fd5.s1.eu.hivemq.cloud";
+        public const int PortServerMQTTHiveMQ = 8883;
+        public const string ClientId = "HiChaoCau";
+        public const string AccountMQTTHiveMQ = "farm3";
+        public const string PasswordMQTTHiveMQ = "Admin@12345";
+        public static string SerializeDeviceData(object data)
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true // Để JSON được format đẹp, thích hợp khi muốn in ra màn hình
+            };
+            return JsonSerializer.Serialize(data, options);
+        }
+        public static DeviceRequestToESP DeserializeDeviceData(string json)
+        {
+            return JsonSerializer.Deserialize<DeviceRequestToESP>(json);
+        }
+    }
+}
