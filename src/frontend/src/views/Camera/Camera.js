@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react';
 import {
   CCard,
   CCardBody,
@@ -9,53 +9,45 @@ import {
   CDropdownToggle,
   CDropdownMenu,
   CDropdownItem,
-} from '@coreui/react'
-import * as cocoSsd from '@tensorflow-models/coco-ssd'
-import '@tensorflow/tfjs'
-import video from './video.mp4'
-import DataTypeEnum from '../../DataTypeEnum'
-// thư viện nhận diện khuôn mặt
-// import * as faceapi from 'face-api.js'
+} from '@coreui/react';
+import * as cocoSsd from '@tensorflow-models/coco-ssd';
+import ReactPlayer from 'react-player';
+import '@tensorflow/tfjs';
+import Swal from 'sweetalert2';
+import DataTypeEnum from '../../DataTypeEnum';
 
 const Camera = () => {
-  const videoRef = useRef()
-  const [numPeople, setNumPeople] = useState(0)
-  const [selectedLocationValue, setSelectedLocationValue] = useState(
-    DataTypeEnum.SENSORLOCATION.KV2,
-  )
-
-  useEffect(() => {
-    const runObjectDetection = async () => {
-      const net = await cocoSsd.load()
-      setInterval(async () => {
-        const result = await net.detect(videoRef.current)
-        const people = result.filter((item) => item.class === 'person')
-        setNumPeople(people.length)
-      }, 100)
-    }
-
-    if (videoRef.current.readyState >= 3) {
-      // HAVE_FUTURE_DATA
-      runObjectDetection()
-    } else {
-      videoRef.current.onloadeddata = runObjectDetection
-    }
-  }, [])
+  const [url, setUrl] = useState('http://127.0.0.1:8081/stream.m3u8');
+  const [selectedLocationValue, setSelectedLocationValue] = useState(DataTypeEnum.SENSORLOCATION.KV2);
+  const [peopleCount, setPeopleCount] = useState(0);
+  const videoRef = useRef();
 
   const handleLocationClick = (value) => {
     Swal.fire({
-      title: 'Information',
-      text: `You click ${value}`,
+      title: 'Thông tin',
+      text: `Bạn đã chọn ${value}`,
       icon: 'info',
       confirmButtonText: 'OK',
       timer: 1500,
-    })
-    setSelectedLocationValue(value)
-  }
+    });
+    setSelectedLocationValue(value);
+  };
+
+  useEffect(() => {
+    const runObjectDetection = async () => {
+      const net = await cocoSsd.load();
+      setInterval(async () => {
+        const predictions = await net.detect(videoRef.current.getInternalPlayer());
+        const people = predictions.filter(prediction => prediction.class === 'person');
+        setPeopleCount(people.length);
+      }, 1000);
+    };
+    runObjectDetection();
+  }, []);
 
   return (
     <CRow>
-      <CCol xs>
+      <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>Camera</CCardHeader>
           <CCardBody>
@@ -72,44 +64,31 @@ const Camera = () => {
                     {selectedLocationValue || DataTypeEnum.SENSORLOCATION.KV2}
                   </CDropdownToggle>
                   <CDropdownMenu>
-                    <CDropdownItem
-                      onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV1)}
-                    >
+                    <CDropdownItem onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV1)}>
                       KV1
                     </CDropdownItem>
-                    <CDropdownItem
-                      onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV2)}
-                    >
+                    <CDropdownItem onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV2)}>
                       KV2
                     </CDropdownItem>
-                    <CDropdownItem
-                      onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV3)}
-                    >
+                    <CDropdownItem onClick={() => handleLocationClick(DataTypeEnum.SENSORLOCATION.KV3)}>
                       KV3
                     </CDropdownItem>
                   </CDropdownMenu>
                 </CDropdown>
               </div>
             </div>
-            <CRow>
-              <CCol xs={12}>
-                <CCard className="mb-4">
-                  <CCardHeader>Camera 1</CCardHeader>
-                  <CCardBody>
-                    <video ref={videoRef} width="100%" height="100%" controls>
-                      <source src={video} type="video/mp4" />
-                    </video>
-                    <p>Tổng số người: {numPeople}</p>
-                  </CCardBody>
-                </CCard>
-              </CCol>
-            </CRow>
-            <br />
+            <CCard className="mb-4">
+              <CCardHeader>Camera 1</CCardHeader>
+              <CCardBody>
+                  <ReactPlayer ref={videoRef} url={url} playing controls width="100%" height="100%" />
+                <p>Tổng số người: {peopleCount}</p>
+              </CCardBody>
+            </CCard>
           </CCardBody>
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Camera
+export default Camera;
