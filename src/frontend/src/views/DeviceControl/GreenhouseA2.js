@@ -1,20 +1,17 @@
-import { CCard, CCardBody, CCol, CRow, CCardHeader } from '@coreui/react'
+import { CCard, CCardBody, CCol, CRow, CCardHeader, CFormSwitch } from '@coreui/react'
 import CustomCheckbox from './CustomCheckbox'
 import React, { useEffect, useState } from 'react'
 import InformationEnvironment from '../widgets/InformationEnvironment'
 import CIcon from '@coreui/icons-react'
 import { cibDiscover } from '@coreui/icons'
-import * as signalR from '@microsoft/signalr'
-import axios from 'axios'
-import config from '../../config'
 
 const GreenhouseA2 = () => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [connection, setConnection] = useState(null)
-  const [location, setLocation] = useState(null)
-  const [deviceStatusCode, setDeviceStatusCode] = useState(null)
-  const [fetchDataCompleted, setFetchDataCompleted] = useState(false)
-  const [sensorData, setSensorData] = useState({ Status: [] })
+  const [switchStates, setSwitchStates] = useState({
+    fan: true,
+    light2: false,
+    light3: true,
+    lightS: true,
+  })
 
   const [checkboxes, setCheckboxes] = useState({
     parametersAutomatically: false,
@@ -22,80 +19,17 @@ const GreenhouseA2 = () => {
   })
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true)
-        const response = await axios.get(`${config.API_URL}/farms`)
-        setLocation(response.data.results[1])
-        setDeviceStatusCode(response.data.results[1].deviceStatusCode)
-        setFetchDataCompleted(true)
-        setIsLoading(false)
-      } catch (error) {
-        console.error('Error fetching data: ', error)
-        setIsLoading(false)
-      }
-    }
+    setCheckboxes({
+      parametersAutomatically: false,
+      scheduledAutomation: false,
+    })
+  }, [])
 
-    const connectSignalR = async () => {
-      if (!fetchDataCompleted) return
-      try {
-        setIsLoading(true)
-        const connect = new signalR.HubConnectionBuilder()
-          .withUrl(`${config.BASE_URL}/farmhub`)
-          .withAutomaticReconnect()
-          .build()
-
-        //  esp8266/ledStatus
-        connect.on(deviceStatusCode ?? '', (dataString) => {
-          try {
-            const data = JSON.parse(dataString)
-            console.log('Parsed data:', data)
-            setSensorData(data)
-          } catch (error) {
-            console.error('Error parsing JSON string:', error)
-          }
-        })
-
-        await connect.start()
-        console.log('Connected!')
-        setConnection(connect)
-        setIsLoading(false)
-        return () => {
-          connect.stop()
-        }
-      } catch (err) {
-        console.error('Error while establishing connection:', err)
-        setIsLoading(false)
-      }
-    }
-
-    fetchData()
-    connectSignalR()
-
-    // Clean up
-    return () => {
-      if (connection) {
-        connection.stop()
-      }
-    }
-  }, [fetchDataCompleted])
-
-  const controlDevice = (device, statusDevice) => {
-    const postData = {
-      topicName: device.controllerCode,
-      payload: {
-        id: device.id,
-        status: statusDevice,
-        order: device.order,
-      },
-    }
-
-    axios
-      .post(`${config.API_URL}/controldevices`, postData)
-      .then((response) => {})
-      .catch((error) => {
-        console.error('Error controlling device:', error)
-      })
+  const handleSwitchChange = (switchName) => {
+    setSwitchStates({
+      ...switchStates,
+      [switchName]: !switchStates[switchName],
+    })
   }
 
   const handleCheckboxChange = (checkboxName) => {
@@ -110,12 +44,31 @@ const GreenhouseA2 = () => {
     }
   }
 
+  const renderSwitchControl = (label, switchName) => (
+    <CRow>
+      <CCol sm={6}>
+        <CFormSwitch
+          label={label}
+          defaultChecked={switchStates[switchName]}
+          onChange={() => handleSwitchChange(switchName)}
+        />
+      </CCol>
+      <CCol sm={6}>
+        <CIcon
+          icon={cibDiscover}
+          size="xl"
+          style={{ color: switchStates[switchName] ? '#249542' : '#db5d5d' }}
+        />
+      </CCol>
+    </CRow>
+  )
+
   return (
     <>
       <InformationEnvironment className="mb-4" />
       <CCard className="mb-4">
         <CCardHeader>
-          <code>Nhà kính A2</code>
+          <code>Greenhouse A3</code>
         </CCardHeader>
         <CCardBody>
           <CRow>
@@ -135,47 +88,16 @@ const GreenhouseA2 = () => {
             </CCol>
           </CRow>
           <CRow className="mt-5">
-            {/* display devices */}
             <CCol sm={6}>
-              {isLoading ? (
-                <div>Loading...</div>
-              ) : (
-                <>
-                  {location && (
-                    <>
-                      <h4>{location.name}</h4>
-                      {location.devices?.map((device) => (
-                        <CRow key={device.id}>
-                          <CCol sm={6}>
-                            <div className="form-check form-switch">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                onChange={() =>
-                                  controlDevice(device, !sensorData.Status[device.order])
-                                }
-                                checked={sensorData.Status[device.order]}
-                              />
-                              <label className="form-check-label">{device.name}</label>
-                            </div>
-                          </CCol>
-                          <CCol sm={6}>
-                            <CIcon
-                              icon={cibDiscover}
-                              size="xl"
-                              style={{
-                                color: sensorData.Status[device.order] ? '#249542' : '#db5d5d',
-                              }}
-                            />
-                          </CCol>
-                        </CRow>
-                      ))}
-                    </>
-                  )}
-                </>
-              )}
+              <h4>Controller 1</h4>
+              {renderSwitchControl('Quạt', 'fan')}
+              {renderSwitchControl('Đèn 2', 'light2')}
+              {renderSwitchControl('Đèn 3', 'light3')}
             </CCol>
-            {/* end display devices */}
+            <CCol sm={6}>
+              <h4>Controller 2</h4>
+              {renderSwitchControl('Đèn S', 'lightS')}
+            </CCol>
           </CRow>
         </CCardBody>
       </CCard>

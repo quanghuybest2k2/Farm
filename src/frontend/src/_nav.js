@@ -57,11 +57,6 @@ const _nav = [
         name: 'Greenhouse A2',
         to: '/greenhouse-a2',
       },
-      {
-        component: CNavItem,
-        name: 'Greenhouse A3',
-        to: '/greenhouse-a3',
-      },
     ],
   },
   {

@@ -5,7 +5,6 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Statistical = React.lazy(() => import('./views/statistical/Statistical'))
 const GreenhouseA1 = React.lazy(() => import('./views/DeviceControl/GreenhouseA1'))
 const GreenhouseA2 = React.lazy(() => import('./views/DeviceControl/GreenhouseA2'))
-const GreenhouseA3 = React.lazy(() => import('./views/DeviceControl/GreenhouseA3'))
 const AutoConfig = React.lazy(() => import('./views/AutoConfig/AutoConfig'))
 const DetailConfig = React.lazy(() => import('./views/AutoConfig/DetailConfig'))
 const CreateConfig = React.lazy(() => import('./views/AutoConfig/CreateConfig'))
@@ -69,7 +68,6 @@ const routes = [
   { path: '/statistical', name: 'Statistical', element: Statistical },
   { path: '/greenhouse-a1', name: 'GreenhouseA1', element: GreenhouseA1 },
   { path: '/greenhouse-a2', name: 'GreenhouseA2', element: GreenhouseA2 },
-  { path: '/greenhouse-a3', name: 'GreenhouseA3', element: GreenhouseA3 },
   { path: '/auto-config', name: 'AutoConfig', element: AutoConfig },
   {
     path: '/auto-config/detail/:id',
