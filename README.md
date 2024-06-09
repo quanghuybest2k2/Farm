@@ -2,82 +2,93 @@
 
 Farm management project
 
+## Author
+
+- [Đoàn Quang Huy](https://github.com/quanghuybest2k2)
+- [Phạm Ngọc Hưng](https://github.com/Hung-Alex)
+
+## Installation
+
+- [Frontend](./src/frontend/README.md)
+- [Backend](./src/backend/README.md)
+- [Mobile](./src/farm-app/README.md)
+
 ## Demo Image
 
 ### IoT device
 
-![Farm Demo](./images/iot.png)
+![IoT device](./images/iot.png)
 
 ## WEB
 
 ### Dashboard
 
-![Farm Demo](./images/web/dashboard.png)
-![Farm Demo](./images/web/dashboard_after.png)
+![Dashboard 1](./images/web/dashboard.png)
+![Dashboard 2](./images/web/dashboard_after.png)
 
 ### Statistics
 
 #### Statistics from start date to end date
 
-![Farm Demo](./images/web/thongkechitiet.png)
+![Statistics Date](./images/web/thongkechitiet.png)
 
 #### Temperature statistics by specific day
 
-![Farm Demo](./images/web/thongkenhietdotheongay.png)
+![Temperature](./images/web/thongkenhietdotheongay.png)
 
 #### Humidity statistics by specific day
 
-![Farm Demo](./images/web/thongkedoamtheongay.png)
+![Humidity](./images/web/thongkedoamtheongay.png)
 
 #### Brightness statistics by specific day
 
-![Farm Demo](./images/web/thongkedosangtheongay.png)
+![Brightness](./images/web/thongkedosangtheongay.png)
 
 ### Control device
 
-![Farm Demo](./images/web/dieukhien.png)
+![Control device](./images/web/dieukhien.png)
 
 ### Schedule
 
 #### List
 
-![Farm Demo](./images/web/lich.png)
+![List](./images/web/lich.png)
 
 #### Detail
 
-![Farm Demo](./images/web/chitietlich.png)
+![Detail](./images/web/chitietlich.png)
 
 #### Create
 
-![Farm Demo](./images/web/taolich.png)
+![Create](./images/web/taolich.png)
 
 #### Edit
 
-![Farm Demo](./images/web/editlich.png)
+![Edit 1](./images/web/editlich.png)
 
-![Farm Demo](./images/web/editlichduoi.png)
+![Edit 2](./images/web/editlichduoi.png)
 
 #### Delete
 
-![Farm Demo](./images/web/xoa.png)
+![Delete](./images/web/xoa.png)
 
 ## MOBILE
 
 ### Dashboard
 
-![Farm Demo](./images/mobile/dashboad.jpg)
+![Dashboard mobile](./images/mobile/dashboad.jpg)
 
 ### Control device
 
-![Farm Demo](./images/mobile/dieukienthietbi.jpg)
+![Control device mobile](./images/mobile/dieukienthietbi.jpg)
 
 ### Statistics
 
-![Farm Demo](./images/mobile/thongke.jpg)
+![Statistics mobile](./images/mobile/thongke.jpg)
 
 ### Maps
 
-![Farm Demo](./images/mobile/maps.jpg)
+![Maps](./images/mobile/maps.jpg)
 
 ## License
 
